@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "subservices",
+  "info": {
+    "singularName": "subservice",
+    "pluralName": "subservices",
+    "displayName": "Subservice",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "service": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::service.service",
+      "inversedBy": "subservices"
+    },
+    "popular": {
+      "type": "biginteger",
+      "required": true,
+      "unique": false
+    }
+  }
+}

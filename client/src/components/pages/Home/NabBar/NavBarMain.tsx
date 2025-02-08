@@ -1,12 +1,12 @@
 import MainButton from "@/components/Buttons";
-import SearchIcon from "@/libs/consts/MySvg";
+import { SearchIcon } from "@/libs/consts/MySvg";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 const NavBarMain = () => {
   return (
-    <div className="px-8 py-2 md:px-[5%] flex items-center w-full justify-between">
+    <div className="px-8 py-2 md:px-[5%] flex items-center w-full justify-between bg-white">
       <Image
         width="164"
         height="32"

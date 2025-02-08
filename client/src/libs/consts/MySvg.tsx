@@ -1,4 +1,4 @@
-const SearchIcon = (
+export const SearchIcon = (
   <svg
     width="19"
     height="19"
@@ -22,4 +22,12 @@ const SearchIcon = (
     ></path>
   </svg>
 );
-export default SearchIcon;
+
+export function LottieAnimation() {
+  return (
+    <span className="relative flex size-3">
+      <span className="bg-green-light absolute size-3 animate-ping rounded-full opacity-75"></span>
+      <span className="bg-green-light relative size-3 rounded-full"></span>
+    </span>
+  );
+}

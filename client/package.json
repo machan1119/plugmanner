@@ -11,6 +11,8 @@
   "dependencies": {
     "@next/font": "^14.2.15",
     "bcryptjs": "^2.4.3",
+    "lottie-react": "^2.4.1",
+    "lottie-web": "^5.12.2",
     "mongoose": "^8.9.6",
     "next": "15.1.2",
     "next-auth": "^4.24.11",

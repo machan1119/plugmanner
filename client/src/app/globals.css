@@ -25,9 +25,18 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Satoshi-Variable';
+  font-family: "Satoshi-Variable";
 }
 
 ::-webkit-input-placeholder {
-  font-family: 'Satoshi-Variable';
+  font-family: "Satoshi-Variable";
+}
+
+@layer utilities {
+  .font-h1 {
+    @apply font-clash text-[32px] text-black leading-10 font-semibold;
+  }
+  .font-main {
+    @apply font-satoshi text-[14px] text-black leading-[21px] font-medium text-center;
+  }
 }

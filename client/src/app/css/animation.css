@@ -1,17 +1,47 @@
-@keyframes moveUpDown {
-    0%, 100% {
-      transform: translateY(-15px)rotate(-10deg);
-    }
-    50% {
-      transform: translateY(0px)rotate(10deg);
-    }
+@keyframes moveUpDownLikes {
+  0%,
+  100% {
+    transform: translateY(-15px) rotate(-10deg);
   }
-  
-  .animated-image {
-    transform: translate3d(0px, 5px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(-5deg) skew(0deg, 0deg);
-    transform-style: preserve-3d;
-    will-change: transform;
-    animation: moveUpDown 1s ease-in-out infinite;
-    will-change: transform;
+  50% {
+    transform: translateY(0px) rotate(10deg);
   }
-  
+}
+
+.animated-image {
+  transform: translate3d(0px, 5px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+    rotateY(0deg) rotateZ(-5deg) skew(0deg, 0deg);
+  transform-style: preserve-3d;
+  will-change: transform;
+  animation: moveUpDownLikes 1s ease-in-out infinite;
+  will-change: transform;
+}
+@keyframes moveUpDownStatus {
+  0% {
+    transform: translateY(0%);
+  }
+  25% {
+    transform: translateY(-25%);
+  }
+  50% {
+    transform: translateY(-50%);
+  }
+  75% {
+    transform: translateY(-75%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.arrow-collapse {
+  transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+    rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  transform-style: preserve-3d;
+}
+
+.arrow-expend {
+  transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+    rotateY(0deg) rotateZ(180deg) skew(0deg, 0deg);
+  transform-style: preserve-3d;
+}

@@ -23,6 +23,10 @@ const SectionHero = () => {
               alt="Thumbs up emoji Socialplug"
               src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e3c_hero_thumb-img.svg"
               loading="eager"
+              style={{
+                width: "auto",
+                height: "auto",
+              }}
               className="inline-block animated-image"
             />
             <span> , Subsoribers, Views & </span>
@@ -44,11 +48,11 @@ const SectionHero = () => {
         <div className="flex gap-6 items-center">
           <div className="flex gap-[6px] items-center">
             <Image
-              loading="lazy"
               width={20}
               height={20}
               src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e3e_UsersFour.svg"
               alt="users icon"
+              className="w-auto h-auto"
             />
             <span className="text-black font-satoshi text-[14px] font-medium">
               1.5B+ People Reached
@@ -59,11 +63,11 @@ const SectionHero = () => {
           <div className="bg-[rgb(224_224_224)] w-[1px] h-6" />
           <div className="flex gap-[6px] items-center">
             <Image
-              loading="lazy"
               width={20}
               height={20}
               src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e3f_Cursor.svg"
               alt="users icon"
+              className="w-auto h-auto"
             />
             <span className="text-black font-satoshi text-[14px] font-medium">
               5M+ Monthly Clicks

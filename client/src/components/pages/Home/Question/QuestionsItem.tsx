@@ -19,8 +19,10 @@ const QuestionsItem = ({ item }: { item: QuestionsItemType }) => {
           <Image
             width={12}
             height={8}
-            fs-accordion-element="arrow"
-            loading="lazy"
+            style={{
+              width: "auto",
+              height: "auto",
+            }}
             alt=""
             src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e52_marketing-services_dd%20(Stroke).svg"
             className={`${status ? "arrow-expend" : "allow-collapse"}`}

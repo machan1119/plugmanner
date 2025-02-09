@@ -8,11 +8,11 @@ const NavBarMain = () => {
   return (
     <div className="px-8 py-2 md:px-[5%] flex items-center w-full justify-between bg-white">
       <Image
-        width="164"
-        height="32"
+        width={164}
+        height={32}
+        className="w-auto h-auto mr-10"
         alt=""
         src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e86_navbar-logo.svg"
-        className="mr-10"
       />
       <div className="flex items-center gap-2 lg:grow">
         <div className="rounded-lg gap-3 flex items-center border-[#D0D0D0] border-[1px] p-3 grow">
@@ -33,17 +33,17 @@ const NavBarMain = () => {
           >
             <Image
               src="https://cdn.weglot.com/flags/square/us.svg"
-              width="28"
-              height="21"
+              width={28}
+              height={21}
               alt="English flag"
-              className="w-[28px] h-[21px] object-cover rounded-sm"
+              className="object-cover rounded-sm w-[28px] h-[21px]"
             />
             <Image
               width={16}
               height={16}
+              className="w-auto h-auto"
               alt="down"
               src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e87_nav_dd-icon.svg"
-              className="w-4 h-4"
             />
           </Link>
           <Link
@@ -52,10 +52,10 @@ const NavBarMain = () => {
           >
             <Image
               src="https://cdn.weglot.com/flags/square/es.svg"
-              width="28"
-              height="21"
+              width={28}
+              height={21}
               alt="Español flag"
-              className="w-[28px] h-[21px] object-cover rounded-sm"
+              className="object-cover rounded-sm w-[28px] h-[21px]"
             />
           </Link>
         </div>

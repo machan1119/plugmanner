@@ -1,18 +1,8 @@
-export interface ServicesType {
+export interface StatusType {
+  count: number;
   type: string;
-  data: {
-    title: string;
-    icon: string;
-    services: string[];
-  }[];
+  time: number;
 }
-
-export interface ServicesDataType {
-  title: string;
-  icon: string;
-  services: string[];
-}
-
 export interface ReviewType {
   title: string;
   description: string;

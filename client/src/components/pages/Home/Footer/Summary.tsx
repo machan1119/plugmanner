@@ -6,10 +6,9 @@ export default function Summary() {
         <Image
           width={164}
           height={32}
-          loading="lazy"
+          className="w-auto h-auto"
           alt=""
           src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e69_footer-logo.svg"
-          className="footer_logo-img"
         />
         <p className="opacity-50 ">
           Socialplug is the industry-leading media shop offering variety of

@@ -10,8 +10,7 @@ const HowToOrderItems = ({ item }: { item: HowToOrderItemType }) => {
         height={350}
         src={item.icon}
         alt={item.title}
-        loading="lazy"
-        className="absolute left-[5%] top-[-20px]"
+        className="absolute left-[5%] top-[-20px] w-auto h-auto"
       />
       <div className="flex flex-col justify-between pt-[270px] items-center">
         <h2 className="font-h1 mb-6 text-center">{item.title}</h2>

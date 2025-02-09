@@ -37,16 +37,6 @@ export const Services = [
           "Twitter comments",
         ],
       },
-      {
-        title: "Crypto Reddit",
-        icon: "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e4f_Frame%201000003869.svg",
-        services: [
-          "Crypto Twitter follows",
-          "Crypto Twitter USA follows",
-          "Crypto Twitter likes",
-          "Crypto Twitter comments",
-        ],
-      },
     ],
   },
   {

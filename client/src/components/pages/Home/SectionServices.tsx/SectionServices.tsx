@@ -2,9 +2,10 @@
 import React, { useState } from "react";
 import { SwitchButton } from "@/components/Buttons";
 import ServicesItem from "./ServicesItem";
-import { Services } from "@/libs/data/Services";
+import { useData } from "@/providers/DataProvider";
 
 const SectionServices = () => {
+  const { data } = useData();
   const [status, setStatus] = useState("Services");
   const [filter, setFilter] = useState("popular");
   return (
@@ -28,9 +29,9 @@ const SectionServices = () => {
         </div>
       </div>
       <div className="w-full grid grid-cols-3 gap-4">
-        {Services.map((item, index) =>
+        {data.map((item, index) =>
           item.data.map((val, innerIndex) => (
-            <ServicesItem data={val} key={`${index}-${innerIndex}`} />
+            <ServicesItem serviceData={val} key={`${index}-${innerIndex}`} />
           ))
         )}
       </div>

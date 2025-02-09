@@ -10,7 +10,10 @@ const SectionWhyChooseItems = ({ item }: { item: WhyChooseThisType }) => {
         height={166}
         src={item.icon}
         alt={item.title}
-        loading="lazy"
+        style={{
+          width: "auto",
+          height: "auto",
+        }}
       />
       <div className="flex flex-col justify-between">
         <h2 className="font-clash font-semibold text-[20px] leading-[25px] mb-6">

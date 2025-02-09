@@ -9,10 +9,9 @@ const OurPartnersItem = ({ item }: { item: OurPartnersItemType }) => {
       <Image
         width={238}
         height={83}
-        loading="lazy"
         alt={item.alt}
         src={item.icon}
-        className="filter brightness-[21%] grayscale hover:filter-none"
+        className="filter brightness-[21%] grayscale hover:filter-none w-auto h-auto"
       />
     </Link>
   );

@@ -1,3 +1,4 @@
+"use client";
 import Blogs from "@/components/pages/Home/Blogs/Blogs";
 import Footer from "@/components/pages/Home/Footer/Footer";
 import HowToOrder from "@/components/pages/Home/HowToOrder/HowToOrder";

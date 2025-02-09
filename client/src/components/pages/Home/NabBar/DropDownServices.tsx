@@ -1,7 +1,7 @@
+import { ServicesType } from "@/libs/types/DataTypes";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { ServicesType } from "@/libs/types/Types";
 
 const DropDownServices = ({ item }: { item: ServicesType }) => {
   return (
@@ -11,9 +11,9 @@ const DropDownServices = ({ item }: { item: ServicesType }) => {
         <Image
           width={16}
           height={16}
+          className="w-auto h-auto"
           alt="down"
           src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e87_nav_dd-icon.svg"
-          className="w-4 h-4"
         />
       </div>
       <div
@@ -22,29 +22,44 @@ const DropDownServices = ({ item }: { item: ServicesType }) => {
         }`}
       >
         <div
-          className={`grid gap-3 w-max ${
-            item.data.length >= 2 ? "grid-cols-2" : ""
+          className={`grid gap-3 ${
+            item.data.length >= 2
+              ? `${
+                  item.data.length > 6
+                    ? `${
+                        item.data.length > 9
+                          ? `${
+                              item.data.length > 12
+                                ? "grid-cols-auto-5"
+                                : "grid-cols-auto-4"
+                            }`
+                          : "grid-cols-auto-3"
+                      }`
+                    : "grid-cols-auto-2"
+                }`
+              : ""
           }`}
         >
           {item.data.map((val, key) => (
-            <div className="col-span-1 flex-col grow" key={key}>
+            <div className="col-span-1 flex-col grow w-max" key={key}>
               <div className="text-lg font-semibold text-black mb-2 font-clash">
                 {val.title}
               </div>
               <div className="w-full h-[1px] bg-gray-500" />
-              {val.services.map((item, key) => (
+              {val.services.map((dataItem, key) => (
                 <Link
                   href="#"
-                  className="flex gap-2 mt-2 text-[16px] hover:text-green-light"
+                  className="flex gap-2 mt-2 text-[16px] hover:text-green-light items-center"
                   key={key}
                 >
                   <Image
-                    src={val.icon}
+                    src={`http://${process.env.BACKEND_IP}${val.icon}`}
                     width={20}
                     height={20}
                     alt={val.title}
+                    className="w-5 h-5"
                   />
-                  <span className="text-nowrap">{item}</span>
+                  <span className="text-nowrap">{dataItem}</span>
                 </Link>
               ))}
             </div>

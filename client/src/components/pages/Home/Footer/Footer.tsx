@@ -28,7 +28,7 @@ export default function Footer() {
               <Image
                 width={38}
                 height={24}
-                loading="lazy"
+                className="w-auto h-auto"
                 alt="Visa Payment Method"
                 src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e6a_Frame%201000004137.png"
               />
@@ -37,7 +37,7 @@ export default function Footer() {
               <Image
                 width={38}
                 height={24}
-                loading="lazy"
+                className="w-auto h-auto"
                 alt="Mastercard Payment Method"
                 src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e6c_Frame%201000004138.png"
               />
@@ -46,7 +46,7 @@ export default function Footer() {
               <Image
                 width={38}
                 height={24}
-                loading="lazy"
+                className="w-auto h-auto"
                 alt="Google Pay Payment Method"
                 src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e70_Frame%201000004140.png"
               />
@@ -55,7 +55,7 @@ export default function Footer() {
               <Image
                 width={38}
                 height={24}
-                loading="lazy"
+                className="w-auto h-auto"
                 alt="Apple Pay Payment Method"
                 src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e72_Frame%201000004148.png"
               />
@@ -64,7 +64,7 @@ export default function Footer() {
               <Image
                 width={38}
                 height={24}
-                loading="lazy"
+                className="w-auto h-auto"
                 alt="Crypto Payment Method"
                 src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e6e_Frame%201000004139.png"
               />
@@ -73,7 +73,7 @@ export default function Footer() {
               <Image
                 width={38}
                 height={24}
-                loading="lazy"
+                className="w-auto h-auto"
                 alt="Ethereum Payment Method"
                 src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e78_Frame%201000004149.png"
               />
@@ -82,7 +82,7 @@ export default function Footer() {
               <Image
                 width={38}
                 height={24}
-                loading="lazy"
+                className="w-auto h-auto"
                 alt="Litecoin Payment Method"
                 src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e76_Frame%201000004150.png"
               />
@@ -91,7 +91,7 @@ export default function Footer() {
               <Image
                 width={38}
                 height={24}
-                loading="lazy"
+                className="w-auto h-auto"
                 alt="Tether Payment Method"
                 src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e74_Frame%201000004151.png"
               />

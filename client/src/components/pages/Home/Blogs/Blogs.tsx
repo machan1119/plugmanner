@@ -11,7 +11,11 @@ const Blogs = () => {
           <Image
             width={47}
             height={35}
-            loading="lazy"
+            style={{
+              width: "auto",
+              height: "auto",
+            }}
+            objectFit="cover"
             alt="Socialplug plug icon"
             src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e66_Group%201000004047.svg"
           />
@@ -21,7 +25,10 @@ const Blogs = () => {
           <Image
             width={61}
             height={35}
-            loading="lazy"
+            style={{
+              width: "auto",
+              height: "auto",
+            }}
             alt="Socialplug plug icon 2"
             src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e68_Group%201000004049.svg"
           />

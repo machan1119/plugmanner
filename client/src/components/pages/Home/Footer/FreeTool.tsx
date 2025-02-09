@@ -32,7 +32,7 @@ export default function FreeTool() {
   const [isclicked2, setIsClicked2] = useState(false);
   return (
     <div className="w-[168]">
-      <div className="font-clash mb-4 leading-5 text-xl font-semibold flex items-center hover:cursor-pointer">
+      <div className="font-clash mb-4 leading-5 text-base md:text-xl font-semibold flex items-center hover:cursor-pointer">
         <span className="mr-4">Free Tools</span>
         <span
           className={`lg:hidden ${
@@ -61,7 +61,7 @@ export default function FreeTool() {
         ))}
       </div>
 
-      <div className="font-clash lg:mt-8 md:mt-4 mb-4 leading-5 text-xl font-semibold flex items-center hover:cursor-pointer">
+      <div className="font-clash lg:mt-8 md:mt-4 mb-4 leading-5 text-base md:text-xl font-semibold flex items-center hover:cursor-pointer">
         <span className="mr-4 ">Quick Links</span>
         <span
           className={`lg:hidden ${

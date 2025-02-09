@@ -23,7 +23,7 @@ export default function SellingService() {
   const [isclicked, setIsClicked] = useState(false);
   return (
     <div className="min-w-[260px] pt-4 border-t-[1px] border-[#e5e7eb40] sm:border-none sm:pt-0">
-      <div className="font-clash leading-5 text-xl font-semibold flex items-center hover:cursor-pointer  mb-4 md:mb-8">
+      <div className="font-clash leading-5 text-base md:text-xl font-semibold flex items-center hover:cursor-pointer  mb-4 md:mb-8">
         <span className="mr-4">Best Selling Services</span>
         <span
           className={`lg:hidden ${

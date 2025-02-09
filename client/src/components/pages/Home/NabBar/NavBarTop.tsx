@@ -40,10 +40,6 @@ const NavBarTop = () => {
         width={125}
         height={125}
         alt=""
-        style={{
-          width: "auto",
-          height: "auto",
-        }}
         src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e8d_Group%201000004059.svg"
         className="hidden sm:flex w-[8%] absolute inset-[-20%_auto_auto_10%] lg:inset-[-90%_auto_auto_10%] lg:w-[125px]"
       />

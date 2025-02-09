@@ -8,7 +8,7 @@ const ServicesItem = ({ serviceData }: { serviceData: ServicesDataType }) => {
   const [status, setStatus] = useState(false);
 
   return (
-    <div className="inline-block relative bg-[rgb(246,_246,_246)] border-[1px] border-[rgb(224,_224,_224)] rounded-[12px] p-4 w-full h-max">
+    <div className="inline-block relative bg-black-light border-[1px] border-black-dark rounded-[12px] p-4 w-full h-max">
       <div className="flex justify-between items-center mb">
         <div className="flex gap-3 items-center">
           <Image
@@ -16,9 +16,9 @@ const ServicesItem = ({ serviceData }: { serviceData: ServicesDataType }) => {
             height={40}
             src={`http://${process.env.BACKEND_IP}${serviceData.icon}`}
             alt={serviceData.title}
-            className="w-10 h-10"
+            className="lg:size-10 size-8"
           />
-          <span className="text-black text-[20px] font-semibold font-clash leading-[25px]">
+          <span className="text-black text-[16px] lg:text-[20px] font-semibold font-clash leading-[25px]">
             {serviceData.title}
           </span>
         </div>

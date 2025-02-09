@@ -5,7 +5,7 @@ const OurPartners = () => {
   return (
     <div className="flex flex-col p-[5%] items-center bg-black-medium w-full bg-cover bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ea7_hero_background-pattern.webp')] bg-center bg-no-repeat overflow-hidden">
       <div className="mb-12 flex flex-col gap-3 items-center">
-        <div className="font-h1">
+        <div className="font-h1-md lg:font-h1-lg">
           Our <span className="text-green-light">Partners</span>
         </div>
         <span className="text-[rgba(0,0,0,0.5)] text-[16px] leading-6 text-center font-satoshi w-full">

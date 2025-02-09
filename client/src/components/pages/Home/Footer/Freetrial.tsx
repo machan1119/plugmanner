@@ -20,7 +20,7 @@ export default function FreeTrial() {
   return (
     <div>
       <div
-        className="font-clash mt-8 mb-4 leading-5 text-xl font-semibold flex items-center hover:cursor-pointer"
+        className="font-clash mt-8 mb-4 leading-5 text-base md:text-xl font-semibold flex items-center hover:cursor-pointer"
         onClick={() => setIsClicked((e) => !e)}
       >
         <span className="mr-4 ">Free Trial</span>

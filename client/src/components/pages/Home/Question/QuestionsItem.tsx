@@ -11,8 +11,8 @@ const QuestionsItem = ({ item }: { item: QuestionsItemType }) => {
       className="inline-block relative bg-black-medium border-[1px] border-[rgb(224,_224,_224)] rounded-[12px] p-4 w-full h-max cursor-pointer"
       onClick={() => setStatus(!status)}
     >
-      <div className="flex justify-between">
-        <span className="text-black text-[20px] font-semibold font-clash leading-[25px]">
+      <div className="flex justify-between items-center">
+        <span className="text-black text-[16px] md:text-[20px] font-semibold font-clash">
           {item.question}
         </span>
         <button className="rounded-[4px] bg-white border-[1px] border-[rgb(224,_224,_224)] p-2">
@@ -30,10 +30,11 @@ const QuestionsItem = ({ item }: { item: QuestionsItemType }) => {
         </button>
       </div>
       <div
-        className={`h-0 ${
-          status ? "h-[60px] mt-5" : "h-0"
-        } overflow-hidden transition-height duration-1000 ease-in-out`}
+        className={`max-h-0 ${
+          status ? "max-h-[500px]" : "max-h-0"
+        } overflow-hidden transition-height duration-700 ease-in-out`}
       >
+        <div className="mt-5" />
         {item.answer}
       </div>
     </div>

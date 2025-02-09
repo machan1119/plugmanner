@@ -5,11 +5,11 @@ import NavBarTop from "./NavBarTop";
 
 const NavBar = () => {
   return (
-    <>
+    <nav className="sticky top-0 z-20">
       <NavBarTop />
       <NavBarMain />
       <NavBarBottom />
-    </>
+    </nav>
   );
 };
 

@@ -10,7 +10,7 @@ export default function Auth() {
           src="/image/logo.png"
           objectFit="cover"
           alt="logo"
-          className="rounded-full p-4"
+          className="rounded-full p-4 w-auto h-auto"
           width={100}
           height={100}
         />

@@ -1,25 +1,14 @@
 import React from "react";
 import DropDownServices from "./DropDownServices";
-
-const list = [
-  "Twitter",
-  "Reddit",
-  "Instagram",
-  "TikTok",
-  "Youtube",
-  "LinkedIn",
-  "Facebook",
-  "Spotify",
-  "Other",
-  "Tools",
-];
+import { useData } from "@/providers/DataProvider";
 
 const NavBarBottom = () => {
+  const { data } = useData();
   return (
-    <div className="bg-[#f6f6f6] border-y border-[#c7c7c7] py-2 w-full">
+    <div className="bg-black-light border-y border-black-dark py-2 w-full">
       <div className="flex justify-self-center w-[85%] justify-between">
-        {list.map((val, index) => (
-          <DropDownServices key={index} index={index} type={val} />
+        {data.map((val, index) => (
+          <DropDownServices key={index} item={val} />
         ))}
       </div>
     </div>

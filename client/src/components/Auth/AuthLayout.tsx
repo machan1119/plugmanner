@@ -8,7 +8,7 @@ export default function AuthLayout({
   return (
     <div className="flex flex-col justify-center items-center max-w-[1920px] max-h-[919px] xl:w-[1920px] xl:h-[919px]">
       <Image
-        className="transition-all ease-in-out duration-500 blur-md flex fixed -z-10"
+        className="w-auto h-auto transition-all ease-in-out duration-500 blur-md flex fixed -z-10"
         alt="background"
         priority
         src="/image/img1.png"

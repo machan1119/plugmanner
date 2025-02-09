@@ -431,7 +431,15 @@ export interface ApiSubserviceSubservice extends Struct.CollectionTypeSchema {
     name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
-    popular: Schema.Attribute.BigInteger & Schema.Attribute.Required;
+    popular: Schema.Attribute.BigInteger &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: '0';
+        },
+        string
+      > &
+      Schema.Attribute.DefaultTo<'0'>;
     publishedAt: Schema.Attribute.DateTime;
     service: Schema.Attribute.Relation<'manyToOne', 'api::service.service'>;
     updatedAt: Schema.Attribute.DateTime;

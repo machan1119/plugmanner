@@ -26,7 +26,9 @@
     "popular": {
       "type": "biginteger",
       "required": true,
-      "unique": false
+      "unique": false,
+      "min": "0",
+      "default": "0"
     }
   }
 }

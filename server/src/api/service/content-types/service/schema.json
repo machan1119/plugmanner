@@ -35,9 +35,11 @@
       "mappedBy": "service"
     },
     "popular": {
-      "type": "biginteger",
+      "type": "integer",
       "required": true,
-      "unique": false
+      "unique": false,
+      "default": 0,
+      "min": 0
     }
   }
 }

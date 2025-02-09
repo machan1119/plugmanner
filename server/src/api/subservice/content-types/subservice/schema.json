@@ -14,7 +14,7 @@
   "attributes": {
     "name": {
       "type": "string",
-      "unique": true,
+      "unique": false,
       "required": true
     },
     "service": {
@@ -24,11 +24,9 @@
       "inversedBy": "subservices"
     },
     "popular": {
-      "type": "biginteger",
+      "type": "integer",
       "required": true,
-      "unique": false,
-      "min": "0",
-      "default": "0"
+      "unique": false
     }
   }
 }

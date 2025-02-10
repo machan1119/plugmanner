@@ -1,3 +1,4 @@
+import { replace_str, slugify } from "@/libs/functions";
 import { ServicesType } from "@/libs/types/DataTypes";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,7 +18,7 @@ const DropDownServices = ({ item }: { item: ServicesType }) => {
         />
       </div>
       <div
-        className={`w-max absolute hidden group-hover:block bg-white rounded-md p-3 shadow-[-2px_8px_9px_rgba(0,0,0,0.08),_-8px_15px_16px_rgba(0,0,0,0.07),_-20px_32px_24px_rgba(0,0,0,0.04),_-36px_56px_28px_rgba(0,0,0,0.01)] ${
+        className={`w-max absolute hidden group-hover:block bg-white rounded-md p-3 shadow-[-2px_8px_9px_rgba(0,0,0,0.08),_-8px_15px_16px_rgba(0,0,0,0.07),_-20px_32px_24px_rgba(0,0,0,0.04),_-36px_56px_28px_rgba(0,0,0,0.01)] max-h-[70vh] overflow-y-auto ${
           item.type == "Other" || item.type == "Tools" ? "right-0" : "left-0"
         }`}
       >
@@ -48,18 +49,22 @@ const DropDownServices = ({ item }: { item: ServicesType }) => {
               <div className="w-full h-[1px] bg-gray-500" />
               {val.services.map((dataItem, key) => (
                 <Link
-                  href="#"
+                  href={`/services/${slugify(val.title)}/${slugify(
+                    replace_str(dataItem, val.title)
+                  )}`}
                   className="flex gap-2 mt-2 text-[16px] hover:text-green-light items-center"
                   key={key}
                 >
                   <Image
-                    src={`http://${process.env.BACKEND_IP}${val.icon}`}
+                    src={`${process.env.BACKEND_IP}${val.icon}`}
                     width={20}
                     height={20}
                     alt={val.title}
                     className="w-5 h-5"
                   />
-                  <span className="text-nowrap">{dataItem}</span>
+                  <span className="text-nowrap">
+                    {replace_str(dataItem, val.title)}
+                  </span>
                 </Link>
               ))}
             </div>

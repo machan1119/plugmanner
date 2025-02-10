@@ -12,13 +12,15 @@ const NavBarMain = () => {
   return (
     <div className="border-b-[1px] border-black-dark">
       <div className="px-8 py-2 md:px-[5%] flex items-center w-full justify-between bg-white">
-        <Image
-          width={164}
-          height={32}
-          alt="logo"
-          src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e86_navbar-logo.svg"
-          className="w-[123px] h-[24px] md:w-[164px] md:h-[32px] mr-10"
-        />
+        <Link href={"/"}>
+          <Image
+            width={164}
+            height={32}
+            alt="logo"
+            src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e86_navbar-logo.svg"
+            className="w-[123px] h-[24px] md:w-[164px] md:h-[32px] mr-10"
+          />
+        </Link>
         <div className="flex items-center gap-2 lg:grow">
           <div className="rounded-lg gap-3 flex items-center border-[#D0D0D0] border-[1px] p-3 grow">
             <div className="lg:flex hidden">{SearchIcon}</div>

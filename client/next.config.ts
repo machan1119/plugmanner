@@ -2,10 +2,14 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["cdn.prod.website-files.com", "192.168.142.33", "localhost"],
+    domains: [
+      "cdn.prod.website-files.com",
+      "localhost",
+      "socialplug-production.up.railway.app",
+    ],
   },
   env: {
-    BACKEND_IP: process.env.BACKEND_IP,
+    BACKEND_IP: process.env.BACKEND_URL,
   },
 };
 

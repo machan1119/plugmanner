@@ -24,9 +24,10 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({
     const fetchData = async () => {
       try {
         const res = await fetch(
-          `http://${process.env.BACKEND_IP}/api/services?populate=*`
+          `${process.env.BACKEND_IP}/api/services?populate=*&pagination[pageSize]=200`
         );
         const jsonData = await res.json();
+        console.log(jsonData);
         const rawData: RawData[] = jsonData.data;
         const filteredData: ServicesType[] = rawData.map((item) => ({
           type: item.type,

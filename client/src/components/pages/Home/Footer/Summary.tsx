@@ -6,7 +6,7 @@ export default function Summary() {
         <Image
           width={164}
           height={32}
-          className="w-auto h-auto"
+          className="w-[123px] h-[24px] md:w-[164px] md:h-[32px]"
           alt=""
           src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e69_footer-logo.svg"
         />
@@ -23,8 +23,10 @@ export default function Summary() {
         <p>All services are online</p>
       </div>
       <div className="flex flex-col gap-y-4">
-        <p className="font-clash leading-5 text-xl font-semibold">Company</p>
-        <p className="opacity-50">
+        <p className="font-clash leading-5 font-semibold text-[20px] md:text-[20px]">
+          Company
+        </p>
+        <p className="opacity-50 text-[14px] md:text-[18px]">
           CB SOLUTIONS OÜ (16474680) Hobujaama 5, Talinn, Estonia, 10111
         </p>
         <p>Open 24/7 Mon - Sun</p>

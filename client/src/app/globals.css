@@ -33,8 +33,23 @@ body {
 }
 
 @layer utilities {
-  .font-h1 {
-    @apply font-clash text-[32px] text-black leading-10 font-semibold;
+  .font-h-main {
+    @apply font-clash text-[24px] font-semibold leading-[28x] text-center;
+  }
+  .font-h-md {
+    @apply font-clash text-[36px] font-semibold leading-[44x] text-center;
+  }
+  .font-h-lg {
+    @apply font-clash text-[48px] font-semibold leading-[60x] text-center;
+  }
+  .font-h1-main {
+    @apply font-clash text-[20px] text-black leading-10 font-semibold text-center;
+  }
+  .font-h1-md {
+    @apply font-clash text-[28px] text-black leading-10 font-semibold text-center;
+  }
+  .font-h1-lg {
+    @apply font-clash text-[32px] text-black leading-10 font-semibold text-center;
   }
   .font-main {
     @apply font-satoshi text-[14px] text-black leading-[21px] font-medium text-center;

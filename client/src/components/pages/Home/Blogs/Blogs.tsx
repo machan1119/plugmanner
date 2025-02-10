@@ -6,7 +6,7 @@ const Blogs = () => {
   return (
     <div className="w-full flex flex-col p-[5%] pt-[80px] items-center bg-black-light relative">
       <div className="mb-12 flex flex-col gap-3 items-center">
-        <div className="font-h1">News and Articles</div>
+        <div className="font-h1-md lg:font-h1-lg">News and Articles</div>
         <div className="flex gap-8 items-center z-10 bg-black-light">
           <Image
             width={47}

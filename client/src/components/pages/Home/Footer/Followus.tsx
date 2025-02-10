@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function FollowUs() {
   return (
     <div className="border-t-[1px] border-[#e5e7eb40] pt-4 sm:border-none sm:sm:mt-4 sm:border-t-[1px] sm:border-[#e5e7eb40] md:border-none md:pt-0 md:mt-0">
-      <div className="font-clash mb-4 leading-5 text-xl font-semibold">
+      <div className="font-clash mb-4 leading-5 text-base md:text-xl font-semibold">
         FollowUs
       </div>
       <div className="flex gap-x-4">

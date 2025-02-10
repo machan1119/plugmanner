@@ -10,7 +10,7 @@ const StatusItem = ({ count, type, time }: StatusType) => {
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-light opacity-75"></span>
           <span className="relative inline-flex size-3 rounded-full bg-green-light"></span>
         </span>
-        <div className="text-green-light font-satoshi font-semibold">
+        <div className="text-green-light font-satoshi font-semibold text-center leading-[16px]">
           <span className="text-green-dark font-satoshi font-medium">
             {count} {type}{" "}
           </span>
@@ -25,7 +25,7 @@ const StatusItem = ({ count, type, time }: StatusType) => {
           alt="checkmark icon"
           className="w-auto h-auto"
         />
-        <div className="text-[rgb(1_118_69)] font-satoshi text-[14px] font-medium">
+        <div className="text-[rgb(1_118_69)] font-satoshi text-[14px] text-center font-medium leading-[12px]">
           {time} mins ago
         </div>
       </div>

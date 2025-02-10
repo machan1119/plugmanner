@@ -1,7 +1,7 @@
 "use client";
+import { DropIcon } from "@/libs/consts/MySvg";
 import Link from "next/link";
 import { useState } from "react";
-import { dropIcon } from "./svg";
 const FreeTools = [
   { label: "Youtube Video Downloader", href: "/youtube-video-downloader" },
   { label: "Instagram Usernam Checker", href: "/instabram-usernam-checker" },
@@ -40,7 +40,7 @@ export default function FreeTool() {
           } duration-300 ease-in-out`}
           onClick={() => setIsClicked1((e) => !e)}
         >
-          {dropIcon}
+          {DropIcon}
         </span>
       </div>
       <div
@@ -69,7 +69,7 @@ export default function FreeTool() {
           } duration-300 ease-in-out`}
           onClick={() => setIsClicked2((e) => !e)}
         >
-          {dropIcon}
+          {DropIcon}
         </span>
       </div>
       <div

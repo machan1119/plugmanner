@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import { dropIcon } from "./svg";
 import Link from "next/link";
+import { DropIcon } from "@/libs/consts/MySvg";
 
 const links = [
   { label: "Free Instagram Followers", href: "instagram-followers" },
@@ -29,7 +29,7 @@ export default function FreeTrial() {
             isclicked ? "rotate-180" : ""
           } duration-300 ease-in-out`}
         >
-          {dropIcon}
+          {DropIcon}
         </span>
       </div>
       <div

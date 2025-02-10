@@ -1,7 +1,7 @@
 "use client";
+import { DropIcon } from "@/libs/consts/MySvg";
 import Link from "next/link";
 import { useState } from "react";
-import { dropIcon } from "./svg";
 const links = [
   { label: "All Services", href: "/" },
   { label: "Buy Twitter (X) Followers", href: "/buy-twitter-followers" },
@@ -31,7 +31,7 @@ export default function SellingService() {
           } duration-300 ease-in-out`}
           onClick={() => setIsClicked((e) => !e)}
         >
-          {dropIcon}
+          {DropIcon}
         </span>
       </div>
       <div

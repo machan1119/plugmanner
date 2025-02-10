@@ -1,18 +1,14 @@
 "use client";
 import MainButton from "@/components/Buttons";
 import { CloseIcon, SearchIcon } from "@/libs/consts/MySvg";
+import { useHome } from "@/providers/HomeProvider";
 import Image from "next/image";
 import Link from "next/link";
-import React, { Dispatch, SetStateAction, useState } from "react";
+import React, { useState } from "react";
 
-const NavBarMain = ({
-  serviceShow,
-  setServiceShow,
-}: {
-  serviceShow: boolean;
-  setServiceShow: Dispatch<SetStateAction<boolean>>;
-}) => {
+const NavBarMain = () => {
   const [searchShow, setSearchShow] = useState(false);
+  const { serviceShow, setServiceShow } = useHome();
   return (
     <div className="border-b-[1px] border-black-dark">
       <div className="px-8 py-2 md:px-[5%] flex items-center w-full justify-between bg-white">

@@ -4,6 +4,9 @@ import "./css/clash-display.css";
 import "./css/satoshi.css";
 import "./css/animation.css";
 import { DataProvider } from "@/providers/DataProvider";
+import HomeProvider from "@/providers/HomeProvider";
+import NavBar from "@/components/pages/NabBar/NavBar";
+import Footer from "@/components/pages/Footer/Footer";
 // import { SessionProvider } from "next-auth/react";
 
 export const metadata: Metadata = {
@@ -29,7 +32,13 @@ export default async function RootLayout({
       <body className={`antialiased`}>
         {/* <MySVG /> */}
         {/* <SessionProvider>{children}</SessionProvider> */}
-        <DataProvider>{children}</DataProvider>
+        <HomeProvider>
+          <DataProvider>
+            <NavBar />
+            {children}
+            <Footer />
+          </DataProvider>
+        </HomeProvider>
       </body>
     </html>
   );

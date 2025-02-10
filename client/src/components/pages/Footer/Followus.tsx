@@ -1,7 +1,7 @@
 import MainButton from "@/components/Buttons";
 import FreeTrial from "./Freetrial";
-import { youtubeIcon, linkedinIcon, twitterIcon } from "./svg";
 import Link from "next/link";
+import { LinkedInIcon, TwitterIcon, YoutubeIcon } from "@/libs/consts/MySvg";
 export default function FollowUs() {
   return (
     <div className="border-t-[1px] border-[#e5e7eb40] pt-4 sm:border-none sm:sm:mt-4 sm:border-t-[1px] sm:border-[#e5e7eb40] md:border-none md:pt-0 md:mt-0">
@@ -9,10 +9,10 @@ export default function FollowUs() {
         FollowUs
       </div>
       <div className="flex gap-x-4">
-        <Link href="https://www.youtube.com/@socialplug">{youtubeIcon}</Link>
-        <Link href="https://twitter.com/socialplugio"> {twitterIcon}</Link>
+        <Link href="https://www.youtube.com/@socialplug">{YoutubeIcon}</Link>
+        <Link href="https://twitter.com/socialplugio"> {TwitterIcon}</Link>
         <Link href="https://www.linkedin.com/company/socialplug-io/">
-          {linkedinIcon}
+          {LinkedInIcon}
         </Link>
       </div>
       <div className="font-clash mt-4 mb-4 leading-5 text-xl font-semibold">

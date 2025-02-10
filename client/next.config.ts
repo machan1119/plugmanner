@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
       "cdn.prod.website-files.com",
       "localhost",
       "socialplug-production.up.railway.app",
+      "https://socialplug-production-e57a.up.railway.app",
     ],
   },
   env: {

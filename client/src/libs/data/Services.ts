@@ -61,48 +61,62 @@ export const ServiceItems = {
       },
     ],
   },
-  feature: {
+  whyBuyThis: {
     title: "Why buy Deezer Followers from Socialplug?",
     data: [
       {
+        icon: "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/640c715e9747f473dab80af8_icon-fast.svg",
         name: "Rapid Follower Growth",
         comment:
           "Instantly grow your Deezer follower count, helping your music gain the visibility it needs to reach more listeners. A quick boost in followers allows you to build momentum for your tracks and establish yourself faster on the platform.",
       },
       {
+        icon: "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/640c715e9747f473dab80af8_icon-fast.svg",
         name: "Rapid Follower Growth",
         comment:
           "Instantly grow your Deezer follower count, helping your music gain the visibility it needs to reach more listeners. A quick boost in followers allows you to build momentum for your tracks and establish yourself faster on the platform.",
       },
       {
+        icon: "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/640c715e9747f473dab80af8_icon-fast.svg",
         name: "Rapid Follower Growth",
         comment:
           "Instantly grow your Deezer follower count, helping your music gain the visibility it needs to reach more listeners. A quick boost in followers allows you to build momentum for your tracks and establish yourself faster on the platform.",
       },
       {
+        icon: "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/640c715e9747f473dab80af8_icon-fast.svg",
         name: "Rapid Follower Growth",
         comment:
           "Instantly grow your Deezer follower count, helping your music gain the visibility it needs to reach more listeners. A quick boost in followers allows you to build momentum for your tracks and establish yourself faster on the platform.",
       },
       {
+        icon: "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/640c715e9747f473dab80af8_icon-fast.svg",
         name: "Rapid Follower Growth",
         comment:
           "Instantly grow your Deezer follower count, helping your music gain the visibility it needs to reach more listeners. A quick boost in followers allows you to build momentum for your tracks and establish yourself faster on the platform.",
       },
       {
+        icon: "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/640c715e9747f473dab80af8_icon-fast.svg",
+        name: "Rapid Follower Growth",
+        comment:
+          "Instantly grow your Deezer A quick boost in followers allows you to build momentum for your tracks and establish yourself faster on the platform.",
+      },
+      {
+        icon: "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/640c715e9747f473dab80af8_icon-fast.svg",
         name: "Rapid Follower Growth",
         comment:
           "Instantly grow your Deezer follower count, helping your music gain the visibility it needs to reach more listeners. A quick boost in followers allows you to build momentum for your tracks and establish yourself faster on the platform.",
       },
       {
+        icon: "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/640c715e9747f473dab80af8_icon-fast.svg",
         name: "Rapid Follower Growth",
         comment:
           "Instantly grow your Deezer follower count, helping your music gain the visibility it needs to reach more listeners. A quick boost in followers allows you to build momentum for your tracks and establish yourself faster on the platform.",
       },
       {
+        icon: "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/640c715e9747f473dab80af8_icon-fast.svg",
         name: "Rapid Follower Growth",
         comment:
-          "Instantly grow your Deezer follower count, helping your music gain the visibility it needs to reach more listeners. A quick boost in followers allows you to build momentum for your tracks and establish yourself faster on the platform.",
+          " your music gain the visibility it needs to reach more listeners. A quick boost in followers allows you to build momentum for your tracks and establish yourself faster on the platform.",
       },
     ],
   },

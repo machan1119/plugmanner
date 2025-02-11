@@ -29,9 +29,10 @@ export interface ServiceItemsType {
       detail: string;
     }[];
   };
-  feature: {
+  whyBuyThis: {
     title: string;
     data: {
+      icon: string;
       name: string;
       comment: string;
     }[];

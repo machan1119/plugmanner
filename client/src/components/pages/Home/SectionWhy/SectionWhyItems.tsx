@@ -17,8 +17,7 @@ const SectionWhyItems = ({ item }: { item: ReviewType }) => {
         <Image
           width={144}
           height={24}
-          className="w-auto h-auto"
-          alt=""
+          alt="5stars"
           src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e55_why-choose-us_rating-img.svg"
         />
         <div className="flex flex-col gap-2">

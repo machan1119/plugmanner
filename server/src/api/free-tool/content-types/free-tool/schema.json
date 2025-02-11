@@ -4,7 +4,8 @@
   "info": {
     "singularName": "free-tool",
     "pluralName": "free-tools",
-    "displayName": "Free Tool"
+    "displayName": "Free Tool",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,20 +16,21 @@
       "type": "string"
     },
     "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
-    "detail": {
-      "type": "json"
-    },
-    "q": {
-      "type": "blocks"
+    "sub_free_tools": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sub-free-tool.sub-free-tool",
+      "mappedBy": "free_tool"
     }
   }
 }

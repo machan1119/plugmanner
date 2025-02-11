@@ -372,6 +372,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiFreeToolFreeTool extends Struct.CollectionTypeSchema {
   collectionName: 'free_tools';
   info: {
+    description: '';
     displayName: 'Free Tool';
     pluralName: 'free-tools';
     singularName: 'free-tool';
@@ -383,7 +384,6 @@ export interface ApiFreeToolFreeTool extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    detail: Schema.Attribute.JSON;
     icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -393,7 +393,10 @@ export interface ApiFreeToolFreeTool extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    q: Schema.Attribute.Blocks;
+    sub_free_tools: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::sub-free-tool.sub-free-tool'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -440,6 +443,44 @@ export interface ApiServiceService extends Struct.CollectionTypeSchema {
     type: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSubFreeToolSubFreeTool extends Struct.CollectionTypeSchema {
+  collectionName: 'sub_free_tools';
+  info: {
+    displayName: 'SubFree Tool';
+    pluralName: 'sub-free-tools';
+    singularName: 'sub-free-tool';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Description: Schema.Attribute.Text;
+    free_tool: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::free-tool.free-tool'
+    >;
+    icon: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::sub-free-tool.sub-free-tool'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    type: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -988,6 +1029,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::free-tool.free-tool': ApiFreeToolFreeTool;
       'api::service.service': ApiServiceService;
+      'api::sub-free-tool.sub-free-tool': ApiSubFreeToolSubFreeTool;
       'api::subservice.subservice': ApiSubserviceSubservice;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

@@ -8,7 +8,7 @@ const ServiceReview = () => {
   const { serviceItems, isLoading } = useServices();
   if (!serviceItems?.review) return <div className="">no data</div>;
   return (
-    <div className="w-full px-[15%] py-[5%] bg-black-light flex flex-col gap-10 items-center border-[1px] border-black-dark">
+    <div className="w-full px-[15%] py-[5%] bg-black-light flex flex-col gap-10 items-center border-b-[1px] border-black-normal">
       <div className="flex flex-col gap-4 items-center">
         <h1 className="font-h1">Trusted by 100k+ customers</h1>
         <Image

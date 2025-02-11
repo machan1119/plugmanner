@@ -79,15 +79,15 @@ const ServiceInfo = () => {
           />
         </div>
       </div>
-      <div className="z-10 mt-[-150px] w-full bg-black-light px-[15%] py-[3%] flex gap-8 items-center justify-start">
+      <div className="relative z-10 mt-[-150px] w-full bg-black-light px-[15%] py-[3%] flex gap-8 items-center justify-start">
         {serviceItems.state.map((item, index) => (
           <div key={index} className="text-left">
             <p className="font-service-main !text-[48px]">{item.number}</p>
             <p className="font-service-text text-[16px]">{item.type}</p>
           </div>
         ))}
+        <div className="w-[60%] h-[1px] bg-black-normal absolute bottom-0" />
       </div>
-      <div className="w-[60%] h-[1px] bg-black-dark" />
     </div>
   );
 };

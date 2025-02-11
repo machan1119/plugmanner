@@ -18,6 +18,7 @@ export default {
         "black-light": "#f6f6f6",
         "black-dark": "#c7c7c7",
         "black-medium": "rgb(235,235,235)",
+        "black-normal": "rgb(226,226,226)",
         "black-steel": "#b6b6cf",
       },
       gridTemplateColumns: {

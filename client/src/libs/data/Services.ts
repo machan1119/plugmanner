@@ -43,19 +43,20 @@ export const ServiceItems = {
     },
   ],
   howTo: {
+    title: "How to Purchase Deezer Followers from SocialPlug",
     description:
       "Follow the 3 step process & get your post views delivered to your Telegram Channel.",
     steps: [
       {
-        title: "Choose The Amount of Views",
+        name: "Choose The Amount of Views",
         detail: "",
       },
       {
-        title: "Enter your Telegram message URL",
+        name: "Enter your Telegram message URL",
         detail: "",
       },
       {
-        title: "Submit your order",
+        name: "Submit your order",
         detail: "",
       },
     ],

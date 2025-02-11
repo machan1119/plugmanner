@@ -22,9 +22,10 @@ export interface ServiceItemsType {
     date: string;
   }[];
   howTo: {
+    title: string;
     description: string;
     steps: {
-      title: string;
+      name: string;
       detail: string;
     }[];
   };

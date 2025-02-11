@@ -3,35 +3,21 @@ import ServiceArticle from "@/components/pages/Services/ServiceArticle/ServiceAr
 import ServiceBuyFeature from "@/components/pages/Services/ServiceBuyFeature/ServiceBuyFeature";
 import ServiceCustomerReview from "@/components/pages/Services/ServiceCustomerReview/ServiceCustomerReview";
 import ServiceFeature from "@/components/pages/Services/ServiceFeature/ServiceFeature";
-import ServiceHowToOrder from "@/components/pages/Services/ServiceHowToOrder/ServiceHowToOrder";
 import ServiceInfo from "@/components/pages/Services/ServiceInfo/ServiceInfo";
 import ServiceMethod from "@/components/pages/Services/ServiceMethod/ServiceMethod";
 import ServicePowerUp from "@/components/pages/Services/ServicePowerUp/ServicePowerUp";
 import ServiceQuestion from "@/components/pages/Services/ServiceQuestion/ServiceQuestion";
 import ServiceReview from "@/components/pages/Services/ServiceReview/ServiceReview";
-import ServiceState from "@/components/pages/Services/ServiceState/ServiceState";
 import ServiceTip from "@/components/pages/Services/ServiceTip/ServiceTip";
 import ServiceVideo from "@/components/pages/Services/ServiceVideo/ServiceVideo";
-import { useServices } from "@/providers/ServicesProvider";
+import ServiceHowTo from "./ServiceHowTo/ServiceHowTo";
 
 function ServicesContent() {
-  const { pageData, isLoading } = useServices();
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!pageData) {
-    return <div>No data found.</div>; // Or handle the null case appropriately
-  }
-
   return (
-    <div className="text-black text-clash">
-      My Post: {pageData.title}
+    <>
       <ServiceInfo />
-      <ServiceState />
       <ServiceReview />
-      <ServiceHowToOrder />
+      <ServiceHowTo />
       <ServicePowerUp />
       <ServiceVideo />
       <ServiceFeature />
@@ -41,7 +27,7 @@ function ServicesContent() {
       <ServiceCustomerReview />
       <ServiceQuestion />
       <ServiceArticle />
-    </div>
+    </>
   );
 }
 

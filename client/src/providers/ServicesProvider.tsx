@@ -1,19 +1,15 @@
 "use client";
+import { ServiceItems } from "@/libs/data/Services";
+import { ServiceItemsType } from "@/libs/types/ServicesTypes";
 import React, { createContext, useContext, useState, useEffect } from "react";
 
-interface PageData {
-  id: string;
-  title: string;
-  content: string;
-}
-
 interface ServicesContextType {
-  pageData: PageData | null;
+  serviceItems: ServiceItemsType | null;
   isLoading: boolean;
 }
 
 const ServicesContext = createContext<ServicesContextType>({
-  pageData: null,
+  serviceItems: null,
   isLoading: true,
 }); // Provide a default value (important!)
 
@@ -26,32 +22,37 @@ export const ServicesProvider: React.FC<ServicesProviderProps> = ({
   item,
   children,
 }) => {
-  const [pageData, setPageData] = useState<PageData | null>(null);
+  const [serviceItems, setServiceItems] = useState<ServiceItemsType | null>(
+    null
+  );
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
+    // const fetchData = async () => {
+    //   setIsLoading(true);
+    //   try {
+    //     const response = await fetch(
+    //       `${process.env.BACKEND_URL}/services/${item}`
+    //     );
+    //     console.log(response);
+    //     if (!response.ok) {
+    //       throw new Error(`HTTP error! status: ${response.status}`);
+    //     }
+    //     const data: ServiceItemsType = await response.json();
+    //     setServiceItems(data);
+    //   } finally {
+    //     setIsLoading(false);
+    //   }
+    // };
+    // fetchData();
 
-      try {
-        const response = await fetch(
-          `${process.env.BACKEND_URL}/services/${item}`
-        );
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data: PageData = await response.json();
-        setPageData(data);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [item]); //  Critically important:  item is the dependency
+    setServiceItems(ServiceItems); //just for development
+    setIsLoading(false); //just for development
+    console.log(serviceItems);
+  }, [item]);
 
   const contextValue: ServicesContextType = {
-    pageData,
+    serviceItems,
     isLoading,
   };
 

@@ -11,7 +11,7 @@ const NavBarMain = () => {
   const { serviceShow, setServiceShow } = useHome();
   return (
     <div className="border-b-[1px] border-black-light">
-      <div className="px-8 py-2 md:px-[12%] flex items-center w-full justify-between bg-white">
+      <div className="px-8 py-2 md:px-[15%] flex items-center w-full justify-between bg-white">
         <Link href={"/"}>
           <Image
             width={164}
@@ -22,7 +22,7 @@ const NavBarMain = () => {
           />
         </Link>
         <div className="flex items-center gap-2 lg:grow">
-          <div className="rounded-lg gap-3 flex items-center border-[#D0D0D0] border-[1px] p-3 grow">
+          <div className="rounded-lg gap-3 flex items-center border-[#D0D0D0] border-[1px] p-3 grow bg-black-light">
             <div className="lg:flex hidden">{SearchIcon}</div>
             <button
               onClick={() => setSearchShow(!searchShow)}

@@ -1,10 +1,10 @@
 import { useServices } from "@/providers/ServicesProvider";
 import React from "react";
 
-const ServiceFeature = () => {
+const ServiceHowTo = () => {
   const { serviceItems, isLoading } = useServices();
   if (!serviceItems?.info) return <div className="">no data</div>;
-  return <div>ServiceFeature</div>;
+  return <div>ServiceHowToOrder</div>;
 };
 
-export default ServiceFeature;
+export default ServiceHowTo;

@@ -32,6 +32,7 @@ body {
   font-family: "Satoshi-Variable";
 }
 
+/* tailwind customize */
 @layer utilities {
   .font-h-main {
     @apply font-clash text-[24px] font-semibold leading-[28x] text-center;
@@ -51,11 +52,22 @@ body {
   .font-h1-lg {
     @apply font-clash text-[32px] text-black leading-10 font-semibold text-center;
   }
-  .font-main {
-    @apply font-satoshi text-[14px] text-black leading-[21px] font-medium text-center;
+  .font-service-lg {
+    @apply font-clash text-[64px] text-black leading-[64px] font-semibold text-left;
+  }
+  .font-service-md {
+    @apply font-clash text-[52px] text-black leading-[64px] font-semibold text-left;
+  }
+  .font-service-main {
+    @apply font-clash text-[40px] text-black leading-[64px] font-semibold text-left;
+  }
+  .font-service-text {
+    @apply font-satoshi text-[#686889] font-normal text-left;
   }
 }
+/* tailwind customize */
 
+/* swiper */
 .swiper {
   width: 100%;
   height: 100%;
@@ -76,3 +88,4 @@ body {
   height: auto;
   object-fit: cover;
 }
+/* swiper */

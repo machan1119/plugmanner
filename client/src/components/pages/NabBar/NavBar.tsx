@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { Suspense } from "react";
 import NavBarMain from "./NavBarMain";
 import NavBarBottom from "./NavBarBottom";
 import NavBarTop from "./NavBarTop";
@@ -8,7 +8,7 @@ import { useHome } from "@/providers/HomeProvider";
 const NavBar = () => {
   const { serviceShow } = useHome();
   return (
-    <nav className="sticky top-0 z-20">
+    <nav className="sticky top-0 z-[100]">
       <NavBarTop />
       <NavBarMain />
       <div className={`${serviceShow ? "hidden" : "block"} lg:block`}>

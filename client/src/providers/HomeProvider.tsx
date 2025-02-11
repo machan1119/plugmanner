@@ -6,6 +6,7 @@ import React, {
   useState,
   Dispatch,
   SetStateAction,
+  useEffect,
 } from "react";
 
 interface HomeContextType {
@@ -19,6 +20,19 @@ export const HomeProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [serviceShow, setServiceShow] = useState<boolean>(true);
+  useEffect(() => {
+    const handleResize = () => {
+      const currentWidth = window.innerWidth;
+      if (currentWidth > 1024) {
+        setServiceShow(true);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const value = useMemo<HomeContextType>(
     () => ({

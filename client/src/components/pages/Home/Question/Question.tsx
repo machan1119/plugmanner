@@ -5,7 +5,7 @@ import MainButton from "@/components/Buttons";
 
 const Question = () => {
   return (
-    <div className="flex flex-col py-[5%] px-[10%] items-center bg-black-light w-full">
+    <div className="flex flex-col py-[5%] px-[15%] items-center bg-black-light w-full">
       <div className="font-h1-md lg:font-h1-lg mb-12">
         Your Questions <span className="text-green-light">Answered</span>
       </div>

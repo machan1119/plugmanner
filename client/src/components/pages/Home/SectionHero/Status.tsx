@@ -1,30 +1,40 @@
 import React from "react";
 import StatusItem from "./StatusItem";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
-const settings = {
-  dots: false,
-  speed: 1000,
-  slidesToShow: 3,
-  slidesToScroll: 1,
-  infinite: true,
-  autoplay: true,
-  autoplaySpeed: 2000,
-  vertical: true,
-};
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/autoplay";
+import "swiper/css/navigation";
 
 const Status = () => {
   return (
-    <Slider
-      {...settings}
-      className="w-[450px] pb-4 px-10 justify-center h-[46px] overflow-hidden"
-    >
-      <StatusItem count={12751} type="follows" time={8} />
-      <StatusItem count={1580} type="likes" time={28} />
-      <StatusItem count={6557} type="subscribers" time={38} />
-    </Slider>
+    <div className="border-white size-full">
+      <Swiper
+        slidesPerView={"auto"}
+        // spaceBetween={10}
+        // centeredSlides={true}
+        grabCursor={true}
+        speed={1000}
+        direction="vertical"
+        autoHeight
+        autoplay={{
+          delay: 2000,
+          disableOnInteraction: false,
+        }}
+        loop={true}
+        modules={[Autoplay, Navigation]}
+      >
+        <SwiperSlide>
+          <StatusItem count={12751} type="follows" time={8} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <StatusItem count={1580} type="likes" time={28} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <StatusItem count={6557} type="subscribers" time={38} />
+        </SwiperSlide>
+      </Swiper>
+    </div>
   );
 };
 

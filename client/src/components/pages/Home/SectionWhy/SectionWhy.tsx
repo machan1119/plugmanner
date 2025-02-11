@@ -5,7 +5,7 @@ import SectionWhyItems from "./SectionWhyItems";
 
 const SectionWhy = () => {
   return (
-    <div className="flex flex-col p-[5%] items-center bg-black-light w-full bg-cover bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ea7_hero_background-pattern.webp')] bg-center bg-no-repeat overflow-hidden border-black-dark border-t-[1px] border-b-[1px]">
+    <div className="flex flex-col py-[5%] px-[15%] items-center bg-black-light w-full bg-cover bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ea7_hero_background-pattern.webp')] bg-center bg-no-repeat overflow-hidden border-black-dark border-t-[1px] border-b-[1px]">
       <div className="mb-12 flex flex-col gap-3 items-center">
         <div className="font-h1-md lg:font-h1-lg">
           Why Customers <span className="text-green-light">Choose Us</span>

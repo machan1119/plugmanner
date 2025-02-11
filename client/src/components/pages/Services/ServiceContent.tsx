@@ -1,3 +1,4 @@
+"use client";
 import ServiceArticle from "@/components/pages/Services/ServiceArticle/ServiceArticle";
 import ServiceBuyFeature from "@/components/pages/Services/ServiceBuyFeature/ServiceBuyFeature";
 import ServiceCustomerReview from "@/components/pages/Services/ServiceCustomerReview/ServiceCustomerReview";
@@ -11,18 +12,22 @@ import ServiceReview from "@/components/pages/Services/ServiceReview/ServiceRevi
 import ServiceState from "@/components/pages/Services/ServiceState/ServiceState";
 import ServiceTip from "@/components/pages/Services/ServiceTip/ServiceTip";
 import ServiceVideo from "@/components/pages/Services/ServiceVideo/ServiceVideo";
-import { slugify_reverse } from "@/libs/functions";
+import { useServices } from "@/providers/ServicesProvider";
 
-export default async function ServicesPage({
-  params,
-}: {
-  params: Promise<{ type: string; item: string }>;
-}) {
-  const type = slugify_reverse((await params).type);
-  const item = slugify_reverse((await params).item);
+function ServicesContent() {
+  const { pageData, isLoading } = useServices();
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!pageData) {
+    return <div>No data found.</div>; // Or handle the null case appropriately
+  }
+
   return (
     <div className="text-black text-clash">
-      My Post: {type} {item}
+      My Post: {pageData.title}
       <ServiceInfo />
       <ServiceState />
       <ServiceReview />
@@ -39,3 +44,5 @@ export default async function ServicesPage({
     </div>
   );
 }
+
+export default ServicesContent;

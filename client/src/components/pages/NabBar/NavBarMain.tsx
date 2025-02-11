@@ -10,8 +10,8 @@ const NavBarMain = () => {
   const [searchShow, setSearchShow] = useState(false);
   const { serviceShow, setServiceShow } = useHome();
   return (
-    <div className="border-b-[1px] border-black-dark">
-      <div className="px-8 py-2 md:px-[5%] flex items-center w-full justify-between bg-white">
+    <div className="border-b-[1px] border-black-light">
+      <div className="px-8 py-2 md:px-[12%] flex items-center w-full justify-between bg-white">
         <Link href={"/"}>
           <Image
             width={164}

@@ -60,7 +60,7 @@ const SectionHero = () => {
               1.5B+ People Reached
             </span>
           </div>
-          <div className="order-1 lg:order-2 col-span-2 lg:col-span-1 flex h-fit items-center">
+          <div className="order-1 lg:order-2 col-span-2 lg:col-span-1 flex h-fit items-center gap-5">
             <div className="hidden lg:block bg-black-dark w-[1px] h-10" />
             <Status />
             <div className="hidden lg:block bg-black-dark w-[1px] h-10" />

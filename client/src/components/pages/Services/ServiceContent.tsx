@@ -11,6 +11,7 @@ import ServiceVideo from "@/components/pages/Services/ServiceVideo/ServiceVideo"
 import ServiceHowTo from "./ServiceHowTo/ServiceHowTo";
 import ServiceWhyBuyThis from "./ServiceWhyBuyThis/ServiceWhyBuyThis";
 import ServiceBenefit from "./ServiceBenefit/ServiceBenefit";
+import SectionServices from "../Home/SectionServices.tsx/SectionServices";
 
 function ServicesContent() {
   return (
@@ -27,6 +28,7 @@ function ServicesContent() {
       <ServiceCustomerReview />
       <ServiceQuestion />
       <ServiceArticle />
+      <SectionServices />
     </>
   );
 }

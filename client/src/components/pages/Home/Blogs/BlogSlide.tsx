@@ -3,9 +3,6 @@ import Image from "next/image";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/autoplay";
-import "swiper/css/navigation";
 import MainButton from "@/components/Buttons";
 import { NextArrow, PrevArrow } from "@/libs/consts/MySvg";
 

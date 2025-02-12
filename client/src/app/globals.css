@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -23,8 +24,10 @@
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  /* color: var(--foreground);
+  background: var(--background); */
+  color: black;
+  background: white;
   font-family: "Satoshi-Variable";
 }
 

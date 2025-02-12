@@ -37,7 +37,7 @@ export interface ServiceItemsType {
       comment: string;
     }[];
   };
-  tip: {
+  benefit: {
     title: string;
     data: {
       icon: string;

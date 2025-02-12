@@ -120,7 +120,7 @@ export const ServiceItems = {
       },
     ],
   },
-  tip: {
+  benefit: {
     title: "The Benefits of Buying Deezer Followers",
     data: [
       {
@@ -183,7 +183,7 @@ export const ServiceItems = {
     {
       title: "Fast Growth",
       comment:
-        "Omg! Got followers on Deezer faster than I expected. Love it! 😍",
+        "Omg! Got followers on Deezer faster than I expected. Love it! 😍 Omg! Got followers on Deezer faster than I expected. Love it! 😍 Omg! Got followers on Deezer faster than I expected. Love it! 😍 Omg! Got followers on Deezer faster than I expected. Love it! 😍",
       customerName: "Iyla C",
       date: "12/03/2024",
     },
@@ -239,7 +239,7 @@ export const ServiceItems = {
     {
       title: "Fast Growth",
       comment:
-        "Omg! Got followers on Deezer faster than I expected. Love it! 😍",
+        "Omg! Got followers on Deezer faster than I expected. Love it! 😍Omg! Got followers on Deezer faster than I expected. Love it! 😍 Omg! Got followers on Deezer faster than I expected. Love it! 😍 Omg! Got followers on Deezer faster than I expected. Love it! 😍",
       customerName: "Iyla C",
       date: "12/03/2024",
     },
@@ -291,6 +291,21 @@ export const ServiceItems = {
     },
   ],
   article: [
+    {
+      icon: "https://cdn.prod.website-files.com/62c20e5d5008626d5073c19a/63b0910ffca68717ef377823_7_Easy_Steps_to_Use_Twitter_Spaces__The_Ultimate_Guide-p-500.jpg",
+      title:
+        "Twitter Spaces-7 Easy Steps to Use Twitter Spaces: The Ultimate Guide",
+    },
+    {
+      icon: "https://cdn.prod.website-files.com/62c20e5d5008626d5073c19a/63b0910ffca68717ef377823_7_Easy_Steps_to_Use_Twitter_Spaces__The_Ultimate_Guide-p-500.jpg",
+      title:
+        "Twitter Spaces-7 Easy Steps to Use Twitter Spaces: The Ultimate Guide",
+    },
+    {
+      icon: "https://cdn.prod.website-files.com/62c20e5d5008626d5073c19a/63b0910ffca68717ef377823_7_Easy_Steps_to_Use_Twitter_Spaces__The_Ultimate_Guide-p-500.jpg",
+      title:
+        "Twitter Spaces-7 Easy Steps to Use Twitter Spaces: The Ultimate Guide",
+    },
     {
       icon: "https://cdn.prod.website-files.com/62c20e5d5008626d5073c19a/63b0910ffca68717ef377823_7_Easy_Steps_to_Use_Twitter_Spaces__The_Ultimate_Guide-p-500.jpg",
       title:

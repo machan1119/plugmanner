@@ -3,7 +3,7 @@ import React from "react";
 
 const NavBarTop = () => {
   return (
-    <div className="bg-black text-white text-[10px] md:text-[14px] flex relative justify-center overflow-hidden px-[15%]">
+    <div className="bg-black text-white text-[10px] md:text-[14px] flex relative justify-center overflow-hidden">
       <div className="flex justify-center gap-[20px] lg:gap-[100px] md:gap-[60px] p-3">
         <div className="flex gap-3 items-center">
           <Image

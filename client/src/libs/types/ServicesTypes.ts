@@ -121,7 +121,7 @@ export interface ServiceItemsCurrentType {
       description: string;
       step: {
         simple: string;
-        detail: null;
+        detail: string | null;
       }[];
     };
     TopReviews: {

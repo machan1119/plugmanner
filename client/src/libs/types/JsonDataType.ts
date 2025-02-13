@@ -17,11 +17,7 @@ export interface JsonDataType {
       video: string;
       FrequentlyQuestions: {
         id: number;
-        Question: Array<{
-          id: number;
-          question: string;
-          answer: string;
-        }>;
+        Question: QuestionType[];
       };
       CustomerReviews: {
         id: number;
@@ -41,24 +37,11 @@ export interface JsonDataType {
       Benefits: {
         id: number;
         title: string;
-        Benefit: Array<{
-          id: number;
-          tabname: string;
-          title: string;
-          content: string;
-          Button: null;
-          button_api: null;
-          img: ImageData;
-        }>;
+        Benefit: BenefitType[];
       };
       UpBlogs: {
         id: number;
-        Blog: Array<{
-          id: number;
-          title: string;
-          content: string;
-          img: ImageData;
-        }>;
+        Blog: BlogType[];
       };
       Summary: {
         id: number;
@@ -91,20 +74,27 @@ export interface JsonDataType {
   };
   meta: Record<string, unknown>;
 }
-type SummaryItem = {
+export type SummaryItem = {
   id: number;
   title: string;
   content: string;
   icon: ImageData;
 };
 
-type HowToOrderStep = {
+export type HowToOrderStep = {
   id: number;
   simple: string;
   detail: string | null;
 };
 
-type Review = {
+export type BlogType = {
+  id: number;
+  title: string;
+  content: string;
+  img: ImageData;
+};
+
+export type Review = {
   id: number;
   title: string;
   rated: number;
@@ -113,18 +103,28 @@ type Review = {
   date: string;
 };
 
-type StateItem = {
+export type BenefitType = {
+  id: number;
+  tabname: string;
+  title: string;
+  content: string;
+  Button: null;
+  button_api: null;
+  img: ImageData;
+};
+
+export type StateItem = {
   id: number;
   counters: string;
   character: string;
 };
 
-type OrderIntroSentence = {
+export type OrderIntroSentence = {
   id: number;
   text: string;
 };
 
-type Article = {
+export type Article = {
   id: number;
   documentId: string;
   title: string;
@@ -172,4 +172,10 @@ type ImageFormat = {
   size: number;
   width: number;
   height: number;
+};
+
+export type QuestionType = {
+  id: number;
+  question: string;
+  answer: string;
 };

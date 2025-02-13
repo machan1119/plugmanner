@@ -1,4 +1,15 @@
-import { JsonDataType } from "./types/JsonDataType";
+import {
+  Article,
+  BenefitType,
+  BlogType,
+  HowToOrderStep,
+  JsonDataType,
+  OrderIntroSentence,
+  QuestionType,
+  Review,
+  StateItem,
+  SummaryItem,
+} from "./types/JsonDataType";
 import { ServiceItemsCurrentType } from "./types/ServicesTypes";
 
 export function slugify(str: string): string {
@@ -33,7 +44,7 @@ export function transformData(json: JsonDataType): ServiceItemsCurrentType {
         rate: input.introduction.CustomerReviews.rate,
         counterofreviews: input.introduction.CustomerReviews.counterofreviews,
         Review: input.introduction.CustomerReviews.Review.map(
-          (review: any) => ({
+          (review: Review) => ({
             title: review.title,
             rated: review.rated,
             content: review.content,
@@ -44,17 +55,19 @@ export function transformData(json: JsonDataType): ServiceItemsCurrentType {
       },
       Benefits: {
         title: input.introduction.Benefits.title,
-        Benefit: input.introduction.Benefits.Benefit.map((benefit: any) => ({
-          tabname: benefit.tabname,
-          title: benefit.title,
-          content: benefit.content,
-          img: {
-            url: benefit.img.url,
-          },
-        })),
+        Benefit: input.introduction.Benefits.Benefit.map(
+          (benefit: BenefitType) => ({
+            tabname: benefit.tabname,
+            title: benefit.title,
+            content: benefit.content,
+            img: {
+              url: benefit.img.url,
+            },
+          })
+        ),
       },
       UpBlogs: {
-        Blog: input.introduction.UpBlogs.Blog.map((blog: any) => ({
+        Blog: input.introduction.UpBlogs.Blog.map((blog: BlogType) => ({
           title: blog.title,
           content: blog.content,
           img: {
@@ -65,7 +78,7 @@ export function transformData(json: JsonDataType): ServiceItemsCurrentType {
       Summary: {
         title: input.introduction.Summary.title,
         EachSummary: input.introduction.Summary.EachSummary.map(
-          (eachSummary: any) => ({
+          (eachSummary: SummaryItem) => ({
             id: eachSummary.id,
             title: eachSummary.title,
             content: eachSummary.content,
@@ -74,47 +87,53 @@ export function transformData(json: JsonDataType): ServiceItemsCurrentType {
       },
       HowToOrder: {
         description: input.introduction.HowToOrder.description,
-        step: input.introduction.HowToOrder.step.map((stepItem: any) => ({
-          simple: stepItem.simple,
-          detail: stepItem.detail,
-        })),
+        step: input.introduction.HowToOrder.step.map(
+          (stepItem: HowToOrderStep) => ({
+            simple: stepItem.simple,
+            detail: stepItem?.detail,
+          })
+        ),
       },
       TopReviews: {
         header: input.introduction.TopReviews.header,
         rate: input.introduction.TopReviews.rate,
-        review: input.introduction.TopReviews.review.map((reviewItem: any) => ({
-          title: reviewItem.title,
-          rated: reviewItem.rated,
-          content: reviewItem.content,
-          customer: reviewItem.customer,
-          date: reviewItem.date,
-        })),
+        review: input.introduction.TopReviews.review.map(
+          (reviewItem: Review) => ({
+            title: reviewItem.title,
+            rated: reviewItem.rated,
+            content: reviewItem.content,
+            customer: reviewItem.customer,
+            date: reviewItem.date,
+          })
+        ),
       },
       StateOfService: {
-        States: input.introduction.StateOfService.States.map((states: any) => ({
-          counters: states.counters,
-          character: states.character,
-        })),
+        States: input.introduction.StateOfService.States.map(
+          (states: StateItem) => ({
+            counters: states.counters,
+            character: states.character,
+          })
+        ),
       },
       OrderIntro: {
         price: input.introduction.OrderIntro.price,
         unit: input.introduction.OrderIntro.unit,
         sentence: input.introduction.OrderIntro.sentence.map(
-          (sentenceItem: any) => ({
+          (sentenceItem: OrderIntroSentence) => ({
             text: sentenceItem.text,
           })
         ),
       },
       FrequentlyQuestions: {
         Question: input.introduction.FrequentlyQuestions.Question.map(
-          (questionItem: any) => ({
+          (questionItem: QuestionType) => ({
             question: questionItem.question,
             answer: questionItem.answer,
           })
         ),
       },
     },
-    article: input.article.map((articlesItem: any) => ({
+    article: input.article.map((articlesItem: Article) => ({
       title: articlesItem.title,
       main_img: {
         url: articlesItem.main_img[0].url,

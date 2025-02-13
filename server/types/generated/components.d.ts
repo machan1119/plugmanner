@@ -1,5 +1,20 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface ArticleAuthor extends Struct.ComponentSchema {
+  collectionName: 'components_article_authors';
+  info: {
+    description: '';
+    displayName: 'author';
+    icon: 'alien';
+  };
+  attributes: {
+    avatar: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    introduction: Schema.Attribute.Text;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    social: Schema.Attribute.Component<'general.social-link', true>;
+  };
+}
+
 export interface ArticleChapter extends Struct.ComponentSchema {
   collectionName: 'components_article_chapters';
   info: {
@@ -39,6 +54,18 @@ export interface GeneralParameter extends Struct.ComponentSchema {
   };
 }
 
+export interface GeneralSocialLink extends Struct.ComponentSchema {
+  collectionName: 'components_general_social_links';
+  info: {
+    displayName: 'social_link';
+    icon: 'feather';
+  };
+  attributes: {
+    img: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    link: Schema.Attribute.String;
+  };
+}
+
 export interface OrderOrderIntro extends Struct.ComponentSchema {
   collectionName: 'components_order_order_intros';
   info: {
@@ -64,7 +91,23 @@ export interface OrderQqq extends Struct.ComponentSchema {
     icon: 'check';
   };
   attributes: {
-    text: Schema.Attribute.Text & Schema.Attribute.Required;
+    text: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SocialContactSocialLinkedin extends Struct.ComponentSchema {
+  collectionName: 'components_social_contact_social_linkedins';
+  info: {
+    displayName: 'social_linkedin';
+    icon: 'paperPlane';
+  };
+  attributes: {
+    img: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.Required;
+    link: Schema.Attribute.Text;
+    LinkedIn: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'LinkedIn'>;
   };
 }
 
@@ -143,10 +186,12 @@ export interface SubserviceFrequentlyQuestions extends Struct.ComponentSchema {
 export interface SubserviceHowToOrder extends Struct.ComponentSchema {
   collectionName: 'components_subservice_how_to_orders';
   info: {
+    description: '';
     displayName: 'HowToOrder';
     icon: 'strikeThrough';
   };
   attributes: {
+    description: Schema.Attribute.Text;
     step: Schema.Attribute.Component<'subservice.how-to-order-step', true>;
   };
 }
@@ -282,7 +327,7 @@ export interface SubserviceSubserviceIntroduction
       'subservice.state-of-service',
       false
     >;
-    summary: Schema.Attribute.Component<'subservice.service-summary', false> &
+    Summary: Schema.Attribute.Component<'subservice.service-summary', false> &
       Schema.Attribute.Required;
     TopReviews: Schema.Attribute.Component<'subservice.top-reviews', false>;
     UpBlogs: Schema.Attribute.Component<'subservice.blogs', false>;
@@ -311,11 +356,14 @@ export interface SubserviceTopReviews extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'article.author': ArticleAuthor;
       'article.chapter': ArticleChapter;
       'article.section': ArticleSection;
       'general.parameter': GeneralParameter;
+      'general.social-link': GeneralSocialLink;
       'order.order-intro': OrderOrderIntro;
       'order.qqq': OrderQqq;
+      'social-contact.social-linkedin': SocialContactSocialLinkedin;
       'subservice.benefits': SubserviceBenefits;
       'subservice.blogs': SubserviceBlogs;
       'subservice.customer-reviews': SubserviceCustomerReviews;

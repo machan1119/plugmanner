@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_social_contact_social_linkedins",
+  "info": {
+    "displayName": "social_linkedin",
+    "icon": "paperPlane"
+  },
+  "options": {},
+  "attributes": {
+    "LinkedIn": {
+      "type": "string",
+      "required": true,
+      "default": "LinkedIn"
+    },
+    "img": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "link": {
+      "type": "text",
+      "required": false
+    }
+  }
+}

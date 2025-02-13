@@ -41,9 +41,9 @@
       "default": 0,
       "min": 0
     },
-    "article": {
+    "articles": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::article.article",
       "inversedBy": "services"
     }

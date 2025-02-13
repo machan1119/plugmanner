@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_general_social_links",
+  "info": {
+    "displayName": "social_link",
+    "icon": "feather"
+  },
+  "options": {},
+  "attributes": {
+    "img": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}

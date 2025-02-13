@@ -14,7 +14,7 @@
   "attributes": {
     "name": {
       "type": "string",
-      "unique": false,
+      "unique": true,
       "required": true
     },
     "service": {
@@ -40,9 +40,13 @@
     },
     "article": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::article.article",
       "inversedBy": "subservices"
+    },
+    "subname": {
+      "type": "string",
+      "required": true
     }
   }
 }

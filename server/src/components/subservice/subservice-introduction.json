@@ -45,7 +45,7 @@
       "repeatable": false,
       "component": "subservice.how-to-order"
     },
-    "summary": {
+    "Summary": {
       "displayName": "ServiceSummary",
       "type": "component",
       "repeatable": false,

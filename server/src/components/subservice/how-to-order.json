@@ -2,7 +2,8 @@
   "collectionName": "components_subservice_how_to_orders",
   "info": {
     "displayName": "HowToOrder",
-    "icon": "strikeThrough"
+    "icon": "strikeThrough",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -11,6 +12,9 @@
       "type": "component",
       "repeatable": true,
       "component": "subservice.how-to-order-step"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }

@@ -15,7 +15,7 @@
     "title": {
       "type": "string"
     },
-    "author": {
+    "author_name": {
       "type": "string",
       "required": true
     },
@@ -40,7 +40,7 @@
       "repeatable": true,
       "component": "article.chapter"
     },
-    "avatar": {
+    "author_avatar": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -51,15 +51,21 @@
         "audios"
       ]
     },
+    "about_author": {
+      "displayName": "author",
+      "type": "component",
+      "repeatable": true,
+      "component": "article.author"
+    },
     "services": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::service.service",
-      "mappedBy": "article"
+      "mappedBy": "articles"
     },
     "subservices": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::subservice.subservice",
       "mappedBy": "article"
     }

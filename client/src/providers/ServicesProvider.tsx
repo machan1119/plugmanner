@@ -37,7 +37,7 @@ export const ServicesProvider: React.FC<ServicesProviderProps> = ({
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const fetchedData = await response.json();
-        const data: ServiceItemsCurrentType = transformData(fetchedData.data);
+        const data: ServiceItemsCurrentType = transformData(fetchedData);
 
         setServiceItems(data);
       } finally {

@@ -1,3 +1,4 @@
+import { JsonDataType } from "./types/JsonDataType";
 import { ServiceItemsCurrentType } from "./types/ServicesTypes";
 
 export function slugify(str: string): string {
@@ -15,7 +16,8 @@ export function replace_str(s1: string, s2: string): string {
   return s1;
 }
 
-export function transformData(input: any): ServiceItemsCurrentType {
+export function transformData(json: JsonDataType): ServiceItemsCurrentType {
+  const input = json.data;
   return {
     name: input.name,
     subname: input.subname,

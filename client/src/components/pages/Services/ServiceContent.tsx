@@ -12,6 +12,7 @@ import ServiceBenefit from "./ServiceBenefit/ServiceBenefit";
 import SectionServices from "../Home/SectionServices.tsx/SectionServices";
 import ServiceSummary from "./ServiceSummary/ServiceSummary";
 import ServiceUpBlogs from "./ServiceUpBlogs/ServiceUpBlogs";
+import ServiceVideo from "./ServiceVideo/ServiceVideo";
 
 function ServicesContent() {
   return (
@@ -20,6 +21,7 @@ function ServicesContent() {
       <ServiceReview />
       <ServiceHowTo />
       <ServiceSummary />
+      <ServiceVideo />
       <ServiceUpBlogs />
       <ServiceBenefit />
       {/* <ServicePowerUp /> */}

@@ -7,7 +7,7 @@ import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 const ServiceArticle = () => {
-  const { serviceItems, isLoading } = useServices();
+  const { serviceItems } = useServices();
   if (!serviceItems?.introduction) return <div className="">no data</div>;
   console.log(serviceItems.article);
   return (

@@ -1,10 +1,9 @@
-import MainButton from "@/components/Buttons";
 import { useServices } from "@/providers/ServicesProvider";
 import React from "react";
 import QuestionsItem from "../../Home/Question/QuestionsItem";
 
 const ServiceQuestion = () => {
-  const { serviceItems, isLoading } = useServices();
+  const { serviceItems } = useServices();
   if (!serviceItems?.introduction) return <div className="">no data</div>;
   return (
     <div className="flex flex-col py-[80px] items-center bg-white w-full border-b-[1px] border-black-normal">

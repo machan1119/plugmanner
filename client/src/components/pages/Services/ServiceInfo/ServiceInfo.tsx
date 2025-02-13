@@ -1,13 +1,11 @@
 import MainButton from "@/components/Buttons";
-import { ServiceListSkeleton } from "@/components/Skeletons";
-import Supports from "@/components/Supports";
 import { useServices } from "@/providers/ServicesProvider";
 import Image from "next/image";
 import React from "react";
 import ServiceAdvantage from "./ServiceAdvantage";
 
 const ServiceInfo = () => {
-  const { serviceItems, isLoading } = useServices();
+  const { serviceItems } = useServices();
   if (!serviceItems?.introduction) return <div className="">no data</div>;
   return (
     <div className="flex flex-col w-full m-auto items-center">

@@ -3,7 +3,7 @@ import Image from "next/image";
 import React from "react";
 
 const ServiceSummary = () => {
-  const { serviceItems, isLoading } = useServices();
+  const { serviceItems } = useServices();
   if (!serviceItems?.introduction) return <div className="">no data</div>;
   return (
     <div className="w-full py-[80px] bg-black-light flex flex-col items-center border-b-[1px] border-black-normal">

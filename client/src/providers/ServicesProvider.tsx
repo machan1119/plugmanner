@@ -1,5 +1,4 @@
 "use client";
-import { ServiceItems } from "@/libs/data/Services";
 import { transformData } from "@/libs/functions";
 import { ServiceItemsCurrentType } from "@/libs/types/ServicesTypes";
 import React, { createContext, useContext, useState, useEffect } from "react";

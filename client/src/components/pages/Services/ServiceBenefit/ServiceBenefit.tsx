@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 
 const ServiceBenefit = () => {
-  const { serviceItems, isLoading } = useServices();
+  const { serviceItems } = useServices();
   const [currentStep, setCurrentStep] = useState(0);
   if (!serviceItems?.introduction) return <div className="">no data</div>;
   return (

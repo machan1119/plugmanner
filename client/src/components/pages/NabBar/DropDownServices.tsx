@@ -1,4 +1,4 @@
-import { replace_str, slugify } from "@/libs/functions";
+import { replace_str } from "@/libs/functions";
 import { ServicesType } from "@/libs/types/DataTypes";
 import Image from "next/image";
 import Link from "next/link";

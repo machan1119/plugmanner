@@ -5,7 +5,7 @@ import ReviewItem from "../ServiceReview/ReviewItem";
 import MainButton from "@/components/Buttons";
 
 const ServiceCustomerReview = () => {
-  const { serviceItems, isLoading } = useServices();
+  const { serviceItems } = useServices();
   const [readHeight, setReadHeight] = useState<number | undefined>(400);
   const [maxHeight, setMaxHeight] = useState<number | undefined>(0);
   const readRef = useRef<HTMLDivElement>(null);

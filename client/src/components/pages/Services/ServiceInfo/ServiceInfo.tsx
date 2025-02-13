@@ -8,17 +8,17 @@ import ServiceAdvantage from "./ServiceAdvantage";
 
 const ServiceInfo = () => {
   const { serviceItems, isLoading } = useServices();
-  if (!serviceItems?.info) return <div className="">no data</div>;
+  if (!serviceItems?.introduction) return <div className="">no data</div>;
   return (
     <div className="flex flex-col w-full m-auto items-center">
       <div className="flex gap-20 px-[3%] py-[80px] bg-white m-auto">
         <div className="flex flex-col gap-7 w-[50%] text-left grow">
           <h1 className="font-service-main md:font-service-md lg:font-service-lg text-wrap !text-left">
-            <span className="text-black">Buy {serviceItems.info.type} </span>
-            <span className="text-green-light">{serviceItems.info.name}</span>
+            <span className="text-black">Buy {serviceItems.type} </span>
+            <span className="text-green-light">{serviceItems.name}</span>
           </h1>
           <div className="font-service-text text-[20px]">
-            {serviceItems.info.description}
+            {serviceItems.introduction.SimpleDescription}
           </div>
           <div className="flex items-center mt-2">
             <Image
@@ -31,9 +31,9 @@ const ServiceInfo = () => {
             <span className="font-clash text-[#686889] text-[16px] leading-[25px] font-medium">
               Rated{" "}
               <span className="text-green-light font-semibold">
-                {serviceItems.info.rate}/5
+                {serviceItems.introduction.rated}/5
               </span>{" "}
-              from over {serviceItems.info.reviews}reviews
+              from over {serviceItems.introduction.CounterOfReviews}reviews
             </span>
           </div>
           <ServiceAdvantage />
@@ -44,27 +44,29 @@ const ServiceInfo = () => {
               Starting from
             </p>
             <p className="font-service-main md:font-service-md lg:font-service-lg lg:!text-[56px] !text-white">
-              {serviceItems.info.detail.base_price}{" "}
+              {serviceItems.introduction.OrderIntro.price}{" "}
               <span className="font-service-text text-[16px] !text-green-light">
-                / {serviceItems.info.detail.type}
+                / {serviceItems.introduction.OrderIntro.unit}
               </span>
             </p>
           </div>
           <div className="w-full flex flex-col gap-4 items-start">
-            {serviceItems.info.detail.features.map((item, index) => (
-              <div key={index} className="flex gap-3 items-center">
-                <Image
-                  width={16}
-                  height={16}
-                  src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/628fdb670c2e9e80264b9f41_Coinboosts-check-green.svg"
-                  alt="checkmark icon"
-                  className="w-[16px] h-[16px] mr-1"
-                />
-                <span className="font-service-text text-[16px] !text-black-steel">
-                  {item}
-                </span>
-              </div>
-            ))}
+            {serviceItems.introduction.OrderIntro.sentence.map(
+              (item, index) => (
+                <div key={index} className="flex gap-3 items-center">
+                  <Image
+                    width={16}
+                    height={16}
+                    src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/628fdb670c2e9e80264b9f41_Coinboosts-check-green.svg"
+                    alt="checkmark icon"
+                    className="w-[16px] h-[16px] mr-1"
+                  />
+                  <span className="font-service-text text-[16px] !text-black-steel">
+                    {item.text}
+                  </span>
+                </div>
+              )
+            )}
           </div>
           <MainButton
             type="green-main"
@@ -81,12 +83,18 @@ const ServiceInfo = () => {
       </div>
       <div className="relative z-10 mt-[-150px] w-full bg-black-light py-[3%] flex flex-col items-center">
         <div className="max-w-[1366px] w-full flex gap-8 items-center px-10">
-          {serviceItems.state.map((item, index) => (
-            <div key={index} className="text-left">
-              <p className="font-service-main !text-[48px]">{item.number}</p>
-              <p className="font-service-text text-[16px]">{item.type}</p>
-            </div>
-          ))}
+          {serviceItems.introduction.StateOfService.States.map(
+            (item, index) => (
+              <div key={index} className="text-left">
+                <p className="font-service-main !text-[48px]">
+                  {item.counters}
+                </p>
+                <p className="font-service-text text-[16px]">
+                  {item.character}
+                </p>
+              </div>
+            )
+          )}
           <div className="w-[60%] h-[1px] bg-black-normal absolute bottom-0" />
         </div>
       </div>

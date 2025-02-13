@@ -23,7 +23,7 @@ export interface HowToOrderItemType {
 }
 
 export interface QuestionsItemType {
-  title: string;
+  question: string;
   answer: string;
 }
 

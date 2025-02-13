@@ -3,7 +3,7 @@ import React from "react";
 
 const ServiceVideo = () => {
   const { serviceItems, isLoading } = useServices();
-  if (!serviceItems?.info) return <div className="">no data</div>;
+  if (!serviceItems?.introduction) return <div className="">no data</div>;
   return <div>ServiceVideo</div>;
 };
 

@@ -47,12 +47,12 @@ export interface ServicesType {
   data: {
     title: string;
     icon: string;
-    services: string[];
+    services: { name: string; id: string }[];
   }[];
 }
 
 export interface ServicesDataType {
   title: string;
   icon: string;
-  services: string[];
+  services: { name: string; id: string }[];
 }

@@ -6,7 +6,7 @@ import MainButton from "@/components/Buttons";
 
 const ServiceReview = () => {
   const { serviceItems, isLoading } = useServices();
-  if (!serviceItems?.review) return <div className="">no data</div>;
+  if (!serviceItems?.introduction) return <div className="">no data</div>;
   return (
     <div className="w-full py-[80px] bg-black-light flex flex-col items-center border-b-[1px] border-black-normal">
       <div className="max-w-[1366px] w-full flex flex-col gap-10 items-center px-10">
@@ -20,11 +20,11 @@ const ServiceReview = () => {
           />
         </div>
         <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-5 mt-2">
-          {serviceItems.review.map((item, index) => (
+          {serviceItems.introduction.TopReviews.review.map((item, index) => (
             <ReviewItem
               title={item.title}
-              comment={item.comment}
-              customerName={item.customerName}
+              comment={item.content}
+              customerName={item.customer}
               date={item.date}
               key={index}
             />

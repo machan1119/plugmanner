@@ -4,7 +4,7 @@ import BlogSlide from "./BlogSlide";
 
 const Blogs = () => {
   return (
-    <div className="w-full flex flex-col p-[5%] pt-[80px] items-center bg-black-light relative">
+    <div className="w-full flex flex-col p-[15%] pt-[80px] items-center bg-black-light relative">
       <div className="mb-12 flex flex-col gap-3 items-center">
         <div className="font-h1-md lg:font-h1-lg">News and Articles</div>
         <div className="flex gap-8 items-center z-10 bg-black-light">
@@ -33,7 +33,7 @@ const Blogs = () => {
             src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e68_Group%201000004049.svg"
           />
         </div>
-        <div className="absolute w-[90%] h-[2px] bg-black-dark top-[148px]" />
+        <div className="absolute w-[70%] h-[2px] bg-black-dark top-[148px]" />
       </div>
       <BlogSlide />
     </div>

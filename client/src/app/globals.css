@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -23,8 +24,10 @@
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  /* color: var(--foreground);
+  background: var(--background); */
+  color: black;
+  background: white;
   font-family: "Satoshi-Variable";
 }
 
@@ -32,6 +35,7 @@ body {
   font-family: "Satoshi-Variable";
 }
 
+/* tailwind customize */
 @layer utilities {
   .font-h-main {
     @apply font-clash text-[24px] font-semibold leading-[28x] text-center;
@@ -42,16 +46,71 @@ body {
   .font-h-lg {
     @apply font-clash text-[48px] font-semibold leading-[60x] text-center;
   }
+  .font-h {
+    @apply font-h-main md:font-h-md lg:font-h-lg;
+  }
+
   .font-h1-main {
-    @apply font-clash text-[20px] text-black leading-10 font-semibold text-center;
+    @apply font-clash text-[20px] text-black leading-6 font-semibold text-center;
   }
   .font-h1-md {
-    @apply font-clash text-[28px] text-black leading-10 font-semibold text-center;
+    @apply font-clash text-[28px] text-black leading-8 font-semibold text-center;
   }
   .font-h1-lg {
     @apply font-clash text-[32px] text-black leading-10 font-semibold text-center;
   }
-  .font-main {
-    @apply font-satoshi text-[14px] text-black leading-[21px] font-medium text-center;
+  .font-h1 {
+    @apply font-h1-main md:font-h1-md lg:font-h1-lg;
+  }
+
+  .font-h2-main {
+    @apply font-clash text-[16px] text-[rgb(20,_20,_27)] leading-6 font-semibold;
+  }
+  .font-h2-lg {
+    @apply font-clash text-[18px] text-[rgb(20,_20,_27)] leading-7 font-semibold;
+  }
+  .font-h2 {
+    @apply font-h2-main lg:font-h2-lg;
+  }
+
+  .font-service-lg {
+    @apply font-clash text-[64px] text-black leading-[64px] font-semibold text-left;
+  }
+  .font-service-md {
+    @apply font-clash text-[52px] text-black leading-[52px] font-semibold text-left;
+  }
+  .font-service-main {
+    @apply font-clash text-[40px] text-black leading-[40px] font-semibold text-left;
+  }
+  .font-service {
+    @apply font-service-main md:font-service-md lg:font-service-lg;
+  }
+
+  .font-service-text {
+    @apply font-satoshi text-[#686889] font-normal text-left;
   }
 }
+/* tailwind customize */
+
+/* swiper */
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+}
+/* swiper */

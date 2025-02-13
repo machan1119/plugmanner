@@ -1,8 +1,23 @@
 import React from "react";
 
-const MainButton = ({ type, title }: { type: string; title: string }) => {
+interface MainButtonProps {
+  type: string;
+  title: string;
+  customClass?: string;
+  handleClick?: () => void;
+}
+
+const MainButton = ({
+  type,
+  title,
+  customClass,
+  handleClick,
+}: MainButtonProps) => {
   return (
-    <button className="size-max text-[14px] md:text-[16px]">
+    <button
+      className={`size-max text-[14px] md:text-[16px] ${customClass}`}
+      onClick={handleClick}
+    >
       {type == "white-main" ? (
         <p className="bg-[#fff] text-[#363636] font-clash border-[1px] border-[#ebebeb] hover:bg-[#ebebeb] px-5 py-3 font-semibold transition-all rounded-[10px] leading-5">
           {title}

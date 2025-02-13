@@ -23,7 +23,7 @@ const StatusItem = ({ count, type, time }: StatusType) => {
           height={20}
           src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e40_Frame%201000004066.svg"
           alt="checkmark icon"
-          className="w-auto h-auto"
+          className="w-[20px] h-[20px]"
         />
         <div className="text-[rgb(1_118_69)] font-satoshi text-[14px] text-center font-medium leading-[12px]">
           {time} mins ago

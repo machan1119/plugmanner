@@ -44,13 +44,11 @@ export interface RawData {
 
 export interface ServicesType {
   type: string;
-  data: [
-    {
-      title: string;
-      icon: string;
-      services: string[];
-    }
-  ];
+  data: {
+    title: string;
+    icon: string;
+    services: string[];
+  }[];
 }
 
 export interface ServicesDataType {

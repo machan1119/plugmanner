@@ -14,7 +14,7 @@ const ServicesItem = ({ serviceData }: { serviceData: ServicesDataType }) => {
           <Image
             width={40}
             height={40}
-            src={`http://${process.env.BACKEND_IP}${serviceData.icon}`}
+            src={`${process.env.BACKEND_URL}${serviceData.icon}`}
             alt={serviceData.title}
             className="lg:size-10 size-8"
           />

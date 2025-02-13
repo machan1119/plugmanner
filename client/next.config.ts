@@ -2,10 +2,27 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["cdn.prod.website-files.com", "192.168.142.33", "localhost"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.prod.website-files.com",
+      },
+      {
+        protocol: "https",
+        hostname: "socialplug-production.up.railway.app",
+      },
+      {
+        protocol: "http",
+        hostname: "192.168.142.33",
+      },
+      {
+        protocol: "http",
+        hostname: "localhost",
+      },
+    ],
   },
   env: {
-    BACKEND_IP: process.env.BACKEND_IP,
+    BACKEND_URL: process.env.BACKEND_URL,
   },
 };
 

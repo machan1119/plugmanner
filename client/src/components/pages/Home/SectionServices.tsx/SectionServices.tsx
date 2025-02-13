@@ -9,7 +9,7 @@ const SectionServices = () => {
   const [status, setStatus] = useState("Services");
   const [filter, setFilter] = useState("popular");
   return (
-    <div className="flex flex-col items-center m-[5%] relative">
+    <div className="flex flex-col items-center m-[5%] justify-self-center relative max-w-[1366px]">
       <h2 className="font-h1-md lg:font-h1-lg mb-12">All Marketing Services</h2>
       <div className="flex items-end mb-5">
         <SwitchButton status={status} setStatus={setStatus} />

@@ -19,7 +19,7 @@
       "default": "Trusted by 100k+ customers"
     },
     "rate": {
-      "type": "integer",
+      "type": "float",
       "required": true,
       "default": 5
     }

@@ -1,12 +1,13 @@
 {
   "collectionName": "components_subservice_questions",
   "info": {
-    "displayName": "Question"
+    "displayName": "Question",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "question": {
-      "type": "text",
+      "type": "string",
       "required": true
     },
     "answer": {

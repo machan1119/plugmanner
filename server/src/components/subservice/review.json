@@ -2,7 +2,8 @@
   "collectionName": "components_subservice_reviews",
   "info": {
     "displayName": "review",
-    "icon": "paperPlane"
+    "icon": "paperPlane",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -11,7 +12,7 @@
       "required": true
     },
     "rated": {
-      "type": "integer",
+      "type": "float",
       "required": true,
       "default": 5
     },

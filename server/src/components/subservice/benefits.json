@@ -11,6 +11,11 @@
       "type": "component",
       "repeatable": true,
       "component": "subservice.sub-benefit"
+    },
+    "title": {
+      "type": "string",
+      "required": false,
+      "unique": false
     }
   }
 }

@@ -7,7 +7,8 @@
   "options": {},
   "attributes": {
     "tabname": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "title": {
       "type": "string",
@@ -27,6 +28,13 @@
     "content": {
       "type": "text",
       "required": true
+    },
+    "Button": {
+      "type": "string",
+      "required": false
+    },
+    "button_api": {
+      "type": "text"
     }
   }
 }

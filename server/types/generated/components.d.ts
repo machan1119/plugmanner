@@ -20,7 +20,7 @@ export interface OrderOrderIntro extends Struct.ComponentSchema {
     icon: 'archive';
   };
   attributes: {
-    price: Schema.Attribute.Decimal &
+    price: Schema.Attribute.Float &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<0>;
     sentence: Schema.Attribute.Component<'order.qqq', true> &
@@ -49,6 +49,7 @@ export interface SubserviceBenefits extends Struct.ComponentSchema {
   };
   attributes: {
     Benefit: Schema.Attribute.Component<'subservice.sub-benefit', true>;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -67,6 +68,7 @@ export interface SubserviceBlogs extends Struct.ComponentSchema {
 export interface SubserviceCustomerReviews extends Struct.ComponentSchema {
   collectionName: 'components_subservice_customer_reviews';
   info: {
+    description: '';
     displayName: 'CustomerReviews';
     icon: 'crown';
   };
@@ -74,7 +76,7 @@ export interface SubserviceCustomerReviews extends Struct.ComponentSchema {
     counterofreviews: Schema.Attribute.BigInteger &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'1000'>;
-    rate: Schema.Attribute.Decimal &
+    rate: Schema.Attribute.Float &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<5>;
     Review: Schema.Attribute.Component<'subservice.review', true>;
@@ -137,17 +139,19 @@ export interface SubserviceHowToOrderStep extends Struct.ComponentSchema {
 export interface SubserviceQuestion extends Struct.ComponentSchema {
   collectionName: 'components_subservice_questions';
   info: {
+    description: '';
     displayName: 'Question';
   };
   attributes: {
     answer: Schema.Attribute.Text & Schema.Attribute.Required;
-    question: Schema.Attribute.Text & Schema.Attribute.Required;
+    question: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
 export interface SubserviceReview extends Struct.ComponentSchema {
   collectionName: 'components_subservice_reviews';
   info: {
+    description: '';
     displayName: 'review';
     icon: 'paperPlane';
   };
@@ -155,7 +159,7 @@ export interface SubserviceReview extends Struct.ComponentSchema {
     content: Schema.Attribute.Text & Schema.Attribute.Required;
     customer: Schema.Attribute.String & Schema.Attribute.Required;
     date: Schema.Attribute.Date;
-    rated: Schema.Attribute.Integer &
+    rated: Schema.Attribute.Float &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<5>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
@@ -171,7 +175,7 @@ export interface SubserviceServiceSummary extends Struct.ComponentSchema {
   };
   attributes: {
     EachSummary: Schema.Attribute.Component<'subservice.each-summary', true>;
-    title: Schema.Attribute.Text & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -193,10 +197,12 @@ export interface SubserviceSubBenefit extends Struct.ComponentSchema {
     displayName: 'SubBenefit';
   };
   attributes: {
+    Button: Schema.Attribute.String;
+    button_api: Schema.Attribute.Text;
     content: Schema.Attribute.Text & Schema.Attribute.Required;
     img: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Schema.Attribute.Required;
-    tabname: Schema.Attribute.String;
+    tabname: Schema.Attribute.String & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -241,7 +247,7 @@ export interface SubserviceSubserviceIntroduction
     HowToOrder: Schema.Attribute.Component<'subservice.how-to-order', false>;
     OrderIntro: Schema.Attribute.Component<'order.order-intro', false> &
       Schema.Attribute.Required;
-    rated: Schema.Attribute.Decimal &
+    rated: Schema.Attribute.Float &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<0>;
     SimpleDescription: Schema.Attribute.Text & Schema.Attribute.Required;
@@ -268,7 +274,7 @@ export interface SubserviceTopReviews extends Struct.ComponentSchema {
     header: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'Trusted by 100k+ customers'>;
-    rate: Schema.Attribute.Integer &
+    rate: Schema.Attribute.Float &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<5>;
     review: Schema.Attribute.Component<'subservice.review', true>;

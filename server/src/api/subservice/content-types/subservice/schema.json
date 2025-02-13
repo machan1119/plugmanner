@@ -33,6 +33,10 @@
       "type": "component",
       "repeatable": false,
       "component": "subservice.subservice-introduction"
+    },
+    "type": {
+      "type": "string",
+      "required": true
     }
   }
 }

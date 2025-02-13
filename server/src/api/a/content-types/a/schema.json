@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "as",
+  "info": {
+    "singularName": "a",
+    "pluralName": "as",
+    "displayName": "a"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "aa": {
+      "type": "blocks"
+    },
+    "bb": {
+      "type": "richtext"
+    }
+  }
+}

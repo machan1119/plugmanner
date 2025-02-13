@@ -8,7 +8,7 @@
   "options": {},
   "attributes": {
     "price": {
-      "type": "decimal",
+      "type": "float",
       "required": true,
       "default": 0
     },

@@ -12,7 +12,7 @@
       "required": true
     },
     "rated": {
-      "type": "decimal",
+      "type": "float",
       "required": true,
       "default": 0
     },

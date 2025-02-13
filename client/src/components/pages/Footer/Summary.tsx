@@ -20,6 +20,10 @@ export default function Summary() {
         className="flex p-2.5 items-center justify-start 
       rounded-[8] border-[1px] border-[#ffffff40] border-solid bg-[#ffffff1a] gap-x-2"
       >
+        <span className="relative flex size-3">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-light opacity-75"></span>
+          <span className="relative inline-flex size-3 rounded-full bg-green-light"></span>
+        </span>
         <p>All services are online</p>
       </div>
       <div className="flex flex-col gap-y-4">

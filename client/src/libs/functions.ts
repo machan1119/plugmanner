@@ -18,6 +18,7 @@ export function replace_str(s1: string, s2: string): string {
 export function transformData(input: any): ServiceItemsCurrentType {
   return {
     name: input.name,
+    subname: input.subname,
     type: input.type,
     introduction: {
       SimpleDescription: input.introduction.SimpleDescription,

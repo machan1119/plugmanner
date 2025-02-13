@@ -70,6 +70,7 @@ export interface ServiceItemsType {
 export interface ServiceItemsCurrentType {
   name: string;
   type: string;
+  subname: string;
   introduction: {
     SimpleDescription: string;
     rated: number;

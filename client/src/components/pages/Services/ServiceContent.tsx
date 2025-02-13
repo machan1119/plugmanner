@@ -20,11 +20,11 @@ function ServicesContent() {
       <ServiceReview />
       <ServiceHowTo />
       <ServiceSummary />
+      <ServiceUpBlogs />
       <ServiceBenefit />
       {/* <ServicePowerUp /> */}
       {/* <ServiceVideo /> */}
       {/* <ServiceTip /> */}
-      <ServiceUpBlogs />
       <ServiceCustomerReview />
       <ServiceQuestion />
       <ServiceArticle />

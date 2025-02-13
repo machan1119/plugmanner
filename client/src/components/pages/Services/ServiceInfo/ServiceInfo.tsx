@@ -11,11 +11,11 @@ const ServiceInfo = () => {
   if (!serviceItems?.introduction) return <div className="">no data</div>;
   return (
     <div className="flex flex-col w-full m-auto items-center">
-      <div className="flex gap-20 px-[3%] py-[80px] bg-white m-auto">
+      <div className="flex gap-20 px-[3%] py-[80px] bg-white m-auto max-w-[1366px]">
         <div className="flex flex-col gap-7 w-[50%] text-left grow">
           <h1 className="font-service-main md:font-service-md lg:font-service-lg text-wrap !text-left">
             <span className="text-black">Buy {serviceItems.type} </span>
-            <span className="text-green-light">{serviceItems.name}</span>
+            <span className="text-green-light">{serviceItems.subname}</span>
           </h1>
           <div className="font-service-text text-[20px]">
             {serviceItems.introduction.SimpleDescription}
@@ -81,8 +81,8 @@ const ServiceInfo = () => {
           />
         </div>
       </div>
-      <div className="relative z-10 mt-[-150px] w-full bg-black-light py-[3%] flex flex-col items-center">
-        <div className="max-w-[1366px] w-full flex gap-8 items-center px-10">
+      <div className="z-10 mt-[-150px] w-full bg-black-light py-[3%] flex flex-col items-center">
+        <div className="relative max-w-[1366px] w-full flex gap-8 items-center px-10">
           {serviceItems.introduction.StateOfService.States.map(
             (item, index) => (
               <div key={index} className="text-left">
@@ -95,7 +95,7 @@ const ServiceInfo = () => {
               </div>
             )
           )}
-          <div className="w-[60%] h-[1px] bg-black-normal absolute bottom-0" />
+          <div className="w-full h-[1px] bg-black-normal absolute justify-self-center bottom-[-50px]" />
         </div>
       </div>
     </div>

@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_subservice_sub_benefits",
+  "info": {
+    "displayName": "SubBenefit",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "tabname": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "img": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "content": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

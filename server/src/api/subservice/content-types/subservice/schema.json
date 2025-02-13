@@ -27,6 +27,12 @@
       "type": "integer",
       "required": true,
       "unique": false
+    },
+    "introduction": {
+      "displayName": "subserviceIntroduction",
+      "type": "component",
+      "repeatable": false,
+      "component": "subservice.subservice-introduction"
     }
   }
 }

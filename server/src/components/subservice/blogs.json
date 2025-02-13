@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_subservice_blogs",
+  "info": {
+    "displayName": "Blogs",
+    "icon": "apps",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Blog": {
+      "displayName": "SubBlog",
+      "type": "component",
+      "repeatable": true,
+      "component": "subservice.sub-blog"
+    }
+  }
+}

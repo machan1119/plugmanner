@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_subservice_top_reviews",
+  "info": {
+    "displayName": "TopReviews",
+    "icon": "cloud",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "review": {
+      "displayName": "review",
+      "type": "component",
+      "repeatable": true,
+      "component": "subservice.review"
+    },
+    "header": {
+      "type": "string",
+      "required": true,
+      "default": "Trusted by 100k+ customers"
+    },
+    "rate": {
+      "type": "integer",
+      "required": true,
+      "default": 5
+    }
+  }
+}

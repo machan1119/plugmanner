@@ -487,6 +487,49 @@ export interface ApiSubFreeToolSubFreeTool extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiSubserviceIntroductionSubserviceIntroduction
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'subservice_introductions';
+  info: {
+    description: '';
+    displayName: 'Subservice Introduction';
+    pluralName: 'subservice-introductions';
+    singularName: 'subservice-introduction';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    counterofreviews: Schema.Attribute.BigInteger & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::subservice-introduction.subservice-introduction'
+    > &
+      Schema.Attribute.Private;
+    OOO: Schema.Attribute.DynamicZone<['order.order-intro', 'order.qqq']>;
+    OrderIntro: Schema.Attribute.Component<'order.order-intro', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    rated: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 5;
+          min: 0;
+        },
+        number
+      >;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiSubserviceSubservice extends Struct.CollectionTypeSchema {
   collectionName: 'subservices';
   info: {
@@ -502,6 +545,10 @@ export interface ApiSubserviceSubservice extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    introduction: Schema.Attribute.Component<
+      'subservice.subservice-introduction',
+      false
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1030,6 +1077,7 @@ declare module '@strapi/strapi' {
       'api::free-tool.free-tool': ApiFreeToolFreeTool;
       'api::service.service': ApiServiceService;
       'api::sub-free-tool.sub-free-tool': ApiSubFreeToolSubFreeTool;
+      'api::subservice-introduction.subservice-introduction': ApiSubserviceIntroductionSubserviceIntroduction;
       'api::subservice.subservice': ApiSubserviceSubservice;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

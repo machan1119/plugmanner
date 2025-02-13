@@ -1,0 +1,87 @@
+{
+  "collectionName": "components_subservice_subservice_introductions",
+  "info": {
+    "displayName": "subserviceIntroduction",
+    "icon": "apps",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "SimpleDescription": {
+      "type": "text",
+      "required": true
+    },
+    "rated": {
+      "type": "decimal",
+      "required": true,
+      "default": 0
+    },
+    "CounterOfReviews": {
+      "type": "biginteger",
+      "required": true,
+      "default": "0"
+    },
+    "OrderIntro": {
+      "type": "component",
+      "repeatable": false,
+      "component": "order.order-intro",
+      "required": true
+    },
+    "StateOfService": {
+      "displayName": "StateOfService",
+      "type": "component",
+      "repeatable": false,
+      "component": "subservice.state-of-service"
+    },
+    "TopReviews": {
+      "displayName": "TopReviews",
+      "type": "component",
+      "repeatable": false,
+      "component": "subservice.top-reviews"
+    },
+    "HowToOrder": {
+      "displayName": "HowToOrder",
+      "type": "component",
+      "repeatable": false,
+      "component": "subservice.how-to-order"
+    },
+    "summary": {
+      "displayName": "ServiceSummary",
+      "type": "component",
+      "repeatable": false,
+      "component": "subservice.service-summary",
+      "required": true
+    },
+    "video": {
+      "type": "text"
+    },
+    "UpBlogs": {
+      "displayName": "Blogs",
+      "type": "component",
+      "repeatable": false,
+      "component": "subservice.blogs"
+    },
+    "Benefits": {
+      "type": "component",
+      "repeatable": false,
+      "component": "subservice.benefits"
+    },
+    "DownBlogs": {
+      "type": "component",
+      "repeatable": false,
+      "component": "subservice.blogs"
+    },
+    "CustomerReviews": {
+      "displayName": "CustomerReviews",
+      "type": "component",
+      "repeatable": false,
+      "component": "subservice.customer-reviews"
+    },
+    "FrequentlyQuestions": {
+      "displayName": "FrequentlyQuestions",
+      "type": "component",
+      "repeatable": false,
+      "component": "subservice.frequently-questions"
+    }
+  }
+}

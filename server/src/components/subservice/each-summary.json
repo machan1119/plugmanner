@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_subservice_each_summaries",
+  "info": {
+    "displayName": "EachSummary",
+    "icon": "dashboard"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_article_chapters",
+  "info": {
+    "displayName": "chapter",
+    "icon": "store"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "text",
+      "required": false
+    },
+    "img": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "section": {
+      "type": "component",
+      "repeatable": true,
+      "component": "article.section"
+    }
+  }
+}

@@ -1,5 +1,32 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface ArticleChapter extends Struct.ComponentSchema {
+  collectionName: 'components_article_chapters';
+  info: {
+    displayName: 'chapter';
+    icon: 'store';
+  };
+  attributes: {
+    content: Schema.Attribute.Text;
+    img: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    section: Schema.Attribute.Component<'article.section', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface ArticleSection extends Struct.ComponentSchema {
+  collectionName: 'components_article_sections';
+  info: {
+    displayName: 'section';
+    icon: 'bulletList';
+  };
+  attributes: {
+    content: Schema.Attribute.Text;
+    img: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface GeneralParameter extends Struct.ComponentSchema {
   collectionName: 'components_general_parameters';
   info: {
@@ -284,6 +311,8 @@ export interface SubserviceTopReviews extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'article.chapter': ArticleChapter;
+      'article.section': ArticleSection;
       'general.parameter': GeneralParameter;
       'order.order-intro': OrderOrderIntro;
       'order.qqq': OrderQqq;

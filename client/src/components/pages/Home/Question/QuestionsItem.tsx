@@ -13,7 +13,7 @@ const QuestionsItem = ({ item }: { item: QuestionsItemType }) => {
     >
       <div className="flex justify-between items-center">
         <span className="text-black text-[16px] md:text-[20px] font-semibold font-clash">
-          {item.title}
+          {item.question}
         </span>
         <button className="rounded-[4px] bg-white border-[1px] border-[rgb(224,_224,_224)] p-2">
           <Image

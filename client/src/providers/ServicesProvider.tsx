@@ -1,10 +1,10 @@
 "use client";
-import { ServiceItems } from "@/libs/data/Services";
-import { ServiceItemsType } from "@/libs/types/ServicesTypes";
+import { transformData } from "@/libs/functions";
+import { ServiceItemsCurrentType } from "@/libs/types/ServicesTypes";
 import React, { createContext, useContext, useState, useEffect } from "react";
 
 interface ServicesContextType {
-  serviceItems: ServiceItemsType | null;
+  serviceItems: ServiceItemsCurrentType | null;
   isLoading: boolean;
 }
 
@@ -22,33 +22,32 @@ export const ServicesProvider: React.FC<ServicesProviderProps> = ({
   item,
   children,
 }) => {
-  const [serviceItems, setServiceItems] = useState<ServiceItemsType | null>(
-    null
-  );
+  const [serviceItems, setServiceItems] =
+    useState<ServiceItemsCurrentType | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // const fetchData = async () => {
-    //   setIsLoading(true);
-    //   try {
-    //     const response = await fetch(
-    //       `${process.env.BACKEND_URL}/services/${item}`
-    //     );
-    //     console.log(response);
-    //     if (!response.ok) {
-    //       throw new Error(`HTTP error! status: ${response.status}`);
-    //     }
-    //     const data: ServiceItemsType = await response.json();
-    //     setServiceItems(data);
-    //   } finally {
-    //     setIsLoading(false);
-    //   }
-    // };
-    // fetchData();
+    const fetchData = async () => {
+      setIsLoading(true);
+      try {
+        const response = await fetch(
+          `${process.env.BACKEND_URL}/api/subservices/${item}?populate[0]=introduction&populate[1]=introduction.OrderIntro.sentence&populate[2]=introduction.StateOfService.States&populate[3]=introduction.TopReviews.review&populate[4]=introduction.HowToOrder.step&populate[5]=introduction.Summary.EachSummary.icon&populate[6]=introduction.UpBlogs.Blog.img&populate[7]=introduction.Benefits.Benefit.img&populate[8]=introduction.UpBlogs.Blog.img&populate[9]=introduction.CustomerReviews.Review&populate[10]=article.main_img&populate[11]=introduction.FrequentlyQuestions.Question`
+        );
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const fetchedData = await response.json();
+        const data: ServiceItemsCurrentType = transformData(fetchedData);
 
-    setServiceItems(ServiceItems); //just for development
-    setIsLoading(false); //just for development
-    console.log(serviceItems);
+        setServiceItems(data);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchData();
+
+    // setServiceItems(ServiceItems); //just for development
+    // setIsLoading(false); //just for development
   }, [item]);
 
   const contextValue: ServicesContextType = {

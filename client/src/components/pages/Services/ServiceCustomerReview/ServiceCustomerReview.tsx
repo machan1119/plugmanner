@@ -5,7 +5,7 @@ import ReviewItem from "../ServiceReview/ReviewItem";
 import MainButton from "@/components/Buttons";
 
 const ServiceCustomerReview = () => {
-  const { serviceItems, isLoading } = useServices();
+  const { serviceItems } = useServices();
   const [readHeight, setReadHeight] = useState<number | undefined>(400);
   const [maxHeight, setMaxHeight] = useState<number | undefined>(0);
   const readRef = useRef<HTMLDivElement>(null);
@@ -15,9 +15,7 @@ const ServiceCustomerReview = () => {
     setReadHeight(readRef?.current?.clientHeight);
     setMaxHeight(maxRef?.current?.clientHeight);
   });
-
-  console.log(readHeight);
-  if (!serviceItems?.customerReview) return <div className="">no data</div>;
+  if (!serviceItems?.introduction) return <div className="">no data</div>;
   return (
     <div className="py-[80px] flex flex-col items-center px-10 border-b-[1px] border-black-normal">
       <div className="max-w-[1366px] flex flex-col gap-7 w-full items-center mb-8">
@@ -40,9 +38,11 @@ const ServiceCustomerReview = () => {
             <span className="font-clash text-[#686889] text-[16px] leading-[25px] font-medium">
               Rated{" "}
               <span className="text-green-light font-semibold">
-                {serviceItems.info.rate}/5
+                {serviceItems.introduction.CustomerReviews.rate}/5
               </span>{" "}
-              from over {serviceItems.info.reviews}reviews
+              from over{" "}
+              {serviceItems.introduction.CustomerReviews.counterofreviews}
+              reviews
             </span>
           </div>
         </div>
@@ -52,15 +52,17 @@ const ServiceCustomerReview = () => {
           style={{ height: readHeight }}
         >
           <div className="w-full columns-[300px] gap-5 h-max" ref={maxRef}>
-            {serviceItems.customerReview.map((item, index) => (
-              <ReviewItem
-                title={item.title}
-                comment={item.comment}
-                customerName={item.customerName}
-                date={item.date}
-                key={index}
-              />
-            ))}
+            {serviceItems.introduction.CustomerReviews.Review.map(
+              (item, index) => (
+                <ReviewItem
+                  title={item.title}
+                  comment={item.content}
+                  customerName={item.customer}
+                  date={item.date}
+                  key={index}
+                />
+              )
+            )}
             <div className="absolute z-[50] bg-[linear-gradient(rgb(0,0,0,0),rgb(255,255,255))] h-[200px] w-full bottom-0 left-0" />
           </div>
         </div>

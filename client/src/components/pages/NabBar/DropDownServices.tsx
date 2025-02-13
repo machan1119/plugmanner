@@ -1,4 +1,4 @@
-import { replace_str, slugify } from "@/libs/functions";
+import { replace_str } from "@/libs/functions";
 import { ServicesType } from "@/libs/types/DataTypes";
 import Image from "next/image";
 import Link from "next/link";
@@ -38,9 +38,10 @@ const DropDownServices = ({ item }: { item: ServicesType }) => {
               <div className="w-full h-[1px] bg-gray-500" />
               {val.services.map((dataItem, key) => (
                 <Link
-                  href={`/services/${slugify(val.title)}/${slugify(
-                    replace_str(dataItem, val.title)
-                  )}`}
+                  // href={`/services/${slugify(val.title)}/${slugify(
+                  //   replace_str(dataItem.name, val.title)
+                  // )}`}
+                  href={`/services/${dataItem.id}`}
                   className="flex gap-2 mt-2 text-[16px] hover:text-green-light items-center"
                   key={key}
                 >
@@ -52,7 +53,7 @@ const DropDownServices = ({ item }: { item: ServicesType }) => {
                     className="w-5 h-5"
                   />
                   <span className="text-nowrap">
-                    {replace_str(dataItem, val.title)}
+                    {replace_str(dataItem.name, val.title)}
                   </span>
                 </Link>
               ))}

@@ -11,7 +11,7 @@ interface ReviewItemType {
 const ReviewItem = ({ title, comment, customerName, date }: ReviewItemType) => {
   return (
     <div className="mb-5 flex flex-col gap-2 p-6 bg-white grow rounded-xl border border-[#e2e2e2] break-inside-avoid">
-      <h1 className="font-h1 !text-left !leading-5">"</h1>
+      <h1 className="font-h1 !text-left !leading-5">&#34;</h1>
       <h2 className="font-h2">{title}</h2>
       <Image
         width={144}

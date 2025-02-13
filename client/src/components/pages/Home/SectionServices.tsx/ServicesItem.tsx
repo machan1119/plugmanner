@@ -47,7 +47,7 @@ const ServicesItem = ({ serviceData }: { serviceData: ServicesDataType }) => {
               className="p-2 bg-white rounded-md flex items-center justify-center text-center"
               key={index}
             >
-              {serviceItem}
+              {serviceItem.name}
             </div>
           ))}
         </div>

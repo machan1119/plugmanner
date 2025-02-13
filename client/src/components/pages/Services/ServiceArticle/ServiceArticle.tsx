@@ -7,11 +7,12 @@ import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 const ServiceArticle = () => {
-  const { serviceItems, isLoading } = useServices();
-  if (!serviceItems?.article) return <div className="">no data</div>;
+  const { serviceItems } = useServices();
+  if (!serviceItems?.introduction) return <div className="">no data</div>;
+  console.log(serviceItems.article);
   return (
     <div className="flex flex-col py-[80px] items-center bg-white w-full border-b-[1px] border-black-normal">
-      <div className="max-w-[1366px] justify-self-center px-10">
+      <div className="max-w-[1366px] w-full justify-self-center px-10">
         <div className="font-h1-md lg:font-h1-lg mb-12">Related Articles</div>
         <div className="border-white size-full">
           <Swiper
@@ -33,7 +34,7 @@ const ServiceArticle = () => {
             breakpoints={{
               640: {
                 slidesPerView: 2,
-                spaceBetween: 15,
+                spaceBetween: 2,
               },
               1024: {
                 slidesPerView: 3,
@@ -44,11 +45,11 @@ const ServiceArticle = () => {
           >
             {serviceItems.article.map((item, index) => (
               <SwiperSlide key={index}>
-                <div className="flex flex-col justify-between bg-white rounded-lg p-5 items-center">
+                <div className="justify-self-center flex flex-col justify-between bg-white rounded-lg p-5 items-center">
                   <Image
                     width={365}
                     height={242}
-                    src={item.icon}
+                    src={`${process.env.BACKEND_URL}${item.main_img.url}`}
                     alt={item.title}
                     className="justify-self-center w-[365px] h-[242px] rounded-lg"
                   />

@@ -4,19 +4,20 @@ import Image from "next/image";
 import React from "react";
 
 const ServiceHowTo = () => {
-  const { serviceItems, isLoading } = useServices();
-  if (!serviceItems?.howTo) return <div className="">no data</div>;
+  const { serviceItems } = useServices();
+  if (!serviceItems?.introduction) return <div className="">no data</div>;
   return (
     <div className="w-full py-[80px] bg-black-light flex flex-col items-center border-b-[1px] border-black-normal">
       <div className="max-w-[1366px] w-full flex flex-col items-center px-10">
         <h1 className="font-h1 w-[50%] text-wrap">
-          {serviceItems.howTo.title}
+          How to <span className="!text-green-light">order?</span>
         </h1>
         <p className="font-service-text text-[18px] my-5">
-          {serviceItems.howTo.description}
+          Follow the 3 step process & get your post views delivered to your
+          Telegram Channel.
         </p>
         <div className="relative w-full grid grid-cols-3 items-center my-5">
-          {serviceItems.howTo.steps.map((item, index) => (
+          {serviceItems.introduction.HowToOrder.step.map((item, index) => (
             <div
               className="flex flex-col items-center gap-5 h-full text-center"
               key={index}
@@ -24,7 +25,7 @@ const ServiceHowTo = () => {
               <div className="flex items-center justify-center bg-black text-white border border-black rounded-md w-[50px] h-[50px] text-xl font-semibold leading-7">
                 {index + 1}
               </div>
-              <h2 className="font-h2">{item.name}</h2>
+              <h2 className="font-h2">{item.simple}</h2>
               <p className="font-service-text">{item.detail}</p>
             </div>
           ))}

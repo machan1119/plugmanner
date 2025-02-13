@@ -35,7 +35,10 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({
             {
               title: item.type,
               icon: item.icon.url,
-              services: item.subservices.map((subservice) => subservice.name),
+              services: item.subservices.map((subservice) => ({
+                name: subservice.name,
+                id: subservice.documentId,
+              })),
             },
           ],
         }));

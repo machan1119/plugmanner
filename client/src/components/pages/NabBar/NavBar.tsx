@@ -1,5 +1,5 @@
 "use client";
-import React, { Suspense } from "react";
+import React from "react";
 import NavBarMain from "./NavBarMain";
 import NavBarBottom from "./NavBarBottom";
 import NavBarTop from "./NavBarTop";

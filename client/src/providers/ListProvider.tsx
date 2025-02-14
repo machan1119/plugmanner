@@ -1,34 +1,63 @@
 "use client";
-import React, { createContext, useContext, useState, useEffect } from "react";
-import { RawData, ServicesType } from "@/libs/types/DataTypes";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useCallback,
+} from "react";
+import { RawData, ServicesType } from "@/libs/types/ListTypes";
+import { fetchAPI } from "@/utils/fetch-api";
 
-interface DataContextProps {
-  data: ServicesType[];
+interface ListContextProps {
+  list: ServicesType[];
   isLoading: boolean;
 }
 
-const DataContext = createContext<DataContextProps>({
-  data: [],
+interface Meta {
+  pagination: {
+    start: number;
+    limit: number;
+    total: number;
+  };
+}
+
+const ListContext = createContext<ListContextProps>({
+  list: [],
   isLoading: true,
 });
 
-export const useData = () => useContext(DataContext);
+export const useList = () => useContext(ListContext);
 
-export const DataProvider: React.FC<{ children: React.ReactNode }> = ({
+export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [data, setData] = useState<ServicesType[]>([]);
+  const [meta, setMeta] = useState<Meta | null>(null);
+  const [list, setList] = useState<ServicesType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchData = async () => {
+  const fetchData = useCallback(
+    async (start: number, limit: number) => {
       try {
-        const res = await fetch(
-          `${process.env.BACKEND_URL}/api/services?populate=*&pagination[pageSize]=200`
-        );
-        const jsonData = await res.json();
-        // console.log(jsonData);
-        const rawData: RawData[] = jsonData.data;
+        // const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
+        // const options = { headers: { Authorization: `Bearer ${token}` } };
+
+        const path = "/services";
+        const urlParamsObject = {
+          sort: { createdAt: "asc" },
+          populate: "*",
+          pagination: {
+            start: start,
+            limit: limit,
+          },
+        };
+        const options = "";
+        const responseData = await fetchAPI(path, urlParamsObject, options);
+        if (!meta?.pagination) {
+          setMeta(responseData.meta);
+        }
+        console.log(responseData);
+        const rawData: RawData[] = responseData.data;
         const filteredData: ServicesType[] = rawData.map((item) => ({
           type: item.type,
           data: [
@@ -45,10 +74,8 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({
         const servicesList: ServicesType[] = [];
         filteredData.forEach((item) => {
           if (!item.data) return;
-
           const { type } = item;
           const dataItem = item.data[0];
-
           const getIndexByType = (type: string): number => {
             switch (type) {
               case "Twitter":
@@ -75,11 +102,8 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({
                 return -1; // Not a base type, handle later
             }
           };
-
           const baseIndex = getIndexByType(type);
-
           if (baseIndex !== -1) {
-            // Base type: Create or overwrite
             const newType =
               type === "Tools"
                 ? "FreeTools"
@@ -121,18 +145,27 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({
             }
           }
         });
-        setData(servicesList);
+        setList(servicesList);
+      } catch (error) {
+        console.error(error);
       } finally {
         setIsLoading(false);
       }
-    };
-    fetchData();
-  }, []);
+    },
+    [meta]
+  );
 
-  const value: DataContextProps = {
-    data,
+  useEffect(() => {
+    if (meta?.pagination) fetchData(0, meta!.pagination.total);
+    else {
+      fetchData(0, 1);
+    }
+  }, [fetchData, meta]);
+
+  const value: ListContextProps = {
+    list,
     isLoading,
   };
 
-  return <DataContext.Provider value={value}>{children}</DataContext.Provider>;
+  return <ListContext.Provider value={value}>{children}</ListContext.Provider>;
 };

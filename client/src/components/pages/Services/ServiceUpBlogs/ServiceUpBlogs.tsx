@@ -19,7 +19,7 @@ const ServiceUpBlogs = () => {
               width={500}
               height={500}
               alt={item.title}
-              src={`${process.env.BACKEND_URL}${item.img.url}`}
+              src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${item.img.url}`}
               className=""
             />
             <div className="flex flex-col gap-5">

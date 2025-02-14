@@ -40,7 +40,7 @@ const ServiceBenefit = () => {
               alt={
                 serviceItems.introduction.Benefits.Benefit[currentStep].title
               }
-              src={`${process.env.BACKEND_URL}${serviceItems.introduction.Benefits.Benefit[currentStep].img.url}`}
+              src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${serviceItems.introduction.Benefits.Benefit[currentStep].img.url}`}
               className=""
             />
             <div className="flex flex-col gap-5">

@@ -47,12 +47,6 @@
     "subname": {
       "type": "string",
       "required": true
-    },
-    "ChoosePackage": {
-      "displayName": "ChoosePackage",
-      "type": "component",
-      "repeatable": false,
-      "component": "subservice.choose-package"
     }
   }
 }

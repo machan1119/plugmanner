@@ -82,6 +82,11 @@
       "type": "component",
       "repeatable": false,
       "component": "subservice.frequently-questions"
+    },
+    "ChoosePackage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "subservice.choose-package"
     }
   }
 }

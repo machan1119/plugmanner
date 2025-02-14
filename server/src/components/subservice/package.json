@@ -2,15 +2,13 @@
   "collectionName": "components_subservice_packages",
   "info": {
     "displayName": "package",
-    "icon": "bulletList"
+    "icon": "bulletList",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "level": {
       "type": "string"
-    },
-    "price": {
-      "type": "float"
     },
     "unit": {
       "type": "string"
@@ -20,6 +18,13 @@
       "type": "component",
       "repeatable": true,
       "component": "general.sentence"
+    },
+    "popular": {
+      "type": "boolean",
+      "default": false
+    },
+    "price": {
+      "type": "string"
     }
   }
 }

@@ -233,13 +233,15 @@ export interface SubserviceHowToOrderStep extends Struct.ComponentSchema {
 export interface SubservicePackage extends Struct.ComponentSchema {
   collectionName: 'components_subservice_packages';
   info: {
+    description: '';
     displayName: 'package';
     icon: 'bulletList';
   };
   attributes: {
     level: Schema.Attribute.String;
     list: Schema.Attribute.Component<'general.sentence', true>;
-    price: Schema.Attribute.Float;
+    popular: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    price: Schema.Attribute.String;
     unit: Schema.Attribute.String;
   };
 }
@@ -340,6 +342,10 @@ export interface SubserviceSubserviceIntroduction
   };
   attributes: {
     Benefits: Schema.Attribute.Component<'subservice.benefits', false>;
+    ChoosePackage: Schema.Attribute.Component<
+      'subservice.choose-package',
+      false
+    >;
     CounterOfReviews: Schema.Attribute.BigInteger &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'0'>;

@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 const ServiceArticle = () => {
   const { serviceItems } = useServices();
-  if (!serviceItems?.introduction) return <div className="">no data</div>;
+  if (!serviceItems?.introduction) return "";
   console.log(serviceItems.article);
   return (
     <div className="flex flex-col py-[80px] items-center bg-white w-full border-b-[1px] border-black-normal">

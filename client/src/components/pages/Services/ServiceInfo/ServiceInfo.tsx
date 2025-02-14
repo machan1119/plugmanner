@@ -6,7 +6,7 @@ import ServiceAdvantage from "./ServiceAdvantage";
 
 const ServiceInfo = () => {
   const { serviceItems } = useServices();
-  if (!serviceItems?.introduction) return <div className="">no data</div>;
+  if (!serviceItems?.introduction) return "";
   return (
     <div className="flex flex-col w-full m-auto items-center">
       <div className="flex gap-20 px-[3%] py-[80px] bg-white m-auto max-w-[1366px]">

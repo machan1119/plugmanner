@@ -6,7 +6,7 @@ import MainButton from "@/components/Buttons";
 
 const ServiceReview = () => {
   const { serviceItems } = useServices();
-  if (!serviceItems?.introduction) return <div className="">no data</div>;
+  if (!serviceItems?.introduction) return "";
   return (
     <div className="w-full py-[80px] bg-black-light flex flex-col items-center border-b-[1px] border-black-normal">
       <div className="max-w-[1366px] w-full flex flex-col gap-10 items-center px-10">

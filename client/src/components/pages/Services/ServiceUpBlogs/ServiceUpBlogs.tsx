@@ -4,7 +4,7 @@ import React from "react";
 
 const ServiceUpBlogs = () => {
   const { serviceItems } = useServices();
-  if (!serviceItems?.introduction) return <div className="">no data</div>;
+  if (!serviceItems?.introduction) return "";
   return (
     <div className="w-full py-[80px] border-b-[1px] border-black-normal">
       <div className="flex flex-col gap-20 max-w-[1366px] justify-self-center px-10">

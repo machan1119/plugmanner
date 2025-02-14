@@ -13,8 +13,12 @@ import SectionServices from "../Home/SectionServices.tsx/SectionServices";
 import ServiceSummary from "./ServiceSummary/ServiceSummary";
 import ServiceUpBlogs from "./ServiceUpBlogs/ServiceUpBlogs";
 import ServiceVideo from "./ServiceVideo/ServiceVideo";
+import { useServices } from "@/providers/ServicesProvider";
+import { ServicePageSkeleton } from "@/components/Skeletons";
 
 function ServicesContent() {
+  const { isLoading } = useServices();
+  if (isLoading) return <ServicePageSkeleton />;
   return (
     <>
       <ServiceInfo />

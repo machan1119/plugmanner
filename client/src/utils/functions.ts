@@ -9,8 +9,8 @@ import {
   Review,
   StateItem,
   SummaryItem,
-} from "./types/JsonDataType";
-import { ServiceItemsCurrentType } from "./types/ServicesTypes";
+} from "../libs/types/JsonDataType";
+import { ServiceItemsCurrentType } from "../libs/types/ServicesTypes";
 
 export function slugify(str: string): string {
   return str

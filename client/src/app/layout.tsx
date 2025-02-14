@@ -6,7 +6,7 @@ import "./css/animation.css";
 import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/navigation";
-import { DataProvider } from "@/providers/DataProvider";
+import { ListProvider } from "@/providers/ListProvider";
 import HomeProvider from "@/providers/HomeProvider";
 import NavBar from "@/components/pages/NabBar/NavBar";
 import Footer from "@/components/pages/Footer/Footer";
@@ -36,11 +36,11 @@ export default async function RootLayout({
       <body className={`antialiased`}>
         {/* <SessionProvider>{children}</SessionProvider> */}
         <HomeProvider>
-          <DataProvider>
+          <ListProvider>
             <NavBar />
             <MainLayout>{children}</MainLayout>
             <Footer />
-          </DataProvider>
+          </ListProvider>
         </HomeProvider>
       </body>
     </html>

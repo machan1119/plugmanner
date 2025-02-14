@@ -1,17 +1,17 @@
 import React from "react";
 import DropDownServices from "./DropDownServices";
-import { useData } from "@/providers/DataProvider";
+import { useList } from "@/providers/ListProvider";
 import { ServiceListSkeleton } from "@/components/Skeletons";
 
 const NavBarBottom = () => {
-  const { data, isLoading } = useData();
+  const { list, isLoading } = useList();
   if (isLoading) {
     return <ServiceListSkeleton />;
   }
   return (
     <div className="bg-black-light border-y border-black-dark py-1 w-full">
       <div className="flex flex-col lg:flex-row lg:justify-between justify-self-center w-[65%]">
-        {data.map((val, index) => (
+        {list.map((val, index) => (
           <DropDownServices key={index} item={val} />
         ))}
       </div>

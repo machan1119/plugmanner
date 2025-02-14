@@ -3,7 +3,7 @@ import React from "react";
 
 const ServicePowerUp = () => {
   const { serviceItems } = useServices();
-  if (!serviceItems?.introduction) return <div className="">no data</div>;
+  if (!serviceItems?.introduction) return "";
   return <div>ServicePowerUp</div>;
 };
 

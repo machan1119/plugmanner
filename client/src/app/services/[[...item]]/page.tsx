@@ -1,5 +1,5 @@
 import ServicesContent from "@/components/pages/Services/ServiceContent";
-import { slugify_reverse } from "@/libs/functions";
+import { slugify_reverse } from "@/utils/functions";
 import { ServicesProvider } from "@/providers/ServicesProvider";
 
 export default async function ServicesPage({

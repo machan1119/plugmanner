@@ -182,3 +182,18 @@ export const DropIcon = (
     </g>
   </svg>
 );
+
+export const StarIcon = (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M11.9999 15.8196L7.5098 18.562L8.73049 13.4439L4.73535 10.0217L9.97945 9.60156L11.9999 4.74323L14.0204 9.60156L19.2653 10.0217L15.2694 13.4439L16.4901 18.562L11.9999 15.8196Z"
+      fill="CurrentColor"
+    ></path>
+  </svg>
+);

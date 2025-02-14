@@ -1,5 +1,5 @@
 "use client";
-import { transformData } from "@/libs/functions";
+import { transformData } from "@/utils/functions";
 import { ServiceItemsCurrentType } from "@/libs/types/ServicesTypes";
 import React, { createContext, useContext, useState, useEffect } from "react";
 
@@ -31,7 +31,7 @@ export const ServicesProvider: React.FC<ServicesProviderProps> = ({
       setIsLoading(true);
       try {
         const response = await fetch(
-          `${process.env.BACKEND_URL}/api/subservices/${item}?populate[0]=introduction&populate[1]=introduction.OrderIntro.sentence&populate[2]=introduction.StateOfService.States&populate[3]=introduction.TopReviews.review&populate[4]=introduction.HowToOrder.step&populate[5]=introduction.Summary.EachSummary.icon&populate[6]=introduction.UpBlogs.Blog.img&populate[7]=introduction.Benefits.Benefit.img&populate[8]=introduction.UpBlogs.Blog.img&populate[9]=introduction.CustomerReviews.Review&populate[10]=article.main_img&populate[11]=introduction.FrequentlyQuestions.Question`
+          `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/subservices/${item}?populate[0]=introduction&populate[1]=introduction.OrderIntro.sentence&populate[2]=introduction.StateOfService.States&populate[3]=introduction.TopReviews.review&populate[4]=introduction.HowToOrder.step&populate[5]=introduction.Summary.EachSummary.icon&populate[6]=introduction.UpBlogs.Blog.img&populate[7]=introduction.Benefits.Benefit.img&populate[8]=introduction.UpBlogs.Blog.img&populate[9]=introduction.CustomerReviews.Review&populate[10]=article.main_img&populate[11]=introduction.FrequentlyQuestions.Question`
         );
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -45,9 +45,6 @@ export const ServicesProvider: React.FC<ServicesProviderProps> = ({
       }
     };
     fetchData();
-
-    // setServiceItems(ServiceItems); //just for development
-    // setIsLoading(false); //just for development
   }, [item]);
 
   const contextValue: ServicesContextType = {

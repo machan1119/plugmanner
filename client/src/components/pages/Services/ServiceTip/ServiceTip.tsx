@@ -3,7 +3,7 @@ import React from "react";
 
 const ServiceTip = () => {
   const { serviceItems } = useServices();
-  if (!serviceItems?.introduction) return <div className="">no data</div>;
+  if (!serviceItems?.introduction) return "";
   return <div>ServiceTip</div>;
 };
 

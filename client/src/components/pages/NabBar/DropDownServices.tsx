@@ -1,5 +1,5 @@
-import { replace_str } from "@/libs/functions";
-import { ServicesType } from "@/libs/types/DataTypes";
+import { replace_str } from "@/utils/functions";
+import { ServicesType } from "@/libs/types/ListTypes";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -9,7 +9,7 @@ const DropDownServices = ({ item }: { item: ServicesType }) => {
     <div className="inline-block group relative border-b-[1px] lg:border-none border-black-dark">
       <div className="flex gap-1 items-center cursor-pointer py-4 font-normal text-base font-satoshi">
         <Image
-          src={`${process.env.BACKEND_URL}${item.data[0].icon}`}
+          src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${item.data[0].icon}`}
           width={30}
           height={30}
           alt={item.type}
@@ -46,7 +46,7 @@ const DropDownServices = ({ item }: { item: ServicesType }) => {
                   key={key}
                 >
                   <Image
-                    src={`${process.env.BACKEND_URL}${val.icon}`}
+                    src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${val.icon}`}
                     width={20}
                     height={20}
                     alt={val.title}

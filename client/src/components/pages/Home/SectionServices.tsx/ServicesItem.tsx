@@ -1,7 +1,8 @@
 "use client";
 
-import { ServicesDataType } from "@/libs/types/DataTypes";
+import { ServicesDataType } from "@/libs/types/ListTypes";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useState } from "react";
 
 const ServicesItem = ({ serviceData }: { serviceData: ServicesDataType }) => {
@@ -14,7 +15,7 @@ const ServicesItem = ({ serviceData }: { serviceData: ServicesDataType }) => {
           <Image
             width={40}
             height={40}
-            src={`${process.env.BACKEND_URL}${serviceData.icon}`}
+            src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${serviceData.icon}`}
             alt={serviceData.title}
             className="lg:size-10 size-8"
           />
@@ -43,12 +44,13 @@ const ServicesItem = ({ serviceData }: { serviceData: ServicesDataType }) => {
         <div className="mt-5" />
         <div className="grid grid-cols-2 gap-2">
           {serviceData.services.map((serviceItem, index) => (
-            <div
+            <Link
               className="p-2 bg-white rounded-md flex items-center justify-center text-center"
+              href={`/services/${serviceItem.id}`}
               key={index}
             >
               {serviceItem.name}
-            </div>
+            </Link>
           ))}
         </div>
       </div>

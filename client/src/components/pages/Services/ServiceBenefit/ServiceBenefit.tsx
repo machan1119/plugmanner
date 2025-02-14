@@ -5,7 +5,7 @@ import React, { useState } from "react";
 const ServiceBenefit = () => {
   const { serviceItems } = useServices();
   const [currentStep, setCurrentStep] = useState(0);
-  if (!serviceItems?.introduction) return <div className="">no data</div>;
+  if (!serviceItems?.introduction) return "";
   return (
     <div className="w-full py-[80px] bg-[#14141b] bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/64030a7b422e3a3f6bb5ed7f_Vector-dark-bg.svg')] bg-right-bottom bg-no-repeat bg-auto">
       <div className="max-w-[1366px] justify-self-center px-10">
@@ -40,7 +40,7 @@ const ServiceBenefit = () => {
               alt={
                 serviceItems.introduction.Benefits.Benefit[currentStep].title
               }
-              src={`${process.env.BACKEND_URL}${serviceItems.introduction.Benefits.Benefit[currentStep].img.url}`}
+              src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${serviceItems.introduction.Benefits.Benefit[currentStep].img.url}`}
               className=""
             />
             <div className="flex flex-col gap-5">

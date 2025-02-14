@@ -54,6 +54,17 @@ export interface GeneralParameter extends Struct.ComponentSchema {
   };
 }
 
+export interface GeneralSentence extends Struct.ComponentSchema {
+  collectionName: 'components_general_sentences';
+  info: {
+    displayName: 'sentence';
+    icon: 'bulletList';
+  };
+  attributes: {
+    content: Schema.Attribute.String;
+  };
+}
+
 export interface GeneralSocialLink extends Struct.ComponentSchema {
   collectionName: 'components_general_social_links';
   info: {
@@ -135,6 +146,17 @@ export interface SubserviceBlogs extends Struct.ComponentSchema {
   };
 }
 
+export interface SubserviceChoosePackage extends Struct.ComponentSchema {
+  collectionName: 'components_subservice_choose_packages';
+  info: {
+    displayName: 'ChoosePackage';
+    icon: 'heart';
+  };
+  attributes: {
+    package: Schema.Attribute.Component<'subservice.package', true>;
+  };
+}
+
 export interface SubserviceCustomerReviews extends Struct.ComponentSchema {
   collectionName: 'components_subservice_customer_reviews';
   info: {
@@ -205,6 +227,20 @@ export interface SubserviceHowToOrderStep extends Struct.ComponentSchema {
   attributes: {
     detail: Schema.Attribute.Text;
     simple: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SubservicePackage extends Struct.ComponentSchema {
+  collectionName: 'components_subservice_packages';
+  info: {
+    displayName: 'package';
+    icon: 'bulletList';
+  };
+  attributes: {
+    level: Schema.Attribute.String;
+    list: Schema.Attribute.Component<'general.sentence', true>;
+    price: Schema.Attribute.Float;
+    unit: Schema.Attribute.String;
   };
 }
 
@@ -360,17 +396,20 @@ declare module '@strapi/strapi' {
       'article.chapter': ArticleChapter;
       'article.section': ArticleSection;
       'general.parameter': GeneralParameter;
+      'general.sentence': GeneralSentence;
       'general.social-link': GeneralSocialLink;
       'order.order-intro': OrderOrderIntro;
       'order.qqq': OrderQqq;
       'social-contact.social-linkedin': SocialContactSocialLinkedin;
       'subservice.benefits': SubserviceBenefits;
       'subservice.blogs': SubserviceBlogs;
+      'subservice.choose-package': SubserviceChoosePackage;
       'subservice.customer-reviews': SubserviceCustomerReviews;
       'subservice.each-summary': SubserviceEachSummary;
       'subservice.frequently-questions': SubserviceFrequentlyQuestions;
       'subservice.how-to-order': SubserviceHowToOrder;
       'subservice.how-to-order-step': SubserviceHowToOrderStep;
+      'subservice.package': SubservicePackage;
       'subservice.question': SubserviceQuestion;
       'subservice.review': SubserviceReview;
       'subservice.service-summary': SubserviceServiceSummary;

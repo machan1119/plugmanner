@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_subservice_choose_packages",
+  "info": {
+    "displayName": "ChoosePackage",
+    "icon": "heart"
+  },
+  "options": {},
+  "attributes": {
+    "package": {
+      "displayName": "package",
+      "type": "component",
+      "repeatable": true,
+      "component": "subservice.package"
+    }
+  }
+}

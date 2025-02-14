@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-02-13T20:57:36.352Z"
+    "x-generation-date": "2025-02-14T10:23:59.959Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -6444,6 +6444,9 @@
                       "subname": {
                         "type": "string"
                       },
+                      "ChoosePackage": {
+                        "$ref": "#/components/schemas/SubserviceChoosePackageComponent"
+                      },
                       "createdAt": {
                         "type": "string",
                         "format": "date-time"
@@ -7964,6 +7967,55 @@
           },
           "FrequentlyQuestions": {
             "$ref": "#/components/schemas/SubserviceFrequentlyQuestionsComponent"
+          }
+        }
+      },
+      "GeneralSentenceComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "content": {
+            "type": "string"
+          }
+        }
+      },
+      "SubservicePackageComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "level": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number",
+            "format": "float"
+          },
+          "unit": {
+            "type": "string"
+          },
+          "list": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GeneralSentenceComponent"
+            }
+          }
+        }
+      },
+      "SubserviceChoosePackageComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "package": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SubservicePackageComponent"
+            }
           }
         }
       },
@@ -10505,6 +10557,9 @@
                 "subname": {
                   "type": "string"
                 },
+                "ChoosePackage": {
+                  "$ref": "#/components/schemas/SubserviceChoosePackageComponent"
+                },
                 "createdAt": {
                   "type": "string",
                   "format": "date-time"
@@ -11888,6 +11943,9 @@
               "subname": {
                 "type": "string"
               },
+              "ChoosePackage": {
+                "$ref": "#/components/schemas/SubserviceChoosePackageComponent"
+              },
               "locale": {
                 "type": "string"
               },
@@ -12985,6 +13043,9 @@
                     "subname": {
                       "type": "string"
                     },
+                    "ChoosePackage": {
+                      "$ref": "#/components/schemas/SubserviceChoosePackageComponent"
+                    },
                     "createdAt": {
                       "type": "string",
                       "format": "date-time"
@@ -13134,6 +13195,9 @@
           },
           "subname": {
             "type": "string"
+          },
+          "ChoosePackage": {
+            "$ref": "#/components/schemas/SubserviceChoosePackageComponent"
           },
           "createdAt": {
             "type": "string",

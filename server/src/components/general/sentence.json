@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_general_sentences",
+  "info": {
+    "displayName": "sentence",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "string"
+    }
+  }
+}

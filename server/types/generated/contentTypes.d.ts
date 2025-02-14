@@ -572,6 +572,10 @@ export interface ApiSubserviceSubservice extends Struct.CollectionTypeSchema {
   };
   attributes: {
     article: Schema.Attribute.Relation<'manyToMany', 'api::article.article'>;
+    ChoosePackage: Schema.Attribute.Component<
+      'subservice.choose-package',
+      false
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_subservice_packages",
+  "info": {
+    "displayName": "package",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "level": {
+      "type": "string"
+    },
+    "price": {
+      "type": "float"
+    },
+    "unit": {
+      "type": "string"
+    },
+    "list": {
+      "displayName": "sentence",
+      "type": "component",
+      "repeatable": true,
+      "component": "general.sentence"
+    }
+  }
+}

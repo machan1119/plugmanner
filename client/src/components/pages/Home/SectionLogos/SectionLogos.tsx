@@ -3,7 +3,10 @@ import React from "react";
 
 const SectionLogos = () => {
   return (
-    <div className="p-10 flex flex-col gap-6 items-center mb-4">
+    <div
+      id="services-list"
+      className="p-10 flex flex-col gap-6 items-center mb-4"
+    >
       <h1 className="text-[rgba(0,_0,_0,_0.5)] font-satoshi text-[20px] font-medium leading-[25px]">
         FEATURED IN TOP MEDIA
       </h1>

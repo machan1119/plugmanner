@@ -1,16 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import "./css/clash-display.css";
-import "./css/satoshi.css";
-import "./css/animation.css";
+import "../css/clash-display.css";
+import "../css/satoshi.css";
+import "../css/animation.css";
 import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/navigation";
-import { ListProvider } from "@/providers/ListProvider";
-import HomeProvider from "@/providers/HomeProvider";
-import NavBar from "@/components/pages/NabBar/NavBar";
-import Footer from "@/components/pages/Footer/Footer";
-import MainLayout from "@/components/MainLayout";
 // import { SessionProvider } from "next-auth/react";
 
 export const metadata: Metadata = {
@@ -35,13 +30,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={`antialiased`}>
         {/* <SessionProvider>{children}</SessionProvider> */}
-        <HomeProvider>
-          <ListProvider>
-            <NavBar />
-            <MainLayout>{children}</MainLayout>
-            <Footer />
-          </ListProvider>
-        </HomeProvider>
+        {children}
       </body>
     </html>
   );

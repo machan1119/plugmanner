@@ -46,7 +46,7 @@ const ServicesItem = ({ serviceData }: { serviceData: ServicesDataType }) => {
           {serviceData.services.map((serviceItem, index) => (
             <Link
               className="p-2 bg-white rounded-md flex items-center justify-center text-center"
-              href={`/services/${serviceItem.id}`}
+              href={`/home/services/${serviceItem.id}`}
               key={index}
             >
               {serviceItem.name}

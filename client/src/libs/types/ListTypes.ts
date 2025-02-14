@@ -42,7 +42,7 @@ export interface RawData {
   subservices: Subservice[];
 }
 
-export interface ServicesType {
+export interface ListType {
   type: string;
   data: {
     title: string;

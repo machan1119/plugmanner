@@ -4,6 +4,7 @@ import { CloseIcon, SearchIcon } from "@/libs/consts/MySvg";
 import { useHome } from "@/providers/HomeProvider";
 import Image from "next/image";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import React, { useState } from "react";
 
 const NavBarMain = () => {
@@ -38,10 +39,14 @@ const NavBarMain = () => {
               />
             </div>
             <div className="w-[1px] h-[50px] bg-[linear-gradient(315deg,_#d9d9d900,_#d9d9d9_50%,_#d9d9d91f)]" />
-            <MainButton type="white-main" title="Login" />
-            <div className="lg:block hidden">
+            <MainButton
+              type="white-main"
+              title="Login"
+              handleClick={() => redirect("/login")}
+            />
+            <Link href={"/home/services"} className="lg:block hidden">
               <MainButton type="green-main" title="All Services" />
-            </div>
+            </Link>
             <div className="inline-block group w-[62px] h-[40px] bg-white relative transition-all duration-500">
               <Link
                 href={"#"}

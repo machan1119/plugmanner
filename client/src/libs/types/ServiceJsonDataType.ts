@@ -1,4 +1,4 @@
-export interface JsonDataType {
+export interface ServiceJsonDataType {
   data: {
     id: number;
     documentId: string;
@@ -25,14 +25,7 @@ export interface JsonDataType {
         text: string;
         rate: number;
         counterofreviews: string;
-        Review: Array<{
-          id: number;
-          title: string;
-          rated: number;
-          content: string;
-          customer: string;
-          date: string;
-        }>;
+        Review: Review[];
       };
       Benefits: {
         id: number;
@@ -74,6 +67,7 @@ export interface JsonDataType {
   };
   meta: Record<string, unknown>;
 }
+
 export type SummaryItem = {
   id: number;
   title: string;
@@ -136,6 +130,12 @@ export type Article = {
   main_img: ImageData[];
 };
 
+export type QuestionType = {
+  id: number;
+  question: string;
+  answer: string;
+};
+
 type ImageData = {
   id: number;
   documentId: string;
@@ -172,10 +172,4 @@ type ImageFormat = {
   size: number;
   width: number;
   height: number;
-};
-
-export type QuestionType = {
-  id: number;
-  question: string;
-  answer: string;
 };

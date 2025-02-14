@@ -3,6 +3,7 @@ import React from "react";
 import Status from "./Status";
 import MainButton from "@/components/Buttons";
 import SectionHeroImage from "./SectionHeroImage";
+import Link from "next/link";
 
 const SectionHero = () => {
   return (
@@ -79,7 +80,9 @@ const SectionHero = () => {
           </div>
         </div>
         <div className="flex gap-4 items-center">
-          <MainButton type="green-main" title="View All Services" />
+          <Link href={"#services-list"} scroll={true}>
+            <MainButton type="green-main" title="View All Services" />
+          </Link>
           <MainButton type="white-main" title="Client Portal" />
         </div>
       </div>

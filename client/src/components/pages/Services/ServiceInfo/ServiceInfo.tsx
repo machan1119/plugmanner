@@ -42,7 +42,7 @@ const ServiceInfo = () => {
               Starting from
             </p>
             <p className="font-service-main md:font-service-md lg:font-service-lg lg:!text-[56px] !text-white">
-              {serviceItems.introduction.OrderIntro.price}{" "}
+              ${serviceItems.introduction.OrderIntro.price}{" "}
               <span className="font-service-text text-[16px] !text-green-light">
                 / {serviceItems.introduction.OrderIntro.unit}
               </span>

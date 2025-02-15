@@ -75,6 +75,7 @@ export interface ServiceJsonDataType {
     };
     FrequentlyQuestions: {
       id: number;
+      header:ParagraphType,
       Question: QuestionType[];
     };
     GoodPoints: {

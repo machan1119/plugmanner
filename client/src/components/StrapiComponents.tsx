@@ -44,7 +44,7 @@ export function StrapiParagraph({
   customClassName,
 }: StrapiParagraphType) {
   return (
-    <div className="flex flex-col gap-5 items-center justify-start w-full">
+    <div className="flex flex-col gap-4 items-center justify-start w-full">
       {paragraph?.map((item, index) => (
         <div className="flex gap-3 w-full items-center" key={index}>
           {item.icon ? (

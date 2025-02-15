@@ -20,12 +20,12 @@ const ServiceBenefit = () => {
           <div className="w-full flex gap-4 justify-between my-8">
             {serviceItems.introduction.Benefits.Benefit.map((item, index) =>
               currentStep == index ? (
-                <div
+                <button
                   key={index}
                   className="w-full py-2 bg-transparent font-clash text-[18px] !text-center !font-semibold border-b-[2px] border-green-light !text-green-light"
                 >
                   {item.tabname}
-                </div>
+                </button>
               ) : (
                 <button
                   key={index}
@@ -37,7 +37,7 @@ const ServiceBenefit = () => {
               )
             )}
           </div>
-          <div className="w-[95%] flex gap-[10%] items-center">
+          <div className="w-[95%] flex lg:flex-row flex-col gap-[60px] items-center">
             <Image
               width={500}
               height={500}
@@ -45,7 +45,7 @@ const ServiceBenefit = () => {
                 serviceItems.introduction.Benefits.Benefit[currentStep].tabname
               }
               src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${serviceItems.introduction.Benefits.Benefit[currentStep].img.url}`}
-              className=""
+              className="w-[50%] p-10"
             />
             <div className="flex flex-col gap-5">
               <StrapiText

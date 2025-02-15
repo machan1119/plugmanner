@@ -3,8 +3,10 @@ import { ListType } from "@/libs/types/ListTypes";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { useHome } from "@/providers/HomeProvider";
 
 const DropDownServices = ({ item }: { item: ListType }) => {
+  const { setServiceShow } = useHome();
   return (
     <div className="inline-block group relative border-b-[1px] lg:border-none border-black-dark">
       <div className="flex gap-1 items-center cursor-pointer py-4 font-normal text-base font-satoshi">
@@ -39,6 +41,7 @@ const DropDownServices = ({ item }: { item: ListType }) => {
               {val.services.map((dataItem, key) => (
                 <Link
                   href={`/home/services/${dataItem.id}`}
+                  onClick={() => setServiceShow(false)}
                   className="flex gap-2 mt-2 text-[16px] hover:text-green-light items-center"
                   key={key}
                 >

@@ -10,14 +10,14 @@ const ServiceInfo = () => {
   if (!serviceItems?.header) return "";
   return (
     <div className="flex flex-col w-full m-auto items-center">
-      <div className="flex gap-20 px-[3%] py-[80px] bg-white m-auto max-w-[1366px]">
-        <div className="flex flex-col gap-7 w-[50%] text-left grow">
-          <h1 className="font-service-main md:font-service-md lg:font-service-lg text-wrap !text-left">
+      <div className="flex lg:flex-row lg:items-start items-center flex-col gap-20 px-[3%] pt-[80px] bg-white m-auto max-w-[1366px]">
+        <div className="flex flex-col gap-7 w-[50%] lg:items-start items-center lg:text-left grow">
+          <h1 className="font-service-main md:font-service-md lg:font-service-lg text-wrap !text-center lg:!text-left">
             <StrapiText data={serviceItems.header.text} />
           </h1>
           <StrapiText
             data={serviceItems.simpledescription.text}
-            customClassName="font-service-text text-[20px]"
+            customClassName="font-service-text text-[20px] !text-center lg:!text-left"
           />
           <div className="flex items-center mt-2">
             <Image
@@ -37,7 +37,7 @@ const ServiceInfo = () => {
           </div>
           <ServiceAdvantage />
         </div>
-        <div className="z-20 px-8 py-9 flex flex-col gap-6 grow items-center bg-[rgb(20,_20,_27)] bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/63ff3f8c57c2b777f07afb19_socialplug-pricingbox-illustration.svg')] bg-right-top bg-no-repeat bg-auto rounded-xl">
+        <div className="z-20 px-8 py-9 flex flex-col gap-6 grow items-center w-max bg-[rgb(20,_20,_27)] bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/63ff3f8c57c2b777f07afb19_socialplug-pricingbox-illustration.svg')] bg-right-top bg-no-repeat bg-auto rounded-xl">
           <div className="w-full flex flex-col items-start">
             <p className="font-service-text text-[16px] !text-black-steel">
               Starting from
@@ -66,7 +66,7 @@ const ServiceInfo = () => {
           />
         </div>
       </div>
-      <div className="z-10 mt-[-150px] w-full bg-black-light py-[3%] flex flex-col items-center">
+      <div className="z-10 mt-[-50px] w-full bg-black-light py-[50px] flex flex-col items-center">
         <div className="relative max-w-[1366px] w-full flex gap-8 items-center px-10">
           {serviceItems.introduction.StateOfService.States.map(
             (item, index) => (

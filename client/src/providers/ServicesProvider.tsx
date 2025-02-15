@@ -45,7 +45,8 @@ export const ServicesProvider: React.FC<ServicesProviderProps> = ({
             "introduction.CustomerReviews.text.icon",
             "introduction.CustomerReviews.text.text",
             "introduction.CustomerReviews.Review",
-            "introduction.ChoosePackage.package.list",
+            "introduction.ChoosePackage.package.list.icon",
+            "introduction.ChoosePackage.package.list.text",
             "introduction.GoodPoints.list_img",
             "introduction.GoodPoints.chapter.img",
             "introduction.GoodPoints.chapter.title.icon",
@@ -89,12 +90,14 @@ export const ServicesProvider: React.FC<ServicesProviderProps> = ({
             "introduction.Quality.list.icon",
             "introduction.Quality.list.text",
             "introduction.FrequentlyQuestions.Question",
+            "introduction.FrequentlyQuestions.header.icon",
+            "introduction.FrequentlyQuestions.header.text",
             "article.main_img",
           ],
         };
         const options = "";
         const fetchedData = await fetchAPI(path, urlParamsObject, options);
-        // console.log(fetchedData);
+        console.log(fetchedData);
         setServiceItems(fetchedData.data);
       } finally {
         setIsLoading(false);

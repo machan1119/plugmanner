@@ -3,6 +3,7 @@ import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import ReviewItem from "../ServiceReview/ReviewItem";
 import MainButton from "@/components/Buttons";
+import { StrapiText } from "@/components/StrapiComponents";
 
 const ServiceCustomerReview = () => {
   const { serviceItems } = useServices();
@@ -15,18 +16,23 @@ const ServiceCustomerReview = () => {
     setReadHeight(readRef?.current?.clientHeight);
     setMaxHeight(maxRef?.current?.clientHeight);
   }, []);
-  if (!serviceItems?.introduction) return "";
+  if (!serviceItems?.introduction.CustomerReviews) return "";
   return (
     <div className="py-[80px] flex flex-col items-center px-10 border-b-[1px] border-black-normal">
       <div className="max-w-[1366px] flex flex-col gap-7 w-full items-center mb-8">
         <div className="flex flex-col gap-5 items-center w-full">
-          <h1 className="font-h1 text-wrap">Customer Reviews</h1>
-          <div className="font-service-text text-[18px] w-[50%] !text-center">
-            Read what our customers think about this service. We take your
-            feedback seriously - help us improve by{" "}
-            <span className="text-green-light underline">leaving a review</span>
-            .
-          </div>
+          <StrapiText
+            data={serviceItems.introduction.CustomerReviews.title.text}
+            customClassName="font-h1 text-wrap"
+          />
+          <StrapiText
+            data={serviceItems.introduction.CustomerReviews.text[0].text}
+            customClassName="font-service-text text-[18px] w-[50%] !text-center"
+          />
+          {/* <StrapiParagraph
+            paragraph={serviceItems.introduction.CustomerReviews.text}
+            customClassName="font-service-text text-[18px] w-[50%] !text-center"
+          /> */}
           <div className="flex items-center mt-2">
             <Image
               width={24}
@@ -47,7 +53,7 @@ const ServiceCustomerReview = () => {
           </div>
         </div>
         <div
-          className="relative overflow-hidden mt-6 h-[500px]"
+          className="relative overflow-hidden mt-6 h-[500px] w-full"
           ref={readRef}
           style={{ height: readHeight }}
         >

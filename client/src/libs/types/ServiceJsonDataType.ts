@@ -1,121 +1,188 @@
 export interface ServiceJsonDataType {
-  data: {
+  id: number;
+  documentId: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  name: string;
+  popular: number;
+  header: Header;
+  simpledescription: {
     id: number;
-    documentId: string;
-    createdAt: string;
-    updatedAt: string;
-    publishedAt: string;
-    name: string;
-    popular: number;
-    type: string;
-    subname: string;
-    introduction: {
-      id: number;
-      SimpleDescription: string;
-      rated: number;
-      CounterOfReviews: string;
-      video: string;
-      FrequentlyQuestions: {
-        id: number;
-        Question: QuestionType[];
-      };
-      CustomerReviews: {
-        id: number;
-        title: string;
-        text: string;
-        rate: number;
-        counterofreviews: string;
-        Review: Review[];
-      };
-      Benefits: {
-        id: number;
-        title: string;
-        Benefit: BenefitType[];
-      };
-      UpBlogs: {
-        id: number;
-        Blog: BlogType[];
-      };
-      Summary: {
-        id: number;
-        title: string;
-        EachSummary: SummaryItem[];
-      };
-      HowToOrder: {
-        id: number;
-        description: string;
-        step: HowToOrderStep[];
-      };
-      TopReviews: {
-        id: number;
-        header: string;
-        rate: number;
-        review: Review[];
-      };
-      StateOfService: {
-        id: number;
-        States: StateItem[];
-      };
-      OrderIntro: {
-        id: number;
-        price: number;
-        unit: string;
-        sentence: OrderIntroSentence[];
-      };
-    };
-    article: Article[];
+    text: Text[];
   };
-  meta: Record<string, unknown>;
+  introduction: {
+    id: number;
+    rated: string;
+    CounterOfReviews: string;
+    video: string;
+    OrderIntro: {
+      id: number;
+      price: string;
+      unit: string;
+      list: ParagraphType[];
+    };
+    CustomerReviews: {
+      id: number;
+      rate: string;
+      counterofreviews: string;
+      title: ParagraphType;
+      text: ParagraphType[];
+      Review: Review[];
+    };
+    ChoosePackage: {
+      id: number;
+      package: PackageType[];
+    };
+    UpBlogs: {
+      id: number;
+      Blog: BlogType[];
+    };
+    Benefits: {
+      id: number;
+      title: ParagraphType;
+      Benefit: BenefitType[];
+    };
+    DownBlogs: {
+      id: number;
+      Blog: BlogType[];
+    };
+    Summary: {
+      id: number;
+      title: ParagraphType;
+      EachSummary: EachSummaryType[];
+    };
+    HowToOrder: {
+      id: number;
+      title: ParagraphType;
+      description: ParagraphType;
+      step: HowToOrderStep[];
+    };
+    TopReviews: {
+      id: number;
+      rate: number;
+      header: ParagraphType;
+      review: Review[];
+    };
+    StateOfService: {
+      id: number;
+      States: StateItem[];
+    };
+
+    Quality: {
+      id: number;
+      list: ParagraphType[];
+    };
+    FrequentlyQuestions: {
+      id: number;
+      Question: QuestionType[];
+    };
+    GoodPoints: {
+      id?: number;
+      list_img: ImageData;
+      chapter: GoodPointsChapterType[];
+    };
+  };
+  article: Article[];
 }
 
-export type SummaryItem = {
-  id: number;
+export type Header = {
+  id?: number;
+  text: Text[];
+};
+
+export type Text = {
+  id?: number;
+  content: string;
+  bold: boolean;
+  link: string;
+  color: string;
+  underline: boolean;
+};
+
+export type Review = {
+  id?: number;
+  title: string;
+  rated: string;
+  content: string;
+  customer: string;
+  date: string;
+};
+
+export type PackageType = {
+  id?: number;
+  level: string;
+  price: string;
+  unit: string;
+  popular: number;
+  list: ParagraphType[];
+};
+
+export type BlogType = {
+  id?: number;
+  button: string;
+  button_api: string;
+  paragraph: ParagraphType[];
+  title: ParagraphType;
+  img: ImageData;
+};
+
+export type ParagraphType = {
+  id?: number;
+  icon: ImageData;
+  text: Text[];
+};
+
+export type BenefitType = {
+  id?: number;
+  tabname: string;
+  Button: null;
+  button_api: null;
+  title: {
+    id?: number;
+    text: Text[];
+  };
+  paragraph: ParagraphType[];
+  img: ImageData;
+};
+
+export type EachSummaryType = {
+  id?: number;
   title: string;
   content: string;
   icon: ImageData;
 };
 
 export type HowToOrderStep = {
-  id: number;
+  id?: number;
   simple: string;
-  detail: string | null;
-};
-
-export type BlogType = {
-  id: number;
-  title: string;
-  content: string;
-  img: ImageData;
-};
-
-export type Review = {
-  id: number;
-  title: string;
-  rated: number;
-  content: string;
-  customer: string;
-  date: string;
-};
-
-export type BenefitType = {
-  id: number;
-  tabname: string;
-  title: string;
-  content: string;
-  Button: null;
-  button_api: null;
-  img: ImageData;
+  detail: string;
 };
 
 export type StateItem = {
-  id: number;
+  id?: number;
   counters: string;
   character: string;
 };
 
-export type OrderIntroSentence = {
-  id: number;
-  text: string;
+export type QuestionType = {
+  id?: number;
+  question: string;
+  answer: string;
+};
+
+export type GoodPointsChapterType = {
+  id?: number;
+  img: ImageData;
+  title: ParagraphType;
+  section: GoodPointsChapterSectionType[];
+};
+
+export type GoodPointsChapterSectionType = {
+  id?: number;
+  img: ImageData;
+  title: Text[];
+  content: ParagraphType[];
 };
 
 export type Article = {
@@ -130,18 +197,12 @@ export type Article = {
   main_img: ImageData[];
 };
 
-export type QuestionType = {
-  id: number;
-  question: string;
-  answer: string;
-};
-
 type ImageData = {
-  id: number;
+  id?: number;
   documentId: string;
   name: string;
-  alternativeText: null;
-  caption: null;
+  alternativeText: string;
+  caption: string;
   width: number;
   height: number;
   formats: {

@@ -1,21 +1,23 @@
 import MainButton from "@/components/Buttons";
+import { StrapiText } from "@/components/StrapiComponents";
 import { useServices } from "@/providers/ServicesProvider";
 import Image from "next/image";
 import React from "react";
 
 const ServiceHowTo = () => {
   const { serviceItems } = useServices();
-  if (!serviceItems?.introduction) return "";
+  if (!serviceItems?.introduction.HowToOrder) return "";
   return (
     <div className="w-full py-[80px] bg-black-light flex flex-col items-center border-b-[1px] border-black-normal">
       <div className="max-w-[1366px] w-full flex flex-col items-center px-10">
-        <h1 className="font-h1 w-[50%] text-wrap">
-          How to <span className="!text-green-light">order?</span>
-        </h1>
-        <p className="font-service-text text-[18px] my-5">
-          Follow the 3 step process & get your post views delivered to your
-          Telegram Channel.
-        </p>
+        <StrapiText
+          data={serviceItems.introduction.HowToOrder.title.text}
+          customClassName="font-h1 w-[50%] text-wrap justify-center"
+        />
+        <StrapiText
+          data={serviceItems.introduction.HowToOrder.description.text}
+          customClassName="font-service-text text-[18px] my-5"
+        />
         <div className="relative w-full grid grid-cols-3 items-center my-5">
           {serviceItems.introduction.HowToOrder.step.map((item, index) => (
             <div

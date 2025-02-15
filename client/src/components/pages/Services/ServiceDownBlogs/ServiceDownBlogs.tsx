@@ -3,13 +3,13 @@ import { useServices } from "@/providers/ServicesProvider";
 import Image from "next/image";
 import React from "react";
 
-const ServiceUpBlogs = () => {
+const ServiceDownBlogs = () => {
   const { serviceItems } = useServices();
-  if (!serviceItems?.introduction.UpBlogs) return "";
+  if (!serviceItems?.introduction.DownBlogs) return "";
   return (
     <div className="w-full py-[80px] border-b-[1px] border-black-normal">
       <div className="flex flex-col gap-20 max-w-[1366px] justify-self-center px-10">
-        {serviceItems.introduction.UpBlogs.Blog.map((item, index) => (
+        {serviceItems.introduction.DownBlogs.Blog.map((item, index) => (
           <div
             className={`w-[95%] flex gap-[10%] items-start ${
               index % 2 != 0 && "flex-row-reverse"
@@ -30,7 +30,7 @@ const ServiceUpBlogs = () => {
               />
               <StrapiParagraph
                 paragraph={item.paragraph}
-                customClassName="font-main text-[#686889] text-[20px] !justify-start"
+                customClassName="font-main text-[#686889] text-[20px]"
               />
             </div>
           </div>
@@ -40,4 +40,4 @@ const ServiceUpBlogs = () => {
   );
 };
 
-export default ServiceUpBlogs;
+export default ServiceDownBlogs;

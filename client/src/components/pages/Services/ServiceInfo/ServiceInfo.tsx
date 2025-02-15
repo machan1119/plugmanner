@@ -3,21 +3,22 @@ import { useServices } from "@/providers/ServicesProvider";
 import Image from "next/image";
 import React from "react";
 import ServiceAdvantage from "./ServiceAdvantage";
+import { StrapiParagraph, StrapiText } from "@/components/StrapiComponents";
 
 const ServiceInfo = () => {
   const { serviceItems } = useServices();
-  if (!serviceItems?.introduction) return "";
+  if (!serviceItems?.header) return "";
   return (
     <div className="flex flex-col w-full m-auto items-center">
       <div className="flex gap-20 px-[3%] py-[80px] bg-white m-auto max-w-[1366px]">
         <div className="flex flex-col gap-7 w-[50%] text-left grow">
           <h1 className="font-service-main md:font-service-md lg:font-service-lg text-wrap !text-left">
-            <span className="text-black">Buy {serviceItems.type} </span>
-            <span className="text-green-light">{serviceItems.subname}</span>
+            <StrapiText data={serviceItems.header.text} />
           </h1>
-          <div className="font-service-text text-[20px]">
-            {serviceItems.introduction.SimpleDescription}
-          </div>
+          <StrapiText
+            data={serviceItems.simpledescription.text}
+            customClassName="font-service-text text-[20px]"
+          />
           <div className="flex items-center mt-2">
             <Image
               width={24}
@@ -48,24 +49,10 @@ const ServiceInfo = () => {
               </span>
             </p>
           </div>
-          <div className="w-full flex flex-col gap-4 items-start">
-            {serviceItems.introduction.OrderIntro.sentence.map(
-              (item, index) => (
-                <div key={index} className="flex gap-3 items-center">
-                  <Image
-                    width={16}
-                    height={16}
-                    src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/628fdb670c2e9e80264b9f41_Coinboosts-check-green.svg"
-                    alt="checkmark icon"
-                    className="w-[16px] h-[16px] mr-1"
-                  />
-                  <span className="font-service-text text-[16px] !text-black-steel">
-                    {item.text}
-                  </span>
-                </div>
-              )
-            )}
-          </div>
+          <StrapiParagraph
+            paragraph={serviceItems.introduction.OrderIntro.list}
+            customClassName="font-service-text text-[16px] !text-black-steel"
+          />
           <MainButton
             type="green-main"
             title="Order Now >"

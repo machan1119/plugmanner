@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 const ServiceArticle = () => {
   const { serviceItems } = useServices();
-  if (!serviceItems?.introduction) return "";
+  if (!serviceItems?.article) return "";
   return (
     <div className="flex flex-col py-[80px] items-center bg-white w-full border-b-[1px] border-black-normal">
       <div className="max-w-[1366px] w-full justify-self-center px-10">
@@ -48,7 +48,7 @@ const ServiceArticle = () => {
                   <Image
                     width={365}
                     height={242}
-                    src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${item.main_img.url}`}
+                    src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${item.main_img[0].url}`}
                     alt={item.title}
                     className="justify-self-center w-[365px] h-[242px] rounded-lg"
                   />

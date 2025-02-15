@@ -3,15 +3,19 @@ import Image from "next/image";
 import React from "react";
 import ReviewItem from "./ReviewItem";
 import MainButton from "@/components/Buttons";
+import { StrapiText } from "@/components/StrapiComponents";
 
 const ServiceReview = () => {
   const { serviceItems } = useServices();
-  if (!serviceItems?.introduction) return "";
+  if (!serviceItems?.introduction.TopReviews) return "";
   return (
     <div className="w-full py-[80px] bg-black-light flex flex-col items-center border-b-[1px] border-black-normal">
       <div className="max-w-[1366px] w-full flex flex-col gap-10 items-center px-10">
         <div className="flex flex-col gap-4 items-center">
-          <h1 className="font-h1">Trusted by 100k+ customers</h1>
+          <StrapiText
+            data={serviceItems.introduction.TopReviews.header.text}
+            customClassName="font-h1"
+          />
           <Image
             width={144}
             height={24}

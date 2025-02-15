@@ -4,7 +4,7 @@ import QuestionsItem from "../../Home/Question/QuestionsItem";
 
 const ServiceQuestion = () => {
   const { serviceItems } = useServices();
-  if (!serviceItems?.introduction) return "";
+  if (!serviceItems?.introduction.FrequentlyQuestions) return "";
   return (
     <div className="flex flex-col py-[80px] items-center bg-white w-full border-b-[1px] border-black-normal">
       <div className="max-w-[1366px] justify-self-center px-10">

@@ -15,6 +15,9 @@ import ServiceUpBlogs from "./ServiceUpBlogs/ServiceUpBlogs";
 import ServiceVideo from "./ServiceVideo/ServiceVideo";
 import { useServices } from "@/providers/ServicesProvider";
 import { ServicePageSkeleton } from "@/components/Skeletons";
+import ServiceDownBlogs from "./ServiceDownBlogs/ServiceDownBlogs";
+import ServiceGoodPoints from "./ServiceGoodPoints/ServiceGoodPoints";
+import ServicePackage from "./ServicePackage/ServicePackage";
 
 function ServicesContent() {
   const { isLoading } = useServices();
@@ -28,9 +31,9 @@ function ServicesContent() {
       <ServiceVideo />
       <ServiceUpBlogs />
       <ServiceBenefit />
-      {/* <ServicePowerUp /> */}
-      {/* <ServiceVideo /> */}
-      {/* <ServiceTip /> */}
+      <ServiceDownBlogs />
+      <ServicePackage />
+      <ServiceGoodPoints />
       <ServiceCustomerReview />
       <ServiceQuestion />
       <ServiceArticle />

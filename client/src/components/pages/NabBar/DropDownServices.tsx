@@ -1,10 +1,12 @@
 import { replace_str } from "@/utils/functions";
-import { ServicesType } from "@/libs/types/ListTypes";
+import { ListType } from "@/libs/types/ListTypes";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { useHome } from "@/providers/HomeProvider";
 
-const DropDownServices = ({ item }: { item: ServicesType }) => {
+const DropDownServices = ({ item }: { item: ListType }) => {
+  const { setServiceShow } = useHome();
   return (
     <div className="inline-block group relative border-b-[1px] lg:border-none border-black-dark">
       <div className="flex gap-1 items-center cursor-pointer py-4 font-normal text-base font-satoshi">
@@ -38,10 +40,8 @@ const DropDownServices = ({ item }: { item: ServicesType }) => {
               <div className="w-full h-[1px] bg-gray-500" />
               {val.services.map((dataItem, key) => (
                 <Link
-                  // href={`/services/${slugify(val.title)}/${slugify(
-                  //   replace_str(dataItem.name, val.title)
-                  // )}`}
-                  href={`/services/${dataItem.id}`}
+                  href={`/home/services/${dataItem.id}`}
+                  onClick={() => setServiceShow(false)}
                   className="flex gap-2 mt-2 text-[16px] hover:text-green-light items-center"
                   key={key}
                 >

@@ -15,15 +15,15 @@ const MainButton = ({
 }: MainButtonProps) => {
   return (
     <button
-      className={`size-max text-[14px] md:text-[16px] ${customClass}`}
+      className={`size-max text-[14px] font-clash font-semibold md:text-[16px] ${customClass}`}
       onClick={handleClick}
     >
       {type == "white-main" ? (
-        <p className="bg-[#fff] text-[#363636] font-clash border-[1px] border-[#ebebeb] hover:bg-[#ebebeb] px-5 py-3 font-semibold transition-all rounded-[10px] leading-5">
+        <p className="bg-[#fff] text-[#363636] border-[1px] border-[#ebebeb] hover:bg-[#ebebeb] px-5 py-3 transition-all rounded-[10px] leading-5">
           {title}
         </p>
       ) : (
-        <p className="bg-[#01c573] text-[#fff] font-clash border-[1px] border-[#ffffff80] hover:bg-[#017645] px-5 py-3 font-semibold transition-all rounded-[10px] leading-5">
+        <p className="bg-[#01c573] text-[#fff] border-[1px] border-[#ffffff80] hover:bg-[#017645] px-5 py-3 transition-all rounded-[10px] leading-5">
           {title}
         </p>
       )}

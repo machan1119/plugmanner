@@ -6,11 +6,11 @@ import React, {
   useEffect,
   useCallback,
 } from "react";
-import { RawData, ServicesType } from "@/libs/types/ListTypes";
+import { RawData, ListType } from "@/libs/types/ListTypes";
 import { fetchAPI } from "@/utils/fetch-api";
 
 interface ListContextProps {
-  list: ServicesType[];
+  list: ListType[];
   isLoading: boolean;
 }
 
@@ -33,7 +33,7 @@ export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [meta, setMeta] = useState<Meta | null>(null);
-  const [list, setList] = useState<ServicesType[]>([]);
+  const [list, setList] = useState<ListType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchData = useCallback(
@@ -56,9 +56,8 @@ export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
         if (!meta?.pagination) {
           setMeta(responseData.meta);
         }
-        console.log(responseData);
         const rawData: RawData[] = responseData.data;
-        const filteredData: ServicesType[] = rawData.map((item) => ({
+        const filteredData: ListType[] = rawData.map((item) => ({
           type: item.type,
           data: [
             {
@@ -71,7 +70,7 @@ export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
             },
           ],
         }));
-        const servicesList: ServicesType[] = [];
+        const servicesList: ListType[] = [];
         filteredData.forEach((item) => {
           if (!item.data) return;
           const { type } = item;
@@ -111,7 +110,7 @@ export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
                 ? "Other"
                 : type;
 
-            const newData: ServicesType = {
+            const newData: ListType = {
               type: newType,
               data: [
                 {

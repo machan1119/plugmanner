@@ -1,22 +1,28 @@
 import MainButton from "@/components/Buttons";
-import { StarIcon } from "@/libs/consts/MySvg";
+import { StrapiParagraph } from "@/components/StrapiComponents";
+import { PackageType } from "@/libs/types/ServiceJsonDataType";
 import React from "react";
 
-interface PackageType {
-  type: string;
-  price: number;
-  popular: boolean;
-  detail: string[];
-}
-
-const ServicePackageItem = ({ type, price, popular, detail }: PackageType) => {
+const ServicePackageItem = ({
+  level,
+  price,
+  popular,
+  unit,
+  list,
+}: PackageType) => {
   return (
-    <div className="w-full flex flex-col border border-black-normal rounded-lg">
-      <div className="flex w-full justify-between max-w-[1366px] px-5 py-8">
+    <div
+      className={`w-full flex flex-col justify-between border border-black-normal rounded-lg px-5 py-8 bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/6403335aa2b65391e848a999_socialplug-pricingbox-illustration-sm-light.svg')] bg-right-bottom bg-no-repeat bg-auto ${
+        popular && "bg-black"
+      }`}
+    >
+      <div className="flex w-full justify-between">
         <div
-          className={`font-h2 ${popular ? "!text-green-light" : "!text-white"}`}
+          className={`font-h2 ${
+            !popular ? "!text-green-light" : "!text-white"
+          }`}
         >
-          {type}
+          {level}
         </div>
         {popular && (
           <div className="px-2 py-1 bg-green-light font-clash text-black rounded-md">
@@ -24,25 +30,22 @@ const ServicePackageItem = ({ type, price, popular, detail }: PackageType) => {
           </div>
         )}
       </div>
-      <div className="flex mb-10">
-        <span className={`font-h1 ${popular ? "!text-black" : "!text-white"}`}>
-          ${price}
+      <div className="flex mb-5 items-center">
+        <span className={`font-h1 ${!popular ? "!text-black" : "!text-white"}`}>
+          {price}
         </span>
-        <span className="font-clash text-[16px] text-black-steel">
-          {" "}
-          / Month
-        </span>
-      </div>
-      {detail.map((item, index) => (
-        <div className="flex flex-col gap-8" key={index}>
-          <span className={`${popular ? "text-white" : "text-green-light"}`}>
-            {StarIcon}
+        {unit && (
+          <span className="font-clash text-[16px] text-black-steel !font-semibold">
+            {"  "}/ {unit}
           </span>
-          <span className="text-clash text-[16px] text-[#686889]"></span>
-        </div>
-      ))}
-      <div className="w-full h-[1px] bg-black-normal mx-y" />
-      <MainButton type="main-green" title="Order now" />
+        )}
+      </div>
+      <StrapiParagraph
+        paragraph={list}
+        customClassName="font-clash text-[16px] text-[#686889] font-normal"
+      />
+      <div className="w-full h-[1px] bg-black-normal my-5" />
+      <MainButton type="main-green" title="Order now" customClass="w-full" />
     </div>
   );
 };

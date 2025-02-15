@@ -16,11 +16,10 @@
       "type": "string",
       "required": true
     },
-    "sentence": {
+    "list": {
       "type": "component",
       "repeatable": true,
-      "component": "order.qqq",
-      "required": true
+      "component": "general.list"
     }
   }
 }

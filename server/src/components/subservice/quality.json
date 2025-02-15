@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_subservice_qualities",
+  "info": {
+    "displayName": "Quality",
+    "icon": "briefcase",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "list": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.list"
+    }
+  }
+}

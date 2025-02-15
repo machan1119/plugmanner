@@ -2,12 +2,32 @@
   "collectionName": "components_general_sentences",
   "info": {
     "displayName": "sentence",
-    "icon": "bulletList"
+    "icon": "bulletList",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "content": {
-      "type": "string"
+      "type": "text"
+    },
+    "bold": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "link": {
+      "type": "string",
+      "required": false
+    },
+    "color": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
+    },
+    "underline": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }

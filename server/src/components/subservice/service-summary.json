@@ -7,14 +7,15 @@
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
-    },
     "EachSummary": {
       "type": "component",
       "repeatable": true,
       "component": "subservice.each-summary"
+    },
+    "title": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.list"
     }
   }
 }

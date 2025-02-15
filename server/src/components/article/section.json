@@ -2,25 +2,31 @@
   "collectionName": "components_article_sections",
   "info": {
     "displayName": "section",
-    "icon": "bulletList"
+    "icon": "bulletList",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
-    "content": {
-      "type": "text"
-    },
     "img": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
+    },
+    "content": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.list"
+    },
+    "title": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.list"
     }
   }
 }

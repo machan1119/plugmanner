@@ -2,12 +2,13 @@
   "collectionName": "components_subservice_how_to_order_steps",
   "info": {
     "displayName": "HowToOrderStep",
-    "icon": "bulletList"
+    "icon": "bulletList",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "simple": {
-      "type": "string",
+      "type": "text",
       "required": true
     },
     "detail": {

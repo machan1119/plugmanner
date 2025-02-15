@@ -13,9 +13,9 @@
       "component": "subservice.sub-benefit"
     },
     "title": {
-      "type": "string",
-      "required": false,
-      "unique": false
+      "type": "component",
+      "repeatable": false,
+      "component": "general.list"
     }
   }
 }

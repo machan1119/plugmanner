@@ -18,27 +18,41 @@ export interface ArticleAuthor extends Struct.ComponentSchema {
 export interface ArticleChapter extends Struct.ComponentSchema {
   collectionName: 'components_article_chapters';
   info: {
+    description: '';
     displayName: 'chapter';
     icon: 'store';
   };
   attributes: {
-    content: Schema.Attribute.Text;
     img: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
     section: Schema.Attribute.Component<'article.section', true>;
-    title: Schema.Attribute.String;
+    title: Schema.Attribute.Component<'general.list', false>;
   };
 }
 
 export interface ArticleSection extends Struct.ComponentSchema {
   collectionName: 'components_article_sections';
   info: {
+    description: '';
     displayName: 'section';
     icon: 'bulletList';
   };
   attributes: {
-    content: Schema.Attribute.Text;
+    content: Schema.Attribute.Component<'general.list', true>;
     img: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
-    title: Schema.Attribute.String;
+    title: Schema.Attribute.Component<'general.list', false>;
+  };
+}
+
+export interface GeneralList extends Struct.ComponentSchema {
+  collectionName: 'components_general_lists';
+  info: {
+    description: '';
+    displayName: 'List';
+    icon: 'bulletList';
+  };
+  attributes: {
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    text: Schema.Attribute.Component<'general.sentence', true>;
   };
 }
 
@@ -57,11 +71,21 @@ export interface GeneralParameter extends Struct.ComponentSchema {
 export interface GeneralSentence extends Struct.ComponentSchema {
   collectionName: 'components_general_sentences';
   info: {
+    description: '';
     displayName: 'sentence';
     icon: 'bulletList';
   };
   attributes: {
-    content: Schema.Attribute.String;
+    bold: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+    color: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    content: Schema.Attribute.Text;
+    link: Schema.Attribute.String;
+    underline: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
   };
 }
 
@@ -85,11 +109,10 @@ export interface OrderOrderIntro extends Struct.ComponentSchema {
     icon: 'archive';
   };
   attributes: {
+    list: Schema.Attribute.Component<'general.list', true>;
     price: Schema.Attribute.Float &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<0>;
-    sentence: Schema.Attribute.Component<'order.qqq', true> &
-      Schema.Attribute.Required;
     unit: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -130,7 +153,7 @@ export interface SubserviceBenefits extends Struct.ComponentSchema {
   };
   attributes: {
     Benefit: Schema.Attribute.Component<'subservice.sub-benefit', true>;
-    title: Schema.Attribute.String;
+    title: Schema.Attribute.Component<'general.list', false>;
   };
 }
 
@@ -172,16 +195,15 @@ export interface SubserviceCustomerReviews extends Struct.ComponentSchema {
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<5>;
     Review: Schema.Attribute.Component<'subservice.review', true>;
-    text: Schema.Attribute.Text;
-    title: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'Customer Reviews'>;
+    text: Schema.Attribute.Component<'general.list', true>;
+    title: Schema.Attribute.Component<'general.list', false>;
   };
 }
 
 export interface SubserviceEachSummary extends Struct.ComponentSchema {
   collectionName: 'components_subservice_each_summaries';
   info: {
+    description: '';
     displayName: 'EachSummary';
     icon: 'dashboard';
   };
@@ -189,19 +211,34 @@ export interface SubserviceEachSummary extends Struct.ComponentSchema {
     content: Schema.Attribute.Text & Schema.Attribute.Required;
     icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Schema.Attribute.Required;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.Text & Schema.Attribute.Required;
   };
 }
 
 export interface SubserviceFrequentlyQuestions extends Struct.ComponentSchema {
   collectionName: 'components_subservice_frequently_questions';
   info: {
+    description: '';
     displayName: 'FrequentlyQuestions';
     icon: 'user';
   };
   attributes: {
+    header: Schema.Attribute.Component<'general.list', false>;
     Question: Schema.Attribute.Component<'subservice.question', true> &
       Schema.Attribute.Required;
+  };
+}
+
+export interface SubserviceGoodPoint extends Struct.ComponentSchema {
+  collectionName: 'components_subservice_good_points';
+  info: {
+    description: '';
+    displayName: 'GoodPoint';
+    icon: 'apps';
+  };
+  attributes: {
+    chapter: Schema.Attribute.Component<'article.chapter', true>;
+    list_img: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
@@ -213,20 +250,22 @@ export interface SubserviceHowToOrder extends Struct.ComponentSchema {
     icon: 'strikeThrough';
   };
   attributes: {
-    description: Schema.Attribute.Text;
+    description: Schema.Attribute.Component<'general.list', false>;
     step: Schema.Attribute.Component<'subservice.how-to-order-step', true>;
+    title: Schema.Attribute.Component<'general.list', false>;
   };
 }
 
 export interface SubserviceHowToOrderStep extends Struct.ComponentSchema {
   collectionName: 'components_subservice_how_to_order_steps';
   info: {
+    description: '';
     displayName: 'HowToOrderStep';
     icon: 'bulletList';
   };
   attributes: {
     detail: Schema.Attribute.Text;
-    simple: Schema.Attribute.String & Schema.Attribute.Required;
+    simple: Schema.Attribute.Text & Schema.Attribute.Required;
   };
 }
 
@@ -239,10 +278,22 @@ export interface SubservicePackage extends Struct.ComponentSchema {
   };
   attributes: {
     level: Schema.Attribute.String;
-    list: Schema.Attribute.Component<'general.sentence', true>;
+    list: Schema.Attribute.Component<'general.list', true>;
     popular: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     price: Schema.Attribute.String;
     unit: Schema.Attribute.String;
+  };
+}
+
+export interface SubserviceQuality extends Struct.ComponentSchema {
+  collectionName: 'components_subservice_qualities';
+  info: {
+    description: '';
+    displayName: 'Quality';
+    icon: 'briefcase';
+  };
+  attributes: {
+    list: Schema.Attribute.Component<'general.list', true>;
   };
 }
 
@@ -254,7 +305,7 @@ export interface SubserviceQuestion extends Struct.ComponentSchema {
   };
   attributes: {
     answer: Schema.Attribute.Text & Schema.Attribute.Required;
-    question: Schema.Attribute.String & Schema.Attribute.Required;
+    question: Schema.Attribute.Text & Schema.Attribute.Required;
   };
 }
 
@@ -272,7 +323,7 @@ export interface SubserviceReview extends Struct.ComponentSchema {
     rated: Schema.Attribute.Float &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<5>;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.Text & Schema.Attribute.Required;
   };
 }
 
@@ -285,7 +336,7 @@ export interface SubserviceServiceSummary extends Struct.ComponentSchema {
   };
   attributes: {
     EachSummary: Schema.Attribute.Component<'subservice.each-summary', true>;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.Component<'general.list', false>;
   };
 }
 
@@ -309,11 +360,11 @@ export interface SubserviceSubBenefit extends Struct.ComponentSchema {
   attributes: {
     Button: Schema.Attribute.String;
     button_api: Schema.Attribute.Text;
-    content: Schema.Attribute.Text & Schema.Attribute.Required;
     img: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Schema.Attribute.Required;
+    paragraph: Schema.Attribute.Component<'general.list', true>;
     tabname: Schema.Attribute.String & Schema.Attribute.Required;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.Component<'general.list', false>;
   };
 }
 
@@ -325,10 +376,12 @@ export interface SubserviceSubBlog extends Struct.ComponentSchema {
     icon: 'feather';
   };
   attributes: {
-    content: Schema.Attribute.Text & Schema.Attribute.Required;
+    button: Schema.Attribute.String;
+    button_api: Schema.Attribute.String;
     img: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Schema.Attribute.Required;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    paragraph: Schema.Attribute.Component<'general.list', true>;
+    title: Schema.Attribute.Component<'general.list', false>;
   };
 }
 
@@ -358,13 +411,14 @@ export interface SubserviceSubserviceIntroduction
       'subservice.frequently-questions',
       false
     >;
+    GoodPoints: Schema.Attribute.Component<'subservice.good-point', false>;
     HowToOrder: Schema.Attribute.Component<'subservice.how-to-order', false>;
     OrderIntro: Schema.Attribute.Component<'order.order-intro', false> &
       Schema.Attribute.Required;
+    Quality: Schema.Attribute.Component<'subservice.quality', false>;
     rated: Schema.Attribute.Float &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<0>;
-    SimpleDescription: Schema.Attribute.Text & Schema.Attribute.Required;
     StateOfService: Schema.Attribute.Component<
       'subservice.state-of-service',
       false
@@ -385,9 +439,7 @@ export interface SubserviceTopReviews extends Struct.ComponentSchema {
     icon: 'cloud';
   };
   attributes: {
-    header: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'Trusted by 100k+ customers'>;
+    header: Schema.Attribute.Component<'general.list', false>;
     rate: Schema.Attribute.Float &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<5>;
@@ -401,6 +453,7 @@ declare module '@strapi/strapi' {
       'article.author': ArticleAuthor;
       'article.chapter': ArticleChapter;
       'article.section': ArticleSection;
+      'general.list': GeneralList;
       'general.parameter': GeneralParameter;
       'general.sentence': GeneralSentence;
       'general.social-link': GeneralSocialLink;
@@ -413,9 +466,11 @@ declare module '@strapi/strapi' {
       'subservice.customer-reviews': SubserviceCustomerReviews;
       'subservice.each-summary': SubserviceEachSummary;
       'subservice.frequently-questions': SubserviceFrequentlyQuestions;
+      'subservice.good-point': SubserviceGoodPoint;
       'subservice.how-to-order': SubserviceHowToOrder;
       'subservice.how-to-order-step': SubserviceHowToOrderStep;
       'subservice.package': SubservicePackage;
+      'subservice.quality': SubserviceQuality;
       'subservice.question': SubserviceQuestion;
       'subservice.review': SubserviceReview;
       'subservice.service-summary': SubserviceServiceSummary;

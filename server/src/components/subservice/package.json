@@ -13,18 +13,17 @@
     "unit": {
       "type": "string"
     },
-    "list": {
-      "displayName": "sentence",
-      "type": "component",
-      "repeatable": true,
-      "component": "general.sentence"
-    },
     "popular": {
       "type": "boolean",
       "default": false
     },
     "price": {
       "type": "string"
+    },
+    "list": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.list"
     }
   }
 }

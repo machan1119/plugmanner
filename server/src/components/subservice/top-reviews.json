@@ -13,15 +13,15 @@
       "repeatable": true,
       "component": "subservice.review"
     },
-    "header": {
-      "type": "string",
-      "required": true,
-      "default": "Trusted by 100k+ customers"
-    },
     "rate": {
       "type": "float",
       "required": true,
       "default": 5
+    },
+    "header": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.list"
     }
   }
 }

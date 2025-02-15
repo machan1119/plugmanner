@@ -7,15 +7,6 @@
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string",
-      "required": true,
-      "default": "Customer Reviews"
-    },
-    "text": {
-      "type": "text",
-      "required": false
-    },
     "rate": {
       "type": "float",
       "required": true,
@@ -30,6 +21,16 @@
       "type": "component",
       "repeatable": true,
       "component": "subservice.review"
+    },
+    "text": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.list"
+    },
+    "title": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.list"
     }
   }
 }

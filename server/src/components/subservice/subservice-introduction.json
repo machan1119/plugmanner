@@ -7,10 +7,6 @@
   },
   "options": {},
   "attributes": {
-    "SimpleDescription": {
-      "type": "text",
-      "required": true
-    },
     "rated": {
       "type": "float",
       "required": true,
@@ -87,6 +83,18 @@
       "type": "component",
       "repeatable": false,
       "component": "subservice.choose-package"
+    },
+    "Quality": {
+      "displayName": "Quality",
+      "type": "component",
+      "repeatable": false,
+      "component": "subservice.quality"
+    },
+    "GoodPoints": {
+      "displayName": "GoodPoint",
+      "type": "component",
+      "repeatable": false,
+      "component": "subservice.good-point"
     }
   }
 }

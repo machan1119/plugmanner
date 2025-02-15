@@ -7,24 +7,33 @@
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
-    },
     "img": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
+      ]
     },
-    "content": {
-      "type": "text",
-      "required": true
+    "button": {
+      "type": "string"
+    },
+    "button_api": {
+      "type": "string"
+    },
+    "paragraph": {
+      "displayName": "List",
+      "type": "component",
+      "repeatable": true,
+      "component": "general.list"
+    },
+    "title": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.list"
     }
   }
 }

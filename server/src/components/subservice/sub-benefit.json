@@ -10,10 +10,6 @@
       "type": "string",
       "required": true
     },
-    "title": {
-      "type": "string",
-      "required": true
-    },
     "img": {
       "type": "media",
       "multiple": false,
@@ -25,16 +21,22 @@
         "audios"
       ]
     },
-    "content": {
-      "type": "text",
-      "required": true
-    },
     "Button": {
       "type": "string",
       "required": false
     },
     "button_api": {
       "type": "text"
+    },
+    "paragraph": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.list"
+    },
+    "title": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.list"
     }
   }
 }

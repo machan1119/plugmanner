@@ -2,31 +2,31 @@
   "collectionName": "components_article_chapters",
   "info": {
     "displayName": "chapter",
-    "icon": "store"
+    "icon": "store",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
-    "content": {
-      "type": "text",
-      "required": false
-    },
     "img": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "section": {
       "type": "component",
       "repeatable": true,
       "component": "article.section"
+    },
+    "title": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.list"
     }
   }
 }

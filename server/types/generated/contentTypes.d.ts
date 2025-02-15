@@ -372,6 +372,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiAA extends Struct.CollectionTypeSchema {
   collectionName: 'as';
   info: {
+    description: '';
     displayName: 'a';
     pluralName: 'as';
     singularName: 'a';
@@ -380,8 +381,15 @@ export interface ApiAA extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    aa: Schema.Attribute.Blocks;
-    bb: Schema.Attribute.RichText;
+    a: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzExMTM1OTksImp0aSI6ImFkMTBiNWIxLTQ5ZDctNGY3My1hY2I1LWEwNjI2NmFkOThiYiIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiMGZiZDliMGMifQ.f1AMt3czlV5EaYq4yu--HQoPr8qNWxZ6MvWei6iPxuWykYj8FgQjfi7PTeXWxNWpPqX-tXL_8gKgGdIUA-zCyQ';
+          output: 'Markdown';
+          preset: 'standard';
+        }
+      >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -389,6 +397,8 @@ export interface ApiAA extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::a.a'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    q: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -434,6 +444,45 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       'api::subservice.subservice'
     >;
     title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBB extends Struct.CollectionTypeSchema {
+  collectionName: 'bs';
+  info: {
+    description: '';
+    displayName: 'b';
+    pluralName: 'bs';
+    singularName: 'b';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    a: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultMarkdown';
+        }
+      >;
+    b: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::b.b'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -575,6 +624,7 @@ export interface ApiSubserviceSubservice extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    header: Schema.Attribute.Component<'general.list', false>;
     introduction: Schema.Attribute.Component<
       'subservice.subservice-introduction',
       false
@@ -588,11 +638,10 @@ export interface ApiSubserviceSubservice extends Struct.CollectionTypeSchema {
     name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
-    popular: Schema.Attribute.Integer & Schema.Attribute.Required;
+    popular: Schema.Attribute.BigInteger & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     service: Schema.Attribute.Relation<'manyToOne', 'api::service.service'>;
-    subname: Schema.Attribute.String & Schema.Attribute.Required;
-    type: Schema.Attribute.String & Schema.Attribute.Required;
+    simpledescription: Schema.Attribute.Component<'general.list', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1110,6 +1159,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::a.a': ApiAA;
       'api::article.article': ApiArticleArticle;
+      'api::b.b': ApiBB;
       'api::free-tool.free-tool': ApiFreeToolFreeTool;
       'api::service.service': ApiServiceService;
       'api::sub-free-tool.sub-free-tool': ApiSubFreeToolSubFreeTool;

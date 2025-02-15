@@ -11,11 +11,17 @@
     "strapi": "strapi"
   },
   "dependencies": {
+    "@_sh/strapi-plugin-ckeditor": "^5.0.1",
+    "@ckeditor/strapi-plugin-ckeditor": "^1.1.0",
+    "@ef2/strapi-plugin-bold-title-editor": "^2.0.5",
     "@strapi/plugin-cloud": "5.9.0",
+    "@strapi/plugin-color-picker": "^5.10.2",
     "@strapi/plugin-documentation": "^5.9.0",
     "@strapi/plugin-users-permissions": "5.9.0",
     "@strapi/strapi": "5.9.0",
     "better-sqlite3": "^11.8.1",
+    "ckeditor5": "^44.2.0",
+    "ckeditor5-premium-features": "^44.2.0",
     "pg": "8.8.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",

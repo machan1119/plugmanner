@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bs",
+  "info": {
+    "singularName": "b",
+    "pluralName": "bs",
+    "displayName": "b",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "a": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultMarkdown"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "b": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}

@@ -13,8 +13,15 @@
       "repeatable": true,
       "component": "subservice.how-to-order-step"
     },
+    "title": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.list"
+    },
     "description": {
-      "type": "text"
+      "type": "component",
+      "repeatable": false,
+      "component": "general.list"
     }
   }
 }

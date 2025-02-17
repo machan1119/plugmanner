@@ -10,7 +10,7 @@
     "rate": {
       "type": "float",
       "required": true,
-      "default": 5
+      "default": 4.8
     },
     "counterofreviews": {
       "type": "biginteger",

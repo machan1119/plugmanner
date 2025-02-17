@@ -10,12 +10,12 @@
     "rated": {
       "type": "float",
       "required": true,
-      "default": 0
+      "default": 4.8
     },
     "CounterOfReviews": {
       "type": "biginteger",
       "required": true,
-      "default": "0"
+      "default": "1000"
     },
     "OrderIntro": {
       "type": "component",
@@ -27,7 +27,8 @@
       "displayName": "StateOfService",
       "type": "component",
       "repeatable": false,
-      "component": "subservice.state-of-service"
+      "component": "subservice.state-of-service",
+      "required": false
     },
     "TopReviews": {
       "displayName": "TopReviews",
@@ -46,7 +47,7 @@
       "type": "component",
       "repeatable": false,
       "component": "subservice.service-summary",
-      "required": true
+      "required": false
     },
     "video": {
       "type": "text"

@@ -37,23 +37,27 @@ export function StrapiText({ data, customClassName }: StrapiTextType) {
 interface StrapiParagraphType {
   paragraph: ParagraphType[];
   customClassName?: string;
+  customParentClassName?: string;
 }
 
 export function StrapiParagraph({
   paragraph,
   customClassName,
+  customParentClassName,
 }: StrapiParagraphType) {
   return (
-    <div className="flex flex-col gap-4 items-center justify-start w-full">
+    <div
+      className={`flex flex-col gap-4 items-start w-full ${customParentClassName}`}
+    >
       {paragraph?.map((item, index) => (
-        <div className="flex gap-3 w-full items-center" key={index}>
+        <div className={"flex gap-3 items-start"} key={index}>
           {item.icon ? (
             <Image
               width={item.icon.width}
               height={item.icon.height}
               src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${item.icon.url}`}
               alt="checkmark icon"
-              className="w-[16px] h-[16px] mr-1"
+              className="w-[16px] h-[16px] mr-1 mt-[6px]"
             />
           ) : (
             ""

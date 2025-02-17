@@ -10,7 +10,7 @@ const NavBarBottom = () => {
   }
   return (
     <div className="bg-black-light border-y border-black-dark py-1 w-full">
-      <div className="flex flex-col lg:flex-row lg:justify-between justify-self-center w-[65%]">
+      <div className="flex flex-col lg:flex-row lg:justify-between justify-self-center w-[90%] xl:w-[65%]">
         {list.map((val, index) => (
           <DropDownServices key={index} item={val} />
         ))}

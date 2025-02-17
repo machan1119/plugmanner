@@ -11,13 +11,13 @@ const ServiceInfo = () => {
   return (
     <div className="flex flex-col w-full m-auto items-center">
       <div className="flex lg:flex-row lg:items-start items-center flex-col gap-20 px-[3%] pt-[80px] bg-white m-auto max-w-[1366px]">
-        <div className="flex flex-col gap-7 w-[50%] lg:items-start items-center lg:text-left grow">
+        <div className="flex flex-col gap-7 w-[80%] lg:w-[50%] lg:items-start items-center lg:text-left grow">
           <h1 className="font-service-main md:font-service-md lg:font-service-lg text-wrap !text-center lg:!text-left">
             <StrapiText data={serviceItems.header.text} />
           </h1>
           <StrapiText
             data={serviceItems.simpledescription.text}
-            customClassName="font-service-text text-[20px] !text-center lg:!text-left"
+            customClassName="font-service-text lg:text-[20px] !text-center lg:!text-left"
           />
           <div className="flex items-center mt-2">
             <Image
@@ -66,12 +66,12 @@ const ServiceInfo = () => {
           />
         </div>
       </div>
-      <div className="z-10 mt-[-50px] w-full bg-black-light py-[50px] flex flex-col items-center">
+      <div className="z-10 mt-[-30px] w-full bg-black-light py-[50px] flex flex-col items-center">
         <div className="relative max-w-[1366px] w-full flex gap-8 items-center px-10">
           {serviceItems.introduction.StateOfService.States.map(
             (item, index) => (
               <div key={index} className="text-left">
-                <p className="font-service-main !text-[48px]">
+                <p className="font-service-main lg:!text-[48px]">
                   {item.counters}
                 </p>
                 <p className="font-service-text text-[16px]">

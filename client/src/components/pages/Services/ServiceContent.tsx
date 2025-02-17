@@ -6,7 +6,6 @@ import ServiceInfo from "@/components/pages/Services/ServiceInfo/ServiceInfo";
 import ServiceQuestion from "@/components/pages/Services/ServiceQuestion/ServiceQuestion";
 import ServiceReview from "@/components/pages/Services/ServiceReview/ServiceReview";
 // import ServiceTip from "@/components/pages/Services/ServiceTip/ServiceTip";
-// import ServiceVideo from "@/components/pages/Services/ServiceVideo/ServiceVideo";
 import ServiceHowTo from "./ServiceHowTo/ServiceHowTo";
 import ServiceBenefit from "./ServiceBenefit/ServiceBenefit";
 import SectionServices from "../Home/SectionServices.tsx/SectionServices";

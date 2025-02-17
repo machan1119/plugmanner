@@ -41,7 +41,7 @@ const DropDownServices = ({ item }: { item: ListType }) => {
               {val.services.map((dataItem, key) => (
                 <Link
                   href={`/home/services/${dataItem.id}`}
-                  onClick={() => setServiceShow(false)}
+                  onClick={() => setServiceShow(true)}
                   className="flex gap-2 mt-2 text-[16px] hover:text-green-light items-center"
                   key={key}
                 >

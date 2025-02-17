@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_subservice_state_of_services",
+  "info": {
+    "displayName": "StateOfService",
+    "icon": "brush"
+  },
+  "options": {},
+  "attributes": {
+    "States": {
+      "displayName": "parameter",
+      "type": "component",
+      "repeatable": true,
+      "component": "general.parameter"
+    }
+  }
+}

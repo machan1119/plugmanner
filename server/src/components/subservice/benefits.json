@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_subservice_benefits",
+  "info": {
+    "displayName": "Benefits",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Benefit": {
+      "displayName": "SubBenefit",
+      "type": "component",
+      "repeatable": true,
+      "component": "subservice.sub-benefit"
+    },
+    "title": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.list"
+    }
+  }
+}

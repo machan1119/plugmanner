@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_subservice_sub_blogs",
+  "info": {
+    "displayName": "SubBlog",
+    "icon": "feather",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "img": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "button": {
+      "type": "string"
+    },
+    "button_api": {
+      "type": "string"
+    },
+    "paragraph": {
+      "displayName": "List",
+      "type": "component",
+      "repeatable": true,
+      "component": "general.list"
+    },
+    "title": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.list"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_article_authors",
+  "info": {
+    "displayName": "author",
+    "icon": "alien",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "introduction": {
+      "type": "text"
+    },
+    "social": {
+      "displayName": "social_link",
+      "type": "component",
+      "repeatable": true,
+      "component": "general.social-link"
+    },
+    "avatar": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "free_tools",
+  "info": {
+    "singularName": "free-tool",
+    "pluralName": "free-tools",
+    "displayName": "Free Tool",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "sub_free_tools": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sub-free-tool.sub-free-tool",
+      "mappedBy": "free_tool"
+    }
+  }
+}

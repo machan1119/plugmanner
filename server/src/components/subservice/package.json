@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_subservice_packages",
+  "info": {
+    "displayName": "package",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "level": {
+      "type": "string"
+    },
+    "unit": {
+      "type": "string"
+    },
+    "popular": {
+      "type": "boolean",
+      "default": false
+    },
+    "price": {
+      "type": "string"
+    },
+    "list": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.list"
+    }
+  }
+}

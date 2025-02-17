@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_subservice_reviews",
+  "info": {
+    "displayName": "review",
+    "icon": "paperPlane",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text",
+      "required": true
+    },
+    "rated": {
+      "type": "float",
+      "required": true,
+      "default": 5
+    },
+    "content": {
+      "type": "text",
+      "required": true
+    },
+    "customer": {
+      "type": "string",
+      "required": true
+    },
+    "date": {
+      "type": "date"
+    }
+  }
+}

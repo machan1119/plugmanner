@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_subservice_top_reviews",
+  "info": {
+    "displayName": "TopReviews",
+    "icon": "cloud",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "review": {
+      "displayName": "review",
+      "type": "component",
+      "repeatable": true,
+      "component": "subservice.review"
+    },
+    "rate": {
+      "type": "float",
+      "required": true,
+      "default": 5
+    },
+    "header": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.list"
+    }
+  }
+}

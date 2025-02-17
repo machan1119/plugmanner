@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_subservice_customer_reviews",
+  "info": {
+    "displayName": "CustomerReviews",
+    "icon": "crown",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "rate": {
+      "type": "float",
+      "required": true,
+      "default": 5
+    },
+    "counterofreviews": {
+      "type": "biginteger",
+      "required": true,
+      "default": "1000"
+    },
+    "Review": {
+      "type": "component",
+      "repeatable": true,
+      "component": "subservice.review"
+    },
+    "text": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.list"
+    },
+    "title": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.list"
+    }
+  }
+}

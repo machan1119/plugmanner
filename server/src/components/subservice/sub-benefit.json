@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_subservice_sub_benefits",
+  "info": {
+    "displayName": "SubBenefit",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "tabname": {
+      "type": "string",
+      "required": true
+    },
+    "img": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Button": {
+      "type": "string",
+      "required": false
+    },
+    "button_api": {
+      "type": "text"
+    },
+    "paragraph": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.list"
+    },
+    "title": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.list"
+    }
+  }
+}

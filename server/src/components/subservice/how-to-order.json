@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_subservice_how_to_orders",
+  "info": {
+    "displayName": "HowToOrder",
+    "icon": "strikeThrough",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "step": {
+      "displayName": "HowToOrderStep",
+      "type": "component",
+      "repeatable": true,
+      "component": "subservice.how-to-order-step"
+    },
+    "title": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.list"
+    },
+    "description": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.list"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_order_qqqs",
+  "info": {
+    "displayName": "OrderIntroSentence",
+    "icon": "check",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

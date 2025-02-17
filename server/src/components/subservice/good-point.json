@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_subservice_good_points",
+  "info": {
+    "displayName": "GoodPoint",
+    "icon": "apps",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "chapter": {
+      "type": "component",
+      "repeatable": true,
+      "component": "article.chapter"
+    },
+    "list_img": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

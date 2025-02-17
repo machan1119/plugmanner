@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_order_order_intros",
+  "info": {
+    "displayName": "OrderIntro",
+    "icon": "archive",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "price": {
+      "type": "float",
+      "required": true,
+      "default": 0
+    },
+    "unit": {
+      "type": "string",
+      "required": true
+    },
+    "list": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.list"
+    }
+  }
+}

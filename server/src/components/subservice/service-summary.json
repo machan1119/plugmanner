@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_subservice_service_summaries",
+  "info": {
+    "displayName": "ServiceSummary",
+    "icon": "car",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "EachSummary": {
+      "type": "component",
+      "repeatable": true,
+      "component": "subservice.each-summary"
+    },
+    "title": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.list"
+    }
+  }
+}

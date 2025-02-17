@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "subservices",
+  "info": {
+    "singularName": "subservice",
+    "pluralName": "subservices",
+    "displayName": "Subservice",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "service": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::service.service",
+      "inversedBy": "subservices"
+    },
+    "popular": {
+      "type": "biginteger",
+      "required": true,
+      "unique": false
+    },
+    "introduction": {
+      "displayName": "subserviceIntroduction",
+      "type": "component",
+      "repeatable": false,
+      "component": "subservice.subservice-introduction"
+    },
+    "article": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::article.article",
+      "inversedBy": "subservices"
+    },
+    "header": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.list"
+    },
+    "simpledescription": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.list"
+    }
+  }
+}

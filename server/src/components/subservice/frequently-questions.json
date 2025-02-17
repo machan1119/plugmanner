@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_subservice_frequently_questions",
+  "info": {
+    "displayName": "FrequentlyQuestions",
+    "icon": "user",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Question": {
+      "displayName": "Question",
+      "type": "component",
+      "repeatable": true,
+      "component": "subservice.question",
+      "required": true
+    },
+    "header": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.list"
+    }
+  }
+}

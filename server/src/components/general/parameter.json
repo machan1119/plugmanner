@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_general_parameters",
+  "info": {
+    "displayName": "parameter",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "counters": {
+      "type": "string",
+      "required": true
+    },
+    "character": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

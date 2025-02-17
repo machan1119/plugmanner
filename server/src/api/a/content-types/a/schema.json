@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "as",
+  "info": {
+    "singularName": "a",
+    "pluralName": "as",
+    "displayName": "a",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "a": {
+      "type": "customField",
+      "options": {
+        "output": "Markdown",
+        "preset": "standard",
+        "licenseKey": "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzExMTM1OTksImp0aSI6ImFkMTBiNWIxLTQ5ZDctNGY3My1hY2I1LWEwNjI2NmFkOThiYiIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiMGZiZDliMGMifQ.f1AMt3czlV5EaYq4yu--HQoPr8qNWxZ6MvWei6iPxuWykYj8FgQjfi7PTeXWxNWpPqX-tXL_8gKgGdIUA-zCyQ"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    },
+    "q": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
+    }
+  }
+}

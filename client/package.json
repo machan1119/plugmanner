@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@next/font": "^14.2.15",
+    "axios": "^1.7.9",
     "bcryptjs": "^2.4.3",
     "lottie-react": "^2.4.1",
     "lottie-web": "^5.12.2",

@@ -1,3 +1,4 @@
+import MainButton from "@/components/Buttons";
 import { StrapiParagraph, StrapiText } from "@/components/StrapiComponents";
 import { useServices } from "@/providers/ServicesProvider";
 import Image from "next/image";
@@ -11,8 +12,8 @@ const ServiceUpBlogs = () => {
       <div className="flex flex-col gap-20 max-w-[1366px] justify-self-center px-10">
         {serviceItems.introduction.UpBlogs.Blog.map((item, index) => (
           <div
-            className={`w-[95%] flex gap-[10%] items-start ${
-              index % 2 != 0 && "flex-row-reverse"
+            className={`w-[95%] flex lg:flex-row flex-col gap-[60px] items-center ${
+              index % 2 != 0 && "lg:flex-row-reverse"
             }`}
             key={index}
           >
@@ -30,8 +31,11 @@ const ServiceUpBlogs = () => {
               />
               <StrapiParagraph
                 paragraph={item.paragraph}
-                customClassName="font-main text-[#686889] text-[20px] !justify-start"
+                customClassName="font-main text-[#686889] lg:text-[20px] !justify-start"
               />
+              {item.button && (
+                <MainButton type="green-main" title={item.button} />
+              )}
             </div>
           </div>
         ))}

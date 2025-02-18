@@ -44,7 +44,7 @@ export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
 
         const path = "/services";
         const urlParamsObject = {
-          sort: { createdAt: "asc" },
+          sort: { popular: "desc" },
           populate: "*",
           pagination: {
             start: start,

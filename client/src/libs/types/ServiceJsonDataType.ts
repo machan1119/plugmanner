@@ -75,7 +75,7 @@ export interface ServiceJsonDataType {
     };
     FrequentlyQuestions: {
       id: number;
-      header:ParagraphType,
+      header: ParagraphType;
       Question: QuestionType[];
     };
     GoodPoints: {
@@ -137,7 +137,7 @@ export type ParagraphType = {
 export type BenefitType = {
   id?: number;
   tabname: string;
-  Button: null;
+  Button?: string;
   button_api: null;
   title: {
     id?: number;
@@ -174,7 +174,7 @@ export type QuestionType = {
 
 export type GoodPointsChapterType = {
   id?: number;
-  img: ImageData;
+  img: ImageData[];
   title: ParagraphType;
   section: GoodPointsChapterSectionType[];
 };
@@ -182,7 +182,7 @@ export type GoodPointsChapterType = {
 export type GoodPointsChapterSectionType = {
   id?: number;
   img: ImageData;
-  title: Text[];
+  title: ParagraphType;
   content: ParagraphType[];
 };
 

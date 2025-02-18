@@ -1,39 +1,17 @@
-import Image from "next/image";
+import { StrapiParagraph } from "@/components/StrapiComponents";
+import { useServices } from "@/providers/ServicesProvider";
 import React from "react";
 
 const ServiceAdvantage = () => {
+  const { serviceItems } = useServices();
+  if (!serviceItems?.introduction.Quality) return "";
   return (
-    <div className="w-max px-4 py-3 flex gap-4 items-center bg-[#f6faff] border-[1px] border-black-medium rounded-lg">
-      <div className="flex font-service-text text-[14px]">
-        <Image
-          width={16}
-          height={16}
-          src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/628fdb670c2e9e80264b9f41_Coinboosts-check-green.svg"
-          alt="checkmark icon"
-          className="mr-2"
-        />
-        Instant Delivery
-      </div>
-      <div className="flex font-service-text text-[14px]">
-        <Image
-          width={16}
-          height={16}
-          src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/628fdb670c2e9e80264b9f41_Coinboosts-check-green.svg"
-          alt="checkmark icon"
-          className="mr-2"
-        />
-        100% Growth Guarantee
-      </div>
-      <div className="flex font-service-text text-[14px]">
-        <Image
-          width={16}
-          height={16}
-          src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/628fdb670c2e9e80264b9f41_Coinboosts-check-green.svg"
-          alt="checkmark icon"
-          className="mr-2"
-        />
-        24/7 Customer Service
-      </div>
+    <div className="w-max px-4 py-3 flex lg:flex-row flex-col items-start gap-4 lg:items-center bg-[#f6faff] border-[1px] border-black-medium rounded-lg">
+      <StrapiParagraph
+        paragraph={serviceItems.introduction.Quality.list}
+        customClassName="flex font-service-text text-[14px] leading-[28px]"
+        customParentClassName="lg:flex-row"
+      />
     </div>
   );
 };

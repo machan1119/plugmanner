@@ -37,7 +37,7 @@ const ServiceReview = () => {
         <MainButton
           type="green-main"
           title="Order Now >"
-          customClass="w-[20%]"
+          customClass="md:w-[20%] w-full"
         />
       </div>
     </div>

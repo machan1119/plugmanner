@@ -1,3 +1,4 @@
+import MainButton from "@/components/Buttons";
 import { StrapiParagraph, StrapiText } from "@/components/StrapiComponents";
 import { useServices } from "@/providers/ServicesProvider";
 import Image from "next/image";
@@ -17,12 +18,12 @@ const ServiceBenefit = () => {
           />
         </h1>
         <div className="w-full flex flex-col items-center">
-          <div className="w-full flex gap-4 justify-between my-8">
+          <div className="w-full flex flex-col sm:flex-row gap-4 justify-between my-8">
             {serviceItems.introduction.Benefits.Benefit.map((item, index) =>
               currentStep == index ? (
                 <button
                   key={index}
-                  className="w-full py-2 bg-transparent font-clash text-[18px] !text-center !font-semibold border-b-[2px] border-green-light !text-green-light"
+                  className="w-full py-2 bg-transparent font-clash lg:text-[18px] !text-center !font-semibold border-b-[2px] border-green-light !text-green-light"
                 >
                   {item.tabname}
                 </button>
@@ -30,7 +31,7 @@ const ServiceBenefit = () => {
                 <button
                   key={index}
                   onClick={() => setCurrentStep(index)}
-                  className="w-full py-2 bg-transparent font-clash text-[18px] !text-center !font-semibold border-b-[2px] border-black-dark !text-black-dark hover:border-white hover:!text-white"
+                  className="w-full py-2 bg-transparent font-clash lg:text-[18px] !text-center !font-semibold border-b-[2px] border-black-dark !text-black-dark hover:border-white hover:!text-white"
                 >
                   {item.tabname}
                 </button>
@@ -45,7 +46,7 @@ const ServiceBenefit = () => {
                 serviceItems.introduction.Benefits.Benefit[currentStep].tabname
               }
               src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${serviceItems.introduction.Benefits.Benefit[currentStep].img.url}`}
-              className="w-[50%] p-10"
+              className="p-10"
             />
             <div className="flex flex-col gap-5">
               <StrapiText
@@ -60,8 +61,18 @@ const ServiceBenefit = () => {
                   serviceItems.introduction.Benefits.Benefit[currentStep]
                     .paragraph
                 }
-                customClassName="font-main text-black-steel text-[20px]"
+                customClassName="font-main text-black-steel lg:text-[20px]"
               />
+              {serviceItems.introduction.Benefits.Benefit[currentStep]
+                .Button && (
+                <MainButton
+                  type="green-main"
+                  title={
+                    serviceItems.introduction.Benefits.Benefit[currentStep]
+                      .Button
+                  }
+                />
+              )}
             </div>
           </div>
         </div>

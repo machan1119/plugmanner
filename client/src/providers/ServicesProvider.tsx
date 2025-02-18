@@ -47,7 +47,6 @@ export const ServicesProvider: React.FC<ServicesProviderProps> = ({
             "introduction.CustomerReviews.Review",
             "introduction.ChoosePackage.package.list.icon",
             "introduction.ChoosePackage.package.list.text",
-            "introduction.GoodPoints.list_img",
             "introduction.GoodPoints.chapter.img",
             "introduction.GoodPoints.chapter.title.icon",
             "introduction.GoodPoints.chapter.title.text",
@@ -99,6 +98,8 @@ export const ServicesProvider: React.FC<ServicesProviderProps> = ({
         const fetchedData = await fetchAPI(path, urlParamsObject, options);
         console.log(fetchedData);
         setServiceItems(fetchedData.data);
+      } catch (error) {
+        console.error(error);
       } finally {
         setIsLoading(false);
       }

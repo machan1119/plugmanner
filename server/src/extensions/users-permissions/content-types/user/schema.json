@@ -86,6 +86,13 @@
     "profile_slug": {
       "type": "uid",
       "targetField": "username"
+    },
+    "first_name": {
+      "type": "string",
+      "required": false
+    },
+    "last_name": {
+      "type": "string"
     }
   }
 }

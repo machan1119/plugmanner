@@ -10,7 +10,8 @@
     "EachSummary": {
       "type": "component",
       "repeatable": true,
-      "component": "subservice.each-summary"
+      "component": "subservice.each-summary",
+      "required": false
     },
     "title": {
       "type": "component",

@@ -21,7 +21,8 @@
     "header": {
       "type": "component",
       "repeatable": false,
-      "component": "general.list"
+      "component": "general.list",
+      "required": false
     }
   }
 }

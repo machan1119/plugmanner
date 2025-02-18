@@ -193,7 +193,7 @@ export interface SubserviceCustomerReviews extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<'1000'>;
     rate: Schema.Attribute.Float &
       Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<5>;
+      Schema.Attribute.DefaultTo<4.8>;
     Review: Schema.Attribute.Component<'subservice.review', true>;
     text: Schema.Attribute.Component<'general.list', true>;
     title: Schema.Attribute.Component<'general.list', false>;
@@ -238,7 +238,6 @@ export interface SubserviceGoodPoint extends Struct.ComponentSchema {
   };
   attributes: {
     chapter: Schema.Attribute.Component<'article.chapter', true>;
-    list_img: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
@@ -401,7 +400,7 @@ export interface SubserviceSubserviceIntroduction
     >;
     CounterOfReviews: Schema.Attribute.BigInteger &
       Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'0'>;
+      Schema.Attribute.DefaultTo<'1000'>;
     CustomerReviews: Schema.Attribute.Component<
       'subservice.customer-reviews',
       false
@@ -418,13 +417,12 @@ export interface SubserviceSubserviceIntroduction
     Quality: Schema.Attribute.Component<'subservice.quality', false>;
     rated: Schema.Attribute.Float &
       Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<0>;
+      Schema.Attribute.DefaultTo<4.8>;
     StateOfService: Schema.Attribute.Component<
       'subservice.state-of-service',
       false
     >;
-    Summary: Schema.Attribute.Component<'subservice.service-summary', false> &
-      Schema.Attribute.Required;
+    Summary: Schema.Attribute.Component<'subservice.service-summary', false>;
     TopReviews: Schema.Attribute.Component<'subservice.top-reviews', false>;
     UpBlogs: Schema.Attribute.Component<'subservice.blogs', false>;
     video: Schema.Attribute.Text;

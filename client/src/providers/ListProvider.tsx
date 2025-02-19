@@ -57,6 +57,7 @@ export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
           setMeta(responseData.meta);
         }
         const rawData: RawData[] = responseData.data;
+        console.log(rawData);
         const filteredData: ListType[] = rawData.map((item) => ({
           type: item.type,
           data: [
@@ -78,6 +79,8 @@ export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
           const getIndexByType = (type: string): number => {
             switch (type) {
               case "Twitter":
+                return 0;
+              case "Twitter(X)":
                 return 0;
               case "Reddit":
                 return 1;

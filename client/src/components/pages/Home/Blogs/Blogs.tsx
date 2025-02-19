@@ -15,7 +15,6 @@ const Blogs = () => {
               width: "auto",
               height: "auto",
             }}
-            objectFit="cover"
             alt="Socialplug plug icon"
             src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e66_Group%201000004047.svg"
           />

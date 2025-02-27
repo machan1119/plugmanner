@@ -32,8 +32,8 @@ const DropDownServices = ({ item }: { item: ListType }) => {
         }`}
       >
         <div className="max-h-[100vh] max-w-[100vw] flex flex-col flex-wrap justify-start overflow-x-auto gap-5">
-          {item.data.map((val, key) => (
-            <div className="col-span-1 flex-col w-max" key={key}>
+          {item.data.map((val, index) => (
+            <div className="col-span-1 flex-col w-max" key={index}>
               <div className="text-lg font-semibold text-black mb-2 font-clash">
                 {val.title}
               </div>

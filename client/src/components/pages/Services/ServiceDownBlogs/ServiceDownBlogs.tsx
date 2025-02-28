@@ -9,7 +9,7 @@ const ServiceDownBlogs = () => {
   if (!serviceItems?.introduction.DownBlogs) return "";
   return (
     <div className="w-full py-[80px] border-b-[1px] border-black-normal">
-      <div className="flex flex-col gap-20 max-w-[1366px] justify-self-center px-10">
+      <div className="flex flex-col gap-10 max-w-[1366px] justify-self-center px-10">
         {serviceItems.introduction.DownBlogs.Blog.map((item, index) => (
           <div
             className={`w-[95%] flex lg:flex-row flex-col gap-[60px] items-center ${

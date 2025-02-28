@@ -3,20 +3,11 @@ import { ListType } from "@/libs/types/ListTypes";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { useHome } from "@/providers/HomeProvider";
 
 const DropDownServices = ({ item }: { item: ListType }) => {
-  const { setServiceShow } = useHome();
   return (
-    <div className="inline-block group relative border-b-[1px] lg:border-none border-black-dark">
+    <div className="inline-block group relative">
       <div className="flex gap-1 items-center cursor-pointer py-4 font-normal text-base font-satoshi">
-        <Image
-          src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${item.data[0].icon}`}
-          width={30}
-          height={30}
-          alt={item.type}
-          className="w-8 h-8 lg:hidden"
-        />
         <p className="group-hover:text-green-light">{item.type}</p>
         <Image
           width={16}
@@ -27,7 +18,7 @@ const DropDownServices = ({ item }: { item: ListType }) => {
         />
       </div>
       <div
-        className={`w-max lg:absolute hidden group-hover:block lg:bg-white bg-inherit rounded-md p-3 lg:shadow-[-2px_8px_9px_rgba(0,0,0,0.08),_-8px_15px_16px_rgba(0,0,0,0.07),_-20px_32px_24px_rgba(0,0,0,0.04),_-36px_56px_28px_rgba(0,0,0,0.01)] max-h-[70vh] overflow-y-auto ${
+        className={`w-max absolute hidden group-hover:block bg-white bg-inherit rounded-md p-3 lg:shadow-[-2px_8px_9px_rgba(0,0,0,0.08),_-8px_15px_16px_rgba(0,0,0,0.07),_-20px_32px_24px_rgba(0,0,0,0.04),_-36px_56px_28px_rgba(0,0,0,0.01)] max-h-[70vh] overflow-y-auto ${
           item.type == "Other" || item.type == "Tools" ? "right-0" : "left-0"
         }`}
       >
@@ -41,7 +32,6 @@ const DropDownServices = ({ item }: { item: ListType }) => {
               {val.services.map((dataItem, key) => (
                 <Link
                   href={`/home/services/${dataItem.id}`}
-                  onClick={() => setServiceShow(true)}
                   className="flex gap-2 mt-2 text-[16px] hover:text-green-light items-center"
                   key={key}
                 >

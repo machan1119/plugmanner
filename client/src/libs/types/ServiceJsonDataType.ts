@@ -80,7 +80,7 @@ export interface ServiceJsonDataType {
     };
     GoodPoints: {
       id?: number;
-      list_img: ImageData;
+      list_img: string;
       chapter: GoodPointsChapterType[];
     };
   };
@@ -125,12 +125,12 @@ export type BlogType = {
   button_api: string;
   paragraph: ParagraphType[];
   title: ParagraphType;
-  img: ImageData;
+  img: string;
 };
 
 export type ParagraphType = {
   id?: number;
-  icon: ImageData;
+  icon: string;
   text: Text[];
 };
 
@@ -174,14 +174,14 @@ export type QuestionType = {
 
 export type GoodPointsChapterType = {
   id?: number;
-  img: ImageData[];
+  img: string;
   title: ParagraphType;
   section: GoodPointsChapterSectionType[];
 };
 
 export type GoodPointsChapterSectionType = {
   id?: number;
-  img: ImageData;
+  img: string;
   title: ParagraphType;
   content: ParagraphType[];
 };
@@ -195,43 +195,43 @@ export type Article = {
   updatedAt: string;
   publishedAt: string;
   author_name: string;
-  main_img: ImageData[];
+  img: string;
 };
 
-type ImageData = {
-  id?: number;
-  documentId: string;
-  name: string;
-  alternativeText: string;
-  caption: string;
-  width: number;
-  height: number;
-  formats: {
-    small: ImageFormat;
-    medium?: ImageFormat;
-    thumbnail: ImageFormat;
-  };
-  hash: string;
-  ext: string;
-  mime: string;
-  size: number;
-  url: string;
-  previewUrl: null;
-  provider: string;
-  provider_metadata: null;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
-};
+// type ImageData = {
+//   id?: number;
+//   documentId: string;
+//   name: string;
+//   alternativeText: string;
+//   caption: string;
+//   width: number;
+//   height: number;
+//   formats: {
+//     small: ImageFormat;
+//     medium?: ImageFormat;
+//     thumbnail: ImageFormat;
+//   };
+//   hash: string;
+//   ext: string;
+//   mime: string;
+//   size: number;
+//   url: string;
+//   previewUrl: null;
+//   provider: string;
+//   provider_metadata: null;
+//   createdAt: string;
+//   updatedAt: string;
+//   publishedAt: string;
+// };
 
-type ImageFormat = {
-  ext: string;
-  url: string;
-  hash: string;
-  mime: string;
-  name: string;
-  path: null;
-  size: number;
-  width: number;
-  height: number;
-};
+// type ImageFormat = {
+//   ext: string;
+//   url: string;
+//   hash: string;
+//   mime: string;
+//   name: string;
+//   path: null;
+//   size: number;
+//   width: number;
+//   height: number;
+// };

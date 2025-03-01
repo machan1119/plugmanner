@@ -21,7 +21,7 @@ const ServiceDownBlogs = () => {
               width={500}
               height={500}
               alt=""
-              src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${item.img.url}`}
+              src={`${item.img}`}
               className=""
             />
             <div className="flex flex-col gap-5">

@@ -10,7 +10,7 @@ const ServiceBenefit = () => {
   if (!serviceItems?.introduction.Benefits) return "";
   return (
     <div className="w-full py-[80px] bg-[#14141b] bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/64030a7b422e3a3f6bb5ed7f_Vector-dark-bg.svg')] bg-right-bottom bg-no-repeat bg-auto">
-      <div className="max-w-[1366px] justify-self-center px-10">
+      <div className="max-w-[1366px] w-full justify-self-center px-10">
         <h1 className="font-h1 !text-white">
           <StrapiText
             data={serviceItems.introduction.Benefits.title?.text}
@@ -45,7 +45,7 @@ const ServiceBenefit = () => {
               alt={
                 serviceItems.introduction.Benefits.Benefit[currentStep].tabname
               }
-              src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${serviceItems.introduction.Benefits.Benefit[currentStep].img.url}`}
+              src={`${serviceItems.introduction.Benefits.Benefit[currentStep].img}`}
               className="p-10"
             />
             <div className="flex flex-col gap-5">

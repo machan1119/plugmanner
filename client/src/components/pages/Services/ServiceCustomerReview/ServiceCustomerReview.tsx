@@ -53,7 +53,7 @@ const ServiceCustomerReview = () => {
           </div>
         </div>
         <div
-          className="relative overflow-hidden mt-6 h-[500px] w-full"
+          className="relative overflow-hidden mt-6 min-h-[500px] w-full"
           ref={readRef}
           style={{ height: readHeight }}
         >
@@ -75,7 +75,9 @@ const ServiceCustomerReview = () => {
       </div>
       {readHeight &&
         maxHeight &&
-        (readHeight <= maxHeight ? (
+        (maxHeight <= 500 ? (
+          ""
+        ) : readHeight < maxHeight ? (
           <MainButton
             type="white-main"
             title="Show More +"

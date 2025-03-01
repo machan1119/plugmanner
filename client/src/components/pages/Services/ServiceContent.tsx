@@ -17,10 +17,18 @@ import { ServicePageSkeleton } from "@/components/Skeletons";
 import ServiceDownBlogs from "./ServiceDownBlogs/ServiceDownBlogs";
 import ServiceGoodPoints from "./ServiceGoodPoints/ServiceGoodPoints";
 import ServicePackage from "./ServicePackage/ServicePackage";
+import { useEffect } from "react";
 
 function ServicesContent() {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
   const { isLoading } = useServices();
   if (isLoading) return <ServicePageSkeleton />;
+
   return (
     <>
       <ServiceInfo />

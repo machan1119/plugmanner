@@ -57,7 +57,7 @@ export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
           setMeta(responseData.meta);
         }
         const rawData: RawData[] = responseData.data;
-        console.log(rawData);
+        // console.log(rawData);
         const filteredData: ListType[] = rawData.map((item) => ({
           type: item.type,
           data: [
@@ -78,9 +78,9 @@ export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
           const dataItem = item.data[0];
           const getIndexByType = (type: string): number => {
             switch (type) {
-              case "Twitter":
-                return 0;
               case "Twitter(X)":
+                return 0;
+              case "Twitter":
                 return 0;
               case "Reddit":
                 return 1;
@@ -114,7 +114,7 @@ export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
                 : type;
 
             const newData: ListType = {
-              type: newType,
+              type: newType == "Twitter(X)" ? "Twitter" : newType,
               data: [
                 {
                   title: dataItem.title,
@@ -127,7 +127,8 @@ export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
           } else {
             // Starts with base type: Add to existing
             let targetIndex = -1;
-            if (type.startsWith("Twitter")) targetIndex = 0;
+            if (type.startsWith("Twitter(X)")) targetIndex = 0;
+            else if (type.startsWith("Twitter")) targetIndex = 0;
             else if (type.startsWith("Reddit")) targetIndex = 1;
             else if (type.startsWith("Instagram")) targetIndex = 2;
             else if (type.startsWith("TikTok")) targetIndex = 3;

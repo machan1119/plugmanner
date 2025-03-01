@@ -10,7 +10,7 @@ const ServicesItem = ({ serviceData }: { serviceData: ServicesDataType }) => {
 
   return (
     <div className="inline-block relative bg-black-light border-[1px] border-black-dark rounded-[12px] p-4 w-full h-max">
-      <div className="flex justify-between items-center mb">
+      <div className="flex justify-between items-center">
         <div className="flex gap-3 items-center">
           <Image
             width={40}

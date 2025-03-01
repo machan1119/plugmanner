@@ -28,7 +28,7 @@ const ServiceSummary = () => {
                   width={50}
                   height={50}
                   alt={item.title}
-                  src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${item.icon.url}`}
+                  src={`${item.icon}`}
                   className="absolute top-[-25px] left-5"
                 />
                 <h2 className="font-h2 !text-left">{item.title}</h2>

@@ -53,9 +53,9 @@ export function StrapiParagraph({
         <div className={"flex gap-3 items-start"} key={index}>
           {item.icon ? (
             <Image
-              width={item.icon.width}
-              height={item.icon.height}
-              src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${item.icon.url}`}
+              width={16}
+              height={16}
+              src={`${item.icon}`}
               alt="checkmark icon"
               className="w-[16px] h-[16px] mr-1 mt-[6px]"
             />

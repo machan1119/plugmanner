@@ -48,7 +48,7 @@ const ServiceArticle = () => {
                   <Image
                     width={365}
                     height={242}
-                    src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${item.main_img[0].url}`}
+                    src={`${item.img}`}
                     alt={item.title}
                     className="justify-self-center w-[365px] h-[242px] rounded-lg"
                   />

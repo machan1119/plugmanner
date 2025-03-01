@@ -42,7 +42,7 @@ const ServiceGoodPoints = () => {
                   width={50}
                   height={445}
                   alt=""
-                  src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${chapterItem.img[0].url}`}
+                  src={`${chapterItem.img}`}
                   className="w-fit h-fit"
                 />
               )}

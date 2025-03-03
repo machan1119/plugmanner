@@ -75,9 +75,9 @@ const ServiceCustomerReview = () => {
       </div>
       {readHeight &&
         maxHeight &&
-        (maxHeight <= 500 ? (
+        (maxHeight <= 400 ? (
           ""
-        ) : readHeight < maxHeight ? (
+        ) : readHeight <= maxHeight ? (
           <MainButton
             type="white-main"
             title="Show More +"

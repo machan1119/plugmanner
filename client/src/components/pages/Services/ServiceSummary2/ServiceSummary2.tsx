@@ -1,30 +1,73 @@
 import { StrapiText } from "@/components/StrapiComponents";
 import { useServices } from "@/providers/ServicesProvider";
 import Image from "next/image";
-import React from "react";
+import React, { memo } from "react";
 
-const ServiceSummary2 = () => {
+interface SummaryItem {
+  title: string;
+  content: string;
+}
+
+interface ServiceSummary2Props {
+  className?: string;
+}
+
+const ServiceSummary2 = memo(({ className = "" }: ServiceSummary2Props) => {
   const { serviceItems } = useServices();
-  if (!serviceItems?.introduction.Summary2) return "";
+
+  if (!serviceItems?.introduction.Summary2) {
+    return null;
+  }
+
+  const { title, EachSummary } = serviceItems.introduction.Summary2;
+
   return (
-    <div className="w-full py-[80px] bg-black-light flex flex-col items-center border-b-[1px] border-black-normal">
+    <section
+      className={`
+        w-full py-[80px] bg-black-light flex flex-col items-center border-b-[1px] border-black-normal
+        ${className}
+      `}
+      aria-labelledby="summary2-heading"
+    >
       <div className="max-w-[1366px] w-full flex flex-col items-center px-10">
+        <h2 id="summary2-heading" className="sr-only">
+          {title.text[0].content}
+        </h2>
         <StrapiText
-          data={serviceItems.introduction.Summary2.title.text}
+          data={title.text}
           customClassName="font-h1 w-[50%] text-wrap"
         />
         <Image
           width={300}
           height={25}
-          alt="why buy under"
+          alt=""
           src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/6403637940112104f075f0c2_underline1.svg"
           className="my-5"
+          aria-hidden="true"
+          priority={false}
         />
-        <div className="w-full flex flex-col gap-5 md:grid md:grid-cols-3 items-stretch mt-8">
-          {serviceItems.introduction.Summary2.EachSummary.map((item, index) => (
-            <div className="w-full" key={index}>
-              <div className="relative mt-[25px] flex flex-col h-[calc(100%-25px)] gap-5 px-5 pb-5 pt-10 cursor-pointer border border-black-normal hover:border-green-light rounded-md transition-all duration-500">
-                <h2 className="font-h2 !text-left">{item.title}</h2>
+        <div
+          className="w-full flex flex-col gap-5 md:grid md:grid-cols-3 items-stretch mt-8"
+          role="list"
+          aria-label="Summary items"
+        >
+          {EachSummary.map((item: SummaryItem, index: number) => (
+            <div
+              className="w-full"
+              key={`summary-${item.title.replace(/\s+/g, "-").toLowerCase()}`}
+              role="listitem"
+            >
+              <div
+                className="relative mt-[25px] flex flex-col h-[calc(100%-25px)] gap-5 px-5 pb-5 pt-10 cursor-pointer border border-black-normal hover:border-green-light rounded-md transition-all duration-500"
+                role="article"
+                aria-labelledby={`summary-title-${index}`}
+              >
+                <h3
+                  id={`summary-title-${index}`}
+                  className="font-h2 !text-left"
+                >
+                  {item.title}
+                </h3>
                 <p className="font-service-text lg:text-[18px]">
                   {item.content}
                 </p>
@@ -33,8 +76,10 @@ const ServiceSummary2 = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
-};
+});
+
+ServiceSummary2.displayName = "ServiceSummary2";
 
 export default ServiceSummary2;

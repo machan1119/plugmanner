@@ -1,35 +1,66 @@
-import React from "react";
+import React, { memo } from "react";
 import { Questions } from "@/libs/data/Questions";
 import QuestionsItem from "./QuestionsItem";
 import MainButton from "@/components/Buttons";
 
-const Question = () => {
+interface QuestionProps {
+  className?: string;
+}
+
+const Question = memo(({ className = "" }: QuestionProps) => {
   return (
-    <div className="flex flex-col py-[80px] items-center bg-black-light w-full">
-      <div className="max-w-[1366px] justify-self-center px-10">
-        <div className="font-h1-md lg:font-h1-lg mb-12">
+    <section
+      className={`flex flex-col py-8 sm:py-12 md:py-16 lg:py-[80px] items-center bg-black-light w-full ${className}`}
+      aria-labelledby="faq-title"
+    >
+      <div className="max-w-[1366px] justify-self-center px-4 sm:px-6 md:px-8 lg:px-10">
+        <h2
+          id="faq-title"
+          className="font-h1-md lg:font-h1-lg mb-8 sm:mb-12 animate-fade-in"
+        >
           Your Questions <span className="text-green-light">Answered</span>
-        </div>
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 mb-5">
+        </h2>
+        <div
+          className="grid grid-cols-1 xl:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-12"
+          role="list"
+          aria-label="Frequently asked questions"
+        >
           {Questions.map((item, index) => (
-            <QuestionsItem item={item} key={index} />
+            <QuestionsItem
+              item={item}
+              key={item.question}
+              className="animate-fade-in-up"
+              style={{ animationDelay: `${index * 100}ms` }}
+            />
           ))}
         </div>
-        <div className="flex justify-between bg-black-medium border-[1px] border-[rgb(224,_224,_224)] rounded-[12px] p-6 w-full h-max">
-          <div className="flex flex-col gap-2">
-            <span className="text-black text-[16px] md:text-[20px] font-semibold font-clash leading-[25px]">
+        <div
+          className="flex flex-col sm:flex-row justify-between bg-black-medium border-[1px] border-[rgb(224,_224,_224)] rounded-[12px] p-6 w-full h-max hover:shadow-lg transition-all duration-300 animate-fade-in-up"
+          role="complementary"
+          aria-label="Contact support section"
+        >
+          <div className="flex flex-col gap-2 mb-4 sm:mb-0">
+            <h3 className="text-black text-[16px] md:text-[20px] font-semibold font-clash leading-[25px]">
               Still have questions?
-            </span>
-            <span className="text-[rgba(0,0,0,0.5)] text-[14px] md:text-[18px]">
-              Can’t find the answer you’re looking for? Please chat to our
+            </h3>
+            <p className="text-[rgba(0,0,0,0.5)] text-[14px] md:text-[18px]">
+              Can't find the answer you're looking for? Please chat to our
               friendly team.
-            </span>
+            </p>
           </div>
-          <MainButton type="green-main" title="Get in touch" />
+          <MainButton
+            type="primary"
+            title="Get in touch"
+            className="animate-fade-in-up"
+            style={{ animationDelay: "300ms" }}
+            aria-label="Contact our support team"
+          />
         </div>
       </div>
-    </div>
+    </section>
   );
-};
+});
+
+Question.displayName = "Question";
 
 export default Question;

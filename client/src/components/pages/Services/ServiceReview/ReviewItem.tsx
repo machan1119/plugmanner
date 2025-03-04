@@ -1,7 +1,7 @@
 import RatingStar from "@/components/RatingStar";
-import React from "react";
+import React, { memo } from "react";
 
-interface ReviewItemType {
+interface ReviewItemProps {
   title: string;
   comment: string;
   customerName: string;
@@ -15,20 +15,34 @@ const ReviewItem = ({
   customerName,
   date,
   rating,
-}: ReviewItemType) => {
+}: ReviewItemProps) => {
   return (
-    <div className="mb-5 flex flex-col gap-2 p-6 bg-white grow rounded-xl border border-[#e2e2e2] break-inside-avoid">
-      <h1 className="font-h1 !text-left !leading-5">&#34;</h1>
-      <h2 className="font-h2">{title}</h2>
-      <RatingStar rating={rating} />
+    <article
+      className="mb-5 flex flex-col gap-2 p-6 bg-white grow rounded-xl border border-[#e2e2e2] break-inside-avoid"
+      role="listitem"
+      aria-labelledby={`review-title-${customerName}`}
+    >
+      <div className="font-h1 !text-left !leading-5" aria-hidden="true">
+        &#34;
+      </div>
+      <h3 id={`review-title-${customerName}`} className="font-h2">
+        {title}
+      </h3>
+      <div aria-label={`Rating: ${rating} stars`}>
+        <RatingStar rating={rating} />
+      </div>
       <p className="font-service-text text-[16px] text-wrap">{comment}</p>
       <p className="font-clash text-[16px] text-[rgba(104,_104,_137,_0.5)] font-normal">
         Review submitted by{" "}
         <span className="font-semibold">{customerName}</span>
       </p>
-      <p className="font-service-text text-[12px]">{date}</p>
-    </div>
+      <time dateTime={date} className="font-service-text text-[12px]">
+        {date}
+      </time>
+    </article>
   );
 };
 
-export default ReviewItem;
+ReviewItem.displayName = "ReviewItem";
+
+export default memo(ReviewItem);

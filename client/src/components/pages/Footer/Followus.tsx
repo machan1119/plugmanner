@@ -1,32 +1,116 @@
+import React, { memo, useState } from "react";
 import MainButton from "@/components/Buttons";
 import FreeTrial from "./Freetrial";
 import Link from "next/link";
 import { LinkedInIcon, TwitterIcon, YoutubeIcon } from "@/libs/consts/MySvg";
-export default function FollowUs() {
+
+interface FollowUsProps {
+  className?: string;
+}
+
+interface SocialLink {
+  href: string;
+  icon: React.ReactNode;
+  label: string;
+}
+
+const socialLinks: SocialLink[] = [
+  {
+    href: "https://www.youtube.com/@socialplug",
+    icon: YoutubeIcon,
+    label: "YouTube",
+  },
+  {
+    href: "https://twitter.com/socialplugio",
+    icon: TwitterIcon,
+    label: "Twitter",
+  },
+  {
+    href: "https://www.linkedin.com/company/socialplug-io/",
+    icon: LinkedInIcon,
+    label: "LinkedIn",
+  },
+];
+
+const FollowUs = memo(({ className = "" }: FollowUsProps) => {
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle email subscription
+    setEmail("");
+  };
+
   return (
-    <div className="border-t-[1px] border-[#e5e7eb40] pt-4 sm:border-none sm:sm:mt-4 sm:border-t-[1px] sm:border-[#e5e7eb40] md:border-none md:pt-0 md:mt-0">
-      <div className="font-clash mb-4 leading-5 text-base md:text-xl font-semibold">
-        FollowUs
+    <div
+      className={`
+        border-t border-white/10 
+        pt-4 sm:border-none sm:mt-4 sm:border-t sm:border-white/10 
+        md:border-none md:pt-0 md:mt-0
+        transition-all duration-300
+        ${className}
+      `}
+    >
+      <h3 className="font-clash mb-4 leading-5 text-base md:text-xl font-semibold text-white">
+        Follow Us
+      </h3>
+      <div className="flex gap-4">
+        {socialLinks.map((link, index) => (
+          <Link
+            key={link.label}
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+              transition-all duration-300
+              hover:scale-110
+              hover:text-primary
+              animate-fade-in
+            "
+            style={{ animationDelay: `${index * 100}ms` }}
+            aria-label={`Follow us on ${link.label}`}
+          >
+            {link.icon}
+          </Link>
+        ))}
       </div>
-      <div className="flex gap-x-4">
-        <Link href="https://www.youtube.com/@socialplug">{YoutubeIcon}</Link>
-        <Link href="https://twitter.com/socialplugio"> {TwitterIcon}</Link>
-        <Link href="https://www.linkedin.com/company/socialplug-io/">
-          {LinkedInIcon}
-        </Link>
-      </div>
-      <div className="font-clash mt-4 mb-4 leading-5 text-xl font-semibold">
+      <h3 className="font-clash mt-4 mb-4 leading-5 text-xl font-semibold text-white">
         Receive Exclusive Offers
-      </div>
-      <form className="flex flex-col gap-5">
+      </h3>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-5">
         <input
           type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter your email"
-          className="w-full px-[14px] py-[10px] leading-[22px] text-[16px] rounded-lg border-[1px] border-solid border-[#ebebeb] focus:outline-none text-black"
+          className="
+            w-full px-4 py-3
+            leading-[22px] text-base
+            rounded-lg
+            border border-white/20
+            bg-white/5
+            text-white
+            placeholder:text-white/50
+            focus:outline-none
+            focus:border-primary
+            focus:bg-white/10
+            transition-all duration-300
+          "
+          required
         />
-        <MainButton type="green-main" title="Subscribe" />
+        <MainButton
+          type="primary"
+          title="Subscribe"
+          customClass="animate-fade-in [animation-delay:300ms]"
+        />
       </form>
-      <FreeTrial />
+      <div className="animate-fade-in" style={{ animationDelay: "400ms" }}>
+        <FreeTrial />
+      </div>
     </div>
   );
-}
+});
+
+FollowUs.displayName = "FollowUs";
+
+export default FollowUs;

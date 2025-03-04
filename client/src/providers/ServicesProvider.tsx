@@ -103,7 +103,7 @@ export const ServicesProvider: React.FC<ServicesProviderProps> = ({
         };
         const options = "";
         const fetchedData = await fetchAPI(path, urlParamsObject, options);
-        console.log(fetchedData);
+        // console.log(fetchedData);
         setServiceItems(fetchedData.data);
       } catch (error) {
         console.error(error);

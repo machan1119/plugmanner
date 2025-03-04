@@ -1,14 +1,18 @@
 import { BlogItems } from "@/libs/data/BlogItems";
 import Image from "next/image";
-import React from "react";
+import React, { memo } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import MainButton from "@/components/Buttons";
 import { NextArrow, PrevArrow } from "@/libs/consts/MySvg";
 
-const BlogSlide = () => {
+interface BlogSlideProps {
+  className?: string;
+}
+
+const BlogSlide = memo(({ className = "" }: BlogSlideProps) => {
   return (
-    <div className="border-white size-full">
+    <div className={`border-white size-full ${className}`}>
       <Swiper
         slidesPerView={1}
         spaceBetween={10}
@@ -36,53 +40,82 @@ const BlogSlide = () => {
           },
         }}
         modules={[Autoplay, Navigation]}
+        aria-label="Blog articles carousel"
       >
         {BlogItems.map((item, index) => (
-          <SwiperSlide key={index}>
-            <div className="flex flex-col justify-between bg-white rounded-lg p-5 items-center">
-              <Image
-                width={365}
-                height={242}
-                src={item.icon}
-                alt={item.title}
-                className="justify-self-center w-[365px] h-[242px]"
-              />
-              <h3 className="text-black text-[20px] text-center font-semibold font-clash leading-[25px] mt-4">
+          <SwiperSlide
+            key={`blog-${index}-${item.title
+              .replace(/\s+/g, "-")
+              .toLowerCase()}`}
+          >
+            <article className="flex flex-col justify-between bg-white rounded-lg p-5 items-center hover:shadow-lg transition-all duration-300">
+              <div className="relative w-full aspect-[365/242] overflow-hidden rounded-lg">
+                <Image
+                  width={365}
+                  height={242}
+                  src={item.icon}
+                  alt={`${item.title} thumbnail`}
+                  className="object-cover hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+              </div>
+              <h3 className="text-black text-[20px] text-center font-semibold font-clash leading-[25px] mt-4 hover:text-green-light transition-colors duration-300">
                 {item.title}
               </h3>
-              <div className="flex gap-2 mt-10">
-                <div className="flex bg-black-light border-black-dark border-[1px] p-2 rounded-md">
+              <div className="flex flex-wrap gap-2 mt-10">
+                <div className="flex bg-black-light border-black-dark border-[1px] p-2 rounded-md hover:bg-black-dark transition-colors duration-300">
                   <p className="text-black text-[16px] text-center">
                     {item.type}
                   </p>
-                  <div className="w-[1px] bg-black h-full mx-2" />
-                  <p className="text-black-dark text-[16px] text-center">
+                  <div
+                    className="w-[1px] bg-black h-full mx-2"
+                    aria-hidden="true"
+                  />
+                  <time
+                    dateTime={item.date}
+                    className="text-black-dark text-[16px] text-center"
+                  >
                     {item.date}
-                  </p>
+                  </time>
                 </div>
-                <button className="text-green-light text-[16px] p-2 rounded-md">
+                <button
+                  className="text-green-light text-[16px] p-2 rounded-md hover:bg-green-light/10 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-light"
+                  aria-label={`Read more about ${item.title}`}
+                >
                   Read More
                 </button>
               </div>
-            </div>
+            </article>
           </SwiperSlide>
         ))}
       </Swiper>
       <div className="relative mt-[20px] w-full items-base">
         <div className="justify-self-center">
-          <MainButton type="green-main" title="Read All News & Articles" />
+          <MainButton
+            type="primary"
+            title="Read All News & Articles"
+            aria-label="View all news and articles"
+          />
         </div>
         <div className="hidden md:block absolute top-0 right-5">
-          <button className="custom-swiper-button-prev bg-white border-black-dark border-[1px] rounded-md">
+          <button
+            className="custom-swiper-button-prev bg-white border-black-dark border-[1px] rounded-md hover:bg-black-dark hover:text-white transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-light"
+            aria-label="Previous slide"
+          >
             {PrevArrow}
           </button>
-          <button className="custom-swiper-button-next mx-8 bg-white border-black-dark border-[1px] rounded-md">
+          <button
+            className="custom-swiper-button-next mx-8 bg-white border-black-dark border-[1px] rounded-md hover:bg-black-dark hover:text-white transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-light"
+            aria-label="Next slide"
+          >
             {NextArrow}
           </button>
         </div>
       </div>
     </div>
   );
-};
+});
+
+BlogSlide.displayName = "BlogSlide";
 
 export default BlogSlide;

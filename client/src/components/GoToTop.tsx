@@ -3,17 +3,20 @@ import { useState, useEffect } from "react";
 import { ArrowUp } from "lucide-react";
 
 interface GoToTopProps {
-  //   className?: string;
+  className?: string;
   showAt?: number;
   smooth?: boolean;
+  position?: "bottom-right" | "bottom-left";
 }
 
 export function GoToTop({
-  //   className,
+  className,
   showAt = 400,
   smooth = true,
+  position = "bottom-right",
 }: GoToTopProps) {
   const [show, setShow] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,12 +34,39 @@ export function GoToTop({
     });
   };
 
+  const positionClasses = {
+    "bottom-right": "right-8 bottom-8",
+    "bottom-left": "left-8 bottom-8",
+  };
+
   return show ? (
     <button
-      className="fixed right-[50px] bottom-[50px] z-100 text-4xl text-white bg-green-light w-[50px] h-[50px] rounded-full flex items-center justify-center"
+      className={`
+        fixed z-50
+        ${positionClasses[position]}
+        w-12 h-12
+        bg-primary hover:bg-secondary
+        text-white
+        rounded-full
+        flex items-center justify-center
+        shadow-soft hover:shadow-hover
+        transition-all duration-300
+        animate-fade-in
+        ${isHovered ? "scale-110" : "scale-100"}
+        ${className || ""}
+      `}
       onClick={scrollToTop}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      aria-label="Scroll to top"
     >
-      <ArrowUp />
+      <ArrowUp
+        className={`
+          w-6 h-6
+          transition-transform duration-300
+          ${isHovered ? "-translate-y-1" : "translate-y-0"}
+        `}
+      />
     </button>
   ) : null;
 }

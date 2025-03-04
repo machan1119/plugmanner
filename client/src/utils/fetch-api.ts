@@ -19,8 +19,7 @@ export async function fetchAPI(
       `/api${path}${queryString ? `?${queryString}` : ""}`
     )}`;
     const response = await fetch(requestUrl, mergedOptions);
-    const data = await response.json();
-    return data;
+    return await response.json();
   } catch (error) {
     console.error(error);
     throw new Error(

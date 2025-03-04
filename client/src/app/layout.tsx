@@ -6,7 +6,6 @@ import "../css/animation.css";
 import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/navigation";
-// import { SessionProvider } from "next-auth/react";
 
 export const metadata: Metadata = {
   title: "Buy Followers, Like, Subscribers & Views - Socialplug",
@@ -28,10 +27,7 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased`}>
-        {/* <SessionProvider>{children}</SessionProvider> */}
-        {children}
-      </body>
+      <body className={`antialiased`}>{children}</body>
     </html>
   );
 }

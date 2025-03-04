@@ -1,7 +1,7 @@
 import MainButton from "@/components/Buttons";
 import { StrapiParagraph } from "@/components/StrapiComponents";
 import { PackageType } from "@/libs/types/ServiceJsonDataType";
-import React from "react";
+import React, { memo } from "react";
 
 const ServicePackageItem = ({
   level,
@@ -11,21 +11,27 @@ const ServicePackageItem = ({
   list,
 }: PackageType) => {
   return (
-    <div
+    <article
       className={`w-full flex flex-col justify-between border border-black-normal rounded-lg px-5 py-8 bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/6403335aa2b65391e848a999_socialplug-pricingbox-illustration-sm-light.svg')] bg-right-bottom bg-no-repeat bg-auto ${
         popular && "bg-black"
       }`}
+      role="listitem"
+      aria-labelledby={`package-title-${level}`}
     >
       <div className="flex w-full justify-between">
-        <div
+        <h3
+          id={`package-title-${level}`}
           className={`font-h2 ${
             !popular ? "!text-green-light" : "!text-white"
           }`}
         >
           {level}
-        </div>
+        </h3>
         {popular && (
-          <div className="px-2 py-1 bg-green-light font-clash text-black rounded-md">
+          <div
+            className="px-2 py-1 bg-green-light font-clash text-black rounded-md"
+            aria-label="Popular package"
+          >
             Popular
           </div>
         )}
@@ -44,10 +50,17 @@ const ServicePackageItem = ({
         paragraph={list}
         customClassName="font-clash text-[16px] text-[#686889] font-normal"
       />
-      <div className="w-full h-[1px] bg-black-normal my-5" />
-      <MainButton type="main-green" title="Order now" customClass="w-full" />
-    </div>
+      <div className="w-full h-[1px] bg-black-normal my-5" aria-hidden="true" />
+      <MainButton
+        type="primary"
+        title="Order now"
+        customClass="w-full"
+        aria-label={`Order ${level} package`}
+      />
+    </article>
   );
 };
 
-export default ServicePackageItem;
+ServicePackageItem.displayName = "ServicePackageItem";
+
+export default memo(ServicePackageItem);

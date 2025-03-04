@@ -1,10 +1,16 @@
 import React from "react";
 
+type ButtonType = "white-main" | "primary";
+type ButtonSize = "sm" | "md" | "lg";
+
 interface MainButtonProps {
-  type: string;
+  type: ButtonType;
   title: string;
   customClass?: string;
   handleClick?: () => void;
+  size?: ButtonSize;
+  disabled?: boolean;
+  loading?: boolean;
 }
 
 const MainButton = ({
@@ -12,51 +18,89 @@ const MainButton = ({
   title,
   customClass,
   handleClick,
+  size = "md",
+  disabled = false,
+  loading = false,
 }: MainButtonProps) => {
+  const sizeClasses = {
+    sm: "px-4 py-2 text-sm",
+    md: "px-5 py-3 text-base",
+    lg: "px-6 py-4 text-lg",
+  };
+
+  const baseClasses =
+    "font-clash font-semibold rounded-[10px] leading-5 transition-all duration-300 animate-fade-in";
+  const disabledClasses = "opacity-50 cursor-not-allowed";
+  const loadingClasses = "relative text-transparent";
+
+  const buttonClasses = `
+    ${baseClasses}
+    ${disabled ? disabledClasses : ""}
+    ${loading ? loadingClasses : ""}
+    ${customClass || ""}
+  `;
+
   return (
     <button
-      className={`size-max text-[14px] font-clash font-semibold md:text-[16px] ${customClass}`}
+      className={buttonClasses}
       onClick={handleClick}
+      disabled={disabled || loading}
     >
-      {type == "white-main" ? (
-        <p className="bg-[#fff] text-[#363636] border-none hover:bg-[#ebebeb] px-5 py-3 transition-all rounded-[10px] leading-5">
+      {type === "white-main" ? (
+        <p
+          className={`bg-white text-text-primary hover:bg-black-medium shadow-soft hover:shadow-hover rounded-[10px] ${sizeClasses[size]}`}
+        >
           {title}
         </p>
       ) : (
-        <p className="bg-[#01a55e] text-[#fff] border-none hover:bg-[#017645] px-5 py-3 transition-all rounded-[10px] leading-5">
+        <p
+          className={`bg-primary text-white hover:bg-secondary shadow-soft hover:shadow-hover rounded-[10px] ${sizeClasses[size]}`}
+        >
           {title}
         </p>
+      )}
+      {loading && (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+        </div>
       )}
     </button>
   );
 };
 
-export const SwitchButton = ({
-  status,
-  setStatus,
-}: {
-  status: string;
-  setStatus: React.Dispatch<React.SetStateAction<string>>;
-}) => {
+interface SwitchButtonProps {
+  status: "Services" | "Tools";
+  setStatus: React.Dispatch<React.SetStateAction<"Services" | "Tools">>;
+}
+
+export const SwitchButton = ({ status, setStatus }: SwitchButtonProps) => {
   return (
-    <div className="bg-black-light rounded-full flex border-[1px] border-black-dark p-1">
+    <div className="bg-background-light rounded-full flex border border-black-dark p-1 shadow-soft animate-fade-in">
       <button
-        onClick={() => setStatus("services")}
-        className={`px-[26px] py-[12px] border-[1px] font-clash text-[14px] lg:text-[20px] font-semibold rounded-full ${
-          status == "tools"
-            ? "border-transparent text-[rgba(0,_0,_0,_0.5)] hover:text-green-light"
-            : "bg-green-light border-black-dark text-white"
-        }`}
+        onClick={() => setStatus("Services")}
+        className={`
+          px-6 py-3 border font-clash text-sm lg:text-base font-semibold rounded-full
+          transition-all duration-300
+          ${
+            status === "Tools"
+              ? "border-transparent text-text-light hover:text-primary"
+              : "bg-primary border-black-dark text-white shadow-soft"
+          }
+        `}
       >
         Services
       </button>
       <button
-        onClick={() => setStatus("tools")}
-        className={`px-[26px] py-[12px] border-[1px] font-clash text-[14px] lg:text-[20px] font-semibold rounded-full ${
-          status == "tools"
-            ? "text-white bg-green-light border-black-dark"
-            : "border-transparent text-[rgba(0,_0,_0,_0.5)] hover:text-green-light"
-        }`}
+        onClick={() => setStatus("Tools")}
+        className={`
+          px-6 py-3 border font-clash text-sm lg:text-base font-semibold rounded-full
+          transition-all duration-300
+          ${
+            status === "Tools"
+              ? "bg-primary border-black-dark text-white shadow-soft"
+              : "border-transparent text-text-light hover:text-primary"
+          }
+        `}
       >
         Free Tools
       </button>

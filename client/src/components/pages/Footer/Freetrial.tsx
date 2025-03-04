@@ -1,9 +1,18 @@
 "use client";
-import { useState } from "react";
+import React, { memo, useState } from "react";
 import Link from "next/link";
 import { DropIcon } from "@/libs/consts/MySvg";
 
-const links = [
+interface FreeTrialProps {
+  className?: string;
+}
+
+interface FreeTrialLink {
+  label: string;
+  href: string;
+}
+
+const links: FreeTrialLink[] = [
   { label: "Free Instagram Followers", href: "instagram-followers" },
   { label: "Free Instagram Likes", href: "instagram-likes" },
   { label: "Free TikTok Followers", href: "tiktok-followers" },
@@ -15,33 +24,76 @@ const links = [
   { label: "Free Twitter (X) Followers", href: "twitter-followers" },
   { label: "Free Twitter (X) Likes", href: "twitter-likes" },
 ];
-export default function FreeTrial() {
-  const [isclicked, setIsClicked] = useState(false);
+
+const FreeTrial = memo(({ className = "" }: FreeTrialProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleClick = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" || e.key === " ") {
+      setIsOpen(!isOpen);
+    }
+  };
+
   return (
-    <div>
-      <div
-        className="font-clash mt-8 mb-4 leading-5 text-base md:text-xl font-semibold flex items-center hover:cursor-pointer"
-        onClick={() => setIsClicked((e) => !e)}
+    <div className={className}>
+      <button
+        className="
+          font-clash mt-8 mb-4 
+          leading-5 text-base md:text-xl 
+          font-semibold 
+          flex items-center gap-4
+          text-white
+          hover:text-primary
+          transition-colors duration-300
+          focus:outline-none focus:text-primary
+          group
+        "
+        onClick={handleClick}
+        onKeyDown={handleKeyDown}
+        role="button"
+        tabIndex={0}
+        aria-expanded={isOpen}
+        aria-controls="free-trial-links"
       >
-        <span className="mr-4 ">Free Trial</span>
+        <span>Free Trial</span>
         <span
-          className={`${
-            isclicked ? "rotate-180" : ""
-          } duration-300 ease-in-out`}
+          className={`
+            transition-transform duration-300 ease-in-out
+            group-hover:scale-110
+            ${isOpen ? "rotate-180" : ""}
+          `}
         >
           {DropIcon}
         </span>
-      </div>
+      </button>
       <div
-        className={`flex flex-col gap-y-4 overflow-hidden ${
-          isclicked ? "max-h-[380px]" : "max-h-0"
-        } duration-300 ease-in-out`}
+        id="free-trial-links"
+        className={`
+          flex flex-col gap-4 
+          overflow-hidden 
+          transition-all duration-300 ease-in-out
+          ${isOpen ? "max-h-[380px] opacity-100" : "max-h-0 opacity-0"}
+        `}
       >
-        {links.map((link) => (
+        {links.map((link, index) => (
           <Link
             key={link.label}
             href={`https://www.socialplug.io/free-services/free-${link.href}`}
-            className="opacity-50 hover:underline text-[16px] leading-6"
+            className="
+              text-base leading-6
+              text-white/50
+              hover:text-primary
+              hover:underline
+              transition-colors duration-300
+              animate-fade-in
+            "
+            style={{ animationDelay: `${index * 50}ms` }}
+            target="_blank"
+            rel="noopener noreferrer"
           >
             {link.label}
           </Link>
@@ -49,4 +101,8 @@ export default function FreeTrial() {
       </div>
     </div>
   );
-}
+});
+
+FreeTrial.displayName = "FreeTrial";
+
+export default FreeTrial;

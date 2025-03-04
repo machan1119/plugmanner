@@ -5,58 +5,129 @@ import { useHome } from "@/providers/HomeProvider";
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 
-const NavBarMain = () => {
+interface LanguageOption {
+  code: string;
+  flag: string;
+  name: string;
+}
+
+const languages: LanguageOption[] = [
+  {
+    code: "en",
+    flag: "https://cdn.weglot.com/flags/square/us.svg",
+    name: "English",
+  },
+  {
+    code: "es",
+    flag: "https://cdn.weglot.com/flags/square/es.svg",
+    name: "Español",
+  },
+];
+
+interface NavBarMainProps {
+  className?: string;
+}
+
+const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
   const [searchShow, setSearchShow] = useState(false);
   const { serviceShow, setServiceShow } = useHome();
+
   return (
-    <div className="w-full border-b-[1px] border-black-dark">
+    <div
+      className={`
+      w-full border-b border-black-dark
+      transition-all duration-300
+      ${className}
+    `}
+    >
       <div className="py-2 flex flex-col items-center w-full bg-white">
-        <div className="max-w-[1366px] w-full flex items-center justify-between px-10">
-          <Link href={"/"}>
+        <div className="max-w-[1366px] w-full flex items-center justify-between px-4 md:px-10">
+          <Link
+            href="/"
+            className="transition-transform duration-300 hover:scale-105"
+          >
             <Image
               width={164}
               height={32}
               alt="logo"
               src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e86_navbar-logo.svg"
-              className="w-[123px] h-[24px] md:w-[164px] md:h-[32px] mr-10"
+              className="w-[123px] h-[24px] md:w-[164px] md:h-[32px] mr-4 md:mr-10"
             />
           </Link>
           <div className="flex items-center gap-2 lg:grow">
-            <div className="rounded-lg gap-3 flex items-center border-[#D0D0D0] border-[1px] p-3 grow bg-black-light">
-              <div className="lg:flex hidden">{SearchIcon}</div>
+            <div
+              className="
+              rounded-lg gap-3 
+              flex items-center 
+              border border-black-normal
+              p-3 grow 
+              bg-black-light
+              transition-all duration-300
+              hover:border-primary
+              focus-within:border-primary
+              focus-within:shadow-soft
+            "
+            >
+              <div className="lg:flex hidden text-text-secondary">
+                {SearchIcon}
+              </div>
               <button
                 onClick={() => setSearchShow(!searchShow)}
-                className="lg:hidden"
+                className="lg:hidden text-text-secondary hover:text-primary transition-colors"
               >
                 {SearchIcon}
               </button>
               <input
                 type="text"
-                className="hidden lg:flex bg-transparent text-[16px] text-[#333] border-none grow"
+                className="
+                  hidden lg:flex 
+                  bg-transparent 
+                  text-base text-text-primary
+                  border-none grow
+                  placeholder:text-text-light
+                  focus:outline-none
+                "
                 placeholder="Search"
               />
             </div>
-            <div className="w-[1px] h-[50px] bg-[linear-gradient(315deg,_#d9d9d900,_#d9d9d9_50%,_#d9d9d91f)]" />
+            <div className="w-px h-[50px] bg-gradient-to-b from-transparent via-black-normal to-transparent" />
             <MainButton
               type="white-main"
               title="Login"
               handleClick={() => redirect("/login")}
             />
-            <Link href={"/home/services"} className="lg:block hidden">
-              <MainButton type="green-main" title="All Services" />
+            <Link
+              href="/home/services"
+              className="lg:block hidden animate-fade-in"
+              style={{ animationDelay: "100ms" }}
+            >
+              <MainButton type="primary" title="All Services" />
             </Link>
-            <div className="inline-block group w-[62px] h-[40px] bg-white relative transition-all duration-500">
+            <div
+              className="
+              inline-block group 
+              w-[62px] h-[40px] 
+              bg-white relative 
+              transition-all duration-300
+              hover:shadow-soft
+            "
+            >
               <Link
-                href={"#"}
-                className="w-[62px] h-[40px] gap-[1px] flex items-center px-2"
+                href="#"
+                className="
+                  w-[62px] h-[40px] 
+                  gap-1 flex items-center px-2
+                  transition-colors duration-300
+                  hover:text-primary
+                "
               >
                 <Image
-                  src="https://cdn.weglot.com/flags/square/us.svg"
+                  src={languages[0].flag}
                   width={28}
                   height={21}
-                  alt="English flag"
+                  alt={`${languages[0].name} flag`}
                   className="object-cover rounded-sm w-[28px] h-[21px]"
                 />
                 <Image
@@ -64,51 +135,109 @@ const NavBarMain = () => {
                   height={16}
                   alt="down"
                   src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e87_nav_dd-icon.svg"
+                  className="transition-transform duration-300 group-hover:rotate-180"
                 />
               </Link>
-              <Link
-                href={"#"}
-                className="absolute hidden z-10 group-hover:block bg-white transition-all duration-500 w-[62px] h-[30px] rounded-lg px-2 shadow-[-2px_8px_9px_rgba(0,0,0,0.08),_-8px_15px_16px_rgba(0,0,0,0.07),_-20px_32px_24px_rgba(0,0,0,0.04),_-36px_56px_28px_rgba(0,0,0,0.01)]"
+              <div
+                className="
+                absolute hidden z-10 
+                group-hover:block 
+                bg-white 
+                w-[62px] h-[30px] 
+                rounded-lg px-2 
+                shadow-soft
+                animate-fade-in
+              "
               >
-                <Image
-                  src="https://cdn.weglot.com/flags/square/es.svg"
-                  width={28}
-                  height={21}
-                  alt="Español flag"
-                  className="object-cover rounded-sm w-[28px] h-[21px]"
-                />
-              </Link>
+                {languages.slice(1).map((lang) => (
+                  <Link
+                    key={lang.code}
+                    href="#"
+                    className="
+                      flex items-center gap-1
+                      transition-colors duration-300
+                      hover:text-primary
+                    "
+                  >
+                    <Image
+                      src={lang.flag}
+                      width={28}
+                      height={21}
+                      alt={`${lang.name} flag`}
+                      className="object-cover rounded-sm w-[28px] h-[21px]"
+                    />
+                  </Link>
+                ))}
+              </div>
             </div>
             <button
               onClick={() => setServiceShow(!serviceShow)}
-              className="lg:hidden rounded-lg gap-3 flex items-center border-[#D0D0D0] border-[1px] p-3 fit"
+              className="
+                lg:hidden 
+                rounded-lg gap-3 
+                flex items-center 
+                border border-black-normal
+                p-3 
+                transition-all duration-300
+                hover:border-primary
+                hover:shadow-soft
+              "
             >
               <Image
                 width={19}
                 height={15}
                 loading="lazy"
-                alt=""
+                alt="Menu"
                 src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e9a_nav-ham-icon.svg"
+                className="transition-transform duration-300 group-hover:rotate-90"
               />
             </button>
           </div>
         </div>
       </div>
       <div
-        className={`${
-          searchShow ? "block" : "hidden"
-        } rounded-lg gap-3 flex items-center border-[#D0D0D0] bg-black-light border-[1px] mb-2 mx-10 p-3`}
+        className={`
+          ${searchShow ? "block" : "hidden"}
+          rounded-lg gap-3 
+          flex items-center 
+          border border-black-normal
+          bg-black-light 
+          mb-2 mx-4 md:mx-10 p-3
+          animate-fade-in
+          transition-all duration-300
+          hover:border-primary
+          focus-within:border-primary
+          focus-within:shadow-soft
+        `}
       >
-        {SearchIcon}
+        <div className="text-text-secondary">{SearchIcon}</div>
         <input
           type="text"
-          className="lg:hidden bg-transparent text-[16px] text-[#333] border-none grow"
+          className="
+            lg:hidden 
+            bg-transparent 
+            text-base text-text-primary
+            border-none grow
+            placeholder:text-text-light
+            focus:outline-none
+          "
           placeholder="Search"
         />
-        <button onClick={() => setSearchShow(false)}>{CloseIcon}</button>
+        <button
+          onClick={() => setSearchShow(false)}
+          className="
+            text-text-secondary
+            hover:text-primary
+            transition-colors
+          "
+        >
+          {CloseIcon}
+        </button>
       </div>
     </div>
   );
-};
+});
+
+NavBarMain.displayName = "NavBarMain";
 
 export default NavBarMain;

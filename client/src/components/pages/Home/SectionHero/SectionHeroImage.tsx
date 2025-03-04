@@ -1,19 +1,30 @@
 import Image from "next/image";
-import React from "react";
+import React, { memo } from "react";
 
-const SectionHeroImage = () => {
+interface SectionHeroImageProps {
+  className?: string;
+}
+
+const SectionHeroImage = memo(({ className = "" }: SectionHeroImageProps) => {
   return (
-    <div>
+    <div 
+      className={`relative w-full mt-4 sm:mt-6 md:mt-8 ${className}`}
+      role="img"
+      aria-label="Hero background illustration"
+    >
       <Image
         width={1315}
         height={366}
         loading="eager"
-        alt=""
+        alt="Hero background illustration"
         src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e9e_hero_img-bg.svg"
-        className="w-auto h-auto"
+        className="w-full h-auto animate-fade-in-up"
+        priority
       />
     </div>
   );
-};
+});
+
+SectionHeroImage.displayName = "SectionHeroImage";
 
 export default SectionHeroImage;

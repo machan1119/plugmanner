@@ -51,10 +51,10 @@ body {
   }
 
   .font-h1-main {
-    @apply font-clash text-[20px] text-black leading-6 font-semibold text-center;
+    @apply font-clash text-[28px] text-black leading-8 font-semibold text-center;
   }
   .font-h1-md {
-    @apply font-clash text-[28px] text-black leading-8 font-semibold text-center;
+    @apply font-clash text-[30px] text-black leading-9 font-semibold text-center;
   }
   .font-h1-lg {
     @apply font-clash text-[32px] text-black leading-10 font-semibold text-center;

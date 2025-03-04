@@ -61,7 +61,7 @@ const ServiceArticle = () => {
                     height={242}
                     src={item.img}
                     alt={item.title}
-                    className="justify-self-center w-[365px] h-[242px] rounded-lg object-cover"
+                    className="justify-self-center rounded-lg object-cover"
                     priority={index < 3}
                   />
                   <h3 className="text-black text-xl text-center font-semibold font-clash leading-tight mt-4">
@@ -79,7 +79,7 @@ const ServiceArticle = () => {
           </Swiper>
           <div className="relative mt-5 w-full flex items-center justify-between">
             <div className="flex-1 flex justify-center">
-              <MainButton type="green-main" title="Read All News & Articles" />
+              <MainButton type="primary" title="Read All News & Articles" />
             </div>
             <div className="hidden md:flex gap-8 items-center">
               <button

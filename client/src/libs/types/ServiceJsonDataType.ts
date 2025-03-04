@@ -151,14 +151,14 @@ export type BenefitType = {
     text: Text[];
   };
   paragraph: ParagraphType[];
-  img: ImageData;
+  img: string;
 };
 
 export type EachSummaryType = {
   id?: number;
   title: string;
   content: string;
-  icon: ImageData;
+  icon: string;
 };
 
 export type HowToOrderStep = {
@@ -205,7 +205,7 @@ export type Article = {
   img: string;
 };
 
-// type ImageData = {
+// type string = {
 //   id?: number;
 //   documentId: string;
 //   name: string;

@@ -1,28 +1,48 @@
 import { useServices } from "@/providers/ServicesProvider";
-import React from "react";
+import React, { memo } from "react";
 import ServicePackageItem from "./ServicePackageItem";
+import { PackageType } from "@/libs/types/ServiceJsonDataType";
 
 const ServicePackage = () => {
   const { serviceItems } = useServices();
+  
   if (!serviceItems?.introduction.ChoosePackage) {
-    return "";
+    return null;
   }
+
   return (
-    <div className="w-full py-[80px]">
+    <section 
+      className="w-full py-[80px]"
+      aria-labelledby="packages-heading"
+    >
       <div className="max-w-[1366px] w-full px-10 flex gap-5 justify-self-center">
-        {serviceItems.introduction.ChoosePackage.package.map((item, index) => (
-          <ServicePackageItem
-            level={item.level}
-            price={item.price}
-            unit={item.unit}
-            popular={item.popular}
-            list={item.list}
-            key={index}
-          />
-        ))}
+        <h2 
+          id="packages-heading"
+          className="sr-only"
+        >
+          Service Packages
+        </h2>
+        <div 
+          className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+          role="list"
+          aria-label="Available service packages"
+        >
+          {serviceItems.introduction.ChoosePackage.package.map((item: PackageType, index: number) => (
+            <ServicePackageItem
+              level={item.level}
+              price={item.price}
+              unit={item.unit}
+              popular={item.popular}
+              list={item.list}
+              key={`package-${index + 1}`}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default ServicePackage;
+ServicePackage.displayName = "ServicePackage";
+
+export default memo(ServicePackage);

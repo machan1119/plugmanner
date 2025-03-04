@@ -18,6 +18,7 @@ import ServiceDownBlogs from "./ServiceDownBlogs/ServiceDownBlogs";
 import ServiceGoodPoints from "./ServiceGoodPoints/ServiceGoodPoints";
 import ServicePackage from "./ServicePackage/ServicePackage";
 import { useEffect } from "react";
+import ServiceSummary2 from "./ServiceSummary2/ServiceSummary2";
 
 function ServicesContent() {
   useEffect(() => {
@@ -38,6 +39,7 @@ function ServicesContent() {
       <ServiceVideo />
       <ServiceUpBlogs />
       <ServiceBenefit />
+      <ServiceSummary2 />
       <ServiceDownBlogs />
       <ServicePackage />
       <ServiceGoodPoints />

@@ -5,10 +5,12 @@ import React from "react";
 
 const ServiceGoodPoints = () => {
   const { serviceItems } = useServices();
-  if (!serviceItems?.introduction.GoodPoints) return "";
+  if (!serviceItems?.introduction.GoodPoints) {
+    return "";
+  }
   return (
     <div className="py-[80px] flex flex-col items-center px-10 border-b-[1px] border-black-normal">
-      <div className="max-w-[1366px] flex flex-col gap-7 w-full items-center mb-8">
+      <div className="max-w-[1366px] flex flex-col gap-7 w-full items-start mb-8">
         {serviceItems.introduction.GoodPoints?.chapter.map(
           (chapterItem, index) => (
             <div

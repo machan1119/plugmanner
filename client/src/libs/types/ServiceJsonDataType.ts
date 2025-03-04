@@ -13,7 +13,7 @@ export interface ServiceJsonDataType {
   };
   introduction: {
     id: number;
-    rated: string;
+    rated: number;
     CounterOfReviews: string;
     video: string;
     OrderIntro: {
@@ -24,7 +24,7 @@ export interface ServiceJsonDataType {
     };
     CustomerReviews: {
       id: number;
-      rate: string;
+      rate: number;
       counterofreviews: string;
       title: ParagraphType;
       text: ParagraphType[];
@@ -35,6 +35,7 @@ export interface ServiceJsonDataType {
       package: PackageType[];
     };
     UpBlogs: {
+      title?: ParagraphType;
       id: number;
       Blog: BlogType[];
     };
@@ -44,10 +45,16 @@ export interface ServiceJsonDataType {
       Benefit: BenefitType[];
     };
     DownBlogs: {
+      title?: ParagraphType;
       id: number;
       Blog: BlogType[];
     };
     Summary: {
+      id: number;
+      title: ParagraphType;
+      EachSummary: EachSummaryType[];
+    };
+    Summary2: {
       id: number;
       title: ParagraphType;
       EachSummary: EachSummaryType[];
@@ -104,7 +111,7 @@ export type Text = {
 export type Review = {
   id?: number;
   title: string;
-  rated: string;
+  rated: number;
   content: string;
   customer: string;
   date: string;

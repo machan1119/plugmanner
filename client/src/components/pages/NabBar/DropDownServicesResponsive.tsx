@@ -2,6 +2,7 @@
 
 import { ServicesDataType } from "@/libs/types/ListTypes";
 import { useHome } from "@/providers/HomeProvider";
+import { replace_str } from "@/utils/functions";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -15,9 +16,9 @@ const DropDownServicesResponsive = ({
   const { setServiceShow } = useHome();
 
   return (
-    <div className="inline-block relative bg-black-light border-b-[1px] border-black-dark p-4 w-full h-max">
+    <div className="bg-white border-b border-gray-100">
       <div
-        className="flex justify-between items-center cursor-pointer"
+        className="flex justify-between items-center p-4 cursor-pointer hover:bg-gray-50 transition-colors"
         onClick={() => setStatus(!status)}
       >
         <div className="flex gap-3 items-center">
@@ -26,45 +27,53 @@ const DropDownServicesResponsive = ({
             height={40}
             src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${serviceData.icon}`}
             alt={serviceData.title}
-            className="lg:size-10 size-8"
+            className="w-5 h-5 opacity-80 group-hover:opacity-100"
           />
-          <span className="text-black text-[16px] font-semibold font-clash leading-[25px]">
+          <span className="text-base font-semibold text-gray-800">
             {serviceData.title}
           </span>
         </div>
         <Image
-          width={12}
-          height={8}
-          alt=""
+          width={16}
+          height={16}
+          alt="expand"
           src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e52_marketing-services_dd%20(Stroke).svg"
-          className={`${status ? "arrow-expend" : "allow-collapse"}`}
+          className={`transform transition-transform duration-300 ${
+            status ? "rotate-180" : "rotate-0"
+          }`}
         />
       </div>
       <div
-        className={`max-h-0 ${
-          status ? "max-h-[1400px]" : "max-h-0"
-        } overflow-hidden transition-height duration-1000 ease-in-out pl-3`}
+        className={`overflow-hidden transition-all duration-300 ease-in-out`}
+        style={{
+          maxHeight: status ? "1000px" : "0",
+          opacity: status ? "1" : "0",
+        }}
       >
-        {serviceData.services.map((serviceItem, index) => (
-          <Link
-            className="p-2 rounded-md flex gap-5"
-            href={`/home/services/${serviceItem.id}`}
-            onClick={() => {
-              setServiceShow(true);
-              setStatus(false);
-            }}
-            key={index}
-          >
-            <Image
-              width={40}
-              height={40}
-              src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${serviceData.icon}`}
-              alt={serviceData.title}
-              className="size-6"
-            />
-            {serviceItem.name}
-          </Link>
-        ))}
+        <div className="py-2 px-4">
+          {serviceData.services.map((serviceItem, index) => (
+            <Link
+              key={index}
+              href={`/home/services/${serviceItem.id}`}
+              onClick={() => {
+                setServiceShow(true);
+                setStatus(false);
+              }}
+              className="flex items-center gap-3 py-2 px-4 hover:bg-gray-50 transition-colors w-full text-gray-600 hover:text-green-light"
+            >
+              <Image
+                width={20}
+                height={20}
+                src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${serviceData.icon}`}
+                alt={serviceData.title}
+                className="w-5 h-5 opacity-80 group-hover:opacity-100"
+              />
+              <span className="text-[15px] font-medium">
+                {replace_str(serviceItem.name, serviceData.title)}
+              </span>
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );

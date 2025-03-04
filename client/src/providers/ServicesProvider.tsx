@@ -55,6 +55,8 @@ export const ServicesProvider: React.FC<ServicesProviderProps> = ({
             "introduction.GoodPoints.chapter.section.title.text",
             "introduction.GoodPoints.chapter.section.content",
             "introduction.GoodPoints.chapter.section.content.text",
+            "introduction.UpBlogs.title",
+            "introduction.UpBlogs.title.text",
             "introduction.UpBlogs.Blog",
             "introduction.UpBlogs.Blog.title",
             "introduction.UpBlogs.Blog.title.text",
@@ -67,6 +69,8 @@ export const ServicesProvider: React.FC<ServicesProviderProps> = ({
             "introduction.Benefits.Benefit.paragraph.text",
             "introduction.Benefits.Benefit.title.text",
             "introduction.Benefits.Benefit.title",
+            "introduction.DownBlogs.title",
+            "introduction.DownBlogs.title.text",
             "introduction.DownBlogs.Blog",
             "introduction.DownBlogs.Blog.title",
             "introduction.DownBlogs.Blog.title.text",
@@ -75,6 +79,9 @@ export const ServicesProvider: React.FC<ServicesProviderProps> = ({
             "introduction.Summary.title",
             "introduction.Summary.title.text",
             "introduction.Summary.EachSummary",
+            "introduction.Summary2.title",
+            "introduction.Summary2.title.text",
+            "introduction.Summary2.EachSummary",
             "introduction.HowToOrder.title",
             "introduction.HowToOrder.title.text",
             "introduction.HowToOrder.description",
@@ -96,7 +103,7 @@ export const ServicesProvider: React.FC<ServicesProviderProps> = ({
         };
         const options = "";
         const fetchedData = await fetchAPI(path, urlParamsObject, options);
-        // console.log(fetchedData);
+        console.log(fetchedData);
         setServiceItems(fetchedData.data);
       } catch (error) {
         console.error(error);

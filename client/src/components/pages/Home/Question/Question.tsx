@@ -44,15 +44,13 @@ const Question = memo(({ className = "" }: QuestionProps) => {
               Still have questions?
             </h3>
             <p className="text-[rgba(0,0,0,0.5)] text-[14px] md:text-[18px]">
-              Can't find the answer you're looking for? Please chat to our
-              friendly team.
+              Can&apos;t find the answer you&apos;re looking for? Please chat to
+              our friendly team.
             </p>
           </div>
           <MainButton
             type="primary"
             title="Get in touch"
-            className="animate-fade-in-up"
-            style={{ animationDelay: "300ms" }}
             aria-label="Contact our support team"
           />
         </div>

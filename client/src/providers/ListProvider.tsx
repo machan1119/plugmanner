@@ -5,6 +5,7 @@ import React, {
   useState,
   useEffect,
   useCallback,
+  useMemo,
 } from "react";
 import { RawData, ListType } from "@/libs/types/ListTypes";
 import { fetchAPI } from "@/utils/fetch-api";
@@ -12,6 +13,7 @@ import { fetchAPI } from "@/utils/fetch-api";
 interface ListContextProps {
   list: ListType[];
   isLoading: boolean;
+  error: Error | null;
 }
 
 interface Meta {
@@ -22,12 +24,129 @@ interface Meta {
   };
 }
 
+interface ServiceType {
+  type: string;
+  data: {
+    title: string;
+    icon: string;
+    services: Array<{
+      name: string;
+      id: string;
+    }>;
+  }[];
+}
+
+const SERVICE_TYPE_ORDER = {
+  "Twitter(X)": 0,
+  Twitter: 0,
+  Reddit: 1,
+  Instagram: 2,
+  TikTok: 3,
+  Youtube: 4,
+  LinkedIn: 5,
+  Facebook: 6,
+  Spotify: 7,
+  Telegram: 8,
+  Tools: 9,
+} as const;
+
 const ListContext = createContext<ListContextProps>({
   list: [],
   isLoading: true,
+  error: null,
 });
 
-export const useList = () => useContext(ListContext);
+export const useList = () => {
+  const context = useContext(ListContext);
+  if (!context) {
+    throw new Error("useList must be used within a ListProvider");
+  }
+  return context;
+};
+
+const transformRawData = (rawData: RawData[]): ServiceType[] => {
+  return rawData.map((item) => ({
+    type: item.type,
+    data: [
+      {
+        title: item.type,
+        icon: item.icon.url,
+        services: item.subservices.map((subservice) => ({
+          name: subservice.name,
+          id: subservice.documentId,
+        })),
+      },
+    ],
+  }));
+};
+
+const getServiceIndex = (type: string): number => {
+  const baseIndex = SERVICE_TYPE_ORDER[type as keyof typeof SERVICE_TYPE_ORDER];
+  if (baseIndex !== undefined) {
+    return baseIndex;
+  }
+
+  // Handle sub-types
+  const subTypeIndices = {
+    Twitter: 0,
+    Reddit: 1,
+    Instagram: 2,
+    TikTok: 3,
+    Youtube: 4,
+    LinkedIn: 5,
+    Facebook: 6,
+    Spotify: 7,
+  };
+
+  for (const [baseType, index] of Object.entries(subTypeIndices)) {
+    if (type.startsWith(baseType)) {
+      return index;
+    }
+  }
+
+  return 8; // Default to Other
+};
+
+const processServiceData = (filteredData: ServiceType[]): ListType[] => {
+  const servicesList: ListType[] = Array(10).fill(null);
+
+  filteredData.forEach((item) => {
+    if (!item.data?.[0]) {
+      return;
+    }
+
+    const { type } = item;
+    const dataItem = item.data[0];
+    const baseIndex = getServiceIndex(type);
+
+    const newType =
+      type === "Tools" ? "FreeTools" : type === "Telegram" ? "Other" : type;
+    const finalType = newType === "Twitter(X)" ? "Twitter" : newType;
+
+    const newData: ListType = {
+      type: finalType,
+      data: [
+        {
+          title: dataItem.title,
+          icon: dataItem.icon,
+          services: [...dataItem.services],
+        },
+      ],
+    };
+
+    if (baseIndex !== -1) {
+      if (servicesList[baseIndex]) {
+        // Add to existing category
+        servicesList[baseIndex].data.push(newData.data[0]);
+      } else {
+        // Create new category
+        servicesList[baseIndex] = newData;
+      }
+    }
+  });
+
+  return servicesList.filter(Boolean);
+};
 
 export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
@@ -35,122 +154,38 @@ export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
   const [meta, setMeta] = useState<Meta | null>(null);
   const [list, setList] = useState<ListType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
 
   const fetchData = useCallback(
     async (start: number, limit: number) => {
       try {
-        // const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
-        // const options = { headers: { Authorization: `Bearer ${token}` } };
-
+        setError(null);
         const path = "/services";
         const urlParamsObject = {
           sort: { popular: "desc" },
           populate: "*",
           pagination: {
-            start: start,
-            limit: limit,
+            start,
+            limit,
           },
         };
-        const options = "";
-        const responseData = await fetchAPI(path, urlParamsObject, options);
+
+        const responseData = await fetchAPI(path, urlParamsObject, "");
+
         if (!meta?.pagination) {
           setMeta(responseData.meta);
         }
+
         const rawData: RawData[] = responseData.data;
-        // console.log(rawData);
-        const filteredData: ListType[] = rawData.map((item) => ({
-          type: item.type,
-          data: [
-            {
-              title: item.type,
-              icon: item.icon.url,
-              services: item.subservices.map((subservice) => ({
-                name: subservice.name,
-                id: subservice.documentId,
-              })),
-            },
-          ],
-        }));
-        const servicesList: ListType[] = [];
-        filteredData.forEach((item) => {
-          if (!item.data) return;
-          const { type } = item;
-          const dataItem = item.data[0];
-          const getIndexByType = (type: string): number => {
-            switch (type) {
-              case "Twitter(X)":
-                return 0;
-              case "Twitter":
-                return 0;
-              case "Reddit":
-                return 1;
-              case "Instagram":
-                return 2;
-              case "TikTok":
-                return 3;
-              case "Youtube":
-                return 4;
-              case "LinkedIn":
-                return 5;
-              case "Facebook":
-                return 6;
-              case "Spotify":
-                return 7;
-              case "Telegram":
-                return 8;
-              case "Tools":
-                return 9;
-              default:
-                return -1; // Not a base type, handle later
-            }
-          };
-          const baseIndex = getIndexByType(type);
-          if (baseIndex !== -1) {
-            const newType =
-              type === "Tools"
-                ? "FreeTools"
-                : type === "Telegram"
-                ? "Other"
-                : type;
+        const filteredData = transformRawData(rawData);
+        const processedList = processServiceData(filteredData);
 
-            const newData: ListType = {
-              type: newType == "Twitter(X)" ? "Twitter" : newType,
-              data: [
-                {
-                  title: dataItem.title,
-                  icon: dataItem.icon,
-                  services: [...dataItem.services],
-                },
-              ],
-            };
-            servicesList[baseIndex] = newData; // Assign to specific index
-          } else {
-            // Starts with base type: Add to existing
-            let targetIndex = -1;
-            if (type.startsWith("Twitter(X)")) targetIndex = 0;
-            else if (type.startsWith("Twitter")) targetIndex = 0;
-            else if (type.startsWith("Reddit")) targetIndex = 1;
-            else if (type.startsWith("Instagram")) targetIndex = 2;
-            else if (type.startsWith("TikTok")) targetIndex = 3;
-            else if (type.startsWith("Youtube")) targetIndex = 4;
-            else if (type.startsWith("LinkedIn")) targetIndex = 5;
-            else if (type.startsWith("FaceBook")) targetIndex = 6;
-            else if (type.startsWith("Spotify")) targetIndex = 7;
-            else targetIndex = 8; // Other
-
-            if (servicesList[targetIndex]) {
-              //Check if the item exits
-              servicesList[targetIndex].data.push({
-                title: dataItem.title,
-                icon: dataItem.icon,
-                services: [...dataItem.services],
-              });
-            }
-          }
-        });
-        setList(servicesList);
-      } catch (error) {
-        console.error(error);
+        setList(processedList);
+      } catch (err) {
+        const error =
+          err instanceof Error ? err : new Error("Failed to fetch data");
+        setError(error);
+        console.error("Error fetching services:", error);
       } finally {
         setIsLoading(false);
       }
@@ -159,16 +194,21 @@ export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
   );
 
   useEffect(() => {
-    if (meta?.pagination) fetchData(0, meta!.pagination.total);
-    else {
+    if (meta?.pagination) {
+      fetchData(0, meta.pagination.total);
+    } else {
       fetchData(0, 1);
     }
   }, [fetchData, meta]);
 
-  const value: ListContextProps = {
-    list,
-    isLoading,
-  };
+  const value = useMemo(
+    () => ({
+      list,
+      isLoading,
+      error,
+    }),
+    [list, isLoading, error]
+  );
 
   return <ListContext.Provider value={value}>{children}</ListContext.Provider>;
 };

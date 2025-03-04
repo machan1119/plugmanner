@@ -16,7 +16,9 @@ const ServiceCustomerReview = () => {
     setReadHeight(readRef?.current?.clientHeight);
     setMaxHeight(maxRef?.current?.clientHeight);
   }, []);
-  if (!serviceItems?.introduction.CustomerReviews) return "";
+  if (!serviceItems?.introduction.CustomerReviews) {
+    return "";
+  }
   return (
     <div className="py-[80px] flex flex-col items-center px-10 border-b-[1px] border-black-normal">
       <div className="max-w-[1366px] flex flex-col gap-7 w-full items-center mb-8">

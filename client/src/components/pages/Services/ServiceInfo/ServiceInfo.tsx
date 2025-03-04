@@ -7,7 +7,9 @@ import { StrapiParagraph, StrapiText } from "@/components/StrapiComponents";
 
 const ServiceInfo = () => {
   const { serviceItems } = useServices();
-  if (!serviceItems?.header) return "";
+  if (!serviceItems?.header) {
+    return "";
+  }
   return (
     <div className="flex flex-col w-full m-auto items-center">
       <div className="flex lg:flex-row lg:items-start items-center flex-col gap-5 lg:gap-20 px-[3%] pt-[80px] bg-white m-auto max-w-[1366px]">

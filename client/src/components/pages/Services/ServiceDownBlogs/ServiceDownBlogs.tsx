@@ -6,7 +6,9 @@ import React from "react";
 
 const ServiceDownBlogs = () => {
   const { serviceItems } = useServices();
-  if (!serviceItems?.introduction.DownBlogs) return "";
+  if (!serviceItems?.introduction.DownBlogs) {
+    return "";
+  }
   return (
     <div className="w-full py-[80px] border-b-[1px] border-black-normal">
       <div className="flex flex-col gap-10 max-w-[1366px] justify-self-center items-center px-10">

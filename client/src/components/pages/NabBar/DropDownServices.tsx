@@ -2,12 +2,78 @@ import { replace_str } from "@/utils/functions";
 import { ListType } from "@/libs/types/ListTypes";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useCallback } from "react";
+
+interface ServiceItemProps {
+  dataItem: {
+    id: string;
+    name: string;
+  };
+  icon: string;
+  title: string;
+}
+
+const ServiceItem = React.memo(
+  ({ dataItem, icon, title }: ServiceItemProps) => (
+    <Link
+      href={`/home/services/${dataItem.id}`}
+      className="flex items-center gap-3 py-2 px-4 hover:bg-gray-50 transition-colors w-full text-gray-600 hover:text-green-light"
+    >
+      <Image
+        src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${icon}`}
+        width={20}
+        height={20}
+        alt={title}
+        className="w-5 h-5 opacity-80 group-hover:opacity-100"
+      />
+      <span className="text-[15px] font-medium">
+        {replace_str(dataItem.name, title)}
+      </span>
+    </Link>
+  )
+);
+ServiceItem.displayName = "ServiceItem";
+
+const ServiceCategory = React.memo(({ val }: { val: ListType["data"][0] }) => (
+  <div className="w-full break-inside-avoid-column">
+    <div className="text-base font-semibold text-gray-800 px-4 py-2">
+      {val.title}
+    </div>
+    <div className="w-full h-[1px] bg-gray-100" />
+    <div className="py-1">
+      {val.services.map((dataItem, key) => (
+        <ServiceItem
+          key={key}
+          dataItem={dataItem}
+          icon={val.icon}
+          title={val.title}
+        />
+      ))}
+    </div>
+  </div>
+));
+ServiceCategory.displayName = "ServiceCategory";
 
 const DropDownServices = ({ item }: { item: ListType }) => {
+  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
+    if (e.key === "Escape") {
+      const dropdown = document.querySelector(".dropdown-menu");
+      if (dropdown) {
+        dropdown.classList.add("hidden");
+      }
+    }
+  }, []);
+
   return (
     <div className="inline-block group relative">
-      <div className="flex gap-1 items-center cursor-pointer py-4 font-normal text-base font-satoshi">
+      <div
+        className="flex gap-1 items-center cursor-pointer py-4 font-normal text-base font-satoshi"
+        role="button"
+        tabIndex={0}
+        onKeyDown={handleKeyDown}
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
         <p className="group-hover:text-green-light">{item.type}</p>
         <Image
           width={16}
@@ -18,41 +84,33 @@ const DropDownServices = ({ item }: { item: ListType }) => {
         />
       </div>
       <div
-        className={`w-max absolute hidden group-hover:block bg-white bg-inherit rounded-md p-3 lg:shadow-[-2px_8px_9px_rgba(0,0,0,0.08),_-8px_15px_16px_rgba(0,0,0,0.07),_-20px_32px_24px_rgba(0,0,0,0.04),_-36px_56px_28px_rgba(0,0,0,0.01)] max-h-[70vh] overflow-y-auto ${
-          item.type == "Other" || item.type == "Tools" ? "right-0" : "left-0"
+        className={`dropdown-menu absolute hidden group-hover:block bg-white rounded-lg shadow-lg py-2 ${
+          item.type === "Other" || item.type === "Tools" ? "right-0" : "left-0"
         }`}
+        role="menu"
+        aria-orientation="vertical"
+        aria-labelledby="dropdown-button"
       >
-        <div className="max-h-[100vh] max-w-[100vw] flex flex-col flex-wrap justify-start overflow-x-auto gap-5">
-          {item.data.map((val, index) => (
-            <div className="col-span-1 flex-col w-max" key={index}>
-              <div className="text-lg font-semibold text-black mb-2 font-clash">
-                {val.title}
-              </div>
-              <div className="w-full h-[1px] bg-gray-500" />
-              {val.services.map((dataItem, key) => (
-                <Link
-                  href={`/home/services/${dataItem.id}`}
-                  className="flex gap-2 mt-2 text-[16px] hover:text-green-light items-center"
-                  key={key}
-                >
-                  <Image
-                    src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${val.icon}`}
-                    width={20}
-                    height={20}
-                    alt={val.title}
-                    className="w-5 h-5"
-                  />
-                  <span className="text-nowrap">
-                    {replace_str(dataItem.name, val.title)}
-                  </span>
-                </Link>
+        {item.type === "Other" ? (
+          <div className="w-[50vw] max-h-[80vh] overflow-y-auto p-4">
+            <div className="columns-[150px] w-full gap-6">
+              {item.data.map((val, index) => (
+                <ServiceCategory key={index} val={val} />
               ))}
             </div>
-          ))}
-        </div>
+          </div>
+        ) : (
+          <div className="max-h-[60vh] max-w-[50vw] overflow-auto p-1">
+            <div className="flex w-max gap-6">
+              {item.data.map((val, index) => (
+                <ServiceCategory key={index} val={val} />
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
-export default DropDownServices;
+export default React.memo(DropDownServices);

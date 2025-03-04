@@ -64,6 +64,7 @@ const ServiceCustomerReview = () => {
               (item, index) => (
                 <ReviewItem
                   title={item.title}
+                  rating={item.rated}
                   comment={item.content}
                   customerName={item.customer}
                   date={item.date}

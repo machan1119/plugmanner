@@ -94,10 +94,6 @@ const DropDownServices = memo(
       }
     }, []);
 
-    const handleClick = useCallback(() => {
-      setIsOpen(!isOpen);
-    }, [isOpen]);
-
     return (
       <div
         className={`
@@ -118,7 +114,6 @@ const DropDownServices = memo(
           role="button"
           tabIndex={0}
           onKeyDown={handleKeyDown}
-          onClick={handleClick}
           aria-haspopup="true"
           aria-expanded={isOpen}
         >

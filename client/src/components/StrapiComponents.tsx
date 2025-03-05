@@ -54,7 +54,6 @@ interface StrapiParagraphType {
   customClassName?: string;
   customParentClassName?: string;
   variant?: "default" | "list" | "grid";
-  iconSize?: "sm" | "md" | "lg";
 }
 
 const StrapiParagraph = memo(
@@ -63,14 +62,7 @@ const StrapiParagraph = memo(
     customClassName = "",
     customParentClassName = "",
     variant = "default",
-    iconSize = "md",
   }: StrapiParagraphType) => {
-    const iconSizeClasses = {
-      sm: "w-4 h-4",
-      md: "w-6 h-6",
-      lg: "w-8 h-8",
-    };
-
     const variantClasses = {
       default: "flex flex-col gap-4 items-start w-full",
       list: "flex flex-col gap-3 items-start w-full",
@@ -97,17 +89,17 @@ const StrapiParagraph = memo(
               <div
                 className={`
               relative
-              ${iconSizeClasses[iconSize]}
               flex-shrink-0
               animate-fade-in
+              w-[16px] h-[16px]
             `}
               >
                 <Image
-                  width={24}
-                  height={24}
+                  width={16}
+                  height={16}
                   src={item.icon}
                   alt="checkmark icon"
-                  className="w-full h-full object-contain"
+                  className="w-[16px] h-[16px] absolute top-[5px]"
                 />
               </div>
             )}

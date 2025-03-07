@@ -27,10 +27,10 @@ const SectionServices = memo(({ className = "" }: SectionServicesProps) => {
       <h2 className="font-h1-md lg:font-h1-lg mb-12 animate-fade-in">
         All Marketing Services
       </h2>
-      <div className="flex justify-center items-end mb-5 w-full relative">
-        <SwitchButton status={status} setStatus={setStatus} />
-        <div className="absolute right-[5%] border-[1px] border-black-dark flex rounded-[10px] shadow-sm hover:shadow-md transition-shadow duration-300">
-          <div className="hidden md:block bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e53_flowbite_sort-outline.svg')] bg-[4px_center] bg-no-repeat bg-auto border-r-[1px] border-black-dark text-black text-[12px] lg:text-[16px] font-satoshi leading-6 pl-8 p-2 bg-black-light rounded-l-[10px]">
+      <div className="flex flex-col gap-4 lg:flex-row lg:justify-center items-end mb-5 w-full relative">
+        <SwitchButton status={status} setStatus={setStatus} customClass="lg:w-fit w-full" />
+        <div className="lg:absolute right-[5%] border-[1px] border-black-dark flex rounded-[10px] shadow-sm hover:shadow-md transition-shadow duration-300">
+          <div className="bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e53_flowbite_sort-outline.svg')] bg-[4px_center] bg-no-repeat bg-auto border-r-[1px] border-black-dark text-black text-[12px] lg:text-[16px] font-satoshi leading-6 pl-8 p-2 bg-black-light rounded-l-[10px]">
             Sort by:
           </div>
           <select

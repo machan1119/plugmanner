@@ -27,6 +27,9 @@ const ServiceBenefit = memo(({ className = "" }: ServiceBenefitProps) => {
     [handleTabClick]
   );
 
+  if (!serviceItems?.introduction.Benefits) {
+    return null;
+  }
   if (!serviceItems?.introduction.Benefits.title) {
     return null;
   }

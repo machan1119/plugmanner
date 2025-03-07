@@ -22,7 +22,7 @@ const ServiceInfo = memo(() => {
       className="flex flex-col w-full m-auto items-center"
       aria-labelledby="service-info-title"
     >
-      <div className="flex lg:flex-row lg:items-start items-center flex-col gap-5 lg:gap-20 px-[3%] pt-[80px] bg-white m-auto max-w-[1366px]">
+      <div className="flex lg:flex-row lg:items-start items-center flex-col gap-5 lg:gap-20 px-[3%] pt-[80px] m-auto max-w-[1366px] bg-[linear-gradient(#fffffff5,#fff),url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/67bb4de67a2ea65794f385ee_perspective-grid-black.webp')] bg-[position:0_0,50%_0] bg-[size:auto,contain] bg-no-repeat">
         <div className="flex flex-col gap-7 w-[80%] lg:w-[50%] lg:items-start items-center lg:text-left grow">
           <StrapiText
             data={serviceItems.header.text}

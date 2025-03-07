@@ -10,7 +10,7 @@ interface QuestionProps {
 const Question = memo(({ className = "" }: QuestionProps) => {
   return (
     <section
-      className={`flex flex-col py-8 sm:py-12 md:py-16 lg:py-[80px] items-center bg-black-light w-full ${className}`}
+      className={`flex flex-col py-12 md:py-16 lg:py-[80px] items-center bg-black-light w-full ${className}`}
       aria-labelledby="faq-title"
     >
       <div className="max-w-[1366px] justify-self-center px-4 sm:px-6 md:px-8 lg:px-10">

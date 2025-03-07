@@ -9,7 +9,7 @@ interface OurPartnersProps {
 const OurPartners = memo(({ className = "" }: OurPartnersProps) => {
   return (
     <section
-      className={`flex flex-col p-4 sm:p-6 md:p-8 lg:p-[5%] items-center bg-black-medium w-full bg-cover bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ea7_hero_background-pattern.webp')] bg-center bg-no-repeat overflow-hidden ${className}`}
+      className={`flex flex-col py-12 md:py-16 lg:py-[80px] items-center bg-black-medium w-full bg-cover bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ea7_hero_background-pattern.webp')] bg-center bg-no-repeat overflow-hidden ${className}`}
       aria-labelledby="section-partners-title"
     >
       <div className="mb-12 flex flex-col gap-3 items-center">

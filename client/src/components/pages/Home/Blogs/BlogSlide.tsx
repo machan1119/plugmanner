@@ -55,16 +55,16 @@ const BlogSlide = memo(({ className = "" }: BlogSlideProps) => {
                   height={242}
                   src={item.icon}
                   alt={`${item.title} thumbnail`}
-                  className="object-cover hover:scale-105 transition-transform duration-300"
+                  className="object-cover hover:scale-105 transition-transform duration-300 w-full h-full"
                   loading="lazy"
                 />
               </div>
               <h3 className="text-black text-[20px] text-center font-semibold font-clash leading-[25px] mt-4 hover:text-green-light transition-colors duration-300">
                 {item.title}
               </h3>
-              <div className="flex flex-wrap gap-2 mt-10">
+              <div className="flex flex-wrap w-full justify-between gap-2 mt-10">
                 <div className="flex bg-black-light border-black-dark border-[1px] p-2 rounded-md hover:bg-black-dark transition-colors duration-300">
-                  <p className="text-black text-[16px] text-center">
+                  <p className="text-black text-[14px] text-center font-satoshi font-medium">
                     {item.type}
                   </p>
                   <div
@@ -73,7 +73,7 @@ const BlogSlide = memo(({ className = "" }: BlogSlideProps) => {
                   />
                   <time
                     dateTime={item.date}
-                    className="text-black-dark text-[16px] text-center"
+                    className="text-black/60 text-[14px] text-center font-satoshi font-medium"
                   >
                     {item.date}
                   </time>
@@ -82,7 +82,7 @@ const BlogSlide = memo(({ className = "" }: BlogSlideProps) => {
                   className="text-green-light text-[16px] p-2 rounded-md hover:bg-green-light/10 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-light"
                   aria-label={`Read more about ${item.title}`}
                 >
-                  Read More
+                  Read More &gt;
                 </button>
               </div>
             </article>

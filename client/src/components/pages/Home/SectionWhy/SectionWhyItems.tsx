@@ -12,7 +12,7 @@ const SectionWhyItems = memo(
   ({ item, className = "", style }: SectionWhyItemsProps) => {
     return (
       <article
-        className={`bg-white border-black-dark text-black rounded-[16px] p-4 sm:p-6 flex flex-col justify-between text-center hover:shadow-lg transition-all duration-300 ${className}`}
+        className={`bg-white border border-black-dark/50 text-black rounded-[16px] p-4 sm:p-6 flex flex-col justify-between text-center hover:shadow-lg transition-all duration-300 ${className}`}
         style={style}
         aria-labelledby={`review-title-${item.title}`}
       >

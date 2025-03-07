@@ -59,7 +59,7 @@ const ServiceUpBlogs = memo(({ className = "" }: ServiceUpBlogsProps) => {
                   height={500}
                   alt={`${item.title.text[0].content} illustration`}
                   src={item.img}
-                  className="object-cover"
+                  className="object-cover w-[40%]"
                   priority={index < 2}
                   loading={index < 2 ? "eager" : "lazy"}
                 />

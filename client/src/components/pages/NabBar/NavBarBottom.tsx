@@ -19,8 +19,8 @@ const NavBarBottom = memo(({ className = "" }: NavBarBottomProps) => {
     <div
       className={`
       bg-background-light 
-      border-y border-black-dark 
-      py-1 w-full
+      border-y border-black-dark/50 
+      py-1.5 w-full
       transition-all duration-300
       ${className}
     `}

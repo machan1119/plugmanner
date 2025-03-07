@@ -2,6 +2,7 @@ import Link from "next/link";
 import React, { memo } from "react";
 import { Reviews } from "@/libs/data/Reviews";
 import SectionWhyItems from "./SectionWhyItems";
+import Image from "next/image";
 
 interface SectionWhyProps {
   className?: string;
@@ -21,7 +22,7 @@ const statsData: StatsData[] = [
 const SectionWhy = memo(({ className = "" }: SectionWhyProps) => {
   return (
     <section
-      className={`flex flex-col py-8 sm:py-12 md:py-16 lg:py-[80px] items-center bg-black-light w-full bg-cover bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ea7_hero_background-pattern.webp')] bg-center bg-no-repeat overflow-hidden border-black-dark border-t-[1px] border-b-[1px] ${className}`}
+      className={`flex flex-col py-12 md:py-16 lg:py-[80px] items-center bg-black-light w-full bg-cover bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ea7_hero_background-pattern.webp')] bg-center bg-no-repeat overflow-hidden border-black-dark border-t-[1px] border-b-[1px] ${className}`}
       aria-labelledby="section-why-title"
     >
       <div className="max-w-[1366px] justify-self-center px-4 sm:px-6 md:px-8 lg:px-10">
@@ -45,12 +46,30 @@ const SectionWhy = memo(({ className = "" }: SectionWhyProps) => {
             .
           </p>
         </div>
-        <div className="flex flex-col gap-8 items-center w-full">
+        <div className="flex flex-col gap-8 items-center w-full ">
           <div
-            className="flex flex-col sm:flex-row bg-white border-black-dark rounded-[16px] py-6 relative w-full sm:w-[90%] items-center shadow-sm hover:shadow-md transition-all duration-300"
+            className="mt-[70px] lg:mt-0 flex flex-col sm:flex-row bg-white border border-black-dark/50 rounded-[16px] py-6 relative w-full sm:w-[90%] items-center shadow-sm hover:shadow-md transition-all duration-300"
             role="list"
             aria-label="Statistics"
           >
+            <div className="absolute -top-0 right-0 transform -translate-y-[78%] translate-x-[10%] md:translate-x-[20%] z-20 w-[120px] lg:w-[10%] flex flex-col items-end">
+              <Image
+                width={136}
+                height={176}
+                loading="lazy"
+                alt="Socialplug Character Sitting"
+                src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e7b_why-choose-us-character-img.svg"
+                className="w-full"
+              />
+              <Image
+                width={82}
+                height={38}
+                loading="lazy"
+                alt="5-star reviews"
+                src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e7a_why-choose-us-rating-bubble.svg"
+                className="absolute top-[10%] lg:-right-[60%] right-[110%] w-[70%]"
+              />
+            </div>
             {statsData.map((stat, index) => (
               <React.Fragment key={stat.label}>
                 <div

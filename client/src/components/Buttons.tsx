@@ -29,7 +29,7 @@ const MainButton = ({
   };
 
   const baseClasses =
-    "font-clash font-semibold rounded-[10px] leading-5 transition-all duration-300 animate-fade-in";
+    "font-clash font-semibold rounded-[10px] leading-5 transition-all duration-300 animate-fade-in border border-black-dark/50";
   const disabledClasses = "opacity-50 cursor-not-allowed";
   const loadingClasses = "relative text-transparent";
 
@@ -71,15 +71,16 @@ const MainButton = ({
 interface SwitchButtonProps {
   status: "Services" | "Tools";
   setStatus: React.Dispatch<React.SetStateAction<"Services" | "Tools">>;
+  customClass?: string;
 }
 
-export const SwitchButton = ({ status, setStatus }: SwitchButtonProps) => {
+export const SwitchButton = ({ status, setStatus, customClass }: SwitchButtonProps) => {
   return (
-    <div className="bg-background-light rounded-full flex border border-black-dark p-1 shadow-soft animate-fade-in">
+    <div className={`bg-background-light rounded-full flex border border-black-dark p-1 shadow-soft animate-fade-in ${customClass}`}>
       <button
         onClick={() => setStatus("Services")}
         className={`
-          px-6 py-3 border font-clash text-sm lg:text-base font-semibold rounded-full
+          w-full lg:w-fit px-6 py-3 border font-clash text-base font-semibold rounded-full
           transition-all duration-300
           ${
             status === "Tools"
@@ -93,7 +94,7 @@ export const SwitchButton = ({ status, setStatus }: SwitchButtonProps) => {
       <button
         onClick={() => setStatus("Tools")}
         className={`
-          px-6 py-3 border font-clash text-sm lg:text-base font-semibold rounded-full
+          w-full lg:w-fit px-6 py-3 border font-clash text-base font-semibold rounded-full
           transition-all duration-300
           ${
             status === "Tools"

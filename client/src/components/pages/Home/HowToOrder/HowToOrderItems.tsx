@@ -16,7 +16,7 @@ const HowToOrderItems = memo(
         role="listitem"
         style={style}
       >
-        <div className="relative w-full aspect-[285/265] mb-6">
+        <div className="relative w-full max-w-[250px] aspect-[285/265] mb-6">
           <Image
             width={285}
             height={265}

@@ -87,14 +87,12 @@ const FollowUs = memo(({ className = "" }: FollowUsProps) => {
             w-full px-4 py-3
             leading-[22px] text-base
             rounded-lg
-            border border-white/20
-            bg-white/5
-            text-white
-            placeholder:text-white/50
+            border border-white
+            bg-white
+            text-black
+            placeholder:text-black/50
             focus:outline-none
             focus:border-primary
-            focus:bg-white/10
-            transition-all duration-300
           "
           required
         />

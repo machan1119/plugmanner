@@ -12,22 +12,22 @@ const SectionWhyChooseItems = memo(
   ({ item, className = "", style }: SectionWhyChooseItemsProps) => {
     return (
       <div
-        className={`flex flex-col md:flex-row grow h-full p-4 sm:p-6 items-center bg-white border-black-dark text-black rounded-[16px] hover:shadow-lg transition-all duration-300 ${className}`}
+        className={`flex flex-col md:flex-row grow w-full h-full p-4 sm:p-6 items-center bg-white border-black-dark text-black rounded-[16px] hover:shadow-lg transition-all duration-300 border border-black-dark/50 ${className}`}
         style={style}
         role="listitem"
         aria-label={`${item.title} feature`}
       >
-        <div className="relative w-[152px] h-[166px] mb-6 md:mb-0 md:mr-6">
+        <div className="relative max-w-[200px] w-[40%] h-full mb-6 md:mb-0 md:mr-6">
           <Image
             width={152}
             height={166}
             src={item.icon}
             alt={`${item.title} illustration`}
-            className="object-contain w-full h-full animate-fade-in"
+            className="w-full h-full animate-fade-in"
             loading="lazy"
           />
         </div>
-        <div className="flex flex-col justify-between text-center md:text-left">
+        <div className="flex flex-col w-[60%] justify-between text-center md:text-left">
           <h3 className="font-clash font-semibold text-[18px] sm:text-[20px] leading-[25px] mb-4 sm:mb-6 w-full animate-fade-in">
             {item.title}
           </h3>

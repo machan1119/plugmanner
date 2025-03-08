@@ -59,7 +59,7 @@ const SectionHero = memo(({ className = "" }: SectionHeroProps) => {
             social media services
           </div>
         </div>
-        <div className="grid grid-cols-auto-2 lg:grid-cols-auto-3 gap-4 sm:gap-6 items-center w-full">
+        <div className="grid grid-cols-auto-2 lg:flex lg:flex-row gap-4 sm:gap-6 items-center">
           <div className="flex gap-[6px] order-2 lg:order-1 items-center justify-center text-center animate-fade-in-left">
             <Image
               width={20}

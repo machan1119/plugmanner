@@ -37,7 +37,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
   return (
     <div
       className={`
-      w-full border-b border-black-dark
+      w-full
       transition-all duration-300
       ${className}
     `}

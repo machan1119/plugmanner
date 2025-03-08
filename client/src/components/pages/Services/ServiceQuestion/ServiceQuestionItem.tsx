@@ -38,9 +38,6 @@ const ServiceQuestionItem = memo(
         className={`
         inline-block relative 
         bg-white 
-        bg-[linear-gradient(#fffffff5,#fff),url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/67bb4de51edb39c901338e52_perspective-grid-black.webp')] 
-        bg-[position:0_0,50%_0] 
-        bg-[size:auto,contain]
         border border-black/10
         rounded-lg
         w-full h-max 

@@ -24,18 +24,6 @@ interface Meta {
   };
 }
 
-interface ServiceType {
-  type: string;
-  data: {
-    title: string;
-    icon: string;
-    services: Array<{
-      name: string;
-      id: string;
-    }>;
-  }[];
-}
-
 const SERVICE_TYPE_ORDER = {
   "Twitter(X)": 0,
   Twitter: 0,
@@ -64,7 +52,7 @@ export const useList = () => {
   return context;
 };
 
-const transformRawData = (rawData: RawData[]): ServiceType[] => {
+const transformRawData = (rawData: RawData[]): ListType[] => {
   return rawData.map((item) => ({
     type: item.type,
     data: [
@@ -74,6 +62,7 @@ const transformRawData = (rawData: RawData[]): ServiceType[] => {
         services: item.subservices.map((subservice) => ({
           name: subservice.name,
           id: subservice.documentId,
+          icon: subservice.icon,
         })),
       },
     ],
@@ -107,7 +96,7 @@ const getServiceIndex = (type: string): number => {
   return 8; // Default to Other
 };
 
-const processServiceData = (filteredData: ServiceType[]): ListType[] => {
+const processServiceData = (filteredData: ListType[]): ListType[] => {
   const servicesList: ListType[] = Array(10).fill(null);
 
   filteredData.forEach((item) => {
@@ -163,7 +152,7 @@ export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
         const path = "/services";
         const urlParamsObject = {
           sort: { popular: "desc" },
-          populate: "*",
+          populate: ["subservices.icon", "icon"],
           pagination: {
             start,
             limit,
@@ -171,7 +160,6 @@ export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
         };
 
         const responseData = await fetchAPI(path, urlParamsObject, "");
-
         if (!meta?.pagination) {
           setMeta(responseData.meta);
         }

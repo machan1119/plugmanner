@@ -9,6 +9,6 @@
 //   return slug.join("-");
 // }
 export function replace_str(s1: string, s2: string): string {
-  s1 = s1.replaceAll(s2, "");
+  s1 = s1.replace(s2, "");
   return s1;
 }

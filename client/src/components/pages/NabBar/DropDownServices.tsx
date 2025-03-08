@@ -1,5 +1,5 @@
 import { replace_str } from "@/utils/functions";
-import { ListType } from "@/libs/types/ListTypes";
+import { ListType, Icon } from "@/libs/types/ListTypes";
 import Image from "next/image";
 import Link from "next/link";
 import React, { memo, useCallback, useState } from "react";
@@ -8,6 +8,7 @@ interface ServiceItemProps {
   dataItem: {
     id: string;
     name: string;
+    icon: Icon;
   };
   icon: string;
   title: string;
@@ -27,18 +28,33 @@ const ServiceItem = memo(({ dataItem, icon, title }: ServiceItemProps) => (
       group
     "
   >
-    <Image
-      src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${icon}`}
-      width={20}
-      height={20}
-      alt={title}
-      className="
+    {dataItem.icon ? (
+      <Image
+        src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${dataItem.icon.url}`}
+        width={20}
+        height={20}
+        alt={title}
+        className="
         w-5 h-5 
         opacity-80 
         group-hover:opacity-100
         transition-opacity duration-300
       "
-    />
+      />
+    ) : (
+      <Image
+        src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${icon}`}
+        width={20}
+        height={20}
+        alt={title}
+        className="
+        w-5 h-5 
+        opacity-80 
+        group-hover:opacity-100
+        transition-opacity duration-300
+      "
+      />
+    ) }
     <span className="text-[15px] font-medium">
       {replace_str(dataItem.name, title)}
     </span>

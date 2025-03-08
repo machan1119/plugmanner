@@ -6,6 +6,7 @@ export interface Subservice {
   publishedAt: string;
   name: string;
   popular: null | string;
+  icon: Icon;
 }
 
 export interface Icon {
@@ -44,15 +45,11 @@ export interface RawData {
 
 export interface ListType {
   type: string;
-  data: {
-    title: string;
-    icon: string;
-    services: { name: string; id: string }[];
-  }[];
+  data: ServicesDataType[];
 }
 
 export interface ServicesDataType {
   title: string;
   icon: string;
-  services: { name: string; id: string }[];
+  services: { name: string; id: string; icon: Icon }[];
 }

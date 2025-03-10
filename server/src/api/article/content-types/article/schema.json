@@ -10,52 +10,59 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "author_name": {
       "type": "string",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "date": {
       "type": "date",
-      "required": true
-    },
-    "main_img": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "chapter": {
       "displayName": "chapter",
       "type": "component",
       "repeatable": true,
-      "component": "article.chapter"
-    },
-    "author_avatar": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+      "component": "article.chapter",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "about_author": {
       "displayName": "author",
       "type": "component",
       "repeatable": true,
-      "component": "article.author"
+      "component": "article.author",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "services": {
       "type": "relation",
@@ -68,6 +75,22 @@
       "relation": "manyToMany",
       "target": "api::subservice.subservice",
       "mappedBy": "article"
+    },
+    "img": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text"
+    },
+    "author_avatar": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }

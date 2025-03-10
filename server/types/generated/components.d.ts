@@ -8,7 +8,7 @@ export interface ArticleAuthor extends Struct.ComponentSchema {
     icon: 'alien';
   };
   attributes: {
-    avatar: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    avatar: Schema.Attribute.String;
     introduction: Schema.Attribute.Text;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     social: Schema.Attribute.Component<'general.social-link', true>;
@@ -23,7 +23,7 @@ export interface ArticleChapter extends Struct.ComponentSchema {
     icon: 'store';
   };
   attributes: {
-    img: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    img: Schema.Attribute.Text;
     section: Schema.Attribute.Component<'article.section', true>;
     title: Schema.Attribute.Component<'general.list', false>;
   };
@@ -38,7 +38,7 @@ export interface ArticleSection extends Struct.ComponentSchema {
   };
   attributes: {
     content: Schema.Attribute.Component<'general.list', true>;
-    img: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    img: Schema.Attribute.Text;
     title: Schema.Attribute.Component<'general.list', false>;
   };
 }
@@ -51,7 +51,7 @@ export interface GeneralList extends Struct.ComponentSchema {
     icon: 'bulletList';
   };
   attributes: {
-    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    icon: Schema.Attribute.Text;
     text: Schema.Attribute.Component<'general.sentence', true>;
   };
 }
@@ -92,11 +92,12 @@ export interface GeneralSentence extends Struct.ComponentSchema {
 export interface GeneralSocialLink extends Struct.ComponentSchema {
   collectionName: 'components_general_social_links';
   info: {
+    description: '';
     displayName: 'social_link';
     icon: 'feather';
   };
   attributes: {
-    img: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    img: Schema.Attribute.String;
     link: Schema.Attribute.String;
   };
 }
@@ -166,6 +167,7 @@ export interface SubserviceBlogs extends Struct.ComponentSchema {
   };
   attributes: {
     Blog: Schema.Attribute.Component<'subservice.sub-blog', true>;
+    title: Schema.Attribute.Component<'general.list', false>;
   };
 }
 
@@ -209,8 +211,7 @@ export interface SubserviceEachSummary extends Struct.ComponentSchema {
   };
   attributes: {
     content: Schema.Attribute.Text & Schema.Attribute.Required;
-    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
-      Schema.Attribute.Required;
+    icon: Schema.Attribute.Text;
     title: Schema.Attribute.Text & Schema.Attribute.Required;
   };
 }
@@ -359,8 +360,7 @@ export interface SubserviceSubBenefit extends Struct.ComponentSchema {
   attributes: {
     Button: Schema.Attribute.String;
     button_api: Schema.Attribute.Text;
-    img: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
-      Schema.Attribute.Required;
+    img: Schema.Attribute.Text & Schema.Attribute.Required;
     paragraph: Schema.Attribute.Component<'general.list', true>;
     tabname: Schema.Attribute.String & Schema.Attribute.Required;
     title: Schema.Attribute.Component<'general.list', false>;
@@ -377,8 +377,7 @@ export interface SubserviceSubBlog extends Struct.ComponentSchema {
   attributes: {
     button: Schema.Attribute.String;
     button_api: Schema.Attribute.String;
-    img: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
-      Schema.Attribute.Required;
+    img: Schema.Attribute.Text & Schema.Attribute.Required;
     paragraph: Schema.Attribute.Component<'general.list', true>;
     title: Schema.Attribute.Component<'general.list', false>;
   };
@@ -423,6 +422,7 @@ export interface SubserviceSubserviceIntroduction
       false
     >;
     Summary: Schema.Attribute.Component<'subservice.service-summary', false>;
+    Summary2: Schema.Attribute.Component<'subservice.service-summary', false>;
     TopReviews: Schema.Attribute.Component<'subservice.top-reviews', false>;
     UpBlogs: Schema.Attribute.Component<'subservice.blogs', false>;
     video: Schema.Attribute.Text;

@@ -7,17 +7,6 @@
   },
   "options": {},
   "attributes": {
-    "icon": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "title": {
       "type": "text",
       "required": true
@@ -25,6 +14,9 @@
     "content": {
       "type": "text",
       "required": true
+    },
+    "icon": {
+      "type": "text"
     }
   }
 }

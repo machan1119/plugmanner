@@ -96,6 +96,11 @@
       "type": "component",
       "repeatable": false,
       "component": "subservice.good-point"
+    },
+    "Summary2": {
+      "type": "component",
+      "repeatable": false,
+      "component": "subservice.service-summary"
     }
   }
 }

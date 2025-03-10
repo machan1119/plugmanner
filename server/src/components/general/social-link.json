@@ -2,21 +2,15 @@
   "collectionName": "components_general_social_links",
   "info": {
     "displayName": "social_link",
-    "icon": "feather"
+    "icon": "feather",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "img": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": false
-    },
     "link": {
+      "type": "string"
+    },
+    "img": {
       "type": "string"
     }
   }

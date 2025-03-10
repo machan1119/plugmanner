@@ -10,12 +10,21 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "name": {
       "type": "string",
       "unique": true,
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "service": {
       "type": "relation",
@@ -26,13 +35,23 @@
     "popular": {
       "type": "biginteger",
       "required": true,
-      "unique": false
+      "unique": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "introduction": {
       "displayName": "subserviceIntroduction",
       "type": "component",
       "repeatable": false,
-      "component": "subservice.subservice-introduction"
+      "component": "subservice.subservice-introduction",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "article": {
       "type": "relation",
@@ -43,12 +62,37 @@
     "header": {
       "type": "component",
       "repeatable": false,
-      "component": "general.list"
+      "component": "general.list",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "simpledescription": {
       "type": "component",
       "repeatable": false,
-      "component": "general.list"
+      "component": "general.list",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

@@ -7,17 +7,6 @@
   },
   "options": {},
   "attributes": {
-    "img": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "button": {
       "type": "string"
     },
@@ -34,6 +23,10 @@
       "type": "component",
       "repeatable": false,
       "component": "general.list"
+    },
+    "img": {
+      "type": "text",
+      "required": true
     }
   }
 }

@@ -7,17 +7,6 @@
   },
   "options": {},
   "attributes": {
-    "img": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "content": {
       "type": "component",
       "repeatable": true,
@@ -27,6 +16,9 @@
       "type": "component",
       "repeatable": false,
       "component": "general.list"
+    },
+    "img": {
+      "type": "text"
     }
   }
 }

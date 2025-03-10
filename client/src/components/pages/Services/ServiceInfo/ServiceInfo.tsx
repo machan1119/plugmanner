@@ -52,7 +52,7 @@ const ServiceInfo = memo(() => {
           <ServiceAdvantage />
         </div>
         <div
-          className="z-20 px-8 py-9 flex flex-col gap-6 grow items-center w-max bg-[rgb(20,_20,_27)] bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/63ff3f8c57c2b777f07afb19_socialplug-pricingbox-illustration.svg')] bg-right-top bg-no-repeat bg-auto rounded-2xl"
+          className="z-20 px-8 py-9 flex grow flex-col gap-6 items-center w-max bg-[rgb(20,_20,_27)] bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/63ff3f8c57c2b777f07afb19_socialplug-pricingbox-illustration.svg')] bg-right-top bg-no-repeat bg-auto rounded-2xl"
           role="complementary"
           aria-label="Pricing information"
         >
@@ -70,12 +70,11 @@ const ServiceInfo = memo(() => {
           <StrapiParagraph
             paragraph={serviceItems.introduction.OrderIntro.list}
             customClassName="font-service-text text-[16px] !text-black-steel"
-            customParentClassName="pr-10"
           />
           <MainButton
             type="primary"
             title="Order Now >"
-            customClass="w-full"
+            customClass="w-full border-none"
             aria-label="Order service now"
           />
           <div aria-hidden="true">

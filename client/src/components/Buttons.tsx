@@ -7,6 +7,7 @@ interface MainButtonProps {
   type: ButtonType;
   title: string;
   customClass?: string;
+  customChildClass?: string;
   handleClick?: () => void;
   size?: ButtonSize;
   disabled?: boolean;
@@ -17,6 +18,7 @@ const MainButton = ({
   type,
   title,
   customClass,
+  customChildClass,
   handleClick,
   size = "md",
   disabled = false,
@@ -48,13 +50,17 @@ const MainButton = ({
     >
       {type === "white-main" ? (
         <p
-          className={`bg-white text-text-primary hover:bg-black-medium shadow-soft hover:shadow-hover rounded-[10px] ${sizeClasses[size]}`}
+          className={`bg-white text-text-primary hover:bg-black-medium shadow-soft hover:shadow-hover rounded-[10px] ${
+            sizeClasses[size]
+          } ${customChildClass || ""}`}
         >
           {title}
         </p>
       ) : (
         <p
-          className={`bg-primary text-white hover:bg-secondary shadow-soft hover:shadow-hover rounded-[10px] ${sizeClasses[size]}`}
+          className={`bg-gradient-to-t from-[#01c573] to-[#01a55e] text-white hover:bg-accent shadow-soft hover:shadow-hover rounded-[10px] ${
+            sizeClasses[size]
+          } ${customChildClass || ""}`}
         >
           {title}
         </p>
@@ -74,9 +80,15 @@ interface SwitchButtonProps {
   customClass?: string;
 }
 
-export const SwitchButton = ({ status, setStatus, customClass }: SwitchButtonProps) => {
+export const SwitchButton = ({
+  status,
+  setStatus,
+  customClass,
+}: SwitchButtonProps) => {
   return (
-    <div className={`bg-background-light rounded-full flex border border-black-dark p-1 shadow-soft animate-fade-in ${customClass}`}>
+    <div
+      className={`bg-background-light rounded-full flex border border-black-dark p-1 shadow-soft animate-fade-in ${customClass}`}
+    >
       <button
         onClick={() => setStatus("Services")}
         className={`

@@ -103,7 +103,11 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
               className="lg:block hidden animate-fade-in"
               style={{ animationDelay: "100ms" }}
             >
-              <MainButton type="primary" title="All Services" />
+              <MainButton
+                type="primary"
+                title="All Services"
+                customChildClass="!bg-none !bg-primary"
+              />
             </Link>
             <div
               className="

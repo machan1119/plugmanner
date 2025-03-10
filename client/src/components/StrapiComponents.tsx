@@ -39,7 +39,7 @@ const StrapiText = memo(({ data, customClassName = "" }: StrapiTextType) => {
             className={baseClasses}
             style={{ color: item.color }}
           >
-            {item.content}
+            {item.content ? item.content : <br />}
           </span>
         );
       })}

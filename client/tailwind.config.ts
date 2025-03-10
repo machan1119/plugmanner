@@ -20,9 +20,9 @@ export default {
         "black-medium": "rgb(235,235,235)",
         "black-normal": "rgb(226,226,226)",
         "black-steel": "#b6b6cf",
-        primary: "rgb(1,197,115)",
+        primary: "#00c573",
         secondary: "rgb(1,118,69)",
-        accent: "#b6b6cf",
+        accent: "#01a55e",
         background: {
           light: "#f6f6f6",
           dark: "#c7c7c7",

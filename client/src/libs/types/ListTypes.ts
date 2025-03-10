@@ -46,6 +46,7 @@ export interface RawData {
 export interface ListType {
   type: string;
   data: ServicesDataType[];
+  popular: string;
 }
 
 export interface ServicesDataType {

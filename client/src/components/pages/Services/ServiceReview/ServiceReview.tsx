@@ -44,16 +44,18 @@ const ServiceReview = () => {
           role="list"
           aria-label="Customer reviews"
         >
-          {serviceItems.introduction.TopReviews.review.map((item: Review) => (
-            <ReviewItem
-              title={item.title}
-              rating={item.rated}
-              comment={item.content}
-              customerName={item.customer}
-              date={item.date}
-              key={`${item.customer}-${item.date}`}
-            />
-          ))}
+          {serviceItems.introduction.TopReviews.review.map(
+            (item: Review, index: number) => (
+              <ReviewItem
+                title={item.title}
+                rating={item.rated}
+                comment={item.content}
+                customerName={item.customer}
+                date={item.date}
+                key={index}
+              />
+            )
+          )}
         </div>
         <MainButton
           type="primary"

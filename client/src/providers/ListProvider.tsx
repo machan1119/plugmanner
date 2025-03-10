@@ -7,7 +7,7 @@ import React, {
   useCallback,
   useMemo,
 } from "react";
-import { RawData, ListType, ServicesDataType } from "@/libs/types/ListTypes";
+import { RawData, ListType } from "@/libs/types/ListTypes";
 import { fetchAPI } from "@/utils/fetch-api";
 
 interface ListContextProps {

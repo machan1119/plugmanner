@@ -643,6 +643,12 @@ export interface ApiSubserviceSubservice extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    ordernow: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     popular: Schema.Attribute.BigInteger &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{

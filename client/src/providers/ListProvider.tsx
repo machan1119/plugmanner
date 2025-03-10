@@ -7,7 +7,7 @@ import React, {
   useCallback,
   useMemo,
 } from "react";
-import { RawData, ListType } from "@/libs/types/ListTypes";
+import { RawData, ListType, ServicesDataType } from "@/libs/types/ListTypes";
 import { fetchAPI } from "@/utils/fetch-api";
 
 interface ListContextProps {
@@ -55,6 +55,7 @@ export const useList = () => {
 const transformRawData = (rawData: RawData[]): ListType[] => {
   return rawData.map((item) => ({
     type: item.type,
+    popular: item.popular,
     data: [
       {
         title: item.type,
@@ -98,7 +99,7 @@ const getServiceIndex = (type: string): number => {
 
 const processServiceData = (filteredData: ListType[]): ListType[] => {
   const servicesList: ListType[] = Array(10).fill(null);
-
+  // const allServicesData: ServicesDataType = [];
   filteredData.forEach((item) => {
     if (!item.data?.[0]) {
       return;
@@ -114,6 +115,7 @@ const processServiceData = (filteredData: ListType[]): ListType[] => {
 
     const newData: ListType = {
       type: finalType,
+      popular: item.popular,
       data: [
         {
           title: dataItem.title,
@@ -122,7 +124,7 @@ const processServiceData = (filteredData: ListType[]): ListType[] => {
         },
       ],
     };
-
+    // allServicesData.push(newData.data[0]);
     if (baseIndex !== -1) {
       if (servicesList[baseIndex]) {
         // Add to existing category
@@ -167,7 +169,7 @@ export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
         const rawData: RawData[] = responseData.data;
         const filteredData = transformRawData(rawData);
         const processedList = processServiceData(filteredData);
-
+        console.log(processedList);
         setList(processedList);
       } catch (err) {
         const error =

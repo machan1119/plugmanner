@@ -35,13 +35,8 @@ const ServiceCustomerReview = () => {
     return null;
   }
 
-  const showMoreButton =
-    readHeight &&
-    maxHeight &&
-    maxHeight > INITIAL_HEIGHT &&
-    readHeight <= maxHeight &&
-    readHeight <= INITIAL_HEIGHT;
-  const showLessButton = readHeight && maxHeight && readHeight > INITIAL_HEIGHT;
+  const showMoreButton = readHeight && maxHeight && readHeight < maxHeight;
+  const showLessButton = readHeight && maxHeight && readHeight >= maxHeight;
 
   return (
     <section
@@ -93,14 +88,14 @@ const ServiceCustomerReview = () => {
             aria-label="Customer reviews"
           >
             {serviceItems.introduction.CustomerReviews.Review.map(
-              (item: Review) => (
+              (item: Review, index: number) => (
                 <ReviewItem
                   title={item.title}
                   rating={item.rated}
                   comment={item.content}
                   customerName={item.customer}
                   date={item.date}
-                  key={`${item.customer}-${item.date}`}
+                  key={index}
                 />
               )
             )}

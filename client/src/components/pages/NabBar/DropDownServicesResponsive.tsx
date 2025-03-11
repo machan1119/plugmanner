@@ -20,7 +20,6 @@ const DropDownServicesResponsive = memo(
     return (
       <div
         className={`
-      bg-white 
       border-b border-black-normal
       transition-all duration-300
       ${className}
@@ -80,6 +79,7 @@ const DropDownServicesResponsive = memo(
           `}
           />
         </div>
+
         <div
           className="
           overflow-hidden 

@@ -50,6 +50,7 @@ const NavBarBottom = memo(({ className = "" }: NavBarBottomProps) => {
         justify-self-center 
         w-[90%] xl:w-[65%]
         mx-auto
+        h-[100vh] overflow-scroll
         animate-fade-in
       "
       >
@@ -59,9 +60,8 @@ const NavBarBottom = memo(({ className = "" }: NavBarBottomProps) => {
               key={`${index}-${innerIndex}`}
               className="animate-fade-in"
               style={{
-                animationDelay: `${
-                  (index * item.data.length + innerIndex) * 100
-                }ms`,
+                animationDelay: `${(index * item.data.length + innerIndex) * 100
+                  }ms`,
               }}
             >
               <DropDownServicesResponsive serviceData={val} />

@@ -64,11 +64,10 @@ const ServiceBenefit = memo(({ className = "" }: ServiceBenefitProps) => {
                     .toLowerCase()}`}
                   onClick={() => handleTabClick(index)}
                   onKeyDown={(e) => handleKeyDown(e, index)}
-                  className={`w-full py-2 bg-transparent font-clash lg:text-[18px] !text-center !font-semibold border-b-[2px] ${
-                    currentStep === index
-                      ? "border-green-light !text-green-light"
-                      : "border-black-dark !text-black-dark hover:border-white hover:!text-white"
-                  }`}
+                  className={`w-full py-2 bg-transparent font-clash lg:text-[18px] !text-center !font-semibold border-b-[2px] ${currentStep === index
+                    ? "border-green-light !text-green-light"
+                    : "border-black-dark !text-black-dark hover:border-white hover:!text-white"
+                    }`}
                   role="tab"
                   aria-selected={currentStep === index}
                   aria-controls={`benefit-panel-${index}`}

@@ -88,8 +88,8 @@ const ServiceInfo = memo(() => {
           </div>
         </div>
       </div>
-      <div className="z-10 mt-[-30px] w-full bg-black-light py-[60px] flex flex-col items-center">
-        <div className="relative max-w-[1366px] w-full flex gap-8 items-center px-10">
+      <div className="z-10 mt-[-30px] w-full bg-black-light pt-[60px] px-10 flex flex-col items-center gap-[50px]">
+        <div className="max-w-[1366px] w-full flex gap-8 items-center">
           {serviceItems.introduction.StateOfService.States.map(
             (item: ServiceState) => (
               <div key={item.character} className="text-left" role="listitem">
@@ -102,11 +102,11 @@ const ServiceInfo = memo(() => {
               </div>
             )
           )}
-          <div
-            className="w-full h-[1px] bg-black-normal absolute justify-self-center bottom-[-50px]"
-            aria-hidden="true"
-          />
         </div>
+        <div
+          className="w-full h-[1px] bg-black-normal justify-self-center bottom-[-50px]"
+          aria-hidden="true"
+        />
       </div>
     </section>
   );

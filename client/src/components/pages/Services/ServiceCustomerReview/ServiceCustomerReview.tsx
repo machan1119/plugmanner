@@ -51,7 +51,7 @@ const ServiceCustomerReview = () => {
           />
           <StrapiText
             data={serviceItems.introduction.CustomerReviews.text[0].text}
-            customClassName="font-service-text text-[18px] w-[50%] !text-center"
+            customClassName="font-service-text text-[18px] lg:w-[50%] !text-center"
           />
           <div
             className="flex items-center mt-2"

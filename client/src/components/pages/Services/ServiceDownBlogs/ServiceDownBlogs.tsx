@@ -44,9 +44,8 @@ const ServiceDownBlogs = memo(({ className = "" }: ServiceDownBlogsProps) => {
           {serviceItems.introduction.DownBlogs.Blog.map(
             (item: BlogType, index: number) => (
               <article
-                className={`w-[95%] flex lg:flex-row flex-col gap-[80px] items-center ${
-                  index % 2 !== 0 && "lg:flex-row-reverse flex-col-reverse"
-                }`}
+                className={`w-[95%] flex lg:flex-row flex-col gap-[80px] items-center ${index % 2 !== 0 && "lg:flex-row-reverse flex-col-reverse"
+                  }`}
                 key={`blog-${item.title.text[0].content
                   .replace(/\s+/g, "-")
                   .toLowerCase()}`}
@@ -76,6 +75,7 @@ const ServiceDownBlogs = memo(({ className = "" }: ServiceDownBlogsProps) => {
                     <MainButton
                       type="primary"
                       title={item.button}
+                      customClass="w-[50%]"
                       aria-label={`Read more about ${item.title.text[0].content}`}
                       handleClick={() =>
                         handleButtonClick(item.title.text[0].content)

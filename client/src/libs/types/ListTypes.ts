@@ -54,3 +54,10 @@ export interface ServicesDataType {
   icon: string;
   services: { name: string; id: string; icon: Icon }[];
 }
+
+export interface ServicesListType {
+  popular: string;
+  title: string;
+  icon: string;
+  services: { name: string; id: string; icon: Icon }[];
+}

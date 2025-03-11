@@ -35,6 +35,7 @@ const Status = memo(({ className = "" }: StatusProps) => {
         speed={1000}
         direction="vertical"
         autoHeight
+        allowTouchMove={false}
         autoplay={{
           delay: 2000,
           disableOnInteraction: true,

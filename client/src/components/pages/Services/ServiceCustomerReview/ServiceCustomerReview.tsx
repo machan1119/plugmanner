@@ -110,7 +110,7 @@ const ServiceCustomerReview = () => {
         <MainButton
           type="white-main"
           title="Show More +"
-          customClass="w-[30%]"
+          customClass="w-[278px]"
           handleClick={handleShowMore}
           aria-label="Show more reviews"
         />
@@ -119,7 +119,7 @@ const ServiceCustomerReview = () => {
         <MainButton
           type="white-main"
           title="Show Less -"
-          customClass="w-[30%]"
+          customClass="w-[278px]"
           handleClick={handleShowLess}
           aria-label="Show fewer reviews"
         />

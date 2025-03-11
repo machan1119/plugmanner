@@ -5,25 +5,25 @@ import { PackageType } from "@/libs/types/ServiceJsonDataType";
 
 const ServicePackage = () => {
   const { serviceItems } = useServices();
-  
+
   if (!serviceItems?.introduction.ChoosePackage) {
     return null;
   }
 
   return (
-    <section 
+    <section
       className="w-full py-[80px]"
       aria-labelledby="packages-heading"
     >
       <div className="max-w-[1366px] w-full px-10 flex gap-5 justify-self-center">
-        <h2 
+        <h2
           id="packages-heading"
           className="sr-only"
         >
           Service Packages
         </h2>
-        <div 
-          className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+        <div
+          className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5"
           role="list"
           aria-label="Available service packages"
         >

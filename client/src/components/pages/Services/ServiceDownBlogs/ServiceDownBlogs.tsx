@@ -44,11 +44,9 @@ const ServiceDownBlogs = memo(({ className = "" }: ServiceDownBlogsProps) => {
           {serviceItems.introduction.DownBlogs.Blog.map(
             (item: BlogType, index: number) => (
               <article
-                className={`w-[95%] flex lg:flex-row flex-col gap-[80px] items-center ${index % 2 !== 0 && "lg:flex-row-reverse flex-col-reverse"
+                className={`w-[100%] flex lg:flex-row flex-col gap-[80px]  items-center ${index % 2 !== 0 && "lg:flex-row-reverse flex-col-reverse"
                   }`}
-                key={`blog-${item.title.text[0].content
-                  .replace(/\s+/g, "-")
-                  .toLowerCase()}`}
+                key={index}
                 role="listitem"
               >
                 <Image
@@ -56,11 +54,11 @@ const ServiceDownBlogs = memo(({ className = "" }: ServiceDownBlogsProps) => {
                   height={500}
                   alt={`${item.title.text[0].content} illustration`}
                   src={item.img}
-                  className="w-[40%]"
+                  className="lg:w-[40%]"
                   priority={index < 2}
                   loading={index < 2 ? "eager" : "lazy"}
                 />
-                <div className="flex flex-col gap-5 w-[55%]">
+                <div className="flex flex-col gap-5 lg:w-[55%]">
                   <h3 className="font-h1 !text-left">
                     <StrapiText
                       data={item.title.text}

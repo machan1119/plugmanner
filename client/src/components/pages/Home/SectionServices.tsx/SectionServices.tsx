@@ -3,7 +3,7 @@ import React, { useState, memo, useEffect } from "react";
 import { SwitchButton } from "@/components/Buttons";
 import ServicesItem from "./ServicesItem";
 import { useList } from "@/providers/ListProvider";
-import { ListType } from "@/libs/types/ListTypes";
+import { ListType, ServicesListType } from "@/libs/types/ListTypes";
 
 interface SectionServicesProps {
   className?: string;
@@ -12,22 +12,22 @@ interface SectionServicesProps {
 type FilterType = "popular" | "AToZ" | "ZToA";
 
 const SectionServices = memo(({ className = "" }: SectionServicesProps) => {
-  const { list } = useList();
+  const { serviceList } = useList();
   const [status, setStatus] = useState<"Services" | "Tools">("Services");
   const [filter, setFilter] = useState<FilterType>("popular");
-  const [filteredList, setFilteredList] = useState<ListType[]>([]);
+  const [filteredList, setFilteredList] = useState<ServicesListType[]>([]);
   useEffect(() => {
-    const filteredList = [...list].sort((a, b) => {
+    const filteredList = [...serviceList].sort((a, b) => {
       if (filter === "AToZ") {
-        return a.type.toLowerCase().localeCompare(b.type.toLowerCase());
+        return a.title.toLowerCase().localeCompare(b.title.toLowerCase());
       }
       if (filter === "ZToA") {
-        return b.type.toLowerCase().localeCompare(a.type.toLowerCase());
+        return b.title.toLowerCase().localeCompare(a.title.toLowerCase());
       }
       return Number(b.popular) - Number(a.popular);
     });
     setFilteredList(filteredList);
-  }, [filter, list]);
+  }, [filter, serviceList]);
 
   const handleFilterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setFilter(e.target.value as FilterType);
@@ -65,14 +65,11 @@ const SectionServices = memo(({ className = "" }: SectionServicesProps) => {
       </div>
       <div className="w-full grid lg:grid-cols-2 xl:grid-cols-3 gap-4">
         {filteredList.map((item, index) =>
-          item.data.map((val, innerIndex) => (
-            <ServicesItem
-              serviceData={val}
-              key={`${index}-${innerIndex}`}
-              className="animate-fade-in-up"
-              style={{ animationDelay: `${innerIndex * 100}ms` }}
-            />
-          ))
+          <ServicesItem
+            serviceData={item}
+            key={index}
+            className="animate-fade-in-up"
+          />
         )}
       </div>
     </section>

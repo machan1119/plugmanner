@@ -78,42 +78,43 @@ const ServiceBenefit = memo(({ className = "" }: ServiceBenefitProps) => {
               )
             )}
           </div>
-          <div
-            id={`benefit-panel-${currentStep}`}
-            role="tabpanel"
-            aria-labelledby={`benefit-tab-${currentStep}`}
-            className="w-full flex flex-col lg:flex-row gap-8 items-center"
-          >
-            <div className="w-full lg:w-[50%] items-center justify-center flex">
-              <Image
-                width={500}
-                height={500}
-                alt={`${currentBenefit.title.text[0].content} illustration`}
-                src={currentBenefit.img}
-                className="object-cover"
-                priority={currentStep < 2}
-                loading={currentStep < 2 ? "eager" : "lazy"}
-              />
-            </div>
-            <div className="w-full lg:w-[50%] flex flex-col gap-5">
-              <StrapiText
-                data={currentBenefit.title.text}
-                customClassName="font-h1 !text-white !text-left"
-              />
-              <StrapiParagraph
-                paragraph={currentBenefit.paragraph}
-                customClassName="font-main text-[#686889] lg:text-[20px]"
-              />
-              {currentBenefit.Button && (
-                <MainButton
-                  type="primary"
-                  title={currentBenefit.Button}
-                  aria-label={`Learn more about ${currentBenefit.title.text[0].content}`}
-                  customClass="w-[30%]"
-                />
-              )}
-            </div>
-          </div>
+          {
+            serviceItems.introduction.Benefits.Benefit.map((currentBenefit, index) =>
+              <div
+                role="tabpanel"
+                className={`w-full flex flex-col lg:flex-row gap-8 items-center ${index !== currentStep && "hidden"}`}
+                key={index}
+              >
+                <div className="w-full lg:w-[50%] items-center justify-center flex">
+                  <Image
+                    width={500}
+                    height={500}
+                    alt={`${currentBenefit.title.text[0].content} illustration`}
+                    src={currentBenefit.img}
+                    className="object-cover"
+                  />
+                </div>
+                <div className="w-full lg:w-[50%] flex flex-col gap-5">
+                  <StrapiText
+                    data={currentBenefit.title.text}
+                    customClassName="font-h1 !text-white !text-left"
+                  />
+                  <StrapiParagraph
+                    paragraph={currentBenefit.paragraph}
+                    customClassName="font-main text-[#686889] lg:text-[20px]"
+                  />
+                  {currentBenefit.Button && (
+                    <MainButton
+                      type="primary"
+                      title={currentBenefit.Button}
+                      aria-label={`Learn more about ${currentBenefit.title.text[0].content}`}
+                      customClass="w-[30%]"
+                    />
+                  )}
+                </div>
+              </div>
+            )
+          }
         </div>
       </div>
     </section>

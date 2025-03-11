@@ -88,6 +88,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
                   border-none grow
                   placeholder:text-text-light
                   focus:outline-none
+                  
                 "
                 placeholder="Search"
               />

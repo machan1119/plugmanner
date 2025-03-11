@@ -46,11 +46,9 @@ const ServiceUpBlogs = memo(({ className = "" }: ServiceUpBlogsProps) => {
           {serviceItems.introduction.UpBlogs.Blog.map(
             (item: BlogType, index: number) => (
               <article
-                className={`w-[95%] flex lg:flex-row flex-col gap-[80px] items-center ${index % 2 !== 0 && "lg:flex-row-reverse flex-col-reverse"
+                className={`w-[100%] flex lg:flex-row flex-col gap-[80px] items-center ${index % 2 !== 0 && "lg:flex-row-reverse flex-col-reverse"
                   }`}
-                key={`blog-${item.title.text[0].content
-                  .replace(/\s+/g, "-")
-                  .toLowerCase()}`}
+                key={index}
                 role="listitem"
               >
                 <Image

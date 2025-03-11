@@ -10,13 +10,13 @@ interface ServiceGoodPointsProps {
 
 const ServiceGoodPoints = memo(({ className = "" }: ServiceGoodPointsProps) => {
   const { serviceItems } = useServices();
-  
+
   if (!serviceItems?.introduction.GoodPoints) {
     return null;
   }
 
   return (
-    <section 
+    <section
       className={`
         py-[80px] flex flex-col items-center px-10 border-b-[1px] border-black-normal
         ${className}
@@ -24,13 +24,13 @@ const ServiceGoodPoints = memo(({ className = "" }: ServiceGoodPointsProps) => {
       aria-labelledby="good-points-heading"
     >
       <div className="max-w-[1366px] flex flex-col gap-7 w-full items-start mb-8">
-        <h2 
+        <h2
           id="good-points-heading"
           className="sr-only"
         >
           Service Good Points
         </h2>
-        <div 
+        <div
           className="w-full flex flex-col gap-20"
           role="list"
           aria-label="Service chapters"
@@ -38,28 +38,27 @@ const ServiceGoodPoints = memo(({ className = "" }: ServiceGoodPointsProps) => {
           {serviceItems.introduction.GoodPoints.chapter.map(
             (chapterItem: GoodPointsChapterType, chapterIndex: number) => (
               <article
-                className={`flex flex-row gap-5 items-center ${
-                  chapterIndex % 2 !== 0 && "flex-row-reverse"
-                }`}
-                key={`chapter-${chapterItem.title.text[0].content.replace(/\s+/g, '-').toLowerCase()}`}
+                className={`flex gap-5 items-center ${chapterIndex % 2 === 0 && "flex-row-reverse"
+                  }`}
+                key={chapterIndex}
                 role="listitem"
               >
-                <div className="flex flex-col gap-5 justify-start">
+                <div className="flex-auto flex flex-col gap-5 justify-start">
                   <h3 className="font-h1 !text-left">
                     <StrapiText
                       data={chapterItem.title.text}
                       customClassName="font-h1 !text-left"
                     />
                   </h3>
-                  <div 
+                  <div
                     className="flex flex-col gap-8"
                     role="list"
                     aria-label={`${chapterItem.title.text[0].content} sections`}
                   >
                     {chapterItem.section.map((sectionItem, sectionIndex) => (
-                      <div 
-                        className="flex flex-col gap-4" 
-                        key={`section-${sectionItem.title?.text[0].content.replace(/\s+/g, '-').toLowerCase() || sectionIndex}`}
+                      <div
+                        className="flex flex-col gap-4"
+                        key={sectionIndex}
                         role="listitem"
                       >
                         {sectionItem.title && (
@@ -79,17 +78,14 @@ const ServiceGoodPoints = memo(({ className = "" }: ServiceGoodPointsProps) => {
                   </div>
                 </div>
                 {chapterItem.img && (
-                  <div className="relative w-[50px] h-[445px]">
-                    <Image
-                      width={50}
-                      height={445}
-                      alt={`${chapterItem.title.text[0].content} illustration`}
-                      src={chapterItem.img}
-                      className="object-contain"
-                      priority={chapterIndex < 2}
-                      loading={chapterIndex < 2 ? "eager" : "lazy"}
-                    />
-                  </div>
+                  <Image
+                    width={50}
+                    height={445}
+                    alt={`${chapterItem.title.text[0].content} illustration`}
+                    src={chapterItem.img}
+                    priority={chapterIndex < 2}
+                    loading={chapterIndex < 2 ? "eager" : "lazy"}
+                  />
                 )}
               </article>
             )

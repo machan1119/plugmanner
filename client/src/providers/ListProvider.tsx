@@ -7,11 +7,12 @@ import React, {
   useCallback,
   useMemo,
 } from "react";
-import { RawData, ListType } from "@/libs/types/ListTypes";
+import { RawData, ListType, ServicesListType } from "@/libs/types/ListTypes";
 import { fetchAPI } from "@/utils/fetch-api";
 
 interface ListContextProps {
   list: ListType[];
+  serviceList: ServicesListType[];
   isLoading: boolean;
   error: Error | null;
 }
@@ -40,6 +41,7 @@ const SERVICE_TYPE_ORDER = {
 
 const ListContext = createContext<ListContextProps>({
   list: [],
+  serviceList: [],
   isLoading: true,
   error: null,
 });
@@ -97,9 +99,9 @@ const getServiceIndex = (type: string): number => {
   return 8; // Default to Other
 };
 
-const processServiceData = (filteredData: ListType[]): ListType[] => {
+const processServiceData = (filteredData: ListType[]) => {
   const servicesList: ListType[] = Array(10).fill(null);
-  // const allServicesData: ServicesDataType = [];
+  const allServicesData: ServicesListType[] = [];
   filteredData.forEach((item) => {
     if (!item.data?.[0]) {
       return;
@@ -124,7 +126,12 @@ const processServiceData = (filteredData: ListType[]): ListType[] => {
         },
       ],
     };
-    // allServicesData.push(newData.data[0]);
+    allServicesData.push({
+      popular: item.popular,
+      title: dataItem.title,
+      icon: dataItem.icon,
+      services: [...dataItem.services],
+    });
     if (baseIndex !== -1) {
       if (servicesList[baseIndex]) {
         // Add to existing category
@@ -136,7 +143,7 @@ const processServiceData = (filteredData: ListType[]): ListType[] => {
     }
   });
 
-  return servicesList.filter(Boolean);
+  return { data_1: servicesList.filter(Boolean), data_2: allServicesData };
 };
 
 export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
@@ -144,6 +151,7 @@ export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [meta, setMeta] = useState<Meta | null>(null);
   const [list, setList] = useState<ListType[]>([]);
+  const [serviceList, setServiceList] = useState<ServicesListType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
@@ -170,7 +178,8 @@ export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
         const filteredData = transformRawData(rawData);
         const processedList = processServiceData(filteredData);
         console.log(processedList);
-        setList(processedList);
+        setList(processedList.data_1);
+        setServiceList(processedList.data_2)
       } catch (err) {
         const error =
           err instanceof Error ? err : new Error("Failed to fetch data");
@@ -194,6 +203,7 @@ export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
   const value = useMemo(
     () => ({
       list,
+      serviceList,
       isLoading,
       error,
     }),

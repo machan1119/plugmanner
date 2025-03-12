@@ -1,40 +1,46 @@
 "use client";
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useMemo,
+} from "react";
 import { fetchAPI } from "@/utils/fetch-api";
 import { ServiceJsonDataType } from "@/libs/types/ServiceJsonDataType";
+import { useList } from "./ListProvider";
+import { generate_slug } from "@/utils/functions";
 
 interface ServicesContextType {
   serviceItems: ServiceJsonDataType | null;
   isLoading: boolean;
+  error: string | null;
 }
 
 const ServicesContext = createContext<ServicesContextType>({
   serviceItems: null,
   isLoading: true,
-}); // Provide a default value (important!)
+  error: null,
+});
 
 interface ServicesProviderProps {
   item: string;
   children: React.ReactNode;
 }
 
-export const ServicesProvider: React.FC<ServicesProviderProps> = ({
-  item,
-  children,
-}) => {
-  // const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
-  // const options = { headers: { Authorization: `Bearer ${token}` } };
-
+const useFetchServiceData = (itemId: string) => {
   const [serviceItems, setServiceItems] = useState<ServiceJsonDataType | null>(
     null
   );
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
+      setError(null);
       try {
-        const path = `/subservices/${item}`;
+        const path = `/subservices/${itemId}`;
         const urlParamsObject = {
           sort: { createdAt: "asc" },
           populate: [
@@ -103,21 +109,49 @@ export const ServicesProvider: React.FC<ServicesProviderProps> = ({
         };
         const options = "";
         const fetchedData = await fetchAPI(path, urlParamsObject, options);
-        // console.log(fetchedData);
         setServiceItems(fetchedData.data);
       } catch (error) {
+        setError("Failed to fetch service data");
         console.error(error);
       } finally {
         setIsLoading(false);
       }
     };
-    fetchData();
-  }, [item]);
 
-  const contextValue: ServicesContextType = {
-    serviceItems,
-    isLoading,
-  };
+    if (itemId) {
+      fetchData();
+    }
+  }, [itemId]);
+
+  return { serviceItems, isLoading, error };
+};
+
+export const ServicesProvider: React.FC<ServicesProviderProps> = ({
+  item,
+  children,
+}) => {
+  const { subServiceList } = useList();
+  const [itemId, setItemId] = useState("");
+
+  useEffect(() => {
+    const subservice = subServiceList.find(
+      (sub) => generate_slug(sub.name) == item
+    );
+    if (subservice) {
+      setItemId(subservice.id);
+    }
+  }, [item, subServiceList]);
+
+  const { serviceItems, isLoading, error } = useFetchServiceData(itemId);
+
+  const contextValue = useMemo(
+    () => ({
+      serviceItems,
+      isLoading,
+      error,
+    }),
+    [serviceItems, isLoading, error]
+  );
 
   return (
     <ServicesContext.Provider value={contextValue}>

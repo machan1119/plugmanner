@@ -5,9 +5,9 @@ import { useHome } from "@/providers/HomeProvider";
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import React, { memo, useState, useEffect } from "react";
+import React, { memo, useState } from "react";
 import { useList } from "@/providers/ListProvider";
-
+import { generate_slug } from "@/utils/functions";
 interface LanguageOption {
   code: string;
   flag: string;
@@ -35,30 +35,20 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
   const [searchShow, setSearchShow] = useState(false);
   const { serviceShow, setServiceShow } = useHome();
   const { serviceList, subServiceList } = useList();
-  const [searchService, setSearchService] = useState('');
+  const [searchService, setSearchService] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  subServiceList.sort(function (a, b) { return Number(b.popular) - Number(a.popular) });
+  subServiceList.sort(function (a, b) {
+    return Number(b.popular) - Number(a.popular);
+  });
 
   const handleInputFocus = () => {
     setIsDropdownOpen(true);
     if (searchService.length > 1) {
-
     }
   };
   const removeSearch = () => {
-    setSearchService('')
-  }
-  useEffect(() => {
-    // if (searchService.length > 1) {
-    //   const results = languagesData.filter(language =>
-    //     language.name.toLowerCase().includes(searchService.toLowerCase()) ||
-    //     language.nativeName.toLowerCase().includes(searchService.toLowerCase())
-    //   );
-    //   setFilteredLanguages(results);
-    // } else {
-    //   setFilteredLanguages([]);
-    // }
-  }, [searchService]);
+    setSearchService("");
+  };
   return (
     <div
       className={`
@@ -82,7 +72,6 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
             />
           </Link>
           <div className="flex items-center gap-2 lg:grow">
-
             <div
               className="
               rounded-lg gap-3 
@@ -123,35 +112,44 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
                 placeholder="Search"
               />
               {isDropdownOpen && (
-                <div className="max-lg:hidden top-full left-[0px] right-[0px] bg-white border border-[#ddd] rounded-[12px] border-t-0 absolute z-[99999] px-[16px] block mt-1" >
-                  <h2 className="text-[20px] font-semibold text-[#363636] mb-[12px] mt-[7px] leading-[1] font-clash">
-                    {searchService.length > 1 ?
-                      "Search Results" : "Recommended Services"}
+                <div className="max-lg:hidden top-full left-[0px] right-[0px] bg-white border border-[#ddd] rounded-[12px] border-t-0 absolute z-[100] p-4 block mt-1">
+                  <h2 className="text-[20px] font-semibold text-[#363636] mb-2 leading-[1] font-clash">
+                    {searchService.length > 1
+                      ? "Search Results"
+                      : "Recommended Services"}
                   </h2>
-                  <div className="grid grid-cols-3 gap-[20px] font-satoshi font-semibold">
-                    {
-                      searchService.length > 1 ? (serviceList.map(serivce => (
-                        serivce.services.map((subservice) => (
-                          subservice.name.toLowerCase().includes(searchService.toLowerCase()) ?
-                            <div key={subservice.id} onClick={removeSearch} >
-                              <Link className="flex" href={`/home/services/${subservice.id}`}>
-                                {subservice.name}
-                              </Link>
-                            </div> :
-                            null
+                  <div className="grid grid-cols-3 gap-3 font-satoshi font-semibold">
+                    {searchService.length > 1
+                      ? serviceList.map((serivce) =>
+                          serivce.services.map((subservice) =>
+                            subservice.name
+                              .toLowerCase()
+                              .includes(searchService.toLowerCase()) ? (
+                              <div key={subservice.id} onClick={removeSearch}>
+                                <Link
+                                  className="flex px-2 py-1 text-base text-text-primary font-medium font-satoshi hover:bg-background-light hover:text-primary transition-all duration-300"
+                                  href={`/home/services/${generate_slug(
+                                    subservice.name
+                                  )}`}
+                                >
+                                  {subservice.name}
+                                </Link>
+                              </div>
+                            ) : null
+                          )
                         )
-
-                        )
-                      ))) : (
-                        subServiceList.slice(0, 27).map(subservice => (
-                          <div key={subservice.id} onClick={removeSearch} >
-                            <Link className="flex" href={`/home/services/${subservice.id}`}>
+                      : subServiceList.slice(0, 27).map((subservice) => (
+                          <div key={subservice.id} onClick={removeSearch}>
+                            <Link
+                              className="flex px-2 py-1 text-base text-text-primary font-medium font-satoshi hover:bg-background-light hover:text-primary transition-all duration-300"
+                              href={`/home/services/${generate_slug(
+                                subservice.name
+                              )}`}
+                            >
                               {subservice.name}
                             </Link>
                           </div>
-                        ))
-                      )
-                    }
+                        ))}
                   </div>
                 </div>
               )}
@@ -301,35 +299,44 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
               onChange={(e) => setSearchService(e.target.value)}
             />
             {isDropdownOpen && (
-              <div className="overflow-scroll max-h-[300px] lg:hidden top-full left-[0px] right-[0px] bg-white border border-[#ddd] rounded-[12px] border-t-0 absolute z-[99999] px-[16px] block mt-1" >
-                <h2 className="text-[20px] font-semibold text-[#363636] mb-[12px] mt-[7px] leading-[1] font-clash">
-                  {searchService.length > 1 ?
-                    "Search Results" : "Recommended Services"}
+              <div className="overflow-scroll max-h-[300px] lg:hidden top-full left-[0px] right-[0px] bg-white border border-[#ddd] rounded-[12px] border-t-0 absolute z-[99999] p-4 block mt-1">
+                <h2 className="text-[20px] font-semibold text-[#363636] mb-2 leading-[1] font-clash">
+                  {searchService.length > 1
+                    ? "Search Results"
+                    : "Recommended Services"}
                 </h2>
-                <div className="grid grid-cols-1 gap-[20px] font-satoshi font-semibold">
-                  {
-                    searchService.length > 1 ? (serviceList.map(serivce => (
-                      serivce.services.map(subservice => (
-                        subservice.name.toLowerCase().includes(searchService.toLowerCase()) ?
-                          <div key={subservice.id} onClick={removeSearch} >
-                            <Link className="flex" href={`/home/services/${subservice.id}`}>
-                              {subservice.name}
-                            </Link>
-                          </div> :
-                          null
+                <div className="grid grid-cols-1 gap-3 font-satoshi font-semibold">
+                  {searchService.length > 1
+                    ? serviceList.map((serivce) =>
+                        serivce.services.map((subservice) =>
+                          subservice.name
+                            .toLowerCase()
+                            .includes(searchService.toLowerCase()) ? (
+                            <div key={subservice.id} onClick={removeSearch}>
+                              <Link
+                                className="flex px-2 py-1 text-base text-text-primary font-medium font-satoshi hover:bg-background-light hover:text-primary transition-all duration-300"
+                                href={`/home/services/${generate_slug(
+                                  subservice.name
+                                )}`}
+                              >
+                                {subservice.name}
+                              </Link>
+                            </div>
+                          ) : null
+                        )
                       )
-
-                      )
-                    ))) : (
-                      subServiceList.slice(0, 27).map(subservice => (
-                        <div key={subservice.id} onClick={removeSearch} >
-                          <Link className="flex" href={`/home/services/${subservice.id}`}>
+                    : subServiceList.slice(0, 27).map((subservice) => (
+                        <div key={subservice.id} onClick={removeSearch}>
+                          <Link
+                            className="flex px-2 py-1 text-base text-text-primary font-medium font-satoshi hover:bg-background-light hover:text-primary transition-all duration-300"
+                            href={`/home/services/${generate_slug(
+                              subservice.name
+                            )}`}
+                          >
                             {subservice.name}
                           </Link>
                         </div>
-                      ))
-                    )
-                  }
+                      ))}
                 </div>
               </div>
             )}

@@ -40,10 +40,10 @@ const ServiceCustomerReview = () => {
 
   return (
     <section
-      className="py-[80px] flex flex-col items-center px-10 border-b-[1px] border-black-normal"
+      className="py-[80px] flex flex-col items-center border-b-[1px] border-black-normal"
       aria-labelledby="customer-reviews-heading"
     >
-      <div className="max-w-[1366px] flex flex-col gap-7 w-full items-center mb-8">
+      <div className="max-w-[1366px] px-10 flex flex-col gap-7 w-full items-center mb-8">
         <div className="flex flex-col gap-5 items-center w-full">
           <StrapiText
             data={serviceItems.introduction.CustomerReviews.title.text}

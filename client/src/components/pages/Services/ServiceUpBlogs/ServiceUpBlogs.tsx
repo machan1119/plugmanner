@@ -70,7 +70,7 @@ const ServiceUpBlogs = memo(({ className = "" }: ServiceUpBlogsProps) => {
                   </h3>
                   <StrapiParagraph
                     paragraph={item.paragraph}
-                    customClassName="font-main text-[#686889] lg:text-[20px] !justify-start"
+                    customClassName="font-satoshi text-[#686889] text-[18px]"
                   />
                   {item.button && (
                     <MainButton

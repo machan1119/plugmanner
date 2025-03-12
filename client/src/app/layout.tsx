@@ -6,6 +6,7 @@ import "../css/animation.css";
 import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/navigation";
+import HomeLayout from "@/components/HomeLayout";
 
 export const metadata: Metadata = {
   title: "Buy Followers, Like, Subscribers & Views - Socialplug",
@@ -27,7 +28,9 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased`}>{children}</body>
+      <body className={`antialiased`}>
+        <HomeLayout>{children}</HomeLayout>
+      </body>
     </html>
   );
 }

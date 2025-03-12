@@ -82,7 +82,7 @@ const ServicesItem = memo(
               {serviceData.services.map((serviceItem, index) => (
                 <Link
                   className="p-2 bg-white rounded-md flex items-center justify-center text-center transition-all duration-200 hover:bg-gray-50 hover:shadow-sm animate-fade-in-up"
-                  href={`/home/services/${generate_slug(serviceItem.name)}`}
+                  href={`/services/${generate_slug(serviceItem.name)}`}
                   key={`${serviceData.title}-${index}`}
                   style={{ animationDelay: `${index * 50}ms` }}
                 >

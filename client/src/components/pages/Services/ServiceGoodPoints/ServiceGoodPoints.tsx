@@ -60,16 +60,16 @@ const ServiceGoodPoints = memo(({ className = "" }: ServiceGoodPointsProps) => {
                         role="listitem"
                       >
                         {sectionItem.title && (
-                          <h4 className="font-main text-black font-semibold lg:text-[24px]">
+                          <h4 className="text-black font-semibold text-[24px]">
                             <StrapiText
                               data={sectionItem.title.text}
-                              customClassName="font-main text-black font-semibold lg:text-[24px]"
+                              customClassName="text-black font-semibold text-[24px]"
                             />
                           </h4>
                         )}
                         <StrapiParagraph
                           paragraph={sectionItem.content}
-                          customClassName="font-main text-[#686889] lg:text-[20px]"
+                          customClassName="text-[#686889] text-[20px]"
                         />
                       </div>
                     ))}

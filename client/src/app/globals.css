@@ -74,7 +74,7 @@ body {
   }
 
   .font-service-lg {
-    @apply font-clash text-[64px] text-black leading-[64px] font-semibold text-left;
+    @apply font-clash text-[56px] text-black leading-[56px] font-semibold text-left;
   }
   .font-service-md {
     @apply font-clash text-[52px] text-black leading-[52px] font-semibold text-left;
@@ -88,6 +88,10 @@ body {
 
   .font-service-text {
     @apply font-satoshi text-[#686889] font-normal text-left;
+  }
+
+  .font-service-card-text {
+    @apply font-clash text-[#b6b6cf] font-normal text-left;
   }
 }
 /* tailwind customize */

@@ -44,8 +44,9 @@ const ServiceDownBlogs = memo(({ className = "" }: ServiceDownBlogsProps) => {
           {serviceItems.introduction.DownBlogs.Blog.map(
             (item: BlogType, index: number) => (
               <article
-                className={`w-[100%] flex lg:flex-row flex-col gap-[80px]  items-center ${index % 2 !== 0 && "lg:flex-row-reverse flex-col-reverse"
-                  }`}
+                className={`w-[100%] flex lg:flex-row flex-col gap-[80px]  items-center ${
+                  index % 2 !== 0 && "lg:flex-row-reverse flex-col-reverse"
+                }`}
                 key={index}
                 role="listitem"
               >
@@ -67,7 +68,7 @@ const ServiceDownBlogs = memo(({ className = "" }: ServiceDownBlogsProps) => {
                   </h3>
                   <StrapiParagraph
                     paragraph={item.paragraph}
-                    customClassName="font-main text-[#686889] lg:text-[20px]"
+                    customClassName="font-satoshi text-[#686889] text-[18px]"
                   />
                   {item.button && (
                     <MainButton

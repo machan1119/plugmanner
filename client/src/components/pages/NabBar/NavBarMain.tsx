@@ -128,7 +128,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
                               <div key={subservice.id} onClick={removeSearch}>
                                 <Link
                                   className="flex px-2 py-1 text-base text-text-primary font-medium font-satoshi hover:bg-background-light hover:text-primary transition-all duration-300"
-                                  href={`/home/services/${generate_slug(
+                                  href={`/services/${generate_slug(
                                     subservice.name
                                   )}`}
                                 >
@@ -142,7 +142,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
                           <div key={subservice.id} onClick={removeSearch}>
                             <Link
                               className="flex px-2 py-1 text-base text-text-primary font-medium font-satoshi hover:bg-background-light hover:text-primary transition-all duration-300"
-                              href={`/home/services/${generate_slug(
+                              href={`/services/${generate_slug(
                                 subservice.name
                               )}`}
                             >
@@ -162,7 +162,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
               handleClick={() => redirect("/login")}
             />
             <Link
-              href="/home/services"
+              href="/services/"
               className="lg:block hidden animate-fade-in"
               style={{ animationDelay: "100ms" }}
             >
@@ -315,7 +315,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
                             <div key={subservice.id} onClick={removeSearch}>
                               <Link
                                 className="flex px-2 py-1 text-base text-text-primary font-medium font-satoshi hover:bg-background-light hover:text-primary transition-all duration-300"
-                                href={`/home/services/${generate_slug(
+                                href={`/services/${generate_slug(
                                   subservice.name
                                 )}`}
                               >
@@ -329,9 +329,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
                         <div key={subservice.id} onClick={removeSearch}>
                           <Link
                             className="flex px-2 py-1 text-base text-text-primary font-medium font-satoshi hover:bg-background-light hover:text-primary transition-all duration-300"
-                            href={`/home/services/${generate_slug(
-                              subservice.name
-                            )}`}
+                            href={`/services/${generate_slug(subservice.name)}`}
                           >
                             {subservice.name}
                           </Link>

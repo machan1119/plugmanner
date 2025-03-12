@@ -1,7 +1,6 @@
 import MainButton from "@/components/Buttons";
 import { StrapiParagraph, StrapiText } from "@/components/StrapiComponents";
 import { useServices } from "@/providers/ServicesProvider";
-import Image from "next/image";
 import React, { useState, memo, useCallback } from "react";
 import { BenefitType } from "@/libs/types/ServiceJsonDataType";
 

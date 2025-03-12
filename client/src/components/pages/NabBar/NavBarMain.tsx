@@ -131,10 +131,10 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
                   <div className="grid grid-cols-3 gap-[20px] font-satoshi font-semibold">
                     {
                       searchService.length > 1 ? (serviceList.map(serivce => (
-                        serivce.services.map(subservice => (
+                        serivce.services.map((subservice) => (
                           subservice.name.toLowerCase().includes(searchService.toLowerCase()) ?
-                            <div onClick={removeSearch} >
-                              <Link key={subservice.id} className="flex" href={`/home/services/${subservice.id}`}>
+                            <div key={subservice.id} onClick={removeSearch} >
+                              <Link className="flex" href={`/home/services/${subservice.id}`}>
                                 {subservice.name}
                               </Link>
                             </div> :
@@ -144,8 +144,8 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
                         )
                       ))) : (
                         subServiceList.slice(0, 27).map(subservice => (
-                          <div onClick={removeSearch} >
-                            <Link key={subservice.id} className="flex" href={`/home/services/${subservice.id}`}>
+                          <div key={subservice.id} onClick={removeSearch} >
+                            <Link className="flex" href={`/home/services/${subservice.id}`}>
                               {subservice.name}
                             </Link>
                           </div>
@@ -311,8 +311,8 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
                     searchService.length > 1 ? (serviceList.map(serivce => (
                       serivce.services.map(subservice => (
                         subservice.name.toLowerCase().includes(searchService.toLowerCase()) ?
-                          <div onClick={removeSearch} >
-                            <Link key={subservice.id} className="flex" href={`/home/services/${subservice.id}`}>
+                          <div key={subservice.id} onClick={removeSearch} >
+                            <Link className="flex" href={`/home/services/${subservice.id}`}>
                               {subservice.name}
                             </Link>
                           </div> :
@@ -322,8 +322,8 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
                       )
                     ))) : (
                       subServiceList.slice(0, 27).map(subservice => (
-                        <div onClick={removeSearch} >
-                          <Link key={subservice.id} className="flex" href={`/home/services/${subservice.id}`}>
+                        <div key={subservice.id} onClick={removeSearch} >
+                          <Link className="flex" href={`/home/services/${subservice.id}`}>
                             {subservice.name}
                           </Link>
                         </div>

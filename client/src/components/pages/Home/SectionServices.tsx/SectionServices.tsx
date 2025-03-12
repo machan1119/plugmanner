@@ -3,7 +3,7 @@ import React, { useState, memo, useEffect } from "react";
 import { SwitchButton } from "@/components/Buttons";
 import ServicesItem from "./ServicesItem";
 import { useList } from "@/providers/ListProvider";
-import { ListType, ServicesListType } from "@/libs/types/ListTypes";
+import { ServicesListType } from "@/libs/types/ListTypes";
 
 interface SectionServicesProps {
   className?: string;

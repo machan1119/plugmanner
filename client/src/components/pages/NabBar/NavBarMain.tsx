@@ -36,7 +36,6 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
   const { serviceShow, setServiceShow } = useHome();
   const { serviceList, subServiceList } = useList();
   const [searchService, setSearchService] = useState('');
-  const [filteredServices, setFilteredServices] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   subServiceList.sort(function (a, b) { return Number(b.popular) - Number(a.popular) });
 

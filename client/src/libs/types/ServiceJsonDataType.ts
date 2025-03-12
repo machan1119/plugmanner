@@ -3,6 +3,7 @@ export interface ServiceJsonDataType {
   documentId: string;
   createdAt: string;
   updatedAt: string;
+  recommend?:boolean;
   publishedAt: string;
   name: string;
   popular: number;

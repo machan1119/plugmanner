@@ -1,11 +1,12 @@
 export interface Subservice {
   id: number;
+  recommend?: boolean;
   documentId: string;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
   name: string;
-  popular: null | string;
+  popular: string;
   icon: Icon;
 }
 
@@ -52,12 +53,16 @@ export interface ListType {
 export interface ServicesDataType {
   title: string;
   icon: string;
-  services: { name: string; id: string; icon: Icon }[];
+  services: { name: string; id: string; icon: Icon; recommend?:boolean;  popular:string;}[];
 }
 
 export interface ServicesListType {
   popular: string;
   title: string;
   icon: string;
-  services: { name: string; id: string; icon: Icon }[];
+  services: { name: string; id: string; icon: Icon; recommend?:boolean;  popular:string;}[];
+}
+
+export interface SubserviceDataType {
+  name : string; id: string; icon: Icon; recommend?:boolean; popular:string;
 }

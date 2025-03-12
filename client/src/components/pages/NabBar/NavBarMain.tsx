@@ -5,7 +5,8 @@ import { useHome } from "@/providers/HomeProvider";
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import React, { memo, useState } from "react";
+import React, { memo, useState, useEffect } from "react";
+import { useList } from "@/providers/ListProvider";
 
 interface LanguageOption {
   code: string;
@@ -33,7 +34,32 @@ interface NavBarMainProps {
 const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
   const [searchShow, setSearchShow] = useState(false);
   const { serviceShow, setServiceShow } = useHome();
+  const { serviceList, subServiceList } = useList();
+  const [searchService, setSearchService] = useState('');
+  const [filteredServices, setFilteredServices] = useState([]);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  subServiceList.sort(function (a, b) { return Number(b.popular) - Number(a.popular) });
 
+  const handleInputFocus = () => {
+    setIsDropdownOpen(true);
+    if (searchService.length > 1) {
+
+    }
+  };
+  const removeSearch = () => {
+    setSearchService('')
+  }
+  useEffect(() => {
+    // if (searchService.length > 1) {
+    //   const results = languagesData.filter(language =>
+    //     language.name.toLowerCase().includes(searchService.toLowerCase()) ||
+    //     language.nativeName.toLowerCase().includes(searchService.toLowerCase())
+    //   );
+    //   setFilteredLanguages(results);
+    // } else {
+    //   setFilteredLanguages([]);
+    // }
+  }, [searchService]);
   return (
     <div
       className={`
@@ -57,6 +83,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
             />
           </Link>
           <div className="flex items-center gap-2 lg:grow">
+
             <div
               className="
               rounded-lg gap-3 
@@ -67,7 +94,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
               transition-all duration-300
               hover:border-primary
               focus-within:border-primary
-              focus-within:shadow-soft
+              focus-within:shadow-soft relative
             "
             >
               <div className="lg:flex hidden text-text-secondary">
@@ -79,6 +106,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
               >
                 {SearchIcon}
               </button>
+
               <input
                 type="text"
                 className="
@@ -88,11 +116,48 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
                   border-none grow
                   placeholder:text-text-light
                   focus:outline-none
-                  
                 "
+                value={searchService}
+                onFocus={handleInputFocus}
+                onBlur={() => setTimeout(() => setIsDropdownOpen(false), 200)}
+                onChange={(e) => setSearchService(e.target.value)}
                 placeholder="Search"
               />
+              {isDropdownOpen && (
+                <div className="max-lg:hidden top-full left-[0px] right-[0px] bg-white border border-[#ddd] rounded-[12px] border-t-0 absolute z-[99999] px-[16px] block mt-1" >
+                  <h2 className="text-[20px] font-semibold text-[#363636] mb-[12px] mt-[7px] leading-[1] font-clash">
+                    {searchService.length > 1 ?
+                      "Search Results" : "Recommended Services"}
+                  </h2>
+                  <div className="grid grid-cols-3 gap-[20px] font-satoshi font-semibold">
+                    {
+                      searchService.length > 1 ? (serviceList.map(serivce => (
+                        serivce.services.map(subservice => (
+                          subservice.name.toLowerCase().includes(searchService.toLowerCase()) ?
+                            <div onClick={removeSearch} >
+                              <Link key={subservice.id} className="flex" href={`/home/services/${subservice.id}`}>
+                                {subservice.name}
+                              </Link>
+                            </div> :
+                            null
+                        )
+
+                        )
+                      ))) : (
+                        subServiceList.slice(0, 27).map(subservice => (
+                          <div onClick={removeSearch} >
+                            <Link key={subservice.id} className="flex" href={`/home/services/${subservice.id}`}>
+                              {subservice.name}
+                            </Link>
+                          </div>
+                        ))
+                      )
+                    }
+                  </div>
+                </div>
+              )}
             </div>
+
             <div className="w-px h-[50px] bg-gradient-to-b from-transparent via-black-normal to-transparent" />
             <MainButton
               type="white-main"
@@ -203,6 +268,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
       <div
         className={`
           ${searchShow ? "block" : "hidden"}
+          lg:hidden
           rounded-lg gap-3 
           flex items-center 
           border border-black-normal
@@ -213,21 +279,63 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
           hover:border-primary
           focus-within:border-primary
           focus-within:shadow-soft
+          justify-between relative
         `}
       >
-        <div className="text-text-secondary">{SearchIcon}</div>
-        <input
-          type="text"
-          className="
+        <div className="flex gap-3 w-full items-center">
+          <div className="text-text-secondary">{SearchIcon}</div>
+          <div className="w-full">
+            <input
+              type="text"
+              className="
             lg:hidden 
             bg-transparent 
             text-base text-text-primary
             border-none grow
             placeholder:text-text-light
-            focus:outline-none
+            focus:outline-none w-full
           "
-          placeholder="Search"
-        />
+              placeholder="Search Services(Ex: Instagram, Tiktok)"
+              value={searchService}
+              onFocus={handleInputFocus}
+              onBlur={() => setTimeout(() => setIsDropdownOpen(false), 200)}
+              onChange={(e) => setSearchService(e.target.value)}
+            />
+            {isDropdownOpen && (
+              <div className="overflow-scroll max-h-[300px] lg:hidden top-full left-[0px] right-[0px] bg-white border border-[#ddd] rounded-[12px] border-t-0 absolute z-[99999] px-[16px] block mt-1" >
+                <h2 className="text-[20px] font-semibold text-[#363636] mb-[12px] mt-[7px] leading-[1] font-clash">
+                  {searchService.length > 1 ?
+                    "Search Results" : "Recommended Services"}
+                </h2>
+                <div className="grid grid-cols-1 gap-[20px] font-satoshi font-semibold">
+                  {
+                    searchService.length > 1 ? (serviceList.map(serivce => (
+                      serivce.services.map(subservice => (
+                        subservice.name.toLowerCase().includes(searchService.toLowerCase()) ?
+                          <div onClick={removeSearch} >
+                            <Link key={subservice.id} className="flex" href={`/home/services/${subservice.id}`}>
+                              {subservice.name}
+                            </Link>
+                          </div> :
+                          null
+                      )
+
+                      )
+                    ))) : (
+                      subServiceList.slice(0, 27).map(subservice => (
+                        <div onClick={removeSearch} >
+                          <Link key={subservice.id} className="flex" href={`/home/services/${subservice.id}`}>
+                            {subservice.name}
+                          </Link>
+                        </div>
+                      ))
+                    )
+                  }
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
         <button
           onClick={() => setSearchShow(false)}
           className="

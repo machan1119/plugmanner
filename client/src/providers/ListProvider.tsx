@@ -7,12 +7,13 @@ import React, {
   useCallback,
   useMemo,
 } from "react";
-import { RawData, ListType, ServicesListType } from "@/libs/types/ListTypes";
+import { RawData, ListType, ServicesListType, SubserviceDataType } from "@/libs/types/ListTypes";
 import { fetchAPI } from "@/utils/fetch-api";
 
 interface ListContextProps {
   list: ListType[];
   serviceList: ServicesListType[];
+  subServiceList: SubserviceDataType[];
   isLoading: boolean;
   error: Error | null;
 }
@@ -42,6 +43,7 @@ const SERVICE_TYPE_ORDER = {
 const ListContext = createContext<ListContextProps>({
   list: [],
   serviceList: [],
+  subServiceList: [],
   isLoading: true,
   error: null,
 });
@@ -66,6 +68,8 @@ const transformRawData = (rawData: RawData[]): ListType[] => {
           name: subservice.name,
           id: subservice.documentId,
           icon: subservice.icon,
+          recommend: subservice.recommend,
+          popular: subservice.popular,
         })),
       },
     ],
@@ -102,6 +106,7 @@ const getServiceIndex = (type: string): number => {
 const processServiceData = (filteredData: ListType[]) => {
   const servicesList: ListType[] = Array(10).fill(null);
   const allServicesData: ServicesListType[] = [];
+  const allSubservicesData: SubserviceDataType[] = [];
   filteredData.forEach((item) => {
     if (!item.data?.[0]) {
       return;
@@ -132,6 +137,11 @@ const processServiceData = (filteredData: ListType[]) => {
       icon: dataItem.icon,
       services: [...dataItem.services],
     });
+    dataItem.services.map((item) => (
+      allSubservicesData.push(item)
+    )
+    )
+
     if (baseIndex !== -1) {
       if (servicesList[baseIndex]) {
         // Add to existing category
@@ -143,7 +153,7 @@ const processServiceData = (filteredData: ListType[]) => {
     }
   });
 
-  return { data_1: servicesList.filter(Boolean), data_2: allServicesData };
+  return { data_1: servicesList.filter(Boolean), data_2: allServicesData, data_3: allSubservicesData };
 };
 
 export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
@@ -152,6 +162,7 @@ export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
   const [meta, setMeta] = useState<Meta | null>(null);
   const [list, setList] = useState<ListType[]>([]);
   const [serviceList, setServiceList] = useState<ServicesListType[]>([]);
+  const [subServiceList, setSubServiceList] = useState<SubserviceDataType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
@@ -180,6 +191,7 @@ export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
         console.log(processedList);
         setList(processedList.data_1);
         setServiceList(processedList.data_2)
+        setSubServiceList(processedList.data_3)
       } catch (err) {
         const error =
           err instanceof Error ? err : new Error("Failed to fetch data");
@@ -204,6 +216,7 @@ export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
     () => ({
       list,
       serviceList,
+      subServiceList,
       isLoading,
       error,
     }),

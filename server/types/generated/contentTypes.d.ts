@@ -433,6 +433,13 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       'api::article.article'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    recommended: Schema.Attribute.Boolean &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<false>;
     services: Schema.Attribute.Relation<'manyToMany', 'api::service.service'>;
     subservices: Schema.Attribute.Relation<
       'manyToMany',

@@ -34,9 +34,6 @@ const ServiceBenefit = memo(({ className = "" }: ServiceBenefitProps) => {
     return null;
   }
 
-  const currentBenefit =
-    serviceItems.introduction.Benefits.Benefit[currentStep];
-
   return (
     <section
       className={`

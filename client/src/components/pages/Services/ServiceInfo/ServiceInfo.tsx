@@ -22,8 +22,8 @@ const ServiceInfo = memo(() => {
       className="flex flex-col w-full m-auto items-center"
       aria-labelledby="service-info-title"
     >
-      <div className="flex lg:flex-row lg:items-start items-center flex-col gap-5 lg:gap-20 px-[3%] pt-[80px] m-auto max-w-[1366px] bg-[linear-gradient(#fffffff5,#fff),url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/67bb4de67a2ea65794f385ee_perspective-grid-black.webp')] bg-[position:0_0,50%_0] bg-[size:auto,contain] bg-no-repeat">
-        <div className="flex flex-col gap-7 w-[80%] lg:w-[50%] lg:items-start items-center lg:text-left grow">
+      <div className="flex lg:flex-row lg:items-start lg:justify-between items-center flex-col gap-5 lg:gap-20 pt-[80px] w-full max-w-[1366px] px-10 bg-[linear-gradient(#fffffff5,#fff),url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/67bb4de67a2ea65794f385ee_perspective-grid-black.webp')] bg-[position:0_0,50%_0] bg-[size:auto,contain] bg-no-repeat">
+        <div className="flex flex-col gap-7 lg:w-[50%] lg:items-start items-center lg:text-left grow">
           <StrapiText
             data={serviceItems.header.text}
             customClassName="!font-service text-wrap !text-center lg:!text-left"
@@ -88,8 +88,8 @@ const ServiceInfo = memo(() => {
           </div>
         </div>
       </div>
-      <div className="z-10 mt-[-30px] w-full bg-black-light pt-[60px] px-10 flex flex-col items-center gap-[50px]">
-        <div className="max-w-[1366px] w-full flex gap-8 items-center">
+      <div className="z-10 mt-[-30px] w-full bg-black-light pt-[60px] flex flex-col items-center gap-[50px]">
+        <div className="max-w-[1366px] px-10 w-full flex gap-8 items-center">
           {serviceItems.introduction.StateOfService.States.map(
             (item: ServiceState) => (
               <div key={item.character} className="text-left" role="listitem">

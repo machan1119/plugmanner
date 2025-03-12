@@ -1,4 +1,4 @@
-import { replace_str } from "@/utils/functions";
+import { generate_slug, replace_str } from "@/utils/functions";
 import { ListType, Icon } from "@/libs/types/ListTypes";
 import Image from "next/image";
 import Link from "next/link";
@@ -16,12 +16,12 @@ interface ServiceItemProps {
 
 const ServiceItem = memo(({ dataItem, icon, title }: ServiceItemProps) => (
   <Link
-    href={`/home/services/${dataItem.id}`}
+    href={`/home/services/${generate_slug(dataItem.name)}`}
     className="
-      flex items-center gap-3 
+      flex items-center gap-2 
       py-2 px-4 
       w-full
-      text-text-secondary
+      text-text-primary 
       hover:bg-background-light
       hover:text-primary
       transition-all duration-300
@@ -54,8 +54,8 @@ const ServiceItem = memo(({ dataItem, icon, title }: ServiceItemProps) => (
         transition-opacity duration-300
       "
       />
-    ) }
-    <span className="text-[15px] font-medium">
+    )}
+    <span className="text-[14px] font-normal">
       {replace_str(dataItem.name, title)}
     </span>
   </Link>
@@ -71,7 +71,7 @@ const ServiceCategory = memo(({ val }: ServiceCategoryProps) => (
   <div className="w-full break-inside-avoid-column">
     <div
       className="
-      text-base font-semibold 
+      text-base font-semibold font-clash
       text-text-primary 
       px-4 py-2
       transition-colors duration-300
@@ -154,7 +154,6 @@ const DropDownServices = memo(
           bg-white 
           rounded-lg 
           shadow-soft
-          py-2
           animate-fade-in
           ${
             item.type === "Other" || item.type === "Tools"
@@ -170,19 +169,15 @@ const DropDownServices = memo(
             <div
               className="
             w-[50vw] 
-            max-h-[80vh] 
+            max-h-[70vh] 
             overflow-y-auto 
-            p-4
+            p-1
             scrollbar-thin scrollbar-thumb-black-normal scrollbar-track-transparent
           "
             >
               <div className="columns-[150px] w-full gap-6">
                 {item.data.map((val, index) => (
-                  <div
-                    key={index}
-                    className="animate-fade-in"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
+                  <div key={index}>
                     <ServiceCategory val={val} />
                   </div>
                 ))}
@@ -191,7 +186,7 @@ const DropDownServices = memo(
           ) : (
             <div
               className="
-            max-h-[60vh] 
+            max-h-[70vh] 
             max-w-[50vw] 
             overflow-auto 
             p-1
@@ -200,11 +195,7 @@ const DropDownServices = memo(
             >
               <div className="flex w-max gap-6">
                 {item.data.map((val, index) => (
-                  <div
-                    key={index}
-                    className="animate-fade-in"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
+                  <div key={index}>
                     <ServiceCategory val={val} />
                   </div>
                 ))}

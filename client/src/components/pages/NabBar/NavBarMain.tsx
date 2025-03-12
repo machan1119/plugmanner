@@ -35,19 +35,20 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
   const [searchShow, setSearchShow] = useState(false);
   const { serviceShow, setServiceShow } = useHome();
   const { serviceList, subServiceList } = useList();
-  const [searchService, setSearchService] = useState('');
+  const [searchService, setSearchService] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  subServiceList.sort(function (a, b) { return Number(b.popular) - Number(a.popular) });
+  subServiceList.sort(function (a, b) {
+    return Number(b.popular) - Number(a.popular);
+  });
 
   const handleInputFocus = () => {
     setIsDropdownOpen(true);
     if (searchService.length > 1) {
-
     }
   };
   const removeSearch = () => {
-    setSearchService('')
-  }
+    setSearchService("");
+  };
   useEffect(() => {
     // if (searchService.length > 1) {
     //   const results = languagesData.filter(language =>
@@ -82,7 +83,6 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
             />
           </Link>
           <div className="flex items-center gap-2 lg:grow">
-
             <div
               className="
               rounded-lg gap-3 
@@ -123,35 +123,40 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
                 placeholder="Search"
               />
               {isDropdownOpen && (
-                <div className="max-lg:hidden top-full left-[0px] right-[0px] bg-white border border-[#ddd] rounded-[12px] border-t-0 absolute z-[99999] px-[16px] block mt-1" >
+                <div className="max-lg:hidden top-full left-[0px] right-[0px] bg-white border border-[#ddd] rounded-[12px] border-t-0 absolute z-[99999] px-[16px] block mt-1">
                   <h2 className="text-[20px] font-semibold text-[#363636] mb-[12px] mt-[7px] leading-[1] font-clash">
-                    {searchService.length > 1 ?
-                      "Search Results" : "Recommended Services"}
+                    {searchService.length > 1
+                      ? "Search Results"
+                      : "Recommended Services"}
                   </h2>
                   <div className="grid grid-cols-3 gap-[20px] font-satoshi font-semibold">
-                    {
-                      searchService.length > 1 ? (serviceList.map(serivce => (
-                        serivce.services.map((subservice) => (
-                          subservice.name.toLowerCase().includes(searchService.toLowerCase()) ?
-                            <div key={subservice.id} onClick={removeSearch} >
-                              <Link className="flex" href={`/home/services/${subservice.id}`}>
-                                {subservice.name}
-                              </Link>
-                            </div> :
-                            null
+                    {searchService.length > 1
+                      ? serviceList.map((serivce) =>
+                          serivce.services.map((subservice) =>
+                            subservice.name
+                              .toLowerCase()
+                              .includes(searchService.toLowerCase()) ? (
+                              <div key={subservice.id} onClick={removeSearch}>
+                                <Link
+                                  className="flex"
+                                  href={`/home/services/${subservice.id}`}
+                                >
+                                  {subservice.name}
+                                </Link>
+                              </div>
+                            ) : null
+                          )
                         )
-
-                        )
-                      ))) : (
-                        subServiceList.slice(0, 27).map(subservice => (
-                          <div key={subservice.id} onClick={removeSearch} >
-                            <Link className="flex" href={`/home/services/${subservice.id}`}>
+                      : subServiceList.slice(0, 27).map((subservice) => (
+                          <div key={subservice.id} onClick={removeSearch}>
+                            <Link
+                              className="flex"
+                              href={`/home/services/${subservice.id}`}
+                            >
                               {subservice.name}
                             </Link>
                           </div>
-                        ))
-                      )
-                    }
+                        ))}
                   </div>
                 </div>
               )}
@@ -301,35 +306,40 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
               onChange={(e) => setSearchService(e.target.value)}
             />
             {isDropdownOpen && (
-              <div className="overflow-scroll max-h-[300px] lg:hidden top-full left-[0px] right-[0px] bg-white border border-[#ddd] rounded-[12px] border-t-0 absolute z-[99999] px-[16px] block mt-1" >
+              <div className="overflow-scroll max-h-[300px] lg:hidden top-full left-[0px] right-[0px] bg-white border border-[#ddd] rounded-[12px] border-t-0 absolute z-[99999] px-[16px] block mt-1">
                 <h2 className="text-[20px] font-semibold text-[#363636] mb-[12px] mt-[7px] leading-[1] font-clash">
-                  {searchService.length > 1 ?
-                    "Search Results" : "Recommended Services"}
+                  {searchService.length > 1
+                    ? "Search Results"
+                    : "Recommended Services"}
                 </h2>
                 <div className="grid grid-cols-1 gap-[20px] font-satoshi font-semibold">
-                  {
-                    searchService.length > 1 ? (serviceList.map(serivce => (
-                      serivce.services.map(subservice => (
-                        subservice.name.toLowerCase().includes(searchService.toLowerCase()) ?
-                          <div key={subservice.id} onClick={removeSearch} >
-                            <Link className="flex" href={`/home/services/${subservice.id}`}>
-                              {subservice.name}
-                            </Link>
-                          </div> :
-                          null
+                  {searchService.length > 1
+                    ? serviceList.map((serivce) =>
+                        serivce.services.map((subservice) =>
+                          subservice.name
+                            .toLowerCase()
+                            .includes(searchService.toLowerCase()) ? (
+                            <div key={subservice.id} onClick={removeSearch}>
+                              <Link
+                                className="flex"
+                                href={`/home/services/${subservice.id}`}
+                              >
+                                {subservice.name}
+                              </Link>
+                            </div>
+                          ) : null
+                        )
                       )
-
-                      )
-                    ))) : (
-                      subServiceList.slice(0, 27).map(subservice => (
-                        <div key={subservice.id} onClick={removeSearch} >
-                          <Link className="flex" href={`/home/services/${subservice.id}`}>
+                    : subServiceList.slice(0, 27).map((subservice) => (
+                        <div key={subservice.id} onClick={removeSearch}>
+                          <Link
+                            className="flex"
+                            href={`/home/services/${subservice.id}`}
+                          >
                             {subservice.name}
                           </Link>
                         </div>
-                      ))
-                    )
-                  }
+                      ))}
                 </div>
               </div>
             )}

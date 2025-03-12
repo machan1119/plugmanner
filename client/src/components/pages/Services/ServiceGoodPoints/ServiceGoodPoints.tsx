@@ -18,16 +18,13 @@ const ServiceGoodPoints = memo(({ className = "" }: ServiceGoodPointsProps) => {
   return (
     <section
       className={`
-        py-[80px] flex flex-col items-center px-10 border-b-[1px] border-black-normal
+        py-[80px] flex flex-col items-center border-b-[1px] border-black-normal
         ${className}
       `}
       aria-labelledby="good-points-heading"
     >
-      <div className="max-w-[1366px] flex flex-col gap-7 w-full items-start mb-8">
-        <h2
-          id="good-points-heading"
-          className="sr-only"
-        >
+      <div className="max-w-[1366px] px-10 flex flex-col gap-7 w-full items-start mb-8">
+        <h2 id="good-points-heading" className="sr-only">
           Service Good Points
         </h2>
         <div
@@ -38,8 +35,9 @@ const ServiceGoodPoints = memo(({ className = "" }: ServiceGoodPointsProps) => {
           {serviceItems.introduction.GoodPoints.chapter.map(
             (chapterItem: GoodPointsChapterType, chapterIndex: number) => (
               <article
-                className={`flex gap-5 items-center ${chapterIndex % 2 === 0 && "flex-row-reverse"
-                  }`}
+                className={`flex gap-5 items-center ${
+                  chapterIndex % 2 === 0 && "flex-row-reverse"
+                }`}
                 key={chapterIndex}
                 role="listitem"
               >

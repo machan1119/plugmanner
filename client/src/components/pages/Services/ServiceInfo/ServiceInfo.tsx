@@ -4,6 +4,7 @@ import Image from "next/image";
 import React, { memo } from "react";
 import ServiceAdvantage from "./ServiceAdvantage";
 import { StrapiParagraph, StrapiText } from "@/components/StrapiComponents";
+import Link from "next/link";
 
 interface ServiceState {
   counters: string;
@@ -22,7 +23,7 @@ const ServiceInfo = memo(() => {
       className="flex flex-col w-full m-auto items-center"
       aria-labelledby="service-info-title"
     >
-      <div className="flex lg:flex-row lg:items-start lg:justify-between items-center flex-col gap-5 lg:gap-20 pt-[80px] w-full max-w-[1366px] px-10 bg-[linear-gradient(#fffffff5,#fff),url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/67bb4de67a2ea65794f385ee_perspective-grid-black.webp')] bg-[position:0_0,50%_0] bg-[size:auto,contain] bg-no-repeat">
+      <div className="flex lg:flex-row lg:items-start lg:justify-between items-center flex-col gap-[120px] pt-[80px] w-full max-w-[1366px] px-10 bg-[linear-gradient(#fffffff5,#fff),url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/67bb4de67a2ea65794f385ee_perspective-grid-black.webp')] bg-[position:0_0,50%_0] bg-[size:auto,contain] bg-no-repeat">
         <div className="flex flex-col gap-7 lg:w-[50%] lg:items-start items-center lg:text-left grow">
           <StrapiText
             data={serviceItems.header.text}
@@ -52,15 +53,15 @@ const ServiceInfo = memo(() => {
           <ServiceAdvantage />
         </div>
         <div
-          className="z-20 px-8 py-9 flex grow flex-col gap-6 items-center w-max bg-[rgb(20,_20,_27)] bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/63ff3f8c57c2b777f07afb19_socialplug-pricingbox-illustration.svg')] bg-right-top bg-no-repeat bg-auto rounded-2xl"
+          className="z-20 px-8 py-9 flex grow flex-col gap-2 items-center bg-[rgb(20,_20,_27)] bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/63ff3f8c57c2b777f07afb19_socialplug-pricingbox-illustration.svg')] bg-right-top bg-no-repeat bg-auto rounded-2xl"
           role="complementary"
           aria-label="Pricing information"
         >
           <div className="w-full flex flex-col items-start">
-            <p className="font-service-text text-[16px] !text-black-steel">
+            <p className="font-service-card-text text-[16px] !text-black-steel mb-1">
               Starting from
             </p>
-            <p className="font-service-main md:font-service-md lg:font-service-lg lg:!text-[56px] !text-white">
+            <p className="font-service-main md:font-service-md lg:font-service-lg !text-white">
               ${serviceItems.introduction.OrderIntro.price}{" "}
               <span className="font-service-text text-[16px] !text-green-light">
                 / {serviceItems.introduction.OrderIntro.unit}
@@ -69,14 +70,20 @@ const ServiceInfo = memo(() => {
           </div>
           <StrapiParagraph
             paragraph={serviceItems.introduction.OrderIntro.list}
-            customClassName="font-service-text text-[16px] !text-black-steel"
+            customClassName="font-service-card-text text-[16px] !text-black-steel"
           />
-          <MainButton
-            type="primary"
-            title="Order Now >"
-            customClass="w-full border-none"
-            aria-label="Order service now"
-          />
+          <Link
+            href={`${serviceItems.ordernow}`}
+            className="w-full animate-fade-in my-6"
+            style={{ animationDelay: "100ms" }}
+          >
+            <MainButton
+              type="primary"
+              title="Order Now >"
+              customClass="w-full border-none"
+              aria-label="Order service now"
+            />
+          </Link>
           <div aria-hidden="true">
             <Image
               width={316}

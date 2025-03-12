@@ -3,6 +3,7 @@ import { StrapiParagraph, StrapiText } from "@/components/StrapiComponents";
 import { useServices } from "@/providers/ServicesProvider";
 import React, { useState, memo, useCallback } from "react";
 import { BenefitType } from "@/libs/types/ServiceJsonDataType";
+import Image from "next/image";
 
 interface ServiceBenefitProps {
   className?: string;
@@ -85,9 +86,11 @@ const ServiceBenefit = memo(({ className = "" }: ServiceBenefitProps) => {
                 key={index}
               >
                 <div className="w-full lg:w-[50%] items-center justify-center flex">
-                  <img
+                  <Image
                     width={500}
                     height={500}
+                    loading="eager"
+                    priority
                     alt={`${currentBenefit.title.text[0].content} illustration`}
                     src={currentBenefit.img}
                     className="object-cover"
@@ -100,7 +103,7 @@ const ServiceBenefit = memo(({ className = "" }: ServiceBenefitProps) => {
                   />
                   <StrapiParagraph
                     paragraph={currentBenefit.paragraph}
-                    customClassName="font-main text-[#686889] lg:text-[20px]"
+                    customClassName="font-satoshi !text-[18px] text-black-steel"
                   />
                   {currentBenefit.Button && (
                     <MainButton

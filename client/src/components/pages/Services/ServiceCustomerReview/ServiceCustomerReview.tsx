@@ -39,10 +39,7 @@ const ServiceCustomerReview = () => {
   const showLessButton = readHeight && maxHeight && readHeight >= maxHeight;
 
   return (
-    <section
-      className="py-[80px] flex flex-col items-center border-b-[1px] border-black-normal"
-      aria-labelledby="customer-reviews-heading"
-    >
+    <section className="py-[80px] flex flex-col items-center border-b-[1px] border-black-normal">
       <div className="max-w-[1366px] px-10 flex flex-col gap-7 w-full items-center mb-8">
         <div className="flex flex-col gap-5 items-center w-full">
           <StrapiText
@@ -53,21 +50,17 @@ const ServiceCustomerReview = () => {
             data={serviceItems.introduction.CustomerReviews.text[0].text}
             customClassName="font-service-text text-[18px] lg:w-[50%] !text-center"
           />
-          <div
-            className="flex items-center mt-2"
-            aria-label={`Rating: ${serviceItems.introduction.CustomerReviews.rate} stars from ${serviceItems.introduction.CustomerReviews.counterofreviews} reviews`}
-          >
+          <div className="flex items-center mt-2">
             <Image
               width={24}
               height={24}
               src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/63ff4056e10165cf63568681_Star-icon-2.svg"
               alt=""
               className="mr-1"
-              aria-hidden="true"
             />
             <span className="font-clash text-[#686889] text-[16px] leading-[25px] font-medium">
               Rated{" "}
-              <span className="text-green-light font-semibold">
+              <span className="text-primary font-semibold">
                 {serviceItems.introduction.CustomerReviews.rate}/5
               </span>{" "}
               from over{" "}
@@ -81,12 +74,7 @@ const ServiceCustomerReview = () => {
           ref={readRef}
           style={{ height: readHeight }}
         >
-          <div
-            className="w-full columns-[300px] gap-5 h-max"
-            ref={maxRef}
-            role="list"
-            aria-label="Customer reviews"
-          >
+          <div className="w-full columns-[300px] gap-5 h-max" ref={maxRef}>
             {serviceItems.introduction.CustomerReviews.Review.map(
               (item: Review, index: number) => (
                 <ReviewItem
@@ -99,10 +87,7 @@ const ServiceCustomerReview = () => {
                 />
               )
             )}
-            <div
-              className="absolute z-20 bg-[linear-gradient(rgb(0,0,0,0),rgb(255,255,255))] h-[200px] w-full bottom-0 left-0"
-              aria-hidden="true"
-            />
+            <div className="absolute z-20 bg-[linear-gradient(rgb(0,0,0,0),rgb(255,255,255))] h-[200px] w-full bottom-0 left-0" />
           </div>
         </div>
       </div>
@@ -112,7 +97,6 @@ const ServiceCustomerReview = () => {
           title="Show More +"
           customClass="w-[278px]"
           handleClick={handleShowMore}
-          aria-label="Show more reviews"
         />
       )}
       {showLessButton && (
@@ -121,7 +105,6 @@ const ServiceCustomerReview = () => {
           title="Show Less -"
           customClass="w-[278px]"
           handleClick={handleShowLess}
-          aria-label="Show fewer reviews"
         />
       )}
     </section>

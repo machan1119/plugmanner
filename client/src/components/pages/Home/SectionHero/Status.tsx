@@ -24,14 +24,9 @@ const statusData: StatusData[] = [
 
 const Status = memo(({ className = "" }: StatusProps) => {
   return (
-    <div
-      className={`border-white size-full ${className}`}
-      role="region"
-      aria-label="Live delivery status"
-    >
+    <div className={`border-white size-full ${className}`}>
       <Swiper
         slidesPerView={"auto"}
-        // grabCursor={true}
         speed={1000}
         direction="vertical"
         autoHeight

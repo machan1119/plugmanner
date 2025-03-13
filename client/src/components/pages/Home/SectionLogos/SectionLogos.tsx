@@ -56,7 +56,6 @@ const SectionLogos = memo(({ className = "" }: SectionLogosProps) => {
     <section
       id="services-list"
       className={`p-4 sm:p-6 md:p-8 lg:p-10 flex flex-col gap-6 items-center mb-4 bg-white/5 backdrop-blur-sm rounded-lg ${className}`}
-      aria-labelledby="section-logos-title"
     >
       <h2
         id="section-logos-title"
@@ -64,17 +63,12 @@ const SectionLogos = memo(({ className = "" }: SectionLogosProps) => {
       >
         FEATURED IN TOP MEDIA
       </h2>
-      <div
-        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 md:gap-8 lg:gap-[52px] w-full max-w-7xl mx-auto"
-        role="list"
-        aria-label="Featured media logos"
-      >
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 md:gap-8 lg:gap-[52px] w-full max-w-7xl mx-auto">
         {logosData.map((logo, index) => (
           <div
             key={logo.alt}
-            className="justify-self-center animate-fade-in-up bg-white/5 rounded-lg p-4 hover:bg-white/10 transition-all duration-300 focus-within:ring-2 focus-within:ring-green-light focus-within:outline-none"
+            className="justify-self-center animate-fade-in-up bg-white/5 rounded-lg p-4 hover:bg-white/10 transition-all duration-300"
             style={{ animationDelay: `${index * 100}ms` }}
-            role="listitem"
           >
             <Image
               width={logo.width}

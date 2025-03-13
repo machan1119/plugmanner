@@ -35,14 +35,12 @@ const DropDownServicesResponsive = memo(
           group
         "
           onClick={() => setStatus(!status)}
-          role="button"
           tabIndex={0}
           onKeyDown={(e) => {
             if (e.key === "Enter" || e.key === " ") {
               setStatus(!status);
             }
           }}
-          aria-expanded={status}
         >
           <div className="flex gap-3 items-center">
             <Image

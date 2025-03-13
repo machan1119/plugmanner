@@ -58,7 +58,6 @@ export function GoToTop({
       onClick={scrollToTop}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      aria-label="Scroll to top"
     >
       <ArrowUp
         className={`

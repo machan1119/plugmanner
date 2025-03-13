@@ -127,11 +127,8 @@ const DropDownServices = memo(
           transition-colors duration-300
           hover:text-primary
         "
-          role="button"
           tabIndex={0}
           onKeyDown={handleKeyDown}
-          aria-haspopup="true"
-          aria-expanded={isOpen}
         >
           <p>{item.type}</p>
           <Image
@@ -161,9 +158,6 @@ const DropDownServices = memo(
               : "left-0"
           }
         `}
-          role="menu"
-          aria-orientation="vertical"
-          aria-labelledby="dropdown-button"
         >
           {item.type === "Other" ? (
             <div

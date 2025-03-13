@@ -18,7 +18,6 @@ const RatingStar = ({ rating, interactive = false }: RatingStarProps) => {
             transition-transform duration-200
             ${interactive ? "cursor-pointer hover:scale-110" : ""}
           `}
-          role={interactive ? "button" : undefined}
           tabIndex={interactive ? 0 : undefined}
         >
           <Image

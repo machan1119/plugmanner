@@ -86,9 +86,7 @@ const Section = memo(
         "
           onClick={onToggle}
           onKeyDown={handleKeyDown}
-          role="button"
           tabIndex={0}
-          aria-expanded={isOpen}
         >
           <span>{title}</span>
           <span

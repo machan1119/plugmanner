@@ -12,8 +12,7 @@ const HowToOrderItems = memo(
   ({ item, className = "", style }: HowToOrderItemsProps) => {
     return (
       <div
-        className={`flex flex-col grow h-full items-center relative bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-all duration-300 focus-within:ring-2 focus-within:ring-green-light focus-within:outline-none ${className}`}
-        role="listitem"
+        className={`flex flex-col grow h-full items-center relative bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-all duration-300 focus-within:ring-2 ${className}`}
         style={style}
       >
         <div className="relative w-full max-w-[250px] aspect-[285/265] mb-6">
@@ -28,7 +27,7 @@ const HowToOrderItems = memo(
           />
         </div>
         <div className="flex flex-col justify-between items-center">
-          <h3 className="font-h1-main md:font-h1-md lg:font-h1-lg mb-6 text-center animate-fade-in">
+          <h3 className="font-h1 mb-6 text-center animate-fade-in">
             {item.title}
           </h3>
           <p className="text-black text-[16px] text-center leading-6 font-satoshi w-[90%] sm:w-[75%] animate-fade-in-up">

@@ -54,10 +54,7 @@ const FreeTrial = memo(({ className = "" }: FreeTrialProps) => {
         "
         onClick={handleClick}
         onKeyDown={handleKeyDown}
-        role="button"
         tabIndex={0}
-        aria-expanded={isOpen}
-        aria-controls="free-trial-links"
       >
         <span>Free Trial</span>
         <span

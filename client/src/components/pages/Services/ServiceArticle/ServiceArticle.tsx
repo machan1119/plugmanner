@@ -50,7 +50,7 @@ const ServiceArticle = () => {
   return (
     <section className="flex flex-col py-20 items-center bg-white w-full border-b border-black-normal">
       <div className="max-w-[1366px] w-full justify-self-center px-10">
-        <h2 className="font-h1-md lg:font-h1-lg mb-12">Related Articles</h2>
+        <h2 className="font-h1 mb-12">Related Articles</h2>
         <div className="border-white size-full">
           <Swiper {...swiperConfig}>
             {serviceItems.article.map((item, index) => (
@@ -67,7 +67,7 @@ const ServiceArticle = () => {
                   <h3 className="text-black text-xl text-center font-semibold font-clash leading-tight mt-4">
                     {item.title}
                   </h3>
-                  <button className="text-green-light text-base p-2 rounded-md hover:bg-gray-50 transition-colors">
+                  <button className="text-primary text-base p-2 rounded-md hover:bg-gray-50 transition-colors">
                     Read More
                   </button>
                 </article>

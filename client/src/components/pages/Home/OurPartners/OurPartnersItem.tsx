@@ -17,7 +17,7 @@ const OurPartnersItem = memo(
       >
         <Link
           href={item.host}
-          className="block focus:outline-none focus:ring-2 focus:ring-green-light rounded-lg"
+          className="block rounded-lg"
           target="_blank"
           rel="noopener noreferrer"
         >

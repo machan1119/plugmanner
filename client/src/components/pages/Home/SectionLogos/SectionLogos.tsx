@@ -67,7 +67,7 @@ const SectionLogos = memo(({ className = "" }: SectionLogosProps) => {
         {logosData.map((logo, index) => (
           <div
             key={logo.alt}
-            className="justify-self-center animate-fade-in-up bg-white/5 rounded-lg p-4 hover:bg-white/10 transition-all duration-300 focus-within:ring-2 focus-within:ring-green-light focus-within:outline-none"
+            className="justify-self-center animate-fade-in-up bg-white/5 rounded-lg p-4 hover:bg-white/10 transition-all duration-300"
             style={{ animationDelay: `${index * 100}ms` }}
           >
             <Image

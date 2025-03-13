@@ -26,18 +26,15 @@ const SectionWhy = memo(({ className = "" }: SectionWhyProps) => {
     >
       <div className="max-w-[1366px] justify-self-center px-4 sm:px-6 md:px-8 lg:px-10">
         <div className="mb-12 flex flex-col gap-3 items-center">
-          <h2
-            id="section-why-title"
-            className="font-h1-md lg:font-h1-lg animate-fade-in"
-          >
-            Why Customers <span className="text-green-light">Choose Us</span>
+          <h2 id="section-why-title" className="font-h1 animate-fade-in">
+            Why Customers <span className="text-primary">Choose Us</span>
           </h2>
           <p className="text-black text-[16px] leading-6 text-center font-satoshi w-[90%] sm:w-[75%] animate-fade-in-up">
             Read what our customers think about this service. We take your
             feedback seriously - help us improve by{" "}
             <Link
               href={"#"}
-              className="text-green-light underline hover:text-green-dark transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-light rounded-sm"
+              className="text-primary underline hover:text-secondary transition-colors duration-300 rounded-sm"
             >
               leaving a review
             </Link>
@@ -70,9 +67,7 @@ const SectionWhy = memo(({ className = "" }: SectionWhyProps) => {
                   className="flex flex-col grow gap-2 items-center animate-fade-in-up"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <h3 className="font-h1-main md:font-h1-md lg:font-h1-lg">
-                    {stat.value}
-                  </h3>
+                  <h3 className="font-h1">{stat.value}</h3>
                   <p className="text-black-dark text-[12px] md:text-[16px] lg:text-[18px] font-satoshi text-center">
                     {stat.label}
                   </p>

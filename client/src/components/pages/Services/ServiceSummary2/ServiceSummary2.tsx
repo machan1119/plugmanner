@@ -50,7 +50,7 @@ const ServiceSummary2 = memo(({ className = "" }: ServiceSummary2Props) => {
               className="w-full"
               key={`summary-${item.title.replace(/\s+/g, "-").toLowerCase()}`}
             >
-              <div className="relative mt-[25px] flex flex-col h-[calc(100%-25px)] gap-5 px-5 pb-5 pt-10 cursor-pointer border border-black-normal hover:border-green-light rounded-md transition-all duration-500">
+              <div className="relative mt-[25px] flex flex-col h-[calc(100%-25px)] gap-5 px-5 pb-5 pt-10 cursor-pointer border border-black-normal hover:border-primary rounded-md transition-all duration-500">
                 <h3
                   id={`summary-title-${index}`}
                   className="font-h2 !text-left"

@@ -19,14 +19,12 @@ const ServicePackageItem = ({
       <div className="flex w-full justify-between">
         <h3
           id={`package-title-${level}`}
-          className={`font-h2 ${
-            !popular ? "!text-green-light" : "!text-white"
-          }`}
+          className={`font-h2 ${!popular ? "!text-primary" : "!text-white"}`}
         >
           {level}
         </h3>
         {popular && (
-          <div className="px-2 py-1 bg-green-light font-clash text-black rounded-md">
+          <div className="px-2 py-1 bg-primary font-clash text-black rounded-md">
             Popular
           </div>
         )}

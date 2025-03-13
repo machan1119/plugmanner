@@ -40,7 +40,7 @@ const ServiceInfo = memo(() => {
             />
             <p className="font-clash text-[#686889] text-[16px] leading-[25px] font-medium">
               Rated{" "}
-              <span className="text-green-light font-semibold">
+              <span className="text-primary font-semibold">
                 {serviceItems.introduction.rated}/5
               </span>{" "}
               from over {serviceItems.introduction.CounterOfReviews}reviews
@@ -53,9 +53,9 @@ const ServiceInfo = memo(() => {
             <p className="font-service-card-text text-[16px] !text-black-steel mb-1">
               Starting from
             </p>
-            <p className="font-service-main md:font-service-md lg:font-service-lg !text-white">
+            <p className="font-service !text-white">
               ${serviceItems.introduction.OrderIntro.price}{" "}
-              <span className="font-service-text text-[16px] !text-green-light">
+              <span className="font-service-text text-[16px] !text-primary">
                 / {serviceItems.introduction.OrderIntro.unit}
               </span>
             </p>
@@ -91,7 +91,7 @@ const ServiceInfo = memo(() => {
           {serviceItems.introduction.StateOfService.States.map(
             (item: ServiceState) => (
               <div key={item.character} className="text-left">
-                <p className="font-service-main lg:!text-[48px]">
+                <p className="font-service">
                   {item.counters}
                 </p>
                 <p className="font-service-text text-[16px]">

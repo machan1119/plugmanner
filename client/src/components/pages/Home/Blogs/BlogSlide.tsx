@@ -58,7 +58,7 @@ const BlogSlide = memo(({ className = "" }: BlogSlideProps) => {
                   loading="lazy"
                 />
               </div>
-              <h3 className="text-black text-[20px] text-center font-semibold font-clash leading-[25px] mt-4 hover:text-green-light transition-colors duration-300">
+              <h3 className="text-black text-[20px] text-center font-semibold font-clash leading-[25px] mt-4 hover:text-primary transition-colors duration-300">
                 {item.title}
               </h3>
               <div className="flex flex-wrap w-full justify-between gap-2 mt-10">
@@ -74,7 +74,7 @@ const BlogSlide = memo(({ className = "" }: BlogSlideProps) => {
                     {item.date}
                   </time>
                 </div>
-                <button className="text-green-light text-[16px] p-2 rounded-md hover:bg-green-light/10 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-light">
+                <button className="text-primary text-[16px] p-2 rounded-md hover:bg-primary/10 transition-colors duration-300">
                   Read More &gt;
                 </button>
               </div>
@@ -87,10 +87,10 @@ const BlogSlide = memo(({ className = "" }: BlogSlideProps) => {
           <MainButton type="primary" title="Read All News & Articles" />
         </div>
         <div className="hidden md:block absolute top-0 right-5">
-          <button className="custom-swiper-button-prev bg-white border-black-dark border-[1px] rounded-md hover:bg-black-dark hover:text-white transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-light">
+          <button className="custom-swiper-button-prev bg-white border-black-dark border-[1px] rounded-md hover:bg-black-dark hover:text-white transition-colors duration-300">
             {PrevArrow}
           </button>
-          <button className="custom-swiper-button-next mx-8 bg-white border-black-dark border-[1px] rounded-md hover:bg-black-dark hover:text-white transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-light">
+          <button className="custom-swiper-button-next mx-8 bg-white border-black-dark border-[1px] rounded-md hover:bg-black-dark hover:text-white transition-colors duration-300">
             {NextArrow}
           </button>
         </div>

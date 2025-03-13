@@ -13,11 +13,8 @@ const HowToOrder = memo(({ className = "" }: HowToOrderProps) => {
       className={`flex flex-col py-12 md:py-16 lg:py-[80px] items-center bg-black-light w-full bg-cover bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ea7_hero_background-pattern.webp')] bg-center bg-no-repeat overflow-hidden ${className}`}
     >
       <div className="mb-12 flex flex-col gap-3 items-center">
-        <h2
-          id="section-how-to-order-title"
-          className="font-h1-md lg:font-h1-lg animate-fade-in"
-        >
-          How to <span className="text-green-light">Order?</span>
+        <h2 id="section-how-to-order-title" className="font-h1 animate-fade-in">
+          How to <span className="text-primary">Order?</span>
         </h2>
         <p className="text-[rgba(0,0,0,0.5)] text-[16px] leading-6 text-center font-satoshi w-[90%] sm:w-[75%] animate-fade-in-up">
           Here&apos;s a quick rundown of how you can place an order for our

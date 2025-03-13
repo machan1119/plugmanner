@@ -31,18 +31,16 @@ const ServiceQuestion = memo(({ className = "" }: ServiceQuestionProps) => {
         <h2
           id="faq-heading"
           className="
-            font-h1-md lg:font-h1-lg 
+            font-h1 
             mb-8 md:mb-12
-            text-center
             animate-fade-in
           "
         >
           <StrapiText
             data={serviceItems.introduction.FrequentlyQuestions.header.text}
             customClassName="
-              font-h1-md lg:font-h1-lg 
+              font-h1 
               mb-8 md:mb-12
-              text-center
               animate-fade-in
             "
           />

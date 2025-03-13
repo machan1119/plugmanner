@@ -13,11 +13,8 @@ const Question = memo(({ className = "" }: QuestionProps) => {
       className={`flex flex-col py-12 md:py-16 lg:py-[80px] items-center bg-black-light w-full ${className}`}
     >
       <div className="max-w-[1366px] justify-self-center px-4 sm:px-6 md:px-8 lg:px-10">
-        <h2
-          id="faq-title"
-          className="font-h1-md lg:font-h1-lg mb-8 sm:mb-12 animate-fade-in"
-        >
-          Your Questions <span className="text-green-light">Answered</span>
+        <h2 id="faq-title" className="font-h1 mb-8 sm:mb-12 animate-fade-in">
+          Your Questions <span className="text-primary">Answered</span>
         </h2>
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-12">
           {Questions.map((item, index) => (

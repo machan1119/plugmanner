@@ -24,7 +24,7 @@ const SectionHero = memo(({ className = "" }: SectionHeroProps) => {
           </span>
         </div>
         <div className="flex flex-col gap-4 font-satoshi text-black items-center">
-          <h1 className="font-h-main md:font-h-md lg:font-h-lg lg:w-[70%] text-center">
+          <h1 className="font-h lg:w-[70%] text-center">
             <span className="animate-fade-in">Buy Followers, Likes </span>
             <Image
               width={46}
@@ -36,7 +36,7 @@ const SectionHero = memo(({ className = "" }: SectionHeroProps) => {
               priority
             />
             <span className="animate-fade-in"> , Subscribers, Views & </span>
-            <span className="text-green-light animate-fade-in">
+            <span className="text-primary animate-fade-in">
               Grow Exponentially{" "}
             </span>
             <Image

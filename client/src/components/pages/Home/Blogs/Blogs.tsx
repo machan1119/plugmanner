@@ -13,10 +13,7 @@ const Blogs = memo(({ className = "" }: BlogsProps) => {
     >
       <div className="w-full max-w-7xl mx-auto relative">
         <div className="mb-12 flex flex-col gap-3 items-center">
-          <h2
-            id="section-blogs-title"
-            className="font-h1-md lg:font-h1-lg animate-fade-in"
-          >
+          <h2 id="section-blogs-title" className="font-h1 animate-fade-in">
             News and Articles
           </h2>
           <div className="flex gap-4 sm:gap-8 items-center z-10 bg-black-light animate-fade-in-up">

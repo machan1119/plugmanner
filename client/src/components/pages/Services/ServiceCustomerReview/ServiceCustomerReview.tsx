@@ -60,7 +60,7 @@ const ServiceCustomerReview = () => {
             />
             <span className="font-clash text-[#686889] text-[16px] leading-[25px] font-medium">
               Rated{" "}
-              <span className="text-green-light font-semibold">
+              <span className="text-primary font-semibold">
                 {serviceItems.introduction.CustomerReviews.rate}/5
               </span>{" "}
               from over{" "}

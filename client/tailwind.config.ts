@@ -13,8 +13,6 @@ export default {
         clash: "Clashdisplay-Variable",
       },
       colors: {
-        "green-light": "rgb(1,197,115)",
-        "green-dark": "rgb(1,118,69)",
         "black-light": "#f6f6f6",
         "black-dark": "#c7c7c7",
         "black-medium": "rgb(235,235,235)",

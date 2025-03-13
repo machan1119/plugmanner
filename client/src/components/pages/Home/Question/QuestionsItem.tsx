@@ -29,7 +29,7 @@ const QuestionsItem = memo(
 
     return (
       <div
-        className={`inline-block relative bg-black-medium border-[1px] border-[rgb(224,_224,_224)] rounded-[12px] p-4 sm:p-6 w-full h-max cursor-pointer transition-all duration-300 hover:border-gray-400 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-green-light ${className}`}
+        className={`inline-block relative bg-black-medium border-[1px] border-[rgb(224,_224,_224)] rounded-[12px] p-4 sm:p-6 w-full h-max cursor-pointer transition-all duration-300 hover:border-gray-400 hover:shadow-md ${className}`}
         onClick={handleToggle}
         tabIndex={0}
         onKeyDown={handleKeyDown}

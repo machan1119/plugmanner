@@ -36,7 +36,7 @@ const ServiceSummary = () => {
             (item: SummaryItem, index: number) => (
               <div className="w-full" key={`summary-${index + 1}`}>
                 <div
-                  className="relative mt-[25px] flex flex-col h-[calc(100%-25px)] gap-5 px-5 pb-5 pt-10 cursor-pointer border border-black-normal hover:border-green-light rounded-md transition-all duration-500"
+                  className="relative mt-[25px] flex flex-col h-[calc(100%-25px)] gap-5 px-5 pb-5 pt-10 cursor-pointer border border-black-normal hover:border-primary rounded-md transition-all duration-500"
                   tabIndex={0}
                 >
                   <Image

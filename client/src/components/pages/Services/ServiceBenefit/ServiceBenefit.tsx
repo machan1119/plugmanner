@@ -58,7 +58,7 @@ const ServiceBenefit = memo(({ className = "" }: ServiceBenefitProps) => {
                   onKeyDown={(e) => handleKeyDown(e, index)}
                   className={`w-full py-2 bg-transparent font-clash lg:text-[18px] !text-center !font-semibold border-b-[2px] ${
                     currentStep === index
-                      ? "border-green-light !text-green-light"
+                      ? "border-primary !text-primary"
                       : "border-black-dark !text-black-dark hover:border-white hover:!text-white"
                   }`}
                   tabIndex={currentStep === index ? 0 : -1}

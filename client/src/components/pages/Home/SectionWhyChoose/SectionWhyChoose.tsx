@@ -13,8 +13,8 @@ const SectionWhyChoose = memo(({ className = "" }: SectionWhyChooseProps) => {
     >
       <div className="max-w-[1366px] justify-self-center px-4 sm:px-6 md:px-8 lg:px-10">
         <div className="mb-12 flex flex-col gap-3 items-center">
-          <h2 className="font-h1-md lg:font-h1-lg animate-fade-in">
-            Why Choose <span className="text-green-light">Social</span>Plug?
+          <h2 className="font-h1 animate-fade-in">
+            Why Choose <span className="text-primary">Social</span>Plug?
           </h2>
           <span className="text-[rgba(0,0,0,0.5)] text-[16px] leading-6 text-center font-satoshi w-[90%] sm:w-[75%] animate-fade-in-up">
             Our approach focuses on boosting engagement, increasing visibility,

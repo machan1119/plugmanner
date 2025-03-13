@@ -18,7 +18,7 @@ const ReviewItem = ({
 }: ReviewItemProps) => {
   return (
     <article className="mb-5 flex flex-col gap-2 p-6 bg-white grow rounded-xl border border-[#e2e2e2] break-inside-avoid">
-      <div className="font-h1 !text-left !leading-5">&#34;</div>
+      <div className="font-h1 !text-left">&#34;</div>
       <h3 id={`review-title-${customerName}`} className="font-h2">
         {title}
       </h3>

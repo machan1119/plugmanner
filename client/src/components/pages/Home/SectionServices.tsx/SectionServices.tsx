@@ -37,9 +37,7 @@ const SectionServices = memo(({ className = "" }: SectionServicesProps) => {
     <section
       className={`flex flex-col items-center m-[5%] justify-self-center relative w-full px-[5%] ${className}`}
     >
-      <h2 className="font-h1-md lg:font-h1-lg mb-12 animate-fade-in">
-        All Marketing Services
-      </h2>
+      <h2 className="font-h1 mb-12 animate-fade-in">All Marketing Services</h2>
       <div className="flex flex-col gap-4 lg:flex-row lg:justify-center items-end mb-5 w-full relative">
         <SwitchButton
           status={status}
@@ -53,7 +51,7 @@ const SectionServices = memo(({ className = "" }: SectionServicesProps) => {
           <select
             value={filter}
             onChange={handleFilterChange}
-            className="w-30 lg:w-40 p-2 cursor-pointer bg-inherit text-[12px] lg:text-[16px] focus:outline-none focus:ring-2 focus:ring-green-light rounded-r-[10px] transition-all duration-300"
+            className="w-30 lg:w-40 p-2 cursor-pointer bg-inherit text-[12px] lg:text-[16px] rounded-r-[10px] transition-all duration-300"
           >
             <option value="popular">Popular</option>
             <option value="AToZ">Sort from A-Z</option>

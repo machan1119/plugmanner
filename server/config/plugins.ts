@@ -8,8 +8,11 @@ export default ({ env }) => ({
         register: {
             allowedFields: ["nickname"],
         },
-      },
 
+      },
+      seo: {
+        enabled: true,
+      }
     },
     // ...
   });

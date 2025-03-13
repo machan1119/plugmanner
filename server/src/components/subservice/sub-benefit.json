@@ -30,6 +30,9 @@
     "img": {
       "type": "text",
       "required": true
+    },
+    "alt": {
+      "type": "text"
     }
   }
 }

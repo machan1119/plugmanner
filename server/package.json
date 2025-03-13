@@ -17,6 +17,7 @@
     "@strapi/plugin-cloud": "5.9.0",
     "@strapi/plugin-color-picker": "^5.10.2",
     "@strapi/plugin-documentation": "^5.9.0",
+    "@strapi/plugin-seo": "^2.0.8",
     "@strapi/plugin-users-permissions": "5.9.0",
     "@strapi/strapi": "5.9.0",
     "better-sqlite3": "^11.8.1",

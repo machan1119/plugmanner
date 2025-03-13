@@ -1,6 +1,7 @@
 "use client";
 
 import { ServicesDataType } from "@/libs/types/ListTypes";
+import { generate_slug } from "@/utils/functions";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useCallback, memo } from "react";
@@ -32,10 +33,7 @@ const ServicesItem = memo(
     return (
       <div
         className={`inline-block relative bg-black-light border-[1px] border-black-dark rounded-[12px] p-4 w-full h-max transition-all duration-300 hover:border-gray-600 hover:shadow-lg ${className}`}
-        role="button"
         tabIndex={0}
-        aria-expanded={isExpanded}
-        aria-label={`${serviceData.title} services section`}
         onKeyDown={handleKeyDown}
         onClick={handleToggle}
         style={style}
@@ -54,10 +52,7 @@ const ServicesItem = memo(
               {serviceData.title}
             </span>
           </div>
-          <button
-            className="rounded-[4px] bg-white border-[1px] border-[rgb(224,_224,_224)] h-fit p-2 transition-all duration-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-light"
-            aria-label={isExpanded ? "Collapse services" : "Expand services"}
-          >
+          <button className="rounded-[4px] bg-white border-[1px] border-[rgb(224,_224,_224)] h-fit p-2 transition-all duration-300 hover:bg-gray-50">
             <Image
               width={12}
               height={8}
@@ -80,8 +75,8 @@ const ServicesItem = memo(
             <div className="grid grid-cols-2 gap-2">
               {serviceData.services.map((serviceItem, index) => (
                 <Link
-                  className="p-2 bg-white rounded-md flex items-center justify-center text-center transition-all duration-200 hover:bg-gray-50 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-green-light animate-fade-in-up"
-                  href={`/home/services/${serviceItem.id}`}
+                  className="p-2 bg-white rounded-md flex items-center justify-center text-center transition-all duration-200 hover:bg-gray-50 hover:shadow-sm animate-fade-in-up"
+                  href={`/services/${generate_slug(serviceItem.name)}`}
                   key={`${serviceData.title}-${index}`}
                   style={{ animationDelay: `${index * 50}ms` }}
                 >

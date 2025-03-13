@@ -14,10 +14,9 @@ const SectionWhyItems = memo(
       <article
         className={`bg-white border border-black-dark/50 text-black rounded-[16px] p-4 sm:p-6 flex flex-col justify-between text-center hover:shadow-lg transition-all duration-300 ${className}`}
         style={style}
-        aria-labelledby={`review-title-${item.title}`}
       >
         <div className="flex flex-col gap-3 mb-5">
-          <h3 
+          <h3
             id={`review-title-${item.title}`}
             className="font-clash font-semibold text-[18px] sm:text-[20px] leading-[25px] animate-fade-in"
           >
@@ -28,7 +27,7 @@ const SectionWhyItems = memo(
           </p>
         </div>
         <div className="flex flex-col gap-3 items-center">
-          <div aria-hidden="true">
+          <div>
             <Image
               width={144}
               height={24}
@@ -42,7 +41,7 @@ const SectionWhyItems = memo(
             <p className="font-satoshi text-[16px] sm:text-[18px] leading-[27px] font-medium animate-fade-in">
               {item.title}
             </p>
-            <time 
+            <time
               dateTime={item.date}
               className="font-satoshi text-[14px] text-black leading-[21px] font-medium text-center animate-fade-in-up"
             >

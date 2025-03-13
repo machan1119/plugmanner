@@ -50,11 +50,8 @@ const ServiceQuestionItem = memo(
         ${className}
       `}
         onClick={handleToggle}
-        role="button"
         tabIndex={0}
         onKeyDown={handleKeyDown}
-        aria-expanded={isExpanded}
-        aria-controls={answerId}
         id={questionId}
       >
         <div
@@ -97,8 +94,6 @@ const ServiceQuestionItem = memo(
               ? "grid-rows-[1fr] opacity-100"
               : "grid-rows-[0fr] opacity-0"
           }`}
-          role="region"
-          aria-labelledby={questionId}
         >
           <div className="overflow-hidden">
             <div className="py-2 px-4">

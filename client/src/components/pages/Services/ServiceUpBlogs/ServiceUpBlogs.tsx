@@ -27,7 +27,6 @@ const ServiceUpBlogs = memo(({ className = "" }: ServiceUpBlogsProps) => {
         w-full py-[80px] border-b-[1px] border-black-normal
         ${className}
       `}
-      aria-labelledby="blogs-heading"
     >
       <div className="flex flex-col gap-20 max-w-[1366px] justify-self-center items-center px-10">
         {serviceItems.introduction.UpBlogs.title?.text && (
@@ -38,18 +37,14 @@ const ServiceUpBlogs = memo(({ className = "" }: ServiceUpBlogsProps) => {
             />
           </h2>
         )}
-        <div
-          className="w-full flex flex-col gap-10"
-          role="list"
-          aria-label="Blog articles"
-        >
+        <div className="w-full flex flex-col gap-10">
           {serviceItems.introduction.UpBlogs.Blog.map(
             (item: BlogType, index: number) => (
               <article
-                className={`w-[100%] flex lg:flex-row flex-col gap-[80px] items-center ${index % 2 !== 0 && "lg:flex-row-reverse flex-col-reverse"
-                  }`}
+                className={`w-[100%] flex lg:flex-row flex-col gap-[80px] items-center ${
+                  index % 2 !== 0 && "lg:flex-row-reverse flex-col-reverse"
+                }`}
                 key={index}
-                role="listitem"
               >
                 <Image
                   width={500}
@@ -69,14 +64,13 @@ const ServiceUpBlogs = memo(({ className = "" }: ServiceUpBlogsProps) => {
                   </h3>
                   <StrapiParagraph
                     paragraph={item.paragraph}
-                    customClassName="font-main text-[#686889] lg:text-[20px] !justify-start"
+                    customClassName="font-satoshi text-[#686889] text-[18px]"
                   />
                   {item.button && (
                     <MainButton
                       type="primary"
                       title={item.button}
                       customClass="w-[50%]"
-                      aria-label={`Read more about ${item.title.text[0].content}`}
                       handleClick={() =>
                         handleButtonClick(item.title.text[0].content)
                       }

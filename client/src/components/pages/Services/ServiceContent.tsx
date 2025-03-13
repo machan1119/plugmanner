@@ -79,8 +79,6 @@ const ServiceContent = memo(({ className = "" }: ServiceContentProps) => {
         animate-fade-in
         ${className}
       `}
-      role="main"
-      aria-label="Service content"
     >
       {sections.map((section) => (
         <div

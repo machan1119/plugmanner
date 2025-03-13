@@ -2,7 +2,7 @@
 
 import { ServicesDataType } from "@/libs/types/ListTypes";
 import { useHome } from "@/providers/HomeProvider";
-import { replace_str } from "@/utils/functions";
+import { generate_slug, replace_str } from "@/utils/functions";
 import Image from "next/image";
 import Link from "next/link";
 import React, { memo, useState } from "react";
@@ -35,14 +35,12 @@ const DropDownServicesResponsive = memo(
           group
         "
           onClick={() => setStatus(!status)}
-          role="button"
           tabIndex={0}
           onKeyDown={(e) => {
             if (e.key === "Enter" || e.key === " ") {
               setStatus(!status);
             }
           }}
-          aria-expanded={status}
         >
           <div className="flex gap-3 items-center">
             <Image
@@ -95,7 +93,7 @@ const DropDownServicesResponsive = memo(
             {serviceData.services.map((serviceItem, index) => (
               <Link
                 key={index}
-                href={`/home/services/${serviceItem.id}`}
+                href={`/services/${generate_slug(serviceItem.name)}`}
                 onClick={() => {
                   setServiceShow(true);
                   setStatus(false);

@@ -26,24 +26,21 @@ const ServiceQuestion = memo(({ className = "" }: ServiceQuestionProps) => {
         animate-fade-in
         ${className}
       `}
-      aria-labelledby="faq-heading"
     >
       <div className="max-w-[1366px] w-full px-4 md:px-10">
         <h2
           id="faq-heading"
           className="
-            font-h1-md lg:font-h1-lg 
+            font-h1 
             mb-8 md:mb-12
-            text-center
             animate-fade-in
           "
         >
           <StrapiText
             data={serviceItems.introduction.FrequentlyQuestions.header.text}
             customClassName="
-              font-h1-md lg:font-h1-lg 
+              font-h1 
               mb-8 md:mb-12
-              text-center
               animate-fade-in
             "
           />
@@ -56,8 +53,6 @@ const ServiceQuestion = memo(({ className = "" }: ServiceQuestionProps) => {
             animate-fade-in
           "
           style={{ animationDelay: "200ms" }}
-          role="list"
-          aria-label="Frequently asked questions"
         >
           {serviceItems.introduction.FrequentlyQuestions.Question.map(
             (item: QuestionType, index: number) => (
@@ -65,7 +60,6 @@ const ServiceQuestion = memo(({ className = "" }: ServiceQuestionProps) => {
                 key={`faq-${index + 1}`}
                 className="animate-fade-in"
                 style={{ animationDelay: `${(index + 1) * 100}ms` }}
-                role="listitem"
               >
                 <ServiceQuestionItem item={item} />
               </div>

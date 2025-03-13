@@ -58,7 +58,7 @@ const MainButton = ({
         </p>
       ) : (
         <p
-          className={`bg-gradient-to-t from-[#01c573] to-[#01a55e] text-white hover:bg-accent shadow-soft hover:shadow-hover rounded-[10px] ${
+          className={`bg-gradient-to-t from-primary to-accent text-white hover:bg-accent shadow-soft hover:shadow-hover rounded-[10px] ${
             sizeClasses[size]
           } ${customChildClass || ""}`}
         >

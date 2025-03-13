@@ -13,7 +13,6 @@ const HowToOrderItems = memo(
     return (
       <div
         className={`flex flex-col grow h-full items-center relative bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-all duration-300 focus-within:ring-2 focus-within:ring-green-light focus-within:outline-none ${className}`}
-        role="listitem"
         style={style}
       >
         <div className="relative w-full max-w-[250px] aspect-[285/265] mb-6">

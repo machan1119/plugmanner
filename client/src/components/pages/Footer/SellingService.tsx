@@ -85,8 +85,6 @@ const SellingService = memo(({ className = "" }: SellingServiceProps) => {
         "
         onClick={handleClick}
         onKeyDown={handleKeyDown}
-        role="button"
-        aria-expanded={isOpen}
       >
         <span>Best Selling Services</span>
         <span

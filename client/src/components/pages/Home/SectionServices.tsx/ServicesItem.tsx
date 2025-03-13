@@ -33,10 +33,7 @@ const ServicesItem = memo(
     return (
       <div
         className={`inline-block relative bg-black-light border-[1px] border-black-dark rounded-[12px] p-4 w-full h-max transition-all duration-300 hover:border-gray-600 hover:shadow-lg ${className}`}
-        role="button"
         tabIndex={0}
-        aria-expanded={isExpanded}
-        aria-label={`${serviceData.title} services section`}
         onKeyDown={handleKeyDown}
         onClick={handleToggle}
         style={style}
@@ -55,10 +52,7 @@ const ServicesItem = memo(
               {serviceData.title}
             </span>
           </div>
-          <button
-            className="rounded-[4px] bg-white border-[1px] border-[rgb(224,_224,_224)] h-fit p-2 transition-all duration-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-light"
-            aria-label={isExpanded ? "Collapse services" : "Expand services"}
-          >
+          <button className="rounded-[4px] bg-white border-[1px] border-[rgb(224,_224,_224)] h-fit p-2 transition-all duration-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-light">
             <Image
               width={12}
               height={8}

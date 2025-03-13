@@ -19,10 +19,7 @@ const ServiceInfo = memo(() => {
   }
 
   return (
-    <section
-      className="flex flex-col w-full m-auto items-center"
-      aria-labelledby="service-info-title"
-    >
+    <section className="flex flex-col w-full m-auto items-center">
       <div className="flex lg:flex-row lg:items-start lg:justify-between items-center flex-col gap-[120px] pt-[80px] w-full max-w-[1366px] px-10 bg-[linear-gradient(#fffffff5,#fff),url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/67bb4de67a2ea65794f385ee_perspective-grid-black.webp')] bg-[position:0_0,50%_0] bg-[size:auto,contain] bg-no-repeat">
         <div className="flex flex-col gap-7 lg:w-[50%] lg:items-start items-center lg:text-left grow">
           <StrapiText
@@ -40,7 +37,6 @@ const ServiceInfo = memo(() => {
               src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/63ff4056e10165cf63568681_Star-icon-2.svg"
               alt=""
               className="mr-1"
-              aria-hidden="true"
             />
             <p className="font-clash text-[#686889] text-[16px] leading-[25px] font-medium">
               Rated{" "}
@@ -52,11 +48,7 @@ const ServiceInfo = memo(() => {
           </div>
           <ServiceAdvantage />
         </div>
-        <div
-          className="z-20 px-8 py-9 flex grow flex-col gap-2 items-center bg-[rgb(20,_20,_27)] bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/63ff3f8c57c2b777f07afb19_socialplug-pricingbox-illustration.svg')] bg-right-top bg-no-repeat bg-auto rounded-2xl"
-          role="complementary"
-          aria-label="Pricing information"
-        >
+        <div className="z-20 px-8 py-9 flex grow flex-col gap-2 items-center bg-[rgb(20,_20,_27)] bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/63ff3f8c57c2b777f07afb19_socialplug-pricingbox-illustration.svg')] bg-right-top bg-no-repeat bg-auto rounded-2xl">
           <div className="w-full flex flex-col items-start">
             <p className="font-service-card-text text-[16px] !text-black-steel mb-1">
               Starting from
@@ -81,10 +73,9 @@ const ServiceInfo = memo(() => {
               type="primary"
               title="Order Now >"
               customClass="w-full border-none"
-              aria-label="Order service now"
             />
           </Link>
-          <div aria-hidden="true">
+          <div>
             <Image
               width={316}
               height={24}
@@ -99,7 +90,7 @@ const ServiceInfo = memo(() => {
         <div className="max-w-[1366px] px-10 w-full flex gap-8 items-center">
           {serviceItems.introduction.StateOfService.States.map(
             (item: ServiceState) => (
-              <div key={item.character} className="text-left" role="listitem">
+              <div key={item.character} className="text-left">
                 <p className="font-service-main lg:!text-[48px]">
                   {item.counters}
                 </p>
@@ -110,10 +101,7 @@ const ServiceInfo = memo(() => {
             )
           )}
         </div>
-        <div
-          className="w-full h-[1px] bg-black-normal justify-self-center bottom-[-50px]"
-          aria-hidden="true"
-        />
+        <div className="w-full h-[1px] bg-black-normal justify-self-center bottom-[-50px]" />
       </div>
     </section>
   );

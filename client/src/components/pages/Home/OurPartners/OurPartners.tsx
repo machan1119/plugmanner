@@ -10,7 +10,6 @@ const OurPartners = memo(({ className = "" }: OurPartnersProps) => {
   return (
     <section
       className={`flex flex-col py-12 md:py-16 lg:py-[80px] items-center bg-black-medium w-full bg-cover bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ea7_hero_background-pattern.webp')] bg-center bg-no-repeat overflow-hidden ${className}`}
-      aria-labelledby="section-partners-title"
     >
       <div className="mb-12 flex flex-col gap-3 items-center">
         <h2
@@ -25,8 +24,6 @@ const OurPartners = memo(({ className = "" }: OurPartnersProps) => {
       </div>
       <div
         className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 w-full max-w-7xl mx-auto"
-        role="list"
-        aria-label="Partner logos"
       >
         {OurPartnersItems.map((item, index) => (
           <OurPartnersItem

@@ -11,7 +11,6 @@ const Question = memo(({ className = "" }: QuestionProps) => {
   return (
     <section
       className={`flex flex-col py-12 md:py-16 lg:py-[80px] items-center bg-black-light w-full ${className}`}
-      aria-labelledby="faq-title"
     >
       <div className="max-w-[1366px] justify-self-center px-4 sm:px-6 md:px-8 lg:px-10">
         <h2
@@ -20,11 +19,7 @@ const Question = memo(({ className = "" }: QuestionProps) => {
         >
           Your Questions <span className="text-green-light">Answered</span>
         </h2>
-        <div
-          className="grid grid-cols-1 xl:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-12"
-          role="list"
-          aria-label="Frequently asked questions"
-        >
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-12">
           {Questions.map((item, index) => (
             <QuestionsItem
               item={item}
@@ -34,11 +29,7 @@ const Question = memo(({ className = "" }: QuestionProps) => {
             />
           ))}
         </div>
-        <div
-          className="flex flex-col sm:flex-row justify-between bg-black-medium border-[1px] border-[rgb(224,_224,_224)] rounded-[12px] p-6 w-full h-max hover:shadow-lg transition-all duration-300 animate-fade-in-up"
-          role="complementary"
-          aria-label="Contact support section"
-        >
+        <div className="flex flex-col sm:flex-row justify-between bg-black-medium border-[1px] border-[rgb(224,_224,_224)] rounded-[12px] p-6 w-full h-max hover:shadow-lg transition-all duration-300 animate-fade-in-up">
           <div className="flex flex-col gap-2 mb-4 sm:mb-0">
             <h3 className="text-black text-[16px] md:text-[20px] font-semibold font-clash leading-[25px]">
               Still have questions?
@@ -48,11 +39,7 @@ const Question = memo(({ className = "" }: QuestionProps) => {
               our friendly team.
             </p>
           </div>
-          <MainButton
-            type="primary"
-            title="Get in touch"
-            aria-label="Contact our support team"
-          />
+          <MainButton type="primary" title="Get in touch" />
         </div>
       </div>
     </section>

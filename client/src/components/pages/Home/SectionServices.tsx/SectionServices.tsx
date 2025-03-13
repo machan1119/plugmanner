@@ -36,7 +36,6 @@ const SectionServices = memo(({ className = "" }: SectionServicesProps) => {
   return (
     <section
       className={`flex flex-col items-center m-[5%] justify-self-center relative w-full px-[5%] ${className}`}
-      aria-label="Marketing Services Section"
     >
       <h2 className="font-h1-md lg:font-h1-lg mb-12 animate-fade-in">
         All Marketing Services
@@ -55,7 +54,6 @@ const SectionServices = memo(({ className = "" }: SectionServicesProps) => {
             value={filter}
             onChange={handleFilterChange}
             className="w-30 lg:w-40 p-2 cursor-pointer bg-inherit text-[12px] lg:text-[16px] focus:outline-none focus:ring-2 focus:ring-green-light rounded-r-[10px] transition-all duration-300"
-            aria-label="Sort services by"
           >
             <option value="popular">Popular</option>
             <option value="AToZ">Sort from A-Z</option>
@@ -64,13 +62,13 @@ const SectionServices = memo(({ className = "" }: SectionServicesProps) => {
         </div>
       </div>
       <div className="w-full grid lg:grid-cols-2 xl:grid-cols-3 gap-4">
-        {filteredList.map((item, index) =>
+        {filteredList.map((item, index) => (
           <ServicesItem
             serviceData={item}
             key={index}
             className="animate-fade-in-up"
           />
-        )}
+        ))}
       </div>
     </section>
   );

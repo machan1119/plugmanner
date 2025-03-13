@@ -67,10 +67,7 @@ const ServiceArticle = () => {
                   <h3 className="text-black text-xl text-center font-semibold font-clash leading-tight mt-4">
                     {item.title}
                   </h3>
-                  <button
-                    className="text-green-light text-base p-2 rounded-md hover:bg-gray-50 transition-colors"
-                    aria-label={`Read more about ${item.title}`}
-                  >
+                  <button className="text-green-light text-base p-2 rounded-md hover:bg-gray-50 transition-colors">
                     Read More
                   </button>
                 </article>
@@ -82,16 +79,10 @@ const ServiceArticle = () => {
               <MainButton type="primary" title="Read All News & Articles" />
             </div>
             <div className="hidden md:flex gap-8 items-center">
-              <button
-                className="custom-swiper-button-prev bg-white border-black-dark border rounded-md p-2 hover:bg-gray-50 transition-colors"
-                aria-label="Previous slide"
-              >
+              <button className="custom-swiper-button-prev bg-white border-black-dark border rounded-md p-2 hover:bg-gray-50 transition-colors">
                 {PrevArrow}
               </button>
-              <button
-                className="custom-swiper-button-next bg-white border-black-dark border rounded-md p-2 hover:bg-gray-50 transition-colors"
-                aria-label="Next slide"
-              >
+              <button className="custom-swiper-button-next bg-white border-black-dark border rounded-md p-2 hover:bg-gray-50 transition-colors">
                 {NextArrow}
               </button>
             </div>

@@ -23,7 +23,6 @@ const SectionWhy = memo(({ className = "" }: SectionWhyProps) => {
   return (
     <section
       className={`flex flex-col py-12 md:py-16 lg:py-[80px] items-center bg-black-light w-full bg-cover bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ea7_hero_background-pattern.webp')] bg-center bg-no-repeat overflow-hidden border-black-dark border-t-[1px] border-b-[1px] ${className}`}
-      aria-labelledby="section-why-title"
     >
       <div className="max-w-[1366px] justify-self-center px-4 sm:px-6 md:px-8 lg:px-10">
         <div className="mb-12 flex flex-col gap-3 items-center">
@@ -37,9 +36,8 @@ const SectionWhy = memo(({ className = "" }: SectionWhyProps) => {
             Read what our customers think about this service. We take your
             feedback seriously - help us improve by{" "}
             <Link
-              className="text-green-light underline hover:text-green-dark transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-light rounded-sm"
               href={"#"}
-              aria-label="Leave a review"
+              className="text-green-light underline hover:text-green-dark transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-light rounded-sm"
             >
               leaving a review
             </Link>
@@ -47,11 +45,7 @@ const SectionWhy = memo(({ className = "" }: SectionWhyProps) => {
           </p>
         </div>
         <div className="flex flex-col gap-8 items-center w-full ">
-          <div
-            className="mt-[70px] lg:mt-0 flex flex-col sm:flex-row bg-white border border-black-dark/50 rounded-[16px] py-6 relative w-full sm:w-[90%] items-center shadow-sm hover:shadow-md transition-all duration-300"
-            role="list"
-            aria-label="Statistics"
-          >
+          <div className="mt-[70px] lg:mt-0 flex flex-col sm:flex-row bg-white border border-black-dark/50 rounded-[16px] py-6 relative w-full sm:w-[90%] items-center shadow-sm hover:shadow-md transition-all duration-300">
             <div className="absolute -top-0 right-0 transform -translate-y-[78%] translate-x-[10%] md:translate-x-[20%] z-20 w-[120px] lg:w-[10%] flex flex-col items-end">
               <Image
                 width={136}
@@ -75,7 +69,6 @@ const SectionWhy = memo(({ className = "" }: SectionWhyProps) => {
                 <div
                   className="flex flex-col grow gap-2 items-center animate-fade-in-up"
                   style={{ animationDelay: `${index * 100}ms` }}
-                  role="listitem"
                 >
                   <h3 className="font-h1-main md:font-h1-md lg:font-h1-lg">
                     {stat.value}
@@ -85,25 +78,15 @@ const SectionWhy = memo(({ className = "" }: SectionWhyProps) => {
                   </p>
                 </div>
                 {index < statsData.length - 1 && (
-                  <div
-                    className="hidden sm:block bg-gradient-to-b from-white via-black-dark to-white w-[1px] h-[75px]"
-                    aria-hidden="true"
-                  />
+                  <div className="hidden sm:block bg-gradient-to-b from-white via-black-dark to-white w-[1px] h-[75px]" />
                 )}
                 {index < statsData.length - 1 && (
-                  <div
-                    className="sm:hidden w-full h-[1px] bg-gradient-to-r from-white via-black-dark to-white my-4"
-                    aria-hidden="true"
-                  />
+                  <div className="sm:hidden w-full h-[1px] bg-gradient-to-r from-white via-black-dark to-white my-4" />
                 )}
               </React.Fragment>
             ))}
           </div>
-          <div
-            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 w-full"
-            role="list"
-            aria-label="Customer Reviews"
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 w-full">
             {Reviews.map((item, index) => (
               <SectionWhyItems
                 item={item}

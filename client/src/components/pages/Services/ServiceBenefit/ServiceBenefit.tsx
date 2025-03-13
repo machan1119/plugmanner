@@ -40,7 +40,6 @@ const ServiceBenefit = memo(({ className = "" }: ServiceBenefitProps) => {
         w-full py-[80px] bg-[#14141b] bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/64030a7b422e3a3f6bb5ed7f_Vector-dark-bg.svg')] bg-right-bottom bg-no-repeat bg-auto
         ${className}
       `}
-      aria-labelledby="benefits-heading"
     >
       <div className="max-w-[1366px] w-full justify-self-center px-10 items-center">
         <StrapiText
@@ -48,11 +47,7 @@ const ServiceBenefit = memo(({ className = "" }: ServiceBenefitProps) => {
           customClassName="font-h1 !text-white"
         />
         <div className="w-full flex flex-col items-center">
-          <div
-            className="w-full flex flex-col sm:flex-row gap-4 justify-between my-8"
-            role="tablist"
-            aria-label="Benefit categories"
-          >
+          <div className="w-full flex flex-col sm:flex-row gap-4 justify-between my-8">
             {serviceItems.introduction.Benefits.Benefit.map(
               (item: BenefitType, index: number) => (
                 <button
@@ -66,9 +61,6 @@ const ServiceBenefit = memo(({ className = "" }: ServiceBenefitProps) => {
                       ? "border-green-light !text-green-light"
                       : "border-black-dark !text-black-dark hover:border-white hover:!text-white"
                   }`}
-                  role="tab"
-                  aria-selected={currentStep === index}
-                  aria-controls={`benefit-panel-${index}`}
                   tabIndex={currentStep === index ? 0 : -1}
                 >
                   {item.tabname}
@@ -79,7 +71,6 @@ const ServiceBenefit = memo(({ className = "" }: ServiceBenefitProps) => {
           {serviceItems.introduction.Benefits.Benefit.map(
             (currentBenefit, index) => (
               <div
-                role="tabpanel"
                 className={`w-full flex flex-col lg:flex-row gap-8 items-center ${
                   index !== currentStep && "hidden"
                 }`}
@@ -109,7 +100,6 @@ const ServiceBenefit = memo(({ className = "" }: ServiceBenefitProps) => {
                     <MainButton
                       type="primary"
                       title={currentBenefit.Button}
-                      aria-label={`Learn more about ${currentBenefit.title.text[0].content}`}
                       customClass="w-[30%]"
                     />
                   )}

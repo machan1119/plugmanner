@@ -13,7 +13,6 @@ const OurPartnersItem = memo(
   ({ item, className = "", style }: OurPartnersItemProps) => {
     return (
       <div
-        role="listitem"
         className={`block transition-all duration-300 hover:scale-105 ${className}`}
       >
         <Link
@@ -21,7 +20,6 @@ const OurPartnersItem = memo(
           className="block focus:outline-none focus:ring-2 focus:ring-green-light rounded-lg"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={`Visit ${item.alt} website`}
         >
           <div className="relative w-full aspect-[238/83] bg-white/5 rounded-lg p-4 hover:bg-white/10 transition-all duration-300">
             <Image

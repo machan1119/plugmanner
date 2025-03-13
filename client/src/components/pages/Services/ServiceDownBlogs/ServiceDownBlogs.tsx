@@ -27,7 +27,6 @@ const ServiceDownBlogs = memo(({ className = "" }: ServiceDownBlogsProps) => {
         w-full py-[80px] border-b-[1px] border-black-normal
         ${className}
       `}
-      aria-labelledby="blogs-heading"
     >
       <div className="flex flex-col gap-10 max-w-[1366px] justify-self-center items-center px-10">
         {serviceItems.introduction.DownBlogs.title?.text && (
@@ -36,11 +35,7 @@ const ServiceDownBlogs = memo(({ className = "" }: ServiceDownBlogsProps) => {
             customClassName="font-h1 w-[50%] text-wrap"
           />
         )}
-        <div
-          className="w-full flex flex-col gap-10"
-          role="list"
-          aria-label="Blog articles"
-        >
+        <div className="w-full flex flex-col gap-10">
           {serviceItems.introduction.DownBlogs.Blog.map(
             (item: BlogType, index: number) => (
               <article
@@ -48,7 +43,6 @@ const ServiceDownBlogs = memo(({ className = "" }: ServiceDownBlogsProps) => {
                   index % 2 !== 0 && "lg:flex-row-reverse flex-col-reverse"
                 }`}
                 key={index}
-                role="listitem"
               >
                 <Image
                   width={500}
@@ -75,7 +69,6 @@ const ServiceDownBlogs = memo(({ className = "" }: ServiceDownBlogsProps) => {
                       type="primary"
                       title={item.button}
                       customClass="w-[50%]"
-                      aria-label={`Read more about ${item.title.text[0].content}`}
                       handleClick={() =>
                         handleButtonClick(item.title.text[0].content)
                       }

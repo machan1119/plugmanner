@@ -21,17 +21,12 @@ const ServiceGoodPoints = memo(({ className = "" }: ServiceGoodPointsProps) => {
         py-[80px] flex flex-col items-center border-b-[1px] border-black-normal
         ${className}
       `}
-      aria-labelledby="good-points-heading"
     >
       <div className="max-w-[1366px] px-10 flex flex-col gap-7 w-full items-start mb-8">
         <h2 id="good-points-heading" className="sr-only">
           Service Good Points
         </h2>
-        <div
-          className="w-full flex flex-col gap-20"
-          role="list"
-          aria-label="Service chapters"
-        >
+        <div className="w-full flex flex-col gap-20">
           {serviceItems.introduction.GoodPoints.chapter.map(
             (chapterItem: GoodPointsChapterType, chapterIndex: number) => (
               <article
@@ -39,7 +34,6 @@ const ServiceGoodPoints = memo(({ className = "" }: ServiceGoodPointsProps) => {
                   chapterIndex % 2 === 0 && "flex-row-reverse"
                 }`}
                 key={chapterIndex}
-                role="listitem"
               >
                 <div className="flex-auto flex flex-col gap-5 justify-start">
                   <h3 className="font-h1 !text-left">
@@ -48,17 +42,9 @@ const ServiceGoodPoints = memo(({ className = "" }: ServiceGoodPointsProps) => {
                       customClassName="font-h1 !text-left"
                     />
                   </h3>
-                  <div
-                    className="flex flex-col gap-8"
-                    role="list"
-                    aria-label={`${chapterItem.title.text[0].content} sections`}
-                  >
+                  <div className="flex flex-col gap-8">
                     {chapterItem.section.map((sectionItem, sectionIndex) => (
-                      <div
-                        className="flex flex-col gap-4"
-                        key={sectionIndex}
-                        role="listitem"
-                      >
+                      <div className="flex flex-col gap-4" key={sectionIndex}>
                         {sectionItem.title && (
                           <h4 className="text-black font-semibold text-[24px]">
                             <StrapiText

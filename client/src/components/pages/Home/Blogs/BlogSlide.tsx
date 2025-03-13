@@ -40,7 +40,6 @@ const BlogSlide = memo(({ className = "" }: BlogSlideProps) => {
           },
         }}
         modules={[Autoplay, Navigation]}
-        aria-label="Blog articles carousel"
       >
         {BlogItems.map((item, index) => (
           <SwiperSlide
@@ -67,10 +66,7 @@ const BlogSlide = memo(({ className = "" }: BlogSlideProps) => {
                   <p className="text-black text-[14px] text-center font-satoshi font-medium">
                     {item.type}
                   </p>
-                  <div
-                    className="w-[1px] bg-black h-full mx-2"
-                    aria-hidden="true"
-                  />
+                  <div className="w-[1px] bg-black h-full mx-2" />
                   <time
                     dateTime={item.date}
                     className="text-black/60 text-[14px] text-center font-satoshi font-medium"
@@ -78,10 +74,7 @@ const BlogSlide = memo(({ className = "" }: BlogSlideProps) => {
                     {item.date}
                   </time>
                 </div>
-                <button
-                  className="text-green-light text-[16px] p-2 rounded-md hover:bg-green-light/10 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-light"
-                  aria-label={`Read more about ${item.title}`}
-                >
+                <button className="text-green-light text-[16px] p-2 rounded-md hover:bg-green-light/10 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-light">
                   Read More &gt;
                 </button>
               </div>
@@ -91,23 +84,13 @@ const BlogSlide = memo(({ className = "" }: BlogSlideProps) => {
       </Swiper>
       <div className="relative mt-[20px] w-full items-base">
         <div className="justify-self-center">
-          <MainButton
-            type="primary"
-            title="Read All News & Articles"
-            aria-label="View all news and articles"
-          />
+          <MainButton type="primary" title="Read All News & Articles" />
         </div>
         <div className="hidden md:block absolute top-0 right-5">
-          <button
-            className="custom-swiper-button-prev bg-white border-black-dark border-[1px] rounded-md hover:bg-black-dark hover:text-white transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-light"
-            aria-label="Previous slide"
-          >
+          <button className="custom-swiper-button-prev bg-white border-black-dark border-[1px] rounded-md hover:bg-black-dark hover:text-white transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-light">
             {PrevArrow}
           </button>
-          <button
-            className="custom-swiper-button-next mx-8 bg-white border-black-dark border-[1px] rounded-md hover:bg-black-dark hover:text-white transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-light"
-            aria-label="Next slide"
-          >
+          <button className="custom-swiper-button-next mx-8 bg-white border-black-dark border-[1px] rounded-md hover:bg-black-dark hover:text-white transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-light">
             {NextArrow}
           </button>
         </div>

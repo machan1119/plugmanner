@@ -31,21 +31,15 @@ const QuestionsItem = memo(
       <div
         className={`inline-block relative bg-black-medium border-[1px] border-[rgb(224,_224,_224)] rounded-[12px] p-4 sm:p-6 w-full h-max cursor-pointer transition-all duration-300 hover:border-gray-400 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-green-light ${className}`}
         onClick={handleToggle}
-        role="button"
         tabIndex={0}
         onKeyDown={handleKeyDown}
-        aria-expanded={isExpanded}
-        aria-controls={`answer-${item.question}`}
         style={style}
       >
         <div className="flex justify-between items-center">
           <h3 className="text-black text-[16px] md:text-[20px] font-semibold font-clash animate-fade-in">
             {item.question}
           </h3>
-          <div
-            className="rounded-[4px] bg-white border-[1px] border-[rgb(224,_224,_224)] p-2 transition-all duration-300 hover:bg-gray-50"
-            aria-hidden="true"
-          >
+          <div className="rounded-[4px] bg-white border-[1px] border-[rgb(224,_224,_224)] p-2 transition-all duration-300 hover:bg-gray-50">
             <Image
               width={12}
               height={8}
@@ -65,8 +59,6 @@ const QuestionsItem = memo(
               ? "grid-rows-[1fr] opacity-100 mt-5"
               : "grid-rows-[0fr] opacity-0"
           }`}
-          role="region"
-          aria-hidden={!isExpanded}
         >
           <div className="overflow-hidden">
             <div className="text-gray-600 animate-fade-in-up">

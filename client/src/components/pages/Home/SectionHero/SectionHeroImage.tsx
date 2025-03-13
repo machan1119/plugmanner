@@ -7,11 +7,7 @@ interface SectionHeroImageProps {
 
 const SectionHeroImage = memo(({ className = "" }: SectionHeroImageProps) => {
   return (
-    <div 
-      className={`relative w-full mt-4 sm:mt-6 md:mt-8 ${className}`}
-      role="img"
-      aria-label="Hero background illustration"
-    >
+    <div className={`relative w-full mt-4 sm:mt-6 md:mt-8 ${className}`}>
       <Image
         width={1315}
         height={366}

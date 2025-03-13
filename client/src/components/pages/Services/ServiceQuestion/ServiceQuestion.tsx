@@ -26,7 +26,6 @@ const ServiceQuestion = memo(({ className = "" }: ServiceQuestionProps) => {
         animate-fade-in
         ${className}
       `}
-      aria-labelledby="faq-heading"
     >
       <div className="max-w-[1366px] w-full px-4 md:px-10">
         <h2
@@ -56,8 +55,6 @@ const ServiceQuestion = memo(({ className = "" }: ServiceQuestionProps) => {
             animate-fade-in
           "
           style={{ animationDelay: "200ms" }}
-          role="list"
-          aria-label="Frequently asked questions"
         >
           {serviceItems.introduction.FrequentlyQuestions.Question.map(
             (item: QuestionType, index: number) => (
@@ -65,7 +62,6 @@ const ServiceQuestion = memo(({ className = "" }: ServiceQuestionProps) => {
                 key={`faq-${index + 1}`}
                 className="animate-fade-in"
                 style={{ animationDelay: `${(index + 1) * 100}ms` }}
-                role="listitem"
               >
                 <ServiceQuestionItem item={item} />
               </div>

@@ -11,8 +11,6 @@ const StatusItem = memo(
     return (
       <div
         className={`flex justify-between font-satoshi text-base leading-6 px-4 py-3 bg-[rgb(215_249_235)] rounded-lg shadow-[rgb(187_229_218)_3px_4px_12px_0px_inset] h-[46px] overflow-hidden hover:shadow-lg transition-all duration-300 ${className}`}
-        role="status"
-        aria-label={`${count.toLocaleString()} ${type} delivered ${time} minutes ago`}
       >
         <div className="flex gap-[10px] items-center">
           <span className="relative flex size-3">

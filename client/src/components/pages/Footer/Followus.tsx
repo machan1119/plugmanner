@@ -68,7 +68,6 @@ const FollowUs = memo(({ className = "" }: FollowUsProps) => {
               animate-fade-in
             "
             style={{ animationDelay: `${index * 100}ms` }}
-            aria-label={`Follow us on ${link.label}`}
           >
             {link.icon}
           </Link>

@@ -14,8 +14,6 @@ const SectionWhyChooseItems = memo(
       <div
         className={`flex flex-col md:flex-row grow w-full h-full p-4 sm:p-6 items-center bg-white border-black-dark text-black rounded-[16px] hover:shadow-lg transition-all duration-300 border border-black-dark/50 ${className}`}
         style={style}
-        role="listitem"
-        aria-label={`${item.title} feature`}
       >
         <div className="relative max-w-[200px] w-[40%] h-full mb-6 md:mb-0 md:mr-6">
           <Image

@@ -1,42 +1,34 @@
 import { useServices } from "@/providers/ServicesProvider";
 import Image from "next/image";
-import React, { useEffect, useRef, useState, memo, useCallback } from "react";
+import React, { useState, memo, useCallback } from "react";
 import ReviewItem from "../ServiceReview/ReviewItem";
 import MainButton from "@/components/Buttons";
 import { StrapiText } from "@/components/StrapiComponents";
 import { Review } from "@/libs/types/ServiceJsonDataType";
 
-const INITIAL_HEIGHT = 400;
-const HEIGHT_INCREMENT = 200;
+const INITIAL_COUNT = 10;
+const COUNT_INCREMENT = 5;
 
 const ServiceCustomerReview = () => {
   const { serviceItems } = useServices();
-  const [readHeight, setReadHeight] = useState<number | undefined>(
-    INITIAL_HEIGHT
-  );
-  const [maxHeight, setMaxHeight] = useState<number | undefined>(0);
-  const readRef = useRef<HTMLDivElement>(null);
-  const maxRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    setReadHeight(readRef?.current?.clientHeight);
-    setMaxHeight(maxRef?.current?.clientHeight);
-  }, []);
+  const [count, setCount] = useState(INITIAL_COUNT);
 
   const handleShowMore = useCallback(() => {
-    setReadHeight((prev) => prev && prev + HEIGHT_INCREMENT);
+    setCount((prev) => prev + COUNT_INCREMENT);
   }, []);
 
   const handleShowLess = useCallback(() => {
-    setReadHeight(INITIAL_HEIGHT);
+    setCount(INITIAL_COUNT);
   }, []);
 
   if (!serviceItems?.introduction.CustomerReviews) {
     return null;
   }
+  const maxCount = serviceItems.introduction.CustomerReviews.Review.length;
 
-  const showMoreButton = readHeight && maxHeight && readHeight < maxHeight;
-  const showLessButton = readHeight && maxHeight && readHeight >= maxHeight;
+  const showMoreButton = count < maxCount;
+  const showLessButton = count > INITIAL_COUNT && count >= maxCount;
 
   return (
     <section className="py-[80px] flex flex-col items-center border-b-[1px] border-black-normal">
@@ -69,24 +61,21 @@ const ServiceCustomerReview = () => {
             </span>
           </div>
         </div>
-        <div
-          className="relative overflow-hidden mt-6 min-h-[500px] w-full"
-          ref={readRef}
-          style={{ height: readHeight }}
-        >
-          <div className="w-full columns-[300px] gap-5 h-max" ref={maxRef}>
-            {serviceItems.introduction.CustomerReviews.Review.map(
-              (item: Review, index: number) => (
-                <ReviewItem
-                  title={item.title}
-                  rating={item.rated}
-                  comment={item.content}
-                  customerName={item.customer}
-                  date={item.date}
-                  key={index}
-                />
-              )
-            )}
+        <div className="relative overflow-hidden mt-6 min-h-[500px] w-full">
+          <div className="w-full columns-[300px] gap-5 h-max">
+            {serviceItems.introduction.CustomerReviews.Review.slice(
+              0,
+              count
+            ).map((item: Review, index: number) => (
+              <ReviewItem
+                title={item.title}
+                rating={item.rated}
+                comment={item.content}
+                customerName={item.customer}
+                date={item.date}
+                key={index}
+              />
+            ))}
             <div className="absolute z-20 bg-[linear-gradient(rgb(0,0,0,0),rgb(255,255,255))] h-[200px] w-full bottom-0 left-0" />
           </div>
         </div>

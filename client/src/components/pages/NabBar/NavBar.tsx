@@ -1,17 +1,13 @@
-"use client";
 import React, { memo } from "react";
 import NavBarMain from "./NavBarMain";
 import NavBarBottom from "./NavBarBottom";
 import NavBarTop from "./NavBarTop";
-import { useHome } from "@/providers/HomeProvider";
 
 interface NavBarProps {
   className?: string;
 }
 
 const NavBar = memo(({ className = "" }: NavBarProps) => {
-  const { serviceShow } = useHome();
-
   return (
     <nav
       className={`
@@ -22,23 +18,9 @@ const NavBar = memo(({ className = "" }: NavBarProps) => {
         ${className}
       `}
     >
-      <div className="animate-fade-in">
-        <NavBarTop />
-      </div>
-      <div className="animate-fade-in" style={{ animationDelay: "100ms" }}>
-        <NavBarMain />
-      </div>
-      <div
-        className={`
-          transition-all duration-300
-          ${serviceShow ? "hidden" : "block"} 
-          lg:block
-          animate-fade-in
-        `}
-        style={{ animationDelay: "200ms" }}
-      >
-        <NavBarBottom />
-      </div>
+      <NavBarTop />
+      <NavBarMain />
+      <NavBarBottom />
     </nav>
   );
 });

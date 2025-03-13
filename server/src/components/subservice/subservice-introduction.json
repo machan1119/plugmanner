@@ -101,6 +101,9 @@
       "type": "component",
       "repeatable": false,
       "component": "subservice.service-summary"
+    },
+    "video_title": {
+      "type": "text"
     }
   }
 }

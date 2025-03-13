@@ -664,6 +664,12 @@ export interface ApiSubserviceSubservice extends Struct.CollectionTypeSchema {
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     service: Schema.Attribute.Relation<'manyToOne', 'api::service.service'>;
     simpledescription: Schema.Attribute.Component<'general.list', false> &
       Schema.Attribute.SetPluginOptions<{

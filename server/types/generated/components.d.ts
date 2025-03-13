@@ -130,6 +130,82 @@ export interface OrderQqq extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedMetaSocial extends Struct.ComponentSchema {
+  collectionName: 'components_shared_meta_socials';
+  info: {
+    description: '';
+    displayName: 'metaSocial';
+    icon: 'project-diagram';
+  };
+  attributes: {
+    description: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 65;
+      }>;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    socialNetwork: Schema.Attribute.Enumeration<['Facebook', 'Twitter']> &
+      Schema.Attribute.Required;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 60;
+      }>;
+  };
+}
+
+export interface SharedOpenGraph extends Struct.ComponentSchema {
+  collectionName: 'components_shared_open_graphs';
+  info: {
+    displayName: 'openGraph';
+    icon: 'project-diagram';
+  };
+  attributes: {
+    ogDescription: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 200;
+      }>;
+    ogImage: Schema.Attribute.Media<'images'>;
+    ogTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 70;
+      }>;
+    ogType: Schema.Attribute.String;
+    ogUrl: Schema.Attribute.String;
+  };
+}
+
+export interface SharedSeo extends Struct.ComponentSchema {
+  collectionName: 'components_shared_seos';
+  info: {
+    displayName: 'seo';
+    icon: 'search';
+  };
+  attributes: {
+    canonicalURL: Schema.Attribute.String;
+    keywords: Schema.Attribute.Text;
+    metaDescription: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 160;
+        minLength: 50;
+      }>;
+    metaImage: Schema.Attribute.Media<'images'>;
+    metaRobots: Schema.Attribute.String;
+    metaSocial: Schema.Attribute.Component<'shared.meta-social', true>;
+    metaTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 60;
+      }>;
+    metaViewport: Schema.Attribute.String;
+    openGraph: Schema.Attribute.Component<'shared.open-graph', false>;
+    structuredData: Schema.Attribute.JSON;
+  };
+}
+
 export interface SocialContactSocialLinkedin extends Struct.ComponentSchema {
   collectionName: 'components_social_contact_social_linkedins';
   info: {
@@ -358,6 +434,7 @@ export interface SubserviceSubBenefit extends Struct.ComponentSchema {
     displayName: 'SubBenefit';
   };
   attributes: {
+    alt: Schema.Attribute.Text;
     Button: Schema.Attribute.String;
     button_api: Schema.Attribute.Text;
     img: Schema.Attribute.Text & Schema.Attribute.Required;
@@ -375,6 +452,7 @@ export interface SubserviceSubBlog extends Struct.ComponentSchema {
     icon: 'feather';
   };
   attributes: {
+    alt: Schema.Attribute.Text;
     button: Schema.Attribute.String;
     button_api: Schema.Attribute.String;
     img: Schema.Attribute.Text & Schema.Attribute.Required;
@@ -426,6 +504,7 @@ export interface SubserviceSubserviceIntroduction
     TopReviews: Schema.Attribute.Component<'subservice.top-reviews', false>;
     UpBlogs: Schema.Attribute.Component<'subservice.blogs', false>;
     video: Schema.Attribute.Text;
+    video_title: Schema.Attribute.Text;
   };
 }
 
@@ -457,6 +536,9 @@ declare module '@strapi/strapi' {
       'general.social-link': GeneralSocialLink;
       'order.order-intro': OrderOrderIntro;
       'order.qqq': OrderQqq;
+      'shared.meta-social': SharedMetaSocial;
+      'shared.open-graph': SharedOpenGraph;
+      'shared.seo': SharedSeo;
       'social-contact.social-linkedin': SocialContactSocialLinkedin;
       'subservice.benefits': SubserviceBenefits;
       'subservice.blogs': SubserviceBlogs;

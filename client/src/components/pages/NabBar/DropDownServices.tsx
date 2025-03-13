@@ -73,6 +73,8 @@ const ServiceCategory = memo(({ val }: ServiceCategoryProps) => (
       className="
       text-base font-semibold font-clash
       text-text-primary 
+      w-max
+      text-wrap
       px-4 py-2
       transition-colors duration-300
     "
@@ -80,16 +82,14 @@ const ServiceCategory = memo(({ val }: ServiceCategoryProps) => (
       {val.title}
     </div>
     <div className="w-full h-px bg-black-normal" />
-    <div className="py-1">
-      {val.services.map((dataItem, key) => (
-        <ServiceItem
-          key={key}
-          dataItem={dataItem}
-          icon={val.icon}
-          title={val.title}
-        />
-      ))}
-    </div>
+    {val.services.map((dataItem, key) => (
+      <ServiceItem
+        key={key}
+        dataItem={dataItem}
+        icon={val.icon}
+        title={val.title}
+      />
+    ))}
   </div>
 ));
 
@@ -165,15 +165,14 @@ const DropDownServices = memo(
             w-[50vw] 
             max-h-[70vh] 
             overflow-y-auto 
+            overflow-x-hidden
             p-1
             scrollbar-thin scrollbar-thumb-black-normal scrollbar-track-transparent
           "
             >
-              <div className="columns-[150px] w-full gap-6">
+              <div className="columns-[100px] w-full gap-6">
                 {item.data.map((val, index) => (
-                  <div key={index}>
-                    <ServiceCategory val={val} />
-                  </div>
+                  <ServiceCategory val={val} key={index} />
                 ))}
               </div>
             </div>
@@ -189,9 +188,7 @@ const DropDownServices = memo(
             >
               <div className="flex w-max gap-6">
                 {item.data.map((val, index) => (
-                  <div key={index}>
-                    <ServiceCategory val={val} />
-                  </div>
+                  <ServiceCategory val={val} key={index} />
                 ))}
               </div>
             </div>

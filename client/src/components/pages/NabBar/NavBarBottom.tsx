@@ -1,75 +1,71 @@
-import React, { memo } from "react";
+import React, { memo, useEffect, useState } from "react";
 import DropDownServices from "./DropDownServices";
 import { useList } from "@/providers/ListProvider";
 import { ServiceListSkeleton } from "@/components/Skeletons";
 import DropDownServicesResponsive from "./DropDownServicesResponsive";
+import { useHome } from "@/providers/HomeProvider";
 
-interface NavBarBottomProps {
-  className?: string;
-}
-
-const NavBarBottom = memo(({ className = "" }: NavBarBottomProps) => {
+const NavBarBottom = memo(() => {
+  const { serviceShow } = useHome();
   const { list, isLoading } = useList();
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      const currentWidth = window.innerWidth;
+      if (currentWidth > 1024) {
+        setIsMobile(false);
+      } else {
+        setIsMobile(true);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   if (isLoading) {
     return <ServiceListSkeleton />;
   }
 
   return (
-    <div
-      className={`
-      bg-background-light 
-      border-y border-black-dark/50 
-      py-1.5 w-full
-      transition-all duration-300
-      ${className}
-    `}
-    >
+    serviceShow &&
+    (isMobile ? (
       <div
         className="
-        hidden lg:flex lg:flex-row lg:justify-between 
+        flex flex-col
         justify-self-center 
-        w-[90%] xl:w-[65%]
-        mx-auto
-        animate-fade-in
-      "
-      >
-        {list.map((val, index) => (
-          <div
-            key={index}
-            className="animate-fade-in"
-            style={{ animationDelay: `${index * 100}ms` }}
-          >
-            <DropDownServices item={val} />
-          </div>
-        ))}
-      </div>
-      <div
-        className="
-        flex flex-col lg:hidden 
-        justify-self-center 
-        w-[90%] xl:w-[65%]
-        mx-auto
+        w-full px-[20px]
+        border-y border-black-dark/50 
+        py-1.5
         h-[100vh] overflow-scroll
-        animate-fade-in
       "
       >
         {list.map((item, index) =>
           item.data.map((val, innerIndex) => (
-            <div
+            <DropDownServicesResponsive
+              serviceData={val}
               key={`${index}-${innerIndex}`}
-              className="animate-fade-in"
-              style={{
-                animationDelay: `${(index * item.data.length + innerIndex) * 100
-                  }ms`,
-              }}
-            >
-              <DropDownServicesResponsive serviceData={val} />
-            </div>
+            />
           ))
         )}
       </div>
-    </div>
+    ) : (
+      <div
+        className="
+        flex flex-row justify-between 
+        justify-self-center 
+        w-full 2xl:px-[15%] xl:px-[10%] px-[5%]
+        border-y border-black-dark/50 
+        py-1.5
+      "
+      >
+        {list.map((val, index) => (
+          <DropDownServices item={val} key={index} />
+        ))}
+      </div>
+    ))
   );
 });
 

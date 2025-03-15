@@ -1,5 +1,4 @@
 import type { NextConfig } from "next";
-import { withNextIntl } from "next-intl";
 
 const nextConfig: NextConfig = {
   images: {

@@ -469,6 +469,8 @@ export interface ApiFreeToolFreeTool extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    alt: Schema.Attribute.RichText;
+    alt2: Schema.Attribute.Blocks;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -560,6 +562,7 @@ export interface ApiServiceService extends Struct.CollectionTypeSchema {
 export interface ApiSubFreeToolSubFreeTool extends Struct.CollectionTypeSchema {
   collectionName: 'sub_free_tools';
   info: {
+    description: '';
     displayName: 'SubFree Tool';
     pluralName: 'sub-free-tools';
     singularName: 'sub-free-tool';
@@ -588,6 +591,7 @@ export interface ApiSubFreeToolSubFreeTool extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
     type: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

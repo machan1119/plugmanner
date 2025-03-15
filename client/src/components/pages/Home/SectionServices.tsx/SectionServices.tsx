@@ -1,5 +1,6 @@
 "use client";
-import React, { useState, memo, useEffect } from "react";
+import React, { useState, memo, useEffect, useCallback } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
 import { SwitchButton } from "@/components/Buttons";
 import ServicesItem from "./ServicesItem";
 import { useList } from "@/providers/ListProvider";
@@ -16,18 +17,45 @@ const SectionServices = memo(({ className = "" }: SectionServicesProps) => {
   const [status, setStatus] = useState<"Services" | "Tools">("Services");
   const [filter, setFilter] = useState<FilterType>("popular");
   const [filteredList, setFilteredList] = useState<ServicesListType[]>([]);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+  const itemsPerPage = 20;
+
+  const filterAndSortList = useCallback(
+    (list: ServicesListType[], filter: FilterType) => {
+      return [...list].sort((a, b) => {
+        if (filter === "AToZ") {
+          return a.title.toLowerCase().localeCompare(b.title.toLowerCase());
+        }
+        if (filter === "ZToA") {
+          return b.title.toLowerCase().localeCompare(a.title.toLowerCase());
+        }
+        return Number(b.popular) - Number(a.popular);
+      });
+    },
+    []
+  );
+
   useEffect(() => {
-    const filteredList = [...serviceList].sort((a, b) => {
-      if (filter === "AToZ") {
-        return a.title.toLowerCase().localeCompare(b.title.toLowerCase());
-      }
-      if (filter === "ZToA") {
-        return b.title.toLowerCase().localeCompare(a.title.toLowerCase());
-      }
-      return Number(b.popular) - Number(a.popular);
-    });
-    setFilteredList(filteredList);
-  }, [filter, serviceList]);
+    const sortedList = filterAndSortList(serviceList, filter);
+    const initialData = sortedList.slice(0, itemsPerPage);
+    setFilteredList(initialData);
+    setPage(1);
+    setHasMore(sortedList.length > itemsPerPage);
+  }, [filter, serviceList, filterAndSortList, itemsPerPage]);
+
+  const loadMore = () => {
+    const nextPage = page + 1;
+    const sortedList = filterAndSortList(serviceList, filter);
+    const nextData = sortedList.slice(0, nextPage * itemsPerPage);
+
+    if (nextData.length === filteredList.length) {
+      setHasMore(false);
+    } else {
+      setFilteredList(nextData);
+      setPage(nextPage);
+    }
+  };
 
   const handleFilterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setFilter(e.target.value as FilterType);
@@ -59,14 +87,24 @@ const SectionServices = memo(({ className = "" }: SectionServicesProps) => {
           </select>
         </div>
       </div>
-      <div className="w-full grid lg:grid-cols-2 xl:grid-cols-3 gap-4">
-        {filteredList.map((item, index) => (
-          <ServicesItem
-            serviceData={item}
-            key={index}
-            className="animate-fade-in-up"
-          />
-        ))}
+      <div className="w-full">
+        <InfiniteScroll
+          dataLength={filteredList.length}
+          next={loadMore}
+          hasMore={hasMore}
+          loader={<>loading...</>}
+          className="w-full"
+        >
+          <div className="w-full grid lg:grid-cols-2 xl:grid-cols-3 gap-4">
+            {filteredList.map((item, index) => (
+              <ServicesItem
+                serviceData={item}
+                key={index}
+                className="animate-fade-in-up"
+              />
+            ))}
+          </div>
+        </InfiniteScroll>
       </div>
     </section>
   );

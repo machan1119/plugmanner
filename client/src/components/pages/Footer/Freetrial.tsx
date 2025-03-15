@@ -79,6 +79,7 @@ const FreeTrial = memo(({ className = "" }: FreeTrialProps) => {
         {links.map((link, index) => (
           <Link
             key={link.label}
+            aria-label={link.label}
             href={`https://www.socialplug.io/free-services/free-${link.href}`}
             className="
               text-base leading-6

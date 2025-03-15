@@ -110,6 +110,7 @@ const SellingService = memo(({ className = "" }: SellingServiceProps) => {
         {serviceLinks.map((link, index) => (
           <Link
             key={link.label}
+            aria-label={link.label}
             href={`https://socialplug.io/services${link.href}`}
             className="
               text-base leading-6

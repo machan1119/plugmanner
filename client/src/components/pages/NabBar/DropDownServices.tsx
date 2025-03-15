@@ -17,7 +17,6 @@ interface ServiceItemProps {
 const ServiceItem = memo(({ dataItem, icon, title }: ServiceItemProps) => (
   <Link
     href={`/services/${generate_slug(dataItem.name)}`}
-    aria-label={dataItem.name}
     className="
       flex items-center gap-2 
       py-2 px-4 

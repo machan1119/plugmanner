@@ -51,9 +51,7 @@ const ServiceBenefit = memo(({ className = "" }: ServiceBenefitProps) => {
             {serviceItems.introduction.Benefits.Benefit.map(
               (item: BenefitType, index: number) => (
                 <button
-                  key={`benefit-${item.title.text[0].content
-                    .replace(/\s+/g, "-")
-                    .toLowerCase()}`}
+                  key={index}
                   onClick={() => handleTabClick(index)}
                   onKeyDown={(e) => handleKeyDown(e, index)}
                   className={`w-full py-2 bg-transparent font-clash lg:text-[18px] !text-center !font-semibold border-b-[2px] ${
@@ -82,7 +80,7 @@ const ServiceBenefit = memo(({ className = "" }: ServiceBenefitProps) => {
                     height={500}
                     loading="eager"
                     priority
-                    alt={`${currentBenefit.title.text[0].content} illustration`}
+                    alt={`illustration`}
                     src={currentBenefit.img}
                     className="object-cover"
                   />

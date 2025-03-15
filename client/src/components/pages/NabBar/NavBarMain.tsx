@@ -61,6 +61,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
         <div className="max-w-[1366px] w-full flex items-center justify-between px-4 md:px-10">
           <Link
             href="/"
+            aria-label="Home"
             className="transition-transform duration-300 hover:scale-105"
           >
             <Image
@@ -131,6 +132,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
                                   href={`/services/${generate_slug(
                                     subservice.name
                                   )}`}
+                                  aria-label={subservice.name}
                                 >
                                   {subservice.name}
                                 </Link>
@@ -145,6 +147,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
                               href={`/services/${generate_slug(
                                 subservice.name
                               )}`}
+                              aria-label={subservice.name}
                             >
                               {subservice.name}
                             </Link>
@@ -164,6 +167,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
             <Link
               href="/services/"
               className="lg:block hidden animate-fade-in"
+              aria-label="All Services"
               style={{ animationDelay: "100ms" }}
             >
               <MainButton
@@ -183,6 +187,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
             >
               <Link
                 href="#"
+                aria-label="Language"
                 className="
                   w-[62px] h-[40px] 
                   gap-1 flex items-center px-2
@@ -220,6 +225,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
                   <Link
                     key={lang.code}
                     href="#"
+                    aria-label={lang.name}
                     className="
                       flex items-center gap-1
                       transition-colors duration-300
@@ -318,6 +324,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
                                 href={`/services/${generate_slug(
                                   subservice.name
                                 )}`}
+                                aria-label={subservice.name}
                               >
                                 {subservice.name}
                               </Link>
@@ -330,6 +337,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
                           <Link
                             className="flex px-2 py-1 text-base text-text-primary font-medium font-satoshi hover:bg-background-light hover:text-primary transition-all duration-300"
                             href={`/services/${generate_slug(subservice.name)}`}
+                            aria-label={subservice.name}
                           >
                             {subservice.name}
                           </Link>

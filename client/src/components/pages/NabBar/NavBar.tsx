@@ -12,7 +12,7 @@ const NavBar = memo(({ className = "" }: NavBarProps) => {
     <nav
       className={`
         sticky top-0 z-50
-        bg-white/80 backdrop-blur-sm
+        bg-white backdrop-blur-sm
         shadow-soft
         transition-all duration-300
         ${className}

@@ -1,16 +1,16 @@
+"use client";
 import ServicesContent from "@/components/pages/Services/ServiceContent";
-import { ServicesProvider } from "@/providers/ServicesProvider";
+import { useServices } from "@/providers/ServicesProvider";
 
-export default async function ServicesPage({
-  params,
-}: {
-  params: Promise<{ item: string }>;
-}) {
-  const item = (await params).item;
+export default function ServicesPage() {
+  const { serviceItems } = useServices();
 
-  return (
-    <ServicesProvider item={item}>
-      <ServicesContent />
-    </ServicesProvider>
-  );
+  console.log(serviceItems);
+  return <ServicesContent />;
 }
+
+// export async function generateMetadata() {
+//   return {
+//     title: "123123123213",
+//   };
+// }

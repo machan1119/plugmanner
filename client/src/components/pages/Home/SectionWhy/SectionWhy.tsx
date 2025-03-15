@@ -34,6 +34,7 @@ const SectionWhy = memo(({ className = "" }: SectionWhyProps) => {
             feedback seriously - help us improve by{" "}
             <Link
               href={"#"}
+              aria-label="Leave a review"
               className="text-primary underline hover:text-secondary transition-colors duration-300 rounded-sm"
             >
               leaving a review

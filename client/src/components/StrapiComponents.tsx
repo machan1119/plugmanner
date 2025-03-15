@@ -26,6 +26,7 @@ const StrapiText = memo(({ data, customClassName = "" }: StrapiTextType) => {
                 underline hover:text-primary
               `}
               style={{ color: item.color }}
+              aria-label={item.content}
               key={index}
             >
               {item.content}

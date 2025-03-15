@@ -112,6 +112,7 @@ const Section = memo(
           {links.map((link, index) => (
             <Link
               key={link.label}
+              aria-label={link.label}
               href={`https://socialplug.io/free-tools${link.href}`}
               className="
               text-base leading-6

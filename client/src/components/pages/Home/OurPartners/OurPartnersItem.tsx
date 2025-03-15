@@ -17,6 +17,7 @@ const OurPartnersItem = memo(
       >
         <Link
           href={item.host}
+          aria-label={item.alt}
           className="block rounded-lg"
           target="_blank"
           rel="noopener noreferrer"

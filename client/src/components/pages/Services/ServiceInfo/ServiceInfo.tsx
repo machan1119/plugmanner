@@ -70,6 +70,7 @@ const ServiceInfo = memo(() => {
           <Link
             href={`${serviceItems.ordernow}`}
             className="w-full animate-fade-in my-6"
+            aria-label="Order Now"
             style={{ animationDelay: "100ms" }}
           >
             <MainButton

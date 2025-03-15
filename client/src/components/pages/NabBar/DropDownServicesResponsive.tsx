@@ -93,6 +93,7 @@ const DropDownServicesResponsive = memo(
             {serviceData.services.map((serviceItem, index) => (
               <Link
                 key={index}
+                aria-label={serviceItem.name}
                 href={`/services/${generate_slug(serviceItem.name)}`}
                 onClick={() => {
                   setServiceShow(true);

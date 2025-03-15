@@ -204,7 +204,7 @@ export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
         setError(error);
         console.error("Error fetching services:", error);
       } finally {
-        setIsLoading(false);
+        if (limit != 1) setIsLoading(false);
       }
     },
     [meta]

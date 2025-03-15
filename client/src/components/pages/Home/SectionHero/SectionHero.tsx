@@ -88,7 +88,11 @@ const SectionHero = memo(({ className = "" }: SectionHeroProps) => {
           </div>
         </div>
         <div className="flex flex-col sm:flex-row gap-4 items-center animate-fade-in-up">
-          <Link href={"#services-list"} scroll={true}>
+          <Link
+            href={"#services-list"}
+            scroll={true}
+            aria-label="View All Services"
+          >
             <MainButton type="primary" title="View All Services" />
           </Link>
           <MainButton type="white-main" title="Client Portal" />

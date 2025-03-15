@@ -38,7 +38,7 @@ const ServicesItem = memo(
         onClick={handleToggle}
         style={style}
       >
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center w-full">
           <div className="flex gap-3 items-center">
             <Image
               width={40}
@@ -77,6 +77,7 @@ const ServicesItem = memo(
                 <Link
                   className="p-2 bg-white rounded-md flex items-center justify-center text-center transition-all duration-200 hover:bg-gray-50 hover:shadow-sm animate-fade-in-up"
                   href={`/services/${generate_slug(serviceItem.name)}`}
+                  aria-label={serviceItem.name}
                   key={`${serviceData.title}-${index}`}
                   style={{ animationDelay: `${index * 50}ms` }}
                 >

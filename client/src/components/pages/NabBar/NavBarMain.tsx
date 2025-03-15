@@ -4,7 +4,6 @@ import { CloseIcon, SearchIcon } from "@/libs/consts/MySvg";
 import { useHome } from "@/providers/HomeProvider";
 import Image from "next/image";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 import React, { memo, useState } from "react";
 import { useList } from "@/providers/ListProvider";
 import { generate_slug } from "@/utils/functions";
@@ -25,6 +24,16 @@ const languages: LanguageOption[] = [
     flag: "https://cdn.weglot.com/flags/square/es.svg",
     name: "Español",
   },
+  {
+    code: "de",
+    flag: "https://cdn.weglot.com/flags/square/de.svg",
+    name: "Deutsch",
+  },
+  {
+    code: "pt-BR",
+    flag: "https://cdn.weglot.com/flags/square/br.svg",
+    name: "Português",
+  },
 ];
 
 interface NavBarMainProps {
@@ -37,9 +46,6 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
   const { serviceList, subServiceList } = useList();
   const [searchService, setSearchService] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  subServiceList.sort(function (a, b) {
-    return Number(b.popular) - Number(a.popular);
-  });
 
   const handleInputFocus = () => {
     setIsDropdownOpen(true);
@@ -61,6 +67,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
         <div className="max-w-[1366px] w-full flex items-center justify-between px-4 md:px-10">
           <Link
             href="/"
+            aria-label="Home"
             className="transition-transform duration-300 hover:scale-105"
           >
             <Image
@@ -131,6 +138,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
                                   href={`/services/${generate_slug(
                                     subservice.name
                                   )}`}
+                                  aria-label={subservice.name}
                                 >
                                   {subservice.name}
                                 </Link>
@@ -145,6 +153,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
                               href={`/services/${generate_slug(
                                 subservice.name
                               )}`}
+                              aria-label={subservice.name}
                             >
                               {subservice.name}
                             </Link>
@@ -156,14 +165,18 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
             </div>
 
             <div className="w-px h-[50px] bg-gradient-to-b from-transparent via-black-normal to-transparent" />
-            <MainButton
-              type="white-main"
-              title="Login"
-              handleClick={() => redirect("/login")}
-            />
+            <Link
+              href="https://panel.socialplug.io/"
+              aria-label="Login"
+              className="animate-fade-in"
+              style={{ animationDelay: "100ms" }}
+            >
+              <MainButton type="white-main" title="Login" />
+            </Link>
             <Link
               href="/services/"
               className="lg:block hidden animate-fade-in"
+              aria-label="All Services"
               style={{ animationDelay: "100ms" }}
             >
               <MainButton
@@ -183,6 +196,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
             >
               <Link
                 href="#"
+                aria-label="Language"
                 className="
                   w-[62px] h-[40px] 
                   gap-1 flex items-center px-2
@@ -208,10 +222,12 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
               <div
                 className="
                 absolute hidden z-10 
-                group-hover:block 
+                group-hover:flex 
+                group-hover:flex-col
+                group-hover:gap-2
                 bg-white 
-                w-[62px] h-[30px] 
-                rounded-lg px-2 
+                w-[62px]
+                rounded-lg p-2 
                 shadow-soft
                 animate-fade-in
               "
@@ -220,6 +236,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
                   <Link
                     key={lang.code}
                     href="#"
+                    aria-label={lang.name}
                     className="
                       flex items-center gap-1
                       transition-colors duration-300
@@ -318,6 +335,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
                                 href={`/services/${generate_slug(
                                   subservice.name
                                 )}`}
+                                aria-label={subservice.name}
                               >
                                 {subservice.name}
                               </Link>
@@ -330,6 +348,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
                           <Link
                             className="flex px-2 py-1 text-base text-text-primary font-medium font-satoshi hover:bg-background-light hover:text-primary transition-all duration-300"
                             href={`/services/${generate_slug(subservice.name)}`}
+                            aria-label={subservice.name}
                           >
                             {subservice.name}
                           </Link>

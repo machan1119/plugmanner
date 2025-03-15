@@ -59,6 +59,7 @@ const FollowUs = memo(({ className = "" }: FollowUsProps) => {
           <Link
             key={link.label}
             href={link.href}
+            aria-label={link.label}
             target="_blank"
             rel="noopener noreferrer"
             className="

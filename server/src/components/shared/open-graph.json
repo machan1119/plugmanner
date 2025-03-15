@@ -2,34 +2,29 @@
   "collectionName": "components_shared_open_graphs",
   "info": {
     "displayName": "openGraph",
-    "icon": "project-diagram"
+    "icon": "project-diagram",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "ogTitle": {
-      "type": "string",
-      "required": true,
-      "maxLength": 70
-    },
-    "ogDescription": {
-      "type": "string",
-      "maxLength": 200,
+    "ogtitle": {
+      "type": "text",
       "required": true
     },
-    "ogImage": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": false
+    "ogdescription": {
+      "type": "text",
+      "required": true
     },
-    "ogUrl": {
+    "ogurl": {
       "type": "string",
       "required": false
     },
-    "ogType": {
+    "ogtype": {
       "type": "string",
       "required": false
+    },
+    "ogimage": {
+      "type": "text"
     }
   }
 }

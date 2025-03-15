@@ -4,7 +4,8 @@
   "info": {
     "singularName": "sub-free-tool",
     "pluralName": "sub-free-tools",
-    "displayName": "SubFree Tool"
+    "displayName": "SubFree Tool",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,14 +16,15 @@
       "type": "string"
     },
     "icon": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "type": {
       "type": "string"
@@ -35,6 +37,11 @@
       "relation": "manyToOne",
       "target": "api::free-tool.free-tool",
       "inversedBy": "sub_free_tools"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
     }
   }
 }

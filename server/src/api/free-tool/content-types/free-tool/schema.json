@@ -31,6 +31,12 @@
       "relation": "oneToMany",
       "target": "api::sub-free-tool.sub-free-tool",
       "mappedBy": "free_tool"
+    },
+    "alt": {
+      "type": "richtext"
+    },
+    "alt2": {
+      "type": "blocks"
     }
   }
 }

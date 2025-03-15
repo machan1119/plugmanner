@@ -138,68 +138,45 @@ export interface SharedMetaSocial extends Struct.ComponentSchema {
     icon: 'project-diagram';
   };
   attributes: {
-    description: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 65;
-      }>;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    image: Schema.Attribute.Text;
     socialNetwork: Schema.Attribute.Enumeration<['Facebook', 'Twitter']> &
       Schema.Attribute.Required;
-    title: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 60;
-      }>;
+    title: Schema.Attribute.Text & Schema.Attribute.Required;
   };
 }
 
 export interface SharedOpenGraph extends Struct.ComponentSchema {
   collectionName: 'components_shared_open_graphs';
   info: {
+    description: '';
     displayName: 'openGraph';
     icon: 'project-diagram';
   };
   attributes: {
-    ogDescription: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 200;
-      }>;
-    ogImage: Schema.Attribute.Media<'images'>;
-    ogTitle: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 70;
-      }>;
-    ogType: Schema.Attribute.String;
-    ogUrl: Schema.Attribute.String;
+    ogdescription: Schema.Attribute.Text & Schema.Attribute.Required;
+    ogimage: Schema.Attribute.Text;
+    ogtitle: Schema.Attribute.Text & Schema.Attribute.Required;
+    ogtype: Schema.Attribute.String;
+    ogurl: Schema.Attribute.String;
   };
 }
 
 export interface SharedSeo extends Struct.ComponentSchema {
   collectionName: 'components_shared_seos';
   info: {
+    description: '';
     displayName: 'seo';
     icon: 'search';
   };
   attributes: {
     canonicalURL: Schema.Attribute.String;
     keywords: Schema.Attribute.Text;
-    metaDescription: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 160;
-        minLength: 50;
-      }>;
-    metaImage: Schema.Attribute.Media<'images'>;
+    metaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
+    metaImage: Schema.Attribute.Text;
     metaRobots: Schema.Attribute.String;
     metaSocial: Schema.Attribute.Component<'shared.meta-social', true>;
-    metaTitle: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 60;
-      }>;
+    metaTitle: Schema.Attribute.Text & Schema.Attribute.Required;
     metaViewport: Schema.Attribute.String;
     openGraph: Schema.Attribute.Component<'shared.open-graph', false>;
     structuredData: Schema.Attribute.JSON;

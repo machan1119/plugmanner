@@ -73,6 +73,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
             <Image
               width={164}
               height={32}
+              priority
               alt="logo"
               src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e86_navbar-logo.svg"
               className="w-[123px] h-[24px] md:w-[164px] md:h-[32px] mr-4 md:mr-10"
@@ -270,10 +271,10 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
               <Image
                 width={19}
                 height={15}
-                loading="lazy"
+                priority
                 alt="Menu"
                 src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e9a_nav-ham-icon.svg"
-                className="transition-transform duration-300 group-hover:rotate-90"
+                className="w-[19px] h-[15px]"
               />
             </button>
           </div>

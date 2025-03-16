@@ -31,7 +31,7 @@ const MainButton = ({
   };
 
   const baseClasses =
-    "font-clash font-semibold rounded-[10px] leading-5 transition-all duration-300 animate-fade-in border border-black-dark/50";
+    "font-clash font-semibold rounded-[10px] transition-all duration-300 animate-fade-in border border-black-dark/50";
   const disabledClasses = "opacity-50 cursor-not-allowed";
   const loadingClasses = "relative text-transparent";
 

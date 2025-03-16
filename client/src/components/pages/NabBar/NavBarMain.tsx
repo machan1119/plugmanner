@@ -4,7 +4,6 @@ import { CloseIcon, SearchIcon } from "@/libs/consts/MySvg";
 import { useHome } from "@/providers/HomeProvider";
 import Image from "next/image";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 import React, { memo, useState } from "react";
 import { useList } from "@/providers/ListProvider";
 import { generate_slug } from "@/utils/functions";
@@ -25,6 +24,16 @@ const languages: LanguageOption[] = [
     flag: "https://cdn.weglot.com/flags/square/es.svg",
     name: "Español",
   },
+  {
+    code: "de",
+    flag: "https://cdn.weglot.com/flags/square/de.svg",
+    name: "Deutsch",
+  },
+  {
+    code: "pt-BR",
+    flag: "https://cdn.weglot.com/flags/square/br.svg",
+    name: "Português",
+  },
 ];
 
 interface NavBarMainProps {
@@ -37,9 +46,6 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
   const { serviceList, subServiceList } = useList();
   const [searchService, setSearchService] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  subServiceList.sort(function (a, b) {
-    return Number(b.popular) - Number(a.popular);
-  });
 
   const handleInputFocus = () => {
     setIsDropdownOpen(true);
@@ -159,11 +165,14 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
             </div>
 
             <div className="w-px h-[50px] bg-gradient-to-b from-transparent via-black-normal to-transparent" />
-            <MainButton
-              type="white-main"
-              title="Login"
-              handleClick={() => redirect("/login")}
-            />
+            <Link
+              href="https://panel.socialplug.io/"
+              aria-label="Login"
+              className="animate-fade-in"
+              style={{ animationDelay: "100ms" }}
+            >
+              <MainButton type="white-main" title="Login" />
+            </Link>
             <Link
               href="/services/"
               className="lg:block hidden animate-fade-in"
@@ -213,10 +222,12 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
               <div
                 className="
                 absolute hidden z-10 
-                group-hover:block 
+                group-hover:flex 
+                group-hover:flex-col
+                group-hover:gap-2
                 bg-white 
-                w-[62px] h-[30px] 
-                rounded-lg px-2 
+                w-[62px]
+                rounded-lg p-2 
                 shadow-soft
                 animate-fade-in
               "

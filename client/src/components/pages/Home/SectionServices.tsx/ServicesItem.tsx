@@ -38,7 +38,7 @@ const ServicesItem = memo(
         onClick={handleToggle}
         style={style}
       >
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center w-full">
           <div className="flex gap-3 items-center">
             <Image
               width={40}

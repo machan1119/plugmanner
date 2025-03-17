@@ -8,6 +8,7 @@ import React, { memo, useState } from "react";
 import { useList } from "@/providers/ListProvider";
 import { generate_slug } from "@/utils/functions";
 import LocaleSwitcher from "@/components/LocaleSwitcher";
+import { useTranslations } from "next-intl";
 
 interface NavBarMainProps {
   className?: string;
@@ -19,7 +20,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
   const { serviceList, subServiceList } = useList();
   const [searchService, setSearchService] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
+  const t = useTranslations("Navbar");
   const handleInputFocus = () => {
     setIsDropdownOpen(true);
     if (searchService.length > 1) {
@@ -145,7 +146,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
               className="animate-fade-in"
               style={{ animationDelay: "100ms" }}
             >
-              <MainButton type="white-main" title="Login" />
+              <MainButton type="white-main" title={t("main.login")} />
             </Link>
             <Link
               href="/services/"
@@ -155,7 +156,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
             >
               <MainButton
                 type="primary"
-                title="All Services"
+                title={t("main.all_services")}
                 customChildClass="!bg-none !bg-primary"
               />
             </Link>

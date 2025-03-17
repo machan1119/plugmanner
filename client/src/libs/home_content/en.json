@@ -1,4 +1,24 @@
 {
+  "Navbar": {
+    "top": [
+      {
+        "title": "24/7 Support",
+        "alt": "Support icon"
+      },
+      {
+        "title": "Instant Delivery",
+        "alt": "Delivery icon"
+      },
+      {
+        "title": "100k+ Clients",
+        "alt": "Clients icon"
+      }
+    ],
+    "main": {
+      "login": "Login",
+      "all_services": "All Services"
+    }
+  },
   "Home": {
     "hero": {
       "rated": "Rated 4.8/5",

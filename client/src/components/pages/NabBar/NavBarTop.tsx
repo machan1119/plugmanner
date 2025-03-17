@@ -1,35 +1,35 @@
 import Image from "next/image";
 import React, { memo } from "react";
-
+import { useTranslations } from "next-intl";
 interface NavBarTopItem {
   icon: string;
   text: string;
   alt: string;
 }
 
-const navBarTopItems: NavBarTopItem[] = [
-  {
-    icon: "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e8b_Frame%201000003820.svg",
-    text: "24/7 Support",
-    alt: "Support icon",
-  },
-  {
-    icon: "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e8a_Frame%201000003819.svg",
-    text: "Instant Delivery",
-    alt: "Delivery icon",
-  },
-  {
-    icon: "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e89_Frame%201000003818.svg",
-    text: "100k+ Clients",
-    alt: "Clients icon",
-  },
-];
-
 interface NavBarTopProps {
   className?: string;
 }
 
 const NavBarTop = memo(({ className = "" }: NavBarTopProps) => {
+  const t = useTranslations("Navbar");
+  const navBarTopItems: NavBarTopItem[] = [
+    {
+      icon: "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e8b_Frame%201000003820.svg",
+      text: t("top.0.title"),
+      alt: t("top.0.alt"),
+    },
+    {
+      icon: "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e8a_Frame%201000003819.svg",
+      text: t("top.1.title"),
+      alt: t("top.1.alt"),
+    },
+    {
+      icon: "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e89_Frame%201000003818.svg",
+      text: t("top.2.title"),
+      alt: t("top.2.alt"),
+    },
+  ];
   return (
     <div
       className={`

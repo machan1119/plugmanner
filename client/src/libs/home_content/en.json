@@ -1,0 +1,150 @@
+{
+  "Home": {
+    "hero": {
+      "rated": "Rated 4.8/5",
+      "from": "from over 100K+ customers",
+      "title_1": "Buy Followers, Likes",
+      "title_2": "Subscribers, Views & ",
+      "title_3": "Grow Exponentially ",
+      "description": "Helping brands and influencers build social proof through innovative",
+      "users": "1.5B+ People Reached",
+      "cursor": "5M+ Monthly Clicks",
+      "view_all_services": "View All Services",
+      "client_portal": "Client Portal",
+      "Status": {
+        "follows": "Follows",
+        "likes": "Likes",
+        "subscribers": "Subscribers",
+        "delivered": "delivered",
+        "minutes_ago": "mins ago"
+      }
+    },
+    "Services": {
+      "title": "All Marketing Services",
+      "sort_by": "Sort by:",
+      "popular": "Popular",
+      "AToZ": "Sort from A-Z",
+      "ZToA": "Sort from Z-A",
+      "SwitchButton": {
+        "Services": "Services",
+        "Tools": "Free Tools"
+      }
+    },
+    "Why": {
+      "title_1": "Why Customers ",
+      "title_2": "Choose Us",
+      "title_3": "",
+      "description": "Read what our customers think about this service. We take your feedback seriously - help us improve by",
+      "review": "leaving a review",
+      "read_more": "Read more",
+      "Review_Status": {
+        "happy": "Happy Customers",
+        "population": "Population Reached",
+        "review_rate": "Review Rate"
+      }
+    },
+    "Why_2": {
+      "title_1": "Why Choose ",
+      "title_2": "SocialPlug?",
+      "title_3": "",
+      "description": "Our approach focuses on boosting engagement, increasing visibility, and driving results across every platform.",
+      "WhyChooseThisItems": [
+        {
+          "title": "High Quality Standards",
+          "description": "We test our services daily & always source from the best supplier available."
+        },
+        {
+          "title": "30 Second Checkout-No sign-up required",
+          "description": "Quickly purchase social media services without having to submit personal details."
+        },
+        {
+          "title": "Easy Communication",
+          "description": "Our team offers support for all orders placed on SocialPlug, peace of mind and swift replies."
+        }
+      ]
+    },
+    "HowToOrder": {
+      "title_1": "How to ",
+      "title_2": "Order?",
+      "description": "Here's a quick rundown of how you can place an order for our social media services.",
+      "OrderSteps": [
+        {
+          "title": "Choose a Service",
+          "description": "Browse our range of social media services and select the one that best suits your needs."
+        },
+        {
+          "title": "Add to Cart",
+          "description": "Add the chosen service to your cart by clicking the 'Add to Cart' button."
+        },
+        {
+          "title": "Checkout",
+          "description": "Complete the checkout process to place your order."
+        }
+      ]
+    },
+    "Question": {
+      "title_1": "Your Questions ",
+      "title_2": "Answered",
+      "Questions": [
+        {
+          "question": "What payment methods do you accept?",
+          "answer": "We provide easy and secured checkouts via card,crypto, Google Pay & Apple Pay payments."
+        },
+        {
+          "question": "I have a custom request, how do I proceed?",
+          "answer": "For urgent matters, please contact us via contact us page."
+        },
+        {
+          "question": "What are Your Working Hours?",
+          "answer": "Our customer support is available 24/7, ready to answer to your burning questions around the clock."
+        },
+        {
+          "question": "How fast is the delivery?",
+          "answer": "The delivery time depends on the service, some services take 30 seconds to deliver and some services take up to 24 hours to deliver."
+        }
+      ],
+      "Still_have_questions": {
+        "title": "Still have questions?",
+        "description": "Can't find the answer you're looking for? Please chat to our friendly team.",
+        "button": "Get in touch"
+      }
+    },
+    "OurPartners": {
+      "title_1": "Our",
+      "title_2": "Partners",
+      "description": "We team up with the best in the business."
+    },
+    "Blogs": {
+      "title": "News and Articles",
+      "description": "Most Recent",
+      "BlogItems": [
+        {
+          "title": "How to Get More Followers on Instagram",
+          "type": "Social Media Tips",
+          "date": "Feb 6, 2025"
+        },
+        {
+          "title": "How to Get More Followers on Instagram",
+          "type": "Social Media Tips",
+          "date": "Feb 6, 2025"
+        },
+        {
+          "title": "How to Get More Followers on Instagram",
+          "type": "Social Media Tips",
+          "date": "Feb 6, 2025"
+        },
+        {
+          "title": "How to Get More Followers on Instagram",
+          "type": "Social Media Tips",
+          "date": "Feb 6, 2025"
+        },
+        {
+          "title": "How to Get More Followers on Instagram",
+          "type": "Social Media Tips",
+          "date": "Feb 6, 2025"
+        }
+      ],
+      "ReadMore": "Read More >"
+    }
+  }
+}

@@ -7,34 +7,7 @@ import Link from "next/link";
 import React, { memo, useState } from "react";
 import { useList } from "@/providers/ListProvider";
 import { generate_slug } from "@/utils/functions";
-interface LanguageOption {
-  code: string;
-  flag: string;
-  name: string;
-}
-
-const languages: LanguageOption[] = [
-  {
-    code: "en",
-    flag: "https://cdn.weglot.com/flags/square/us.svg",
-    name: "English",
-  },
-  {
-    code: "es",
-    flag: "https://cdn.weglot.com/flags/square/es.svg",
-    name: "Español",
-  },
-  {
-    code: "de",
-    flag: "https://cdn.weglot.com/flags/square/de.svg",
-    name: "Deutsch",
-  },
-  {
-    code: "pt-BR",
-    flag: "https://cdn.weglot.com/flags/square/br.svg",
-    name: "Português",
-  },
-];
+import LocaleSwitcher from "@/components/LocaleSwitcher";
 
 interface NavBarMainProps {
   className?: string;
@@ -186,75 +159,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
                 customChildClass="!bg-none !bg-primary"
               />
             </Link>
-            <div
-              className="
-              inline-block group 
-              w-[62px] h-[40px] 
-              bg-white relative 
-              transition-all duration-300
-              hover:shadow-soft
-            "
-            >
-              <Link
-                href="#"
-                aria-label="Language"
-                className="
-                  w-[62px] h-[40px] 
-                  gap-1 flex items-center px-2
-                  transition-colors duration-300
-                  hover:text-primary
-                "
-              >
-                <Image
-                  src={languages[0].flag}
-                  width={28}
-                  height={21}
-                  alt={`${languages[0].name} flag`}
-                  className="object-cover rounded-sm w-[28px] h-[21px]"
-                />
-                <Image
-                  width={16}
-                  height={16}
-                  alt="down"
-                  src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e87_nav_dd-icon.svg"
-                  className="transition-transform duration-300 group-hover:rotate-180"
-                />
-              </Link>
-              <div
-                className="
-                absolute hidden z-10 
-                group-hover:flex 
-                group-hover:flex-col
-                group-hover:gap-2
-                bg-white 
-                w-[62px]
-                rounded-lg p-2 
-                shadow-soft
-                animate-fade-in
-              "
-              >
-                {languages.slice(1).map((lang) => (
-                  <Link
-                    key={lang.code}
-                    href="#"
-                    aria-label={lang.name}
-                    className="
-                      flex items-center gap-1
-                      transition-colors duration-300
-                      hover:text-primary
-                    "
-                  >
-                    <Image
-                      src={lang.flag}
-                      width={28}
-                      height={21}
-                      alt={`${lang.name} flag`}
-                      className="object-cover rounded-sm w-[28px] h-[21px]"
-                    />
-                  </Link>
-                ))}
-              </div>
-            </div>
+            <LocaleSwitcher />
             <button
               onClick={() => setServiceShow(!serviceShow)}
               className="

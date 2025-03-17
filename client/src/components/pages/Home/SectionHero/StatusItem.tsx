@@ -1,4 +1,5 @@
 import { StatusType } from "@/libs/types/Types";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import React, { memo } from "react";
 
@@ -8,6 +9,7 @@ interface StatusItemProps extends StatusType {
 
 const StatusItem = memo(
   ({ count, type, time, className = "" }: StatusItemProps) => {
+    const t = useTranslations("Home");
     return (
       <div
         className={`flex justify-between font-satoshi text-base leading-6 px-4 py-3 bg-[rgb(215_249_235)] rounded-lg shadow-[rgb(187_229_218)_3px_4px_12px_0px_inset] h-[46px] overflow-hidden hover:shadow-lg transition-all duration-300 ${className}`}
@@ -21,7 +23,7 @@ const StatusItem = memo(
             <span className="text-secondary font-satoshi font-medium">
               {count.toLocaleString()} {type}{" "}
             </span>
-            delivered
+            {t("hero.Status.delivered")}
           </div>
         </div>
         <div className="flex gap-[6px] items-center">
@@ -34,7 +36,7 @@ const StatusItem = memo(
             priority
           />
           <div className="text-[rgb(1_118_69)] font-satoshi text-[14px] text-center font-medium leading-[12px]">
-            {time} mins ago
+            {time} {t("hero.Status.minutes_ago")}
           </div>
         </div>
       </div>

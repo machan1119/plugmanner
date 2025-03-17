@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/navigation";
 import HomeLayout from "@/components/HomeLayout";
+import { NextIntlClientProvider } from "next-intl";
 
 export const metadata: Metadata = {
   title: "Buy Followers, Like, Subscribers & Views - Socialplug",
@@ -29,7 +30,9 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={`antialiased`}>
-        <HomeLayout>{children}</HomeLayout>
+        <NextIntlClientProvider>
+          <HomeLayout>{children}</HomeLayout>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

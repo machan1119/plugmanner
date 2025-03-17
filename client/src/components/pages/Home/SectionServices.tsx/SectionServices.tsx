@@ -5,7 +5,7 @@ import { SwitchButton } from "@/components/Buttons";
 import ServicesItem from "./ServicesItem";
 import { useList } from "@/providers/ListProvider";
 import { ServicesListType } from "@/libs/types/ListTypes";
-
+import { useTranslations } from "next-intl";
 interface SectionServicesProps {
   className?: string;
 }
@@ -20,7 +20,7 @@ const SectionServices = memo(({ className = "" }: SectionServicesProps) => {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const itemsPerPage = 20;
-
+  const t = useTranslations("Home");
   const filterAndSortList = useCallback(
     (list: ServicesListType[], filter: FilterType) => {
       return [...list].sort((a, b) => {
@@ -65,7 +65,7 @@ const SectionServices = memo(({ className = "" }: SectionServicesProps) => {
     <section
       className={`flex flex-col items-center m-[5%] justify-self-center relative w-full px-[5%] ${className}`}
     >
-      <h2 className="font-h1 mb-12 animate-fade-in">All Marketing Services</h2>
+      <h2 className="font-h1 mb-12 animate-fade-in">{t("Services.title")}</h2>
       <div className="flex flex-col gap-4 lg:flex-row lg:justify-center items-end mb-5 w-full relative">
         <SwitchButton
           status={status}
@@ -74,21 +74,21 @@ const SectionServices = memo(({ className = "" }: SectionServicesProps) => {
         />
         <div className="lg:absolute right-[5%] border-[1px] border-black-dark flex rounded-[10px] shadow-sm hover:shadow-md transition-shadow duration-300">
           <div className="bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e53_flowbite_sort-outline.svg')] bg-[4px_center] bg-no-repeat bg-auto border-r-[1px] border-black-dark text-black text-[12px] lg:text-[16px] font-satoshi leading-6 pl-8 p-2 bg-black-light rounded-l-[10px]">
-            Sort by:
+            {t("Services.sort_by")}
           </div>
           <select
             value={filter}
             onChange={handleFilterChange}
             className="w-30 lg:w-40 p-2 cursor-pointer bg-inherit text-[12px] lg:text-[16px] rounded-r-[10px] transition-all duration-300"
           >
-            <option label="popular" value="popular">
-              Popular
+            <option label={t("Services.popular")} value="popular">
+              {t("Services.popular")}
             </option>
-            <option label="AToZ" value="AToZ">
-              Sort from A-Z
+            <option label={t("Services.AToZ")} value="AToZ">
+              {t("Services.AToZ")}
             </option>
-            <option label="ZToA" value="ZToA">
-              Sort from Z-A
+            <option label={t("Services.ZToA")} value="ZToA">
+              {t("Services.ZToA")}
             </option>
           </select>
         </div>

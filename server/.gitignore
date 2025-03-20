@@ -84,7 +84,7 @@ nbproject
 !public/uploads/.gitkeep
 .tsbuildinfo
 .eslintcache
-
+!src/extensions/documentation/documentation/1.0.0
 ############################
 # Node.js
 ############################

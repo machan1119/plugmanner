@@ -35,11 +35,6 @@ const nextConfig: NextConfig = {
   env: {
     NEXT_PUBLIC_STRAPI_API_URL: process.env.NEXT_PUBLIC_STRAPI_API_URL,
   },
-  i18n: {
-    locales: ["en", "es", "de", "pt-BR"],
-    defaultLocale: "en",
-    localeDetection: false,
-  },
 };
 
 export default withNextIntl(nextConfig);

@@ -42,7 +42,7 @@ const SectionServices = memo(({ className = "" }: SectionServicesProps) => {
     setFilteredList(initialData);
     setPage(1);
     setHasMore(sortedList.length > itemsPerPage);
-  }, [filter, serviceList, filterAndSortList, itemsPerPage]);
+  }, [filter, serviceList, filterAndSortList]);
 
   const loadMore = () => {
     const nextPage = page + 1;
@@ -81,9 +81,15 @@ const SectionServices = memo(({ className = "" }: SectionServicesProps) => {
             onChange={handleFilterChange}
             className="w-30 lg:w-40 p-2 cursor-pointer bg-inherit text-[12px] lg:text-[16px] rounded-r-[10px] transition-all duration-300"
           >
-            <option value="popular">Popular</option>
-            <option value="AToZ">Sort from A-Z</option>
-            <option value="ZToA">Sort from Z-A</option>
+            <option label="popular" value="popular">
+              Popular
+            </option>
+            <option label="AToZ" value="AToZ">
+              Sort from A-Z
+            </option>
+            <option label="ZToA" value="ZToA">
+              Sort from Z-A
+            </option>
           </select>
         </div>
       </div>

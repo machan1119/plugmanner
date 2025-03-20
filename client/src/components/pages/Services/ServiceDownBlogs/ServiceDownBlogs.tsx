@@ -47,7 +47,7 @@ const ServiceDownBlogs = memo(({ className = "" }: ServiceDownBlogsProps) => {
                 <Image
                   width={500}
                   height={500}
-                  alt={`${item.title.text[0].content} illustration`}
+                  alt={`illustration`}
                   src={item.img}
                   className="lg:w-[40%]"
                   priority={index < 2}

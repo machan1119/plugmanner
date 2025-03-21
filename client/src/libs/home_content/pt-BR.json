@@ -166,5 +166,21 @@
       ],
       "ReadMore": "Leia mais >"
     }
+  },
+  "AllServices": {
+    "HowTo": [
+      {
+        "title": "Escolha o serviço",
+        "description": "Escolha a plataforma de mídia social e o serviço necessário."
+      },
+      {
+        "title": "Defina a meta",
+        "description": "Escolha a quantidade desejada de serviços, por exemplo, 100 seguidores."
+      },
+      {
+        "title": "Obtenha os resultados",
+        "description": "Finalize a compra e pronto! Nossa equipe entregará seu pedido no mesmo dia."
+      }
+    ]
   }
 }

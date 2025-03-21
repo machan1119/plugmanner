@@ -107,7 +107,7 @@ const SellingService = memo(({ className = "" }: SellingServiceProps) => {
           ${isOpen ? "max-h-[660px] opacity-100" : "max-h-0 opacity-0"}
         `}
       >
-        {serviceLinks.map((link, index) => (
+        {serviceLinks.map((link) => (
           <Link
             key={link.label}
             aria-label={link.label}
@@ -118,9 +118,7 @@ const SellingService = memo(({ className = "" }: SellingServiceProps) => {
               hover:text-primary
               hover:underline
               transition-colors duration-300
-              animate-fade-in
             "
-            style={{ animationDelay: `${index * 50}ms` }}
             target="_blank"
             rel="noopener noreferrer"
           >

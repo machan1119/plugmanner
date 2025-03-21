@@ -15,7 +15,6 @@ export default function LocaleSwitcherSelect({ defaultValue, items }: Props) {
   const [isPending, startTransition] = useTransition();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState(defaultValue);
-
   const selectedItem = items.find((item) => item.code === selectedValue);
 
   function onChange(value: string) {
@@ -46,6 +45,7 @@ export default function LocaleSwitcherSelect({ defaultValue, items }: Props) {
         <Image
           src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e87_nav_dd-icon.svg"
           alt="arrow-down"
+          priority
           width={16}
           height={16}
           className="w-4 h-4"

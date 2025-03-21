@@ -64,11 +64,8 @@ const SectionWhy = memo(({ className = "" }: SectionWhyProps) => {
               />
             </div>
             {statsData.map((stat, index) => (
-              <React.Fragment key={stat.label}>
-                <div
-                  className="flex flex-col grow gap-2 items-center animate-fade-in-up"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
+              <React.Fragment key={index}>
+                <div className="flex flex-col grow gap-2 items-center animate-fade-in-up">
                   <h3 className="font-h1">{stat.value}</h3>
                   <p className="text-black-dark text-[12px] md:text-[16px] lg:text-[18px] font-satoshi text-center">
                     {stat.label}
@@ -85,12 +82,7 @@ const SectionWhy = memo(({ className = "" }: SectionWhyProps) => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 w-full">
             {Reviews.map((item, index) => (
-              <SectionWhyItems
-                item={item}
-                key={item.title}
-                className="animate-fade-in-up"
-                style={{ animationDelay: `${index * 100}ms` }}
-              />
+              <SectionWhyItems item={item} key={index} />
             ))}
           </div>
         </div>

@@ -11,7 +11,10 @@ interface ServiceGoodPointsProps {
 const ServiceGoodPoints = memo(({ className = "" }: ServiceGoodPointsProps) => {
   const { serviceItems } = useServices();
 
-  if (!serviceItems?.introduction.GoodPoints) {
+  if (!serviceItems?.introduction) {
+    return null;
+  }
+  if (!serviceItems.introduction?.GoodPoints) {
     return null;
   }
 

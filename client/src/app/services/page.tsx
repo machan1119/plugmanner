@@ -1,25 +1,26 @@
+"use client";
 import SectionServices from "@/components/pages/Home/SectionServices.tsx/SectionServices";
 import Image from "next/image";
 import React from "react";
+import { useTranslations } from "use-intl";
 
 const AllServices = () => {
+  const t = useTranslations("AllServices");
   const HowTo = [
     {
       icon: "http://localhost:3000/image/how-to-order-3-p-500.png",
-      title: "Pick the service",
-      description: "Choose the social media platform & service required.",
+      title: t("HowTo.0.title"),
+      description: t("HowTo.0.description"),
     },
     {
       icon: "http://localhost:3000/image/how-to-order-2-p-500.png",
-      title: "Set the target",
-      description:
-        "Choose your desired amount of services, for example 100 followers.",
+      title: t("HowTo.1.title"),
+      description: t("HowTo.1.description"),
     },
     {
       icon: "http://localhost:3000/image/how-to-order-1-p-500.png",
-      title: "Get the results",
-      description:
-        "Checkout & done! Our team will deliver your order within the same day.",
+      title: t("HowTo.2.title"),
+      description: t("HowTo.2.description"),
     },
   ];
   return (

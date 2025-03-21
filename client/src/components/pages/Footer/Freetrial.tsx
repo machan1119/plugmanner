@@ -76,7 +76,7 @@ const FreeTrial = memo(({ className = "" }: FreeTrialProps) => {
           ${isOpen ? "max-h-[380px] opacity-100" : "max-h-0 opacity-0"}
         `}
       >
-        {links.map((link, index) => (
+        {links.map((link) => (
           <Link
             key={link.label}
             aria-label={link.label}
@@ -87,9 +87,7 @@ const FreeTrial = memo(({ className = "" }: FreeTrialProps) => {
               hover:text-primary
               hover:underline
               transition-colors duration-300
-              animate-fade-in
             "
-            style={{ animationDelay: `${index * 50}ms` }}
             target="_blank"
             rel="noopener noreferrer"
           >

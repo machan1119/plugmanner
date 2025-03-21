@@ -8,7 +8,10 @@ interface ServiceVideoProps {
 const ServiceVideo = memo(({ className = "" }: ServiceVideoProps) => {
   const { serviceItems } = useServices();
 
-  if (!serviceItems?.introduction.video) {
+  if (!serviceItems?.introduction) {
+    return null;
+  }
+  if (!serviceItems.introduction?.video) {
     return null;
   }
 

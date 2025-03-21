@@ -6,21 +6,19 @@ import React, {
   useEffect,
   useMemo,
 } from "react";
-import { fetchAPI } from "@/utils/fetch-api";
 import { ServiceJsonDataType } from "@/libs/types/ServiceJsonDataType";
 import { useList } from "./ListProvider";
-import { generate_slug, getCookie } from "@/utils/functions";
+import { generate_slug } from "@/utils/functions";
+import { fetchServiceData } from "@/utils/fetch-service-data";
 
 interface ServicesContextType {
   serviceItems: ServiceJsonDataType | null;
   isLoading: boolean;
-  error: string | null;
 }
 
 const ServicesContext = createContext<ServicesContextType>({
   serviceItems: null,
   isLoading: true,
-  error: null,
 });
 
 interface ServicesProviderProps {
@@ -28,66 +26,42 @@ interface ServicesProviderProps {
   children: React.ReactNode;
 }
 
-const useFetchServiceData = (itemId: string) => {
-  const [serviceItems, setServiceItems] = useState<ServiceJsonDataType | null>(
-    null
-  );
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const locale = getCookie("NEXT_LOCALE");
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      setError(null);
-      try {
-        const path = `/subservices/${itemId}`;
-        const urlParamsObject = {
-          pLevel: "7",
-          sort: { createdAt: "asc" },
-          "[locale]": locale,
-        };
-        const options = "";
-        const fetchedData = await fetchAPI(path, urlParamsObject, options);
-        setServiceItems(fetchedData.data);
-      } catch (error) {
-        setError("Failed to fetch service data");
-        console.error(error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    if (itemId) {
-      fetchData();
-    }
-  }, [itemId, locale]);
-
-  return { serviceItems, isLoading, error };
-};
-
 export const ServicesProvider: React.FC<ServicesProviderProps> = ({
   item,
   children,
 }) => {
-  const { subServiceList } = useList();
-  const [itemId, setItemId] = useState("");
+  const { serviceList } = useList();
+  const [serviceItems, setServiceItems] = useState<ServiceJsonDataType | null>(
+    null
+  );
+  const [isLoading, setIsLoading] = useState(true);
+  const userLocale =
+    document.cookie
+      .split("; ")
+      .find((row) => row.startsWith("NEXT_LOCALE="))
+      ?.split("=")[1] ?? "";
   useEffect(() => {
-    const subservice = subServiceList.find(
+    const subservice = serviceList.data_3.find(
       (sub) => generate_slug(sub.name) == item
     );
     if (subservice) {
-      setItemId(subservice.id);
+      const fetchAndSetData = async () => {
+        const serviceData = (await fetchServiceData(subservice.id)) ?? "";
+        if (!serviceData) {
+          throw new Error("Failed to fetch service list");
+        }
+        setServiceItems(serviceData);
+        setIsLoading(false);
+      };
+      fetchAndSetData();
     }
-  }, [item, subServiceList]);
-  const { serviceItems, isLoading, error } = useFetchServiceData(itemId);
-
+  }, [item, serviceList, userLocale]);
   const contextValue = useMemo(
     () => ({
       serviceItems,
       isLoading,
-      error,
     }),
-    [serviceItems, isLoading, error]
+    [serviceItems, isLoading]
   );
 
   return (

@@ -42,12 +42,7 @@ const SectionWhyChoose = memo(({ className = "" }: SectionWhyChooseProps) => {
         </div>
         <div className="flex flex-col lg:grid lg:[&>*:nth-child(3)]:col-span-2 2xl:[&>*:nth-child(3)]:col-span-1 lg:grid-cols-2 2xl:grid-cols-3 gap-4 sm:gap-6 md:gap-8 items-center">
           {WhyChooseThis.map((item, index) => (
-            <SectionWhyChooseItems
-              item={item}
-              key={index}
-              className="animate-fade-in-up"
-              style={{ animationDelay: `${index * 100}ms` }}
-            />
+            <SectionWhyChooseItems item={item} key={index} />
           ))}
         </div>
       </div>

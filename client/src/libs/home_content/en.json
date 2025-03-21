@@ -166,5 +166,21 @@
       ],
       "ReadMore": "Read More >"
     }
+  },
+  "AllServices": {
+    "HowTo": [
+      {
+        "title": "Pick the service",
+        "description": "Choose the social media platform & service required."
+      },
+      {
+        "title": "Set the target",
+        "description": "Choose your desired amount of services, for example 100 followers."
+      },
+      {
+        "title": "Get the results",
+        "description": "Checkout & done! Our team will deliver your order within the same day."
+      }
+    ]
   }
 }

@@ -22,13 +22,8 @@ const OurPartners = memo(({ className = "" }: OurPartnersProps) => {
         </p>
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 w-full max-w-7xl mx-auto">
-        {OurPartnersItems.map((item, index) => (
-          <OurPartnersItem
-            item={item}
-            key={item.alt}
-            className="animate-fade-in-up"
-            style={{ animationDelay: `${index * 100}ms` }}
-          />
+        {OurPartnersItems.map((item) => (
+          <OurPartnersItem item={item} key={item.alt} />
         ))}
       </div>
     </section>

@@ -17,7 +17,7 @@ interface NavBarMainProps {
 const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
   const [searchShow, setSearchShow] = useState(false);
   const { serviceShow, setServiceShow } = useHome();
-  const { serviceList, subServiceList } = useList();
+  const { serviceList } = useList();
   const [searchService, setSearchService] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const t = useTranslations("Navbar");
@@ -102,7 +102,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
                   </h2>
                   <div className="grid grid-cols-3 gap-3 font-satoshi font-semibold">
                     {searchService.length > 1
-                      ? serviceList.map((serivce) =>
+                      ? serviceList.data_2.map((serivce) =>
                           serivce.services.map((subservice) =>
                             subservice.name
                               .toLowerCase()
@@ -121,7 +121,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
                             ) : null
                           )
                         )
-                      : subServiceList.slice(0, 27).map((subservice) => (
+                      : serviceList.data_3.slice(0, 27).map((subservice) => (
                           <div key={subservice.id} onClick={removeSearch}>
                             <Link
                               className="flex px-2 py-1 text-base text-text-primary font-medium font-satoshi hover:bg-background-light hover:text-primary transition-all duration-300"
@@ -140,19 +140,13 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
             </div>
 
             <div className="w-px h-[50px] bg-gradient-to-b from-transparent via-black-normal to-transparent" />
-            <Link
-              href="https://panel.socialplug.io/"
-              aria-label="Login"
-              className="animate-fade-in"
-              style={{ animationDelay: "100ms" }}
-            >
+            <Link href="https://panel.socialplug.io/" aria-label="Login">
               <MainButton type="white-main" title={t("main.login")} />
             </Link>
             <Link
               href="/services/"
-              className="lg:block hidden animate-fade-in"
+              className="lg:block hidden"
               aria-label="All Services"
-              style={{ animationDelay: "100ms" }}
             >
               <MainButton
                 type="primary"
@@ -231,7 +225,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
                 </h2>
                 <div className="grid grid-cols-1 gap-3 font-satoshi font-semibold">
                   {searchService.length > 1
-                    ? serviceList.map((serivce) =>
+                    ? serviceList.data_2.map((serivce) =>
                         serivce.services.map((subservice) =>
                           subservice.name
                             .toLowerCase()
@@ -250,7 +244,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
                           ) : null
                         )
                       )
-                    : subServiceList.slice(0, 27).map((subservice) => (
+                    : serviceList.data_3.slice(0, 27).map((subservice) => (
                         <div key={subservice.id} onClick={removeSearch}>
                           <Link
                             className="flex px-2 py-1 text-base text-text-primary font-medium font-satoshi hover:bg-background-light hover:text-primary transition-all duration-300"

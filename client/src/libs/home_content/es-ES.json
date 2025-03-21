@@ -166,5 +166,21 @@
       ],
       "ReadMore": "Leer más >"
     }
+  },
+  "AllServices": {
+    "HowTo": [
+      {
+        "title": "Elige el servicio",
+        "description": "Elija la plataforma de redes sociales y el servicio requerido."
+      },
+      {
+        "title": "Establecer el objetivo",
+        "description": "Elige la cantidad deseada de servicios, por ejemplo 100 seguidores."
+      },
+      {
+        "title": "Obtenga los resultados",
+        "description": "¡Paga y listo! Nuestro equipo te entregará tu pedido el mismo día."
+      }
+    ]
   }
 }

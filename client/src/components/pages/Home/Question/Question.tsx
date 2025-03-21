@@ -38,13 +38,8 @@ const Question = memo(({ className = "" }: QuestionProps) => {
           <span className="text-primary">{t("Question.title_2")}</span>
         </h2>
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-12">
-          {Questions.map((item, index) => (
-            <QuestionsItem
-              item={item}
-              key={item.question}
-              className="animate-fade-in-up"
-              style={{ animationDelay: `${index * 100}ms` }}
-            />
+          {Questions.map((item) => (
+            <QuestionsItem item={item} key={item.question} />
           ))}
         </div>
         <div className="flex flex-col sm:flex-row justify-between bg-black-medium border-[1px] border-[rgb(224,_224,_224)] rounded-[12px] p-6 w-full h-max hover:shadow-lg transition-all duration-300 animate-fade-in-up">

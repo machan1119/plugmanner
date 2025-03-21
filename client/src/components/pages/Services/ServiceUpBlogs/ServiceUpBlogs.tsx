@@ -17,7 +17,10 @@ const ServiceUpBlogs = memo(({ className = "" }: ServiceUpBlogsProps) => {
     console.log(`Read more about ${title}`);
   }, []);
 
-  if (!serviceItems?.introduction.UpBlogs) {
+  if (!serviceItems?.introduction) {
+    return null;
+  }
+  if (!serviceItems.introduction?.UpBlogs) {
     return null;
   }
 

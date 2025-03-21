@@ -26,7 +26,7 @@ const SectionHero = memo(({ className = "" }: SectionHeroProps) => {
         </div>
         <div className="flex flex-col gap-4 font-satoshi text-black items-center">
           <h1 className="font-h lg:w-[70%] text-center">
-            <span className="animate-fade-in">{t("hero.title_1")} </span>
+            <span>{t("hero.title_1")} </span>
             <Image
               width={46}
               height={46}
@@ -36,7 +36,7 @@ const SectionHero = memo(({ className = "" }: SectionHeroProps) => {
               className="inline-block w-auto h-auto animated-image animate-bounce-slow"
               priority
             />
-            <span className="animate-fade-in"> , {t("hero.title_2")} </span>
+            <span> , {t("hero.title_2")} </span>
             <span className="text-primary animate-fade-in">
               {t("hero.title_3")}
             </span>

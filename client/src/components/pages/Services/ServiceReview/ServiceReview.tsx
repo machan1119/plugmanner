@@ -16,7 +16,10 @@ interface Review {
 const ServiceReview = () => {
   const { serviceItems } = useServices();
 
-  if (!serviceItems?.introduction.TopReviews) {
+  if (!serviceItems?.introduction) {
+    return null;
+  }
+  if (!serviceItems.introduction?.TopReviews) {
     return null;
   }
 

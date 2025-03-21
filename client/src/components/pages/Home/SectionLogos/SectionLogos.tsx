@@ -59,7 +59,7 @@ const SectionLogos = memo(({ className = "" }: SectionLogosProps) => {
     >
       <h2
         id="section-logos-title"
-        className="text-[rgba(0,_0,_0,_0.5)] font-satoshi text-[20px] font-medium leading-[25px] animate-fade-in text-center"
+        className="text-[rgba(0,_0,_0,_0.5)] font-satoshi text-[20px] font-medium leading-[25px] text-center"
       >
         FEATURED IN TOP MEDIA
       </h2>
@@ -67,8 +67,7 @@ const SectionLogos = memo(({ className = "" }: SectionLogosProps) => {
         {logosData.map((logo, index) => (
           <div
             key={logo.alt}
-            className="justify-self-center animate-fade-in-up bg-white/5 rounded-lg p-4 hover:bg-white/10 transition-all duration-300"
-            style={{ animationDelay: `${index * 100}ms` }}
+            className="justify-self-center bg-white/5 rounded-lg p-4 hover:bg-white/10 transition-all duration-300"
           >
             <Image
               width={logo.width}

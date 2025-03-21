@@ -108,9 +108,7 @@ const DropDownServicesResponsive = memo(
                 hover:text-primary
                 transition-all duration-300
                 group
-                animate-fade-in
               "
-                style={{ animationDelay: `${index * 50}ms` }}
               >
                 <Image
                   width={20}

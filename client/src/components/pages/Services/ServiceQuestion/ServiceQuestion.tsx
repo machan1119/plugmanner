@@ -11,7 +11,10 @@ interface ServiceQuestionProps {
 const ServiceQuestion = memo(({ className = "" }: ServiceQuestionProps) => {
   const { serviceItems } = useServices();
 
-  if (!serviceItems?.introduction.FrequentlyQuestions) {
+  if (!serviceItems?.introduction) {
+    return null;
+  }
+  if (!serviceItems.introduction?.FrequentlyQuestions) {
     return null;
   }
 
@@ -50,17 +53,11 @@ const ServiceQuestion = memo(({ className = "" }: ServiceQuestionProps) => {
             grid grid-cols-1 xl:grid-cols-2 
             gap-4 md:gap-6 
             mb-5
-            animate-fade-in
           "
-          style={{ animationDelay: "200ms" }}
         >
           {serviceItems.introduction.FrequentlyQuestions.Question.map(
             (item: QuestionType, index: number) => (
-              <div
-                key={`faq-${index + 1}`}
-                className="animate-fade-in"
-                style={{ animationDelay: `${(index + 1) * 100}ms` }}
-              >
+              <div key={index}>
                 <ServiceQuestionItem item={item} />
               </div>
             )

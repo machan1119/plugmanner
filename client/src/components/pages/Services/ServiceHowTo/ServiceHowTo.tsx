@@ -12,7 +12,10 @@ interface Step {
 const ServiceHowTo = () => {
   const { serviceItems } = useServices();
 
-  if (!serviceItems?.introduction.HowToOrder) {
+  if (!serviceItems?.introduction) {
+    return null;
+  }
+  if (!serviceItems.introduction.HowToOrder) {
     return null;
   }
 

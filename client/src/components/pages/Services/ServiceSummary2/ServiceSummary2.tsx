@@ -15,7 +15,10 @@ interface ServiceSummary2Props {
 const ServiceSummary2 = memo(({ className = "" }: ServiceSummary2Props) => {
   const { serviceItems } = useServices();
 
-  if (!serviceItems?.introduction.Summary2) {
+  if (!serviceItems?.introduction) {
+    return null;
+  }
+  if (!serviceItems.introduction?.Summary2) {
     return null;
   }
 

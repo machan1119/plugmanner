@@ -27,37 +27,20 @@ const Footer = memo(({ className = "" }: FooterProps) => {
           grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 
           pb-14 border-solid border-b border-white/40 
           gap-x-8 md:gap-x-16
-          animate-fade-in
         "
         >
-          <div className="animate-fade-in" style={{ animationDelay: "100ms" }}>
-            <Summary />
-          </div>
+          <Summary />
           <div className="block sm:row-span-2 lg:grid lg:col-span-2 lg:grid-cols-2 gap-x-8 md:gap-x-20 justify-end">
-            <div
-              className="animate-fade-in"
-              style={{ animationDelay: "200ms" }}
-            >
-              <SellingService />
-            </div>
-            <div
-              className="animate-fade-in"
-              style={{ animationDelay: "300ms" }}
-            >
-              <FreeTool />
-            </div>
+            <SellingService />
+            <FreeTool />
           </div>
-          <div className="animate-fade-in" style={{ animationDelay: "400ms" }}>
-            <FollowUs />
-          </div>
+          <FollowUs />
         </div>
         <div
           className="
             flex flex-col items-center md:flex-row md:justify-between 
             py-4 text-sm text-white/80
-            animate-fade-in
           "
-          style={{ animationDelay: "500ms" }}
         >
           <div className="transition-colors duration-300 hover:text-white">
             © SocialPlug 2025. All Rights Reserved.

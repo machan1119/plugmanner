@@ -166,5 +166,21 @@
       ],
       "ReadMore": "Mehr lesen >"
     }
+  },
+  "AllServices": {
+    "HowTo": [
+      {
+        "title": "Wählen Sie den Service",
+        "description": "Wählen Sie die gewünschte Social-Media-Plattform und den gewünschten Dienst."
+      },
+      {
+        "title": "Setzen Sie das Ziel",
+        "description": "Wählen Sie die gewünschte Leistungsmenge, beispielsweise 100 Follower."
+      },
+      {
+        "title": "Ergebnisse abrufen",
+        "description": "Zur Kasse & fertig! Unser Team liefert Ihre Bestellung noch am selben Tag."
+      }
+    ]
   }
 }

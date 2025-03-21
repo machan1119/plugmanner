@@ -109,7 +109,7 @@ const Section = memo(
           ${isOpen ? "max-h-[200px] opacity-100" : "max-h-0 opacity-0"}
         `}
         >
-          {links.map((link, index) => (
+          {links.map((link) => (
             <Link
               key={link.label}
               aria-label={link.label}
@@ -120,10 +120,8 @@ const Section = memo(
               hover:text-primary
               hover:underline
               transition-colors duration-300
-              animate-fade-in
               flex items-center gap-2
             "
-              style={{ animationDelay: `${index * 50}ms` }}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -182,15 +180,12 @@ const FreeTool = memo(({ className = "" }: FreeToolProps) => {
         links={freeTools}
         isOpen={isToolsOpen}
         onToggle={() => setIsToolsOpen(!isToolsOpen)}
-        className="animate-fade-in"
       />
       <Section
         title="Quick Links"
         links={quickLinks}
         isOpen={isLinksOpen}
         onToggle={() => setIsLinksOpen(!isLinksOpen)}
-        className="animate-fade-in"
-        style={{ animationDelay: "100ms" }}
       />
     </div>
   );

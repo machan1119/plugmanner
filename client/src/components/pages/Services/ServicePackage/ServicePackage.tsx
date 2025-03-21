@@ -6,7 +6,10 @@ import { PackageType } from "@/libs/types/ServiceJsonDataType";
 const ServicePackage = () => {
   const { serviceItems } = useServices();
 
-  if (!serviceItems?.introduction.ChoosePackage) {
+  if (!serviceItems?.introduction) {
+    return null;
+  }
+  if (!serviceItems.introduction?.ChoosePackage) {
     return null;
   }
 

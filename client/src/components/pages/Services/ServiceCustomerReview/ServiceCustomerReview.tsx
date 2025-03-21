@@ -22,7 +22,10 @@ const ServiceCustomerReview = () => {
     setCount(INITIAL_COUNT);
   }, []);
 
-  if (!serviceItems?.introduction.CustomerReviews) {
+  if (!serviceItems?.introduction) {
+    return null;
+  }
+  if (!serviceItems.introduction?.CustomerReviews) {
     return null;
   }
   const maxCount = serviceItems.introduction.CustomerReviews.Review.length;

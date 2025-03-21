@@ -26,11 +26,13 @@ const ServiceBenefit = memo(({ className = "" }: ServiceBenefitProps) => {
     },
     [handleTabClick]
   );
-
-  if (!serviceItems?.introduction.Benefits) {
+  if (!serviceItems?.introduction) {
     return null;
   }
-  if (!serviceItems?.introduction.Benefits.title) {
+  if (!serviceItems.introduction?.Benefits) {
+    return null;
+  }
+  if (!serviceItems.introduction.Benefits?.title) {
     return null;
   }
 
@@ -82,7 +84,7 @@ const ServiceBenefit = memo(({ className = "" }: ServiceBenefitProps) => {
                     priority
                     alt={`illustration`}
                     src={currentBenefit.img}
-                    className="object-cover"
+                    className="w-[80%] h-[80%]"
                   />
                 </div>
                 <div className="w-full lg:w-[50%] flex flex-col gap-5">

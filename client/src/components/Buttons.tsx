@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useTranslations } from "next-intl";
 type ButtonType = "white-main" | "primary";
 type ButtonSize = "sm" | "md" | "lg";
 
@@ -31,7 +31,7 @@ const MainButton = ({
   };
 
   const baseClasses =
-    "font-clash font-semibold rounded-[10px] transition-all duration-300 animate-fade-in border border-black-dark/50";
+    "font-clash font-semibold rounded-[10px] transition-all duration-300 animate-fade-in border";
   const disabledClasses = "opacity-50 cursor-not-allowed";
   const loadingClasses = "relative text-transparent";
 
@@ -50,7 +50,7 @@ const MainButton = ({
     >
       {type === "white-main" ? (
         <p
-          className={`bg-white text-text-primary hover:bg-black-medium shadow-soft hover:shadow-hover rounded-[10px] ${
+          className={`bg-white text-text-primary hover:bg-black-medium hover:shadow-hover rounded-[10px] ${
             sizeClasses[size]
           } ${customChildClass || ""}`}
         >
@@ -58,7 +58,7 @@ const MainButton = ({
         </p>
       ) : (
         <p
-          className={`bg-gradient-to-t from-primary to-accent text-white hover:bg-accent shadow-soft hover:shadow-hover rounded-[10px] ${
+          className={`bg-gradient-to-t from-primary to-accent text-white hover:bg-accent hover:shadow-hover rounded-[10px] ${
             sizeClasses[size]
           } ${customChildClass || ""}`}
         >
@@ -85,6 +85,7 @@ export const SwitchButton = ({
   setStatus,
   customClass,
 }: SwitchButtonProps) => {
+  const t = useTranslations("Home");
   return (
     <div
       className={`bg-background-light rounded-full flex border border-black-dark p-1 shadow-soft animate-fade-in ${customClass}`}
@@ -101,7 +102,7 @@ export const SwitchButton = ({
           }
         `}
       >
-        Services
+        {t("Services.SwitchButton.Services")}
       </button>
       <button
         onClick={() => setStatus("Tools")}
@@ -115,7 +116,7 @@ export const SwitchButton = ({
           }
         `}
       >
-        Free Tools
+        {t("Services.SwitchButton.Tools")}
       </button>
     </div>
   );

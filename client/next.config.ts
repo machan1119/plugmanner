@@ -1,4 +1,7 @@
 import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
+
+const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
   images: {
@@ -32,11 +35,6 @@ const nextConfig: NextConfig = {
   env: {
     NEXT_PUBLIC_STRAPI_API_URL: process.env.NEXT_PUBLIC_STRAPI_API_URL,
   },
-  i18n: {
-    locales: ["en", "es", "de", "pt-BR"],
-    defaultLocale: "en",
-    localeDetection: false,
-  },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

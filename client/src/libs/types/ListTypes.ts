@@ -53,16 +53,64 @@ export interface ListType {
 export interface ServicesDataType {
   title: string;
   icon: string;
-  services: { name: string; id: string; icon: Icon; recommend?:boolean;  popular:string;}[];
+  services: {
+    name: string;
+    id: string;
+    icon: Icon;
+    recommend?: boolean;
+    popular: string;
+  }[];
 }
 
 export interface ServicesListType {
   popular: string;
   title: string;
   icon: string;
-  services: { name: string; id: string; icon: Icon; recommend?:boolean;  popular:string;}[];
+  services: {
+    name: string;
+    id: string;
+    icon: Icon;
+    recommend?: boolean;
+    popular: string;
+  }[];
 }
 
 export interface SubserviceDataType {
-  name : string; id: string; icon: Icon; recommend?:boolean; popular:string;
+  name: string;
+  id: string;
+  icon: Icon;
+  recommend?: boolean;
+  popular: string;
+}
+
+export interface ProcessedListType {
+  data_1: ListType[];
+  data_2: ServicesListType[];
+  data_3: SubserviceDataType[];
+}
+
+export interface ServiceMetadataType {
+  metaTitle: string;
+  metaDescription: string;
+  keywords?: string;
+  metaRobots?: string;
+  metaViewport: string;
+  canonicalURL?: string;
+  structuredData?: string;
+  metaImage?: string;
+  metaSocial: [
+    {
+      socialNetwork: string;
+      title: string;
+      description: string;
+      image: string;
+    }
+  ];
+  openGraph: {
+    ogtitle?: string;
+    ogdescription?: string;
+    ogurl?: string;
+    ogtype?: string;
+    ogimage?: string;
+  };
 }

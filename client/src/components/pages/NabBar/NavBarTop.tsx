@@ -1,35 +1,31 @@
 import Image from "next/image";
 import React, { memo } from "react";
-
+import { useTranslations } from "next-intl";
 interface NavBarTopItem {
   icon: string;
   text: string;
   alt: string;
 }
 
-const navBarTopItems: NavBarTopItem[] = [
-  {
-    icon: "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e8b_Frame%201000003820.svg",
-    text: "24/7 Support",
-    alt: "Support icon",
-  },
-  {
-    icon: "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e8a_Frame%201000003819.svg",
-    text: "Instant Delivery",
-    alt: "Delivery icon",
-  },
-  {
-    icon: "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e89_Frame%201000003818.svg",
-    text: "100k+ Clients",
-    alt: "Clients icon",
-  },
-];
-
-interface NavBarTopProps {
-  className?: string;
-}
-
-const NavBarTop = memo(({ className = "" }: NavBarTopProps) => {
+const NavBarTop = memo(() => {
+  const t = useTranslations("Navbar");
+  const navBarTopItems: NavBarTopItem[] = [
+    {
+      icon: "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e8b_Frame%201000003820.svg",
+      text: t("top.0.title"),
+      alt: t("top.0.alt"),
+    },
+    {
+      icon: "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e8a_Frame%201000003819.svg",
+      text: t("top.1.title"),
+      alt: t("top.1.alt"),
+    },
+    {
+      icon: "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e89_Frame%201000003818.svg",
+      text: t("top.2.title"),
+      alt: t("top.2.alt"),
+    },
+  ];
   return (
     <div
       className={`
@@ -37,32 +33,20 @@ const NavBarTop = memo(({ className = "" }: NavBarTopProps) => {
         text-xs md:text-sm
         flex relative justify-center
         overflow-hidden
-        transition-colors duration-300
-        ${className}
       `}
     >
       <div className="flex justify-center gap-5 md:gap-15 lg:gap-25 p-3">
         {navBarTopItems.map((item, index) => (
-          <div
-            key={item.text}
-            className="
-              flex gap-3 items-center
-              transition-transform duration-300
-              hover:scale-105
-              animate-fade-in
-            "
-            style={{ animationDelay: `${index * 100}ms` }}
-          >
+          <div key={index} className="flex gap-3 items-center">
             <Image
               width={24}
               height={24}
               alt={item.alt}
               src={item.icon}
+              priority
               className="
                 w-[18px] h-[18px]
                 md:w-6 md:h-6
-                transition-transform duration-300
-                group-hover:scale-110
               "
             />
             <span className="font-medium">{item.text}</span>
@@ -74,6 +58,7 @@ const NavBarTop = memo(({ className = "" }: NavBarTopProps) => {
           width={125}
           height={125}
           alt=""
+          priority
           src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e8d_Group%201000004059.svg"
           className="
             hidden sm:block
@@ -89,6 +74,7 @@ const NavBarTop = memo(({ className = "" }: NavBarTopProps) => {
           width={110}
           height={110}
           alt=""
+          priority
           src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e8e_Group.svg"
           className="
             hidden sm:block
@@ -96,8 +82,6 @@ const NavBarTop = memo(({ className = "" }: NavBarTopProps) => {
             absolute
             inset-[10%_13%_-25%_auto]
             lg:inset-[-30%_13%_-25%_auto]
-            transition-transform duration-500
-            hover:scale-105
           "
         />
       </div>

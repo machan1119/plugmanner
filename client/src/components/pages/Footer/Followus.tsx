@@ -55,7 +55,7 @@ const FollowUs = memo(({ className = "" }: FollowUsProps) => {
         Follow Us
       </h3>
       <div className="flex gap-4">
-        {socialLinks.map((link, index) => (
+        {socialLinks.map((link) => (
           <Link
             key={link.label}
             href={link.href}
@@ -66,9 +66,7 @@ const FollowUs = memo(({ className = "" }: FollowUsProps) => {
               transition-all duration-300
               hover:scale-110
               hover:text-primary
-              animate-fade-in
             "
-            style={{ animationDelay: `${index * 100}ms` }}
           >
             {link.icon}
           </Link>
@@ -96,15 +94,9 @@ const FollowUs = memo(({ className = "" }: FollowUsProps) => {
           "
           required
         />
-        <MainButton
-          type="primary"
-          title="Subscribe"
-          customClass="animate-fade-in [animation-delay:300ms]"
-        />
+        <MainButton type="primary" title="Subscribe" />
       </form>
-      <div className="animate-fade-in" style={{ animationDelay: "400ms" }}>
-        <FreeTrial />
-      </div>
+      <FreeTrial />
     </div>
   );
 });

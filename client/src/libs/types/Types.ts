@@ -33,3 +33,9 @@ export interface OurPartnersItemType {
   host: string;
   alt: string;
 }
+
+export interface LanguageOption {
+  code: string;
+  flag: string;
+  name: string;
+}

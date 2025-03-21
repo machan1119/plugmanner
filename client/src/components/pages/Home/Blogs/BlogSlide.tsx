@@ -1,16 +1,50 @@
-import { BlogItems } from "@/libs/data/BlogItems";
 import Image from "next/image";
 import React, { memo } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import MainButton from "@/components/Buttons";
 import { NextArrow, PrevArrow } from "@/libs/consts/MySvg";
+import { useTranslations } from "next-intl";
 
 interface BlogSlideProps {
   className?: string;
 }
 
 const BlogSlide = memo(({ className = "" }: BlogSlideProps) => {
+  const t = useTranslations("Home");
+  const BlogItems = [
+    {
+      icon: "https://cdn.prod.website-files.com/62c20e5d5008626d5073c19a/67a3dbe518269ae4c5428a5b_How-to-Get-More-Followers-on-Facebook-Proven-Strategies-for-Growing-Your-Online-Presence-p-500.jpg",
+      title: t("Blogs.BlogItems.0.title"),
+      type: t("Blogs.BlogItems.0.type"),
+      date: t("Blogs.BlogItems.0.date"),
+    },
+    {
+      icon: "https://cdn.prod.website-files.com/62c20e5d5008626d5073c19a/67a3d6dad95b35f98fd71744_How-to-Make-Money-on-Facebook-Reels-in-2025-p-500.jpg",
+      title: t("Blogs.BlogItems.1.title"),
+      type: t("Blogs.BlogItems.1.type"),
+      date: t("Blogs.BlogItems.1.date"),
+    },
+    {
+      icon: "https://cdn.prod.website-files.com/62c20e5d5008626d5073c19a/67a3dbe518269ae4c5428a5b_How-to-Get-More-Followers-on-Facebook-Proven-Strategies-for-Growing-Your-Online-Presence-p-500.jpg",
+      title: t("Blogs.BlogItems.2.title"),
+      type: t("Blogs.BlogItems.2.type"),
+      date: t("Blogs.BlogItems.2.date"),
+    },
+    {
+      icon: "https://cdn.prod.website-files.com/62c20e5d5008626d5073c19a/67a3d6dad95b35f98fd71744_How-to-Make-Money-on-Facebook-Reels-in-2025-p-500.jpg",
+      title: t("Blogs.BlogItems.3.title"),
+      type: t("Blogs.BlogItems.3.type"),
+      date: t("Blogs.BlogItems.3.date"),
+    },
+    {
+      icon: "https://cdn.prod.website-files.com/62c20e5d5008626d5073c19a/67a3dbe518269ae4c5428a5b_How-to-Get-More-Followers-on-Facebook-Proven-Strategies-for-Growing-Your-Online-Presence-p-500.jpg",
+      title: t("Blogs.BlogItems.4.title"),
+      type: t("Blogs.BlogItems.4.type"),
+      date: t("Blogs.BlogItems.4.date"),
+    },
+  ];
+
   return (
     <div className={`border-white size-full ${className}`}>
       <Swiper
@@ -75,7 +109,7 @@ const BlogSlide = memo(({ className = "" }: BlogSlideProps) => {
                   </time>
                 </div>
                 <button className="text-primary text-[16px] p-2 rounded-md hover:bg-primary/10 transition-colors duration-300">
-                  Read More &gt;
+                  {t("Blogs.ReadMore")}
                 </button>
               </div>
             </article>

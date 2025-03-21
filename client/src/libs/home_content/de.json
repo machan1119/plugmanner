@@ -1,0 +1,186 @@
+{
+  "Navbar": {
+    "top": [
+      {
+        "title": "24/7 Unterstützung",
+        "alt": "Unterstützungssymbol"
+      },
+      {
+        "title": "Sofortige Lieferung",
+        "alt": "Lieferungssymbol"
+      },
+      {
+        "title": "100k+ Kunden",
+        "alt": "Kunden symbol"
+      }
+    ],
+    "main": {
+      "login": "Anmelden",
+      "all_services": "Alle Dienste"
+    }
+  },
+  "Home": {
+    "hero": {
+      "rated": "Bewertet 4.8/5",
+      "from": "von über 100K+ Kunden",
+      "title_1": "Kaufe Followers, Likes",
+      "title_2": "Abonnenten, Ansichten & ",
+      "title_3": "Wachsen Exponentiell ",
+      "description": "Wir helfen Marken und Influencern, durch Innovationen soziale Beweise zu erbringen.",
+      "users": "1.5B+ Menschen erreicht",
+      "cursor": "5M+ Monatliche Klicks",
+      "view_all_services": "Alle Dienste ansehen",
+      "client_portal": "Kundenportal",
+      "Status": {
+        "follows": "Folgt",
+        "likes": "Likes",
+        "subscribers": "Abonnenten",
+        "delivered": "geliefert",
+        "minutes_ago": "mins ago"
+      }
+    },
+    "Services": {
+      "title": "Alle Marketingdienste",
+      "sort_by": "Sortieren nach:",
+      "popular": "Beliebt",
+      "AToZ": "Sortieren von A-Z",
+      "ZToA": "Sortieren von Z-A",
+      "SwitchButton": {
+        "Services": "Dienste",
+        "Tools": "Kostenlose Tools"
+      }
+    },
+    "Why": {
+      "title_1": "Warum Kunden ",
+      "title_2": "Wählen Sie uns",
+      "title_3": "",
+      "description": "Lesen Sie, was unsere Kunden über diesen Service halten. Wir nehmen Ihre Rückmeldung ernst - helfen Sie uns, indem Sie einen Beitrag hinterlassen.",
+      "review": "einen Beitrag hinterlassen",
+      "read_more": "Mehr lesen",
+      "Review_Status": {
+        "happy": "Zufriedene Kunden",
+        "population": "Menschen erreicht",
+        "review_rate": "Bewertungsrate"
+      }
+    },
+    "Why_2": {
+      "title_1": "Warum wählen ",
+      "title_2": "SocialPlug?",
+      "title_3": "",
+      "description": "Unser Ansatz konzentriert sich auf das Erhöhen der Engagement, die Erhöhung der Sichtbarkeit und das Treiben von Ergebnissen auf jeder Plattform.",
+      "WhyChooseThisItems": [
+        {
+          "title": "Hohe Qualitätsstandards",
+          "description": "Wir testen unsere Dienste täglich und holen immer von den besten Lieferanten."
+        },
+        {
+          "title": "30 Sekunden Checkout-Keine Anmeldung erforderlich",
+          "description": "Schnell kaufen Sie soziale Medien-Dienste ohne persönliche Details einzugeben."
+        },
+        {
+          "title": "Einfache Kommunikation",
+          "description": "Unser Team bietet Support für alle auf SocialPlug platzierten Bestellungen, Frieden der Seele und schnelle Antworten."
+        }
+      ]
+    },
+    "HowToOrder": {
+      "title_1": "Wie man ",
+      "title_2": "einen Auftrag platziert?",
+      "description": "Hier ist eine schnelle Übersicht darüber, wie Sie einen Auftrag für unsere sozialen Medien-Dienste platzieren können.",
+      "OrderSteps": [
+        {
+          "title": "Wählen Sie einen Service",
+          "description": "Durchsuchen Sie unseren Bereich sozialer Medien-Dienste und wählen Sie denjenigen, der Ihren Bedürfnissen am besten entspricht."
+        },
+        {
+          "title": "In den Warenkorb hinzufügen",
+          "description": "Fügen Sie den ausgewählten Service zu Ihrem Warenkorb hinzu, indem Sie auf die Schaltfläche 'In den Warenkorb hinzufügen' klicken."
+        },
+        {
+          "title": "Checkout",
+          "description": "Vervollständigen Sie den Checkout-Prozess, um Ihre Bestellung zu platzieren."
+        }
+      ]
+    },
+    "Question": {
+      "title_1": "Ihre Fragen ",
+      "title_2": "Beantwortet",
+      "Questions": [
+        {
+          "question": "Welche Zahlungsmethoden akzeptieren Sie?",
+          "answer": "Wir bieten einfache und sichere Checkouts via Kreditkarte, Kryptowährung, Google Pay & Apple Pay an."
+        },
+        {
+          "question": "Ich habe eine individuelle Anfrage, wie gehe ich vor?",
+          "answer": "Für dringende Angelegenheiten kontaktieren Sie uns bitte über die Kontaktseite."
+        },
+        {
+          "question": "Wie lange dauert die Lieferung?",
+          "answer": "Unser Kundensupport ist 24/7 verfügbar, um Ihre Fragen rund um die Uhr zu beantworten."
+        },
+        {
+          "question": "Wie schnell ist die Lieferung?",
+          "answer": "Die Lieferzeit hängt vom Service ab, einige Dienste werden in 30 Sekunden geliefert und einige Dienste können bis zu 24 Stunden dauern."
+        }
+      ],
+      "Still_have_questions": {
+        "title": "Noch Fragen?",
+        "description": "Können Sie die Antworten nicht finden, die Sie suchen? Bitte chatten Sie mit unserem freundlichen Team.",
+        "button": "Kontaktieren Sie uns"
+      }
+    },
+    "OurPartners": {
+      "title_1": "Unsere",
+      "title_2": "Partner",
+      "description": "Wir arbeiten mit den Besten in der Branche zusammen."
+    },
+    "Blogs": {
+      "title": "Neuigkeiten und Artikel",
+      "description": "Aktuell",
+      "BlogItems": [
+        {
+          "title": "Wie man mehr Followers auf Instagram bekommt",
+          "type": "Soziale Medien Tipps",
+          "date": "6. Februar 2025"
+        },
+        {
+          "title": "Wie man mehr Followers auf Instagram bekommt",
+          "type": "Soziale Medien Tipps",
+          "date": "6. Februar 2025"
+        },
+        {
+          "title": "Wie man mehr Followers auf Instagram bekommt",
+          "type": "Soziale Medien Tipps",
+          "date": "6. Februar 2025"
+        },
+        {
+          "title": "Wie man mehr Followers auf Instagram bekommt",
+          "type": "Soziale Medien Tipps",
+          "date": "6. Februar 2025"
+        },
+        {
+          "title": "Wie man mehr Followers auf Instagram bekommt",
+          "type": "Soziale Medien Tipps",
+          "date": "6. Februar 2025"
+        }
+      ],
+      "ReadMore": "Mehr lesen >"
+    }
+  },
+  "AllServices": {
+    "HowTo": [
+      {
+        "title": "Wählen Sie den Service",
+        "description": "Wählen Sie die gewünschte Social-Media-Plattform und den gewünschten Dienst."
+      },
+      {
+        "title": "Setzen Sie das Ziel",
+        "description": "Wählen Sie die gewünschte Leistungsmenge, beispielsweise 100 Follower."
+      },
+      {
+        "title": "Ergebnisse abrufen",
+        "description": "Zur Kasse & fertig! Unser Team liefert Ihre Bestellung noch am selben Tag."
+      }
+    ]
+  }
+}

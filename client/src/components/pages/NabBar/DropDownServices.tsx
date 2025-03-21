@@ -97,28 +97,25 @@ ServiceCategory.displayName = "ServiceCategory";
 
 interface DropDownServicesProps {
   item: ListType;
-  className?: string;
 }
 
-const DropDownServices = memo(
-  ({ item, className = "" }: DropDownServicesProps) => {
-    const [isOpen, setIsOpen] = useState(false);
+const DropDownServices = memo(({ item }: DropDownServicesProps) => {
+  const [isOpen, setIsOpen] = useState(false);
 
-    const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setIsOpen(false);
-      }
-    }, []);
+  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
+    if (e.key === "Escape") {
+      setIsOpen(false);
+    }
+  }, []);
 
-    return (
-      <div
-        className={`
+  return (
+    <div
+      className={`
       inline-block group relative
-      ${className}
     `}
-      >
-        <div
-          className="
+    >
+      <div
+        className="
           flex gap-1 items-center 
           cursor-pointer 
           py-4 
@@ -127,24 +124,25 @@ const DropDownServices = memo(
           transition-colors duration-300
           hover:text-primary
         "
-          tabIndex={0}
-          onKeyDown={handleKeyDown}
-        >
-          <p>{item.type}</p>
-          <Image
-            width={16}
-            height={16}
-            className="
+        tabIndex={0}
+        onKeyDown={handleKeyDown}
+      >
+        <p>{item.type}</p>
+        <Image
+          width={16}
+          height={16}
+          priority
+          className="
             w-auto h-auto
             transition-transform duration-300
             group-hover:rotate-180
           "
-            alt="down"
-            src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e87_nav_dd-icon.svg"
-          />
-        </div>
-        <div
-          className={`
+          alt="down"
+          src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e87_nav_dd-icon.svg"
+        />
+      </div>
+      <div
+        className={`
           absolute 
           ${isOpen ? "block" : "hidden"}
           group-hover:block 
@@ -158,10 +156,10 @@ const DropDownServices = memo(
               : "left-0"
           }
         `}
-        >
-          {item.type === "Other" ? (
-            <div
-              className="
+      >
+        {item.type === "Other" ? (
+          <div
+            className="
             w-[50vw] 
             max-h-[70vh] 
             overflow-y-auto 
@@ -169,35 +167,34 @@ const DropDownServices = memo(
             p-1
             scrollbar-thin scrollbar-thumb-black-normal scrollbar-track-transparent
           "
-            >
-              <div className="columns-[100px] w-full gap-6">
-                {item.data.map((val, index) => (
-                  <ServiceCategory val={val} key={index} />
-                ))}
-              </div>
+          >
+            <div className="columns-[100px] w-full gap-6">
+              {item.data.map((val, index) => (
+                <ServiceCategory val={val} key={index} />
+              ))}
             </div>
-          ) : (
-            <div
-              className="
+          </div>
+        ) : (
+          <div
+            className="
             max-h-[70vh] 
             max-w-[50vw] 
             overflow-auto 
             p-1
             scrollbar-thin scrollbar-thumb-black-normal scrollbar-track-transparent
           "
-            >
-              <div className="flex w-max gap-6">
-                {item.data.map((val, index) => (
-                  <ServiceCategory val={val} key={index} />
-                ))}
-              </div>
+          >
+            <div className="flex w-max gap-6">
+              {item.data.map((val, index) => (
+                <ServiceCategory val={val} key={index} />
+              ))}
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
-    );
-  }
-);
+    </div>
+  );
+});
 
 DropDownServices.displayName = "DropDownServices";
 

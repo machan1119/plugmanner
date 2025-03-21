@@ -78,8 +78,7 @@ const ServicesItem = memo(
                   className="p-2 bg-white rounded-md flex items-center justify-center text-center transition-all duration-200 hover:bg-gray-50 hover:shadow-sm animate-fade-in-up"
                   href={`/services/${generate_slug(serviceItem.name)}`}
                   aria-label={serviceItem.name}
-                  key={`${serviceData.title}-${index}`}
-                  style={{ animationDelay: `${index * 50}ms` }}
+                  key={index}
                 >
                   {serviceItem.name}
                 </Link>

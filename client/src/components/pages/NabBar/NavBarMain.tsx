@@ -7,34 +7,8 @@ import Link from "next/link";
 import React, { memo, useState } from "react";
 import { useList } from "@/providers/ListProvider";
 import { generate_slug } from "@/utils/functions";
-interface LanguageOption {
-  code: string;
-  flag: string;
-  name: string;
-}
-
-const languages: LanguageOption[] = [
-  {
-    code: "en",
-    flag: "https://cdn.weglot.com/flags/square/us.svg",
-    name: "English",
-  },
-  {
-    code: "es",
-    flag: "https://cdn.weglot.com/flags/square/es.svg",
-    name: "Español",
-  },
-  {
-    code: "de",
-    flag: "https://cdn.weglot.com/flags/square/de.svg",
-    name: "Deutsch",
-  },
-  {
-    code: "pt-BR",
-    flag: "https://cdn.weglot.com/flags/square/br.svg",
-    name: "Português",
-  },
-];
+import LocaleSwitcher from "@/components/LocaleSwitcher";
+import { useTranslations } from "next-intl";
 
 interface NavBarMainProps {
   className?: string;
@@ -43,10 +17,10 @@ interface NavBarMainProps {
 const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
   const [searchShow, setSearchShow] = useState(false);
   const { serviceShow, setServiceShow } = useHome();
-  const { serviceList, subServiceList } = useList();
+  const { serviceList } = useList();
   const [searchService, setSearchService] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
+  const t = useTranslations("Navbar");
   const handleInputFocus = () => {
     setIsDropdownOpen(true);
     if (searchService.length > 1) {
@@ -128,7 +102,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
                   </h2>
                   <div className="grid grid-cols-3 gap-3 font-satoshi font-semibold">
                     {searchService.length > 1
-                      ? serviceList.map((serivce) =>
+                      ? serviceList.data_2.map((serivce) =>
                           serivce.services.map((subservice) =>
                             subservice.name
                               .toLowerCase()
@@ -147,7 +121,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
                             ) : null
                           )
                         )
-                      : subServiceList.slice(0, 27).map((subservice) => (
+                      : serviceList.data_3.slice(0, 27).map((subservice) => (
                           <div key={subservice.id} onClick={removeSearch}>
                             <Link
                               className="flex px-2 py-1 text-base text-text-primary font-medium font-satoshi hover:bg-background-light hover:text-primary transition-all duration-300"
@@ -166,95 +140,21 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
             </div>
 
             <div className="w-px h-[50px] bg-gradient-to-b from-transparent via-black-normal to-transparent" />
-            <Link
-              href="https://panel.socialplug.io/"
-              aria-label="Login"
-              className="animate-fade-in"
-              style={{ animationDelay: "100ms" }}
-            >
-              <MainButton type="white-main" title="Login" />
+            <Link href="https://panel.socialplug.io/" aria-label="Login">
+              <MainButton type="white-main" title={t("main.login")} />
             </Link>
             <Link
               href="/services/"
-              className="lg:block hidden animate-fade-in"
+              className="lg:block hidden"
               aria-label="All Services"
-              style={{ animationDelay: "100ms" }}
             >
               <MainButton
                 type="primary"
-                title="All Services"
+                title={t("main.all_services")}
                 customChildClass="!bg-none !bg-primary"
               />
             </Link>
-            <div
-              className="
-              inline-block group 
-              w-[62px] h-[40px] 
-              bg-white relative 
-              transition-all duration-300
-              hover:shadow-soft
-            "
-            >
-              <Link
-                href="#"
-                aria-label="Language"
-                className="
-                  w-[62px] h-[40px] 
-                  gap-1 flex items-center px-2
-                  transition-colors duration-300
-                  hover:text-primary
-                "
-              >
-                <Image
-                  src={languages[0].flag}
-                  width={28}
-                  height={21}
-                  alt={`${languages[0].name} flag`}
-                  className="object-cover rounded-sm w-[28px] h-[21px]"
-                />
-                <Image
-                  width={16}
-                  height={16}
-                  alt="down"
-                  src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e87_nav_dd-icon.svg"
-                  className="transition-transform duration-300 group-hover:rotate-180"
-                />
-              </Link>
-              <div
-                className="
-                absolute hidden z-10 
-                group-hover:flex 
-                group-hover:flex-col
-                group-hover:gap-2
-                bg-white 
-                w-[62px]
-                rounded-lg p-2 
-                shadow-soft
-                animate-fade-in
-              "
-              >
-                {languages.slice(1).map((lang) => (
-                  <Link
-                    key={lang.code}
-                    href="#"
-                    aria-label={lang.name}
-                    className="
-                      flex items-center gap-1
-                      transition-colors duration-300
-                      hover:text-primary
-                    "
-                  >
-                    <Image
-                      src={lang.flag}
-                      width={28}
-                      height={21}
-                      alt={`${lang.name} flag`}
-                      className="object-cover rounded-sm w-[28px] h-[21px]"
-                    />
-                  </Link>
-                ))}
-              </div>
-            </div>
+            <LocaleSwitcher />
             <button
               onClick={() => setServiceShow(!serviceShow)}
               className="
@@ -325,7 +225,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
                 </h2>
                 <div className="grid grid-cols-1 gap-3 font-satoshi font-semibold">
                   {searchService.length > 1
-                    ? serviceList.map((serivce) =>
+                    ? serviceList.data_2.map((serivce) =>
                         serivce.services.map((subservice) =>
                           subservice.name
                             .toLowerCase()
@@ -344,7 +244,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
                           ) : null
                         )
                       )
-                    : subServiceList.slice(0, 27).map((subservice) => (
+                    : serviceList.data_3.slice(0, 27).map((subservice) => (
                         <div key={subservice.id} onClick={removeSearch}>
                           <Link
                             className="flex px-2 py-1 text-base text-text-primary font-medium font-satoshi hover:bg-background-light hover:text-primary transition-all duration-300"

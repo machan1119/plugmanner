@@ -9,7 +9,7 @@ import { ListType } from "@/libs/types/ListTypes";
 
 const NavBarBottom = memo(() => {
   const { serviceShow } = useHome();
-  const { list, isLoading } = useList();
+  const { serviceList, isLoading } = useList();
   const [isMobile, setIsMobile] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   const [currentList, setCurrentList] = useState<ListType[]>([]);
@@ -33,11 +33,11 @@ const NavBarBottom = memo(() => {
   }, []);
 
   useEffect(() => {
-    const initialData = list.slice(0, itemsPerPage);
+    const initialData = serviceList.data_1.slice(0, itemsPerPage);
     setCurrentList(initialData);
     setPage(1);
-    setHasMore(list.length > itemsPerPage);
-  }, [list, itemsPerPage]);
+    setHasMore(serviceList.data_1.length > itemsPerPage);
+  }, [serviceList.data_1, itemsPerPage]);
 
   if (isLoading) {
     return <ServiceListSkeleton />;
@@ -45,7 +45,7 @@ const NavBarBottom = memo(() => {
 
   const loadMore = () => {
     const nextPage = page + 1;
-    const nextData = list.slice(0, nextPage * itemsPerPage);
+    const nextData = serviceList.data_1.slice(0, nextPage * itemsPerPage);
 
     if (nextData.length === currentList.length) {
       setHasMore(false);
@@ -54,10 +54,8 @@ const NavBarBottom = memo(() => {
       setPage(nextPage);
     }
   };
-
-  return (
-    serviceShow &&
-    (isMobile ? (
+  return isMobile ? (
+    !serviceShow && (
       <div className="w-full">
         <InfiniteScroll
           dataLength={currentList.length}
@@ -78,21 +76,21 @@ const NavBarBottom = memo(() => {
           </div>
         </InfiniteScroll>
       </div>
-    ) : (
-      <div
-        className="
+    )
+  ) : (
+    <div
+      className="
         flex flex-row justify-between 
         justify-self-center 
         w-full 2xl:px-[15%] xl:px-[10%] px-[5%]
         border-y border-black-dark/50 
         py-1.5
       "
-      >
-        {list.map((val, index) => (
-          <DropDownServices item={val} key={index} />
-        ))}
-      </div>
-    ))
+    >
+      {serviceList.data_1.map((val, index) => (
+        <DropDownServices item={val} key={index} />
+      ))}
+    </div>
   );
 });
 

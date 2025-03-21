@@ -12,7 +12,6 @@ const Summary = memo(({ className = "" }: SummaryProps) => {
         flex flex-col gap-5 
         max-w-[280px] 
         pb-4 sm:pb-0
-        animate-fade-in
         ${className}
       `}
     >

@@ -1,0 +1,186 @@
+{
+  "Navbar": {
+    "top": [
+      {
+        "title": "Soporte 24/7",
+        "alt": "Soporte icon"
+      },
+      {
+        "title": "Entrega Instantánea",
+        "alt": "Entrega icon"
+      },
+      {
+        "title": "100k+ Clientes",
+        "alt": "Clientes icon"
+      }
+    ],
+    "main": {
+      "login": "Iniciar sesión",
+      "all_services": "Todos los servicios"
+    }
+  },
+  "Home": {
+    "hero": {
+      "rated": "Valorado 4.8/5",
+      "from": "de más de 100K+ clientes",
+      "title_1": "Compra Seguidores, likes",
+      "title_2": "Suscriptores, Vistas & ",
+      "title_3": "Crecimiento Exponencial ",
+      "description": "Ayudamos a marcas e influencers a crear pruebas sociales con servicios innovadores.",
+      "users": "+1.5M de personas alcanzadas",
+      "cursor": "Más de 5M clics mensuales",
+      "view_all_services": "Ver Todos los Servicios",
+      "client_portal": "Portal de Clientes",
+      "Status": {
+        "follows": "seguidores",
+        "likes": "me gusta",
+        "subscribers": "suscriptores",
+        "delivered": "entregados",
+        "minutes_ago": "hace mins"
+      }
+    },
+    "Services": {
+      "title": "Todos los Servicios de Marketing",
+      "sort_by": "Ordenar por:",
+      "popular": "Popular",
+      "AToZ": "Ordenar de A-Z",
+      "ZToA": "Ordenar de Z-A",
+      "SwitchButton": {
+        "Services": "Servicios",
+        "Tools": "Herramientas gratuitas"
+      }
+    },
+    "Why": {
+      "title_1": "Por qué ",
+      "title_2": "nos eligen ",
+      "title_3": "nuestros clientes",
+      "description": "Lee lo que nuestros clientes piensan de este servicio. Tomamos tus comentarios en serio - ayúdanos a mejorar dejando una reseña ",
+      "review": "Dejar una reseña.",
+      "read_more": "Leer más",
+      "Review_Status": {
+        "happy": "Clientes felices",
+        "population": "Población alcanzada",
+        "review_rate": "Tasa de reseñas"
+      }
+    },
+    "Why_2": {
+      "title_1": "Por qué elegir ",
+      "title_2": "SocialPlug?",
+      "title_3": "",
+      "description": "Nuestro enfoque se centra en aumentar la interacción, la visibilidad y los resultados en cada plataforma.",
+      "WhyChooseThisItems": [
+        {
+          "title": "Estándares de alta calidad",
+          "description": "Realizamos pruebas diarias de nuestros servicios y siempre obtenemos los mejores proveedores disponibles."
+        },
+        {
+          "title": "Checkout en 30 segundos-No se requiere registro",
+          "description": "Compra servicios de redes sociales sin tener que enviar tus datos personales."
+        },
+        {
+          "title": "Comunicación fácil",
+          "description": "Nuestro equipo ofrece soporte para todas las órdenes colocadas en SocialPlug, tranquilidad y respuestas rápidas."
+        }
+      ]
+    },
+    "HowToOrder": {
+      "title_1": "Cómo ",
+      "title_2": "ordenar?",
+      "description": "Aquí tienes un resumen rápido de cómo puedes colocar una orden para nuestros servicios de redes sociales.",
+      "OrderSteps": [
+        {
+          "title": "Elige un Servicio",
+          "description": "Navega por nuestro rango de servicios de redes sociales y selecciona el que mejor se adapte a tus necesidades."
+        },
+        {
+          "title": "Añadir al Carrito",
+          "description": "Añade el servicio elegido a tu carrito haciendo clic en el botón 'Añadir al Carrito'."
+        },
+        {
+          "title": "Checkout",
+          "description": "Completa el proceso de pago para colocar tu orden."
+        }
+      ]
+    },
+    "Question": {
+      "title_1": "Sus preguntas ",
+      "title_2": "Respondidas",
+      "Questions": [
+        {
+          "question": "¿Qué métodos de pago aceptan?",
+          "answer": "Ofrecemos pagos fáciles y seguros a través de tarjetas, criptomonedas, Google Pay y Apple Pay."
+        },
+        {
+          "question": "¿Tengo una solicitud personalizada, cómo procedo?",
+          "answer": "Para asuntos urgentes, por favor contacte con nosotros a través de la página de contacto."
+        },
+        {
+          "question": "¿Cuáles son sus horas de trabajo?",
+          "answer": "Nuestro soporte al cliente está disponible las 24 horas del día, listo para responder a tus preguntas."
+        },
+        {
+          "question": "¿Qué tan rápido es el envío?",
+          "answer": "El tiempo de entrega depende del servicio, algunos servicios se entregan en 30 segundos y otros en hasta 24 horas."
+        }
+      ],
+      "Still_have_questions": {
+        "title": "¿Todavía tienes preguntas?",
+        "description": "¿No encuentras la respuesta que buscas? Por favor, chatea con nuestro equipo amigable.",
+        "button": "Contactar"
+      }
+    },
+    "OurPartners": {
+      "title_1": "Nuestros",
+      "title_2": "Socios",
+      "description": "Trabajamos con los mejores en el negocio."
+    },
+    "Blogs": {
+      "title": "Noticias y Artículos",
+      "description": "Más recientes",
+      "BlogItems": [
+        {
+          "title": "Cómo obtener más seguidores en Instagram",
+          "type": "Consejos de Marketing Social",
+          "date": "6 de febrero de 2025"
+        },
+        {
+          "title": "Cómo hacer dinero en Facebook Reels en 2025",
+          "type": "Consejos de Marketing Social",
+          "date": "6 de febrero de 2025"
+        },
+        {
+          "title": "Cómo hacer dinero en Facebook Reels en 2025",
+          "type": "Consejos de Marketing Social",
+          "date": "6 de febrero de 2025"
+        },
+        {
+          "title": "Cómo obtener más seguidores en Instagram",
+          "type": "Consejos de Marketing Social",
+          "date": "6 de febrero de 2025"
+        },
+        {
+          "title": "Cómo hacer dinero en Facebook Reels en 2025",
+          "type": "Consejos de Marketing Social",
+          "date": "6 de febrero de 2025"
+        }
+      ],
+      "ReadMore": "Leer más >"
+    }
+  },
+  "AllServices": {
+    "HowTo": [
+      {
+        "title": "Elige el servicio",
+        "description": "Elija la plataforma de redes sociales y el servicio requerido."
+      },
+      {
+        "title": "Establecer el objetivo",
+        "description": "Elige la cantidad deseada de servicios, por ejemplo 100 seguidores."
+      },
+      {
+        "title": "Obtenga los resultados",
+        "description": "¡Paga y listo! Nuestro equipo te entregará tu pedido el mismo día."
+      }
+    ]
+  }
+}

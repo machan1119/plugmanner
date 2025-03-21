@@ -24,7 +24,6 @@ interface ServiceContentProps {
 
 interface ServiceSection {
   component: React.ReactNode;
-  delay: number;
   id: string;
 }
 
@@ -47,29 +46,21 @@ const ServiceContent = memo(({ className = "" }: ServiceContentProps) => {
   }
 
   const sections: ServiceSection[] = [
-    { component: <ServiceInfo />, delay: 100, id: "service-info" },
-    { component: <ServiceReview />, delay: 200, id: "service-review" },
-    { component: <ServiceHowTo />, delay: 300, id: "service-how-to" },
-    { component: <ServiceSummary />, delay: 400, id: "service-summary" },
-    { component: <ServiceVideo />, delay: 500, id: "service-video" },
-    { component: <ServiceUpBlogs />, delay: 600, id: "service-up-blogs" },
-    { component: <ServiceBenefit />, delay: 700, id: "service-benefit" },
-    { component: <ServiceSummary2 />, delay: 800, id: "service-summary-2" },
-    { component: <ServiceDownBlogs />, delay: 900, id: "service-down-blogs" },
-    { component: <ServicePackage />, delay: 1000, id: "service-package" },
-    {
-      component: <ServiceGoodPoints />,
-      delay: 1100,
-      id: "service-good-points",
-    },
-    {
-      component: <ServiceCustomerReview />,
-      delay: 1200,
-      id: "service-customer-review",
-    },
-    { component: <ServiceQuestion />, delay: 1300, id: "service-question" },
-    { component: <ServiceArticle />, delay: 1400, id: "service-article" },
-    { component: <SectionServices />, delay: 1500, id: "section-services" },
+    { component: <ServiceInfo />, id: "info" },
+    { component: <ServiceReview />, id: "review" },
+    { component: <ServiceHowTo />, id: "how-to" },
+    { component: <ServiceSummary />, id: "summary" },
+    { component: <ServiceVideo />, id: "video" },
+    { component: <ServiceUpBlogs />, id: "up-blogs" },
+    { component: <ServiceBenefit />, id: "benefit" },
+    { component: <ServiceSummary2 />, id: "summary-2" },
+    { component: <ServiceDownBlogs />, id: "down-blogs" },
+    { component: <ServicePackage />, id: "package" },
+    { component: <ServiceGoodPoints />, id: "good-points" },
+    { component: <ServiceCustomerReview />, id: "customer-review" },
+    { component: <ServiceQuestion />, id: "question" },
+    { component: <ServiceArticle />, id: "article" },
+    { component: <SectionServices />, id: "services" },
   ];
 
   return (
@@ -81,12 +72,7 @@ const ServiceContent = memo(({ className = "" }: ServiceContentProps) => {
       `}
     >
       {sections.map((section) => (
-        <div
-          key={section.id}
-          className="animate-fade-in"
-          style={{ animationDelay: `${section.delay}ms` }}
-          id={section.id}
-        >
+        <div key={section.id} className="animate-fade-in" id={section.id}>
           {section.component}
         </div>
       ))}

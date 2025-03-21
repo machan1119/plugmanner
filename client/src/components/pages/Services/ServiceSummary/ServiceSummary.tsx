@@ -12,7 +12,10 @@ interface SummaryItem {
 const ServiceSummary = () => {
   const { serviceItems } = useServices();
 
-  if (!serviceItems?.introduction.Summary) {
+  if (!serviceItems?.introduction) {
+    return null;
+  }
+  if (!serviceItems.introduction?.Summary) {
     return null;
   }
 

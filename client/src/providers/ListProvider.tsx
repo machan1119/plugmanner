@@ -14,6 +14,7 @@ import {
   SubserviceDataType,
 } from "@/libs/types/ListTypes";
 import { fetchAPI } from "@/utils/fetch-api";
+import { getCookie } from "@/utils/functions";
 
 interface ListContextProps {
   list: ListType[];
@@ -172,7 +173,7 @@ export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
   );
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
-
+  const locale = getCookie("NEXT_LOCALE");
   const fetchData = useCallback(
     async (start: number, limit: number) => {
       try {
@@ -180,7 +181,15 @@ export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
         const path = "/services";
         const urlParamsObject = {
           sort: { popular: "desc" },
-          populate: ["subservices.icon", "icon"],
+          fields: ["documentId", "type", "popular"],
+          populate: {
+            subservices: {
+              fields: ["name", "documentId", "popular"],
+              populate: "icon",
+            },
+            icon: { fields: ["url"] },
+          },
+          "[locale]": locale,
           pagination: {
             start,
             limit,
@@ -207,7 +216,7 @@ export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
         if (limit != 1) setIsLoading(false);
       }
     },
-    [meta]
+    [meta, locale]
   );
 
   useEffect(() => {
@@ -216,7 +225,7 @@ export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
     } else {
       fetchData(0, 1);
     }
-  }, [fetchData, meta]);
+  }, [fetchData, meta, locale]);
 
   const value = useMemo(
     () => ({

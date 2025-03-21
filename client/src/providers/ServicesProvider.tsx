@@ -9,7 +9,7 @@ import React, {
 import { fetchAPI } from "@/utils/fetch-api";
 import { ServiceJsonDataType } from "@/libs/types/ServiceJsonDataType";
 import { useList } from "./ListProvider";
-import { generate_slug } from "@/utils/functions";
+import { generate_slug, getCookie } from "@/utils/functions";
 
 interface ServicesContextType {
   serviceItems: ServiceJsonDataType | null;
@@ -34,7 +34,7 @@ const useFetchServiceData = (itemId: string) => {
   );
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
+  const locale = getCookie("NEXT_LOCALE");
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
@@ -44,6 +44,7 @@ const useFetchServiceData = (itemId: string) => {
         const urlParamsObject = {
           pLevel: "7",
           sort: { createdAt: "asc" },
+          "[locale]": locale,
         };
         const options = "";
         const fetchedData = await fetchAPI(path, urlParamsObject, options);
@@ -59,7 +60,7 @@ const useFetchServiceData = (itemId: string) => {
     if (itemId) {
       fetchData();
     }
-  }, [itemId]);
+  }, [itemId, locale]);
 
   return { serviceItems, isLoading, error };
 };
@@ -70,7 +71,6 @@ export const ServicesProvider: React.FC<ServicesProviderProps> = ({
 }) => {
   const { subServiceList } = useList();
   const [itemId, setItemId] = useState("");
-
   useEffect(() => {
     const subservice = subServiceList.find(
       (sub) => generate_slug(sub.name) == item
@@ -79,7 +79,6 @@ export const ServicesProvider: React.FC<ServicesProviderProps> = ({
       setItemId(subservice.id);
     }
   }, [item, subServiceList]);
-
   const { serviceItems, isLoading, error } = useFetchServiceData(itemId);
 
   const contextValue = useMemo(

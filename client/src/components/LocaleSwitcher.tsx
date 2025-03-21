@@ -9,7 +9,7 @@ const languages: LanguageOption[] = [
     name: "English",
   },
   {
-    code: "es",
+    code: "es-ES",
     flag: "https://cdn.weglot.com/flags/square/es.svg",
     name: "Español",
   },

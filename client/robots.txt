@@ -1,6 +1,0 @@
-User-agent: *
-Disallow: /*/services/*
-
-
-# Allow crawling of everything else
-Allow: /

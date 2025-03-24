@@ -46,6 +46,7 @@ const DropDownServicesResponsive = memo(
             <Image
               width={40}
               height={40}
+              priority
               src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${serviceData.icon}`}
               alt={serviceData.title}
               className="
@@ -70,6 +71,7 @@ const DropDownServicesResponsive = memo(
             width={16}
             height={16}
             alt="expand"
+            priority
             src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e52_marketing-services_dd%20(Stroke).svg"
             className={`
             transition-transform duration-300

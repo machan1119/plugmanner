@@ -1,10 +1,2 @@
-# Allow all crawlers
 User-agent: *
-Allow: /
-
-# Block specific directories
-Disallow: /admin/
-Disallow: /private/
-
-# Specify the sitemap location
-Sitemap: https://www.example.com/sitemap.xml
+Disallow: /

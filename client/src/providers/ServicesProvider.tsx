@@ -36,10 +36,12 @@ export const ServicesProvider: React.FC<ServicesProviderProps> = ({
   );
   const [isLoading, setIsLoading] = useState(true);
   const userLocale =
-    document.cookie
+    document &&
+    (document.cookie
       .split("; ")
       .find((row) => row.startsWith("NEXT_LOCALE="))
-      ?.split("=")[1] ?? "";
+      ?.split("=")[1] ??
+      "");
   useEffect(() => {
     const subservice = serviceList.data_3.find(
       (sub) => generate_slug(sub.name) == item
@@ -53,6 +55,7 @@ export const ServicesProvider: React.FC<ServicesProviderProps> = ({
         setServiceItems(serviceData);
         setIsLoading(false);
       };
+      setIsLoading(true);
       fetchAndSetData();
     }
   }, [item, serviceList, userLocale]);

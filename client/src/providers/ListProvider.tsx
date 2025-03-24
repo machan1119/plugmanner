@@ -41,10 +41,12 @@ export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
   });
   const [isLoading, setIsLoading] = useState(true);
   const userLocale =
-    document.cookie
+    document &&
+    (document.cookie
       .split("; ")
       .find((row) => row.startsWith("NEXT_LOCALE="))
-      ?.split("=")[1] ?? "";
+      ?.split("=")[1] ??
+      "");
   const fetchAndSetData = async () => {
     const processedList: ProcessedListType = (await fetchAllServiceList()) ?? {
       data_1: [],
@@ -58,6 +60,7 @@ export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
     setIsLoading(false);
   };
   useEffect(() => {
+    setIsLoading(true);
     fetchAndSetData();
   }, [userLocale]);
   const value = useMemo(

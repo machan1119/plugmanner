@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import "../css/clash-display.css";
 import "../css/satoshi.css";
@@ -8,6 +8,13 @@ import "swiper/css/autoplay";
 import "swiper/css/navigation";
 import HomeLayout from "@/components/HomeLayout";
 import { NextIntlClientProvider } from "next-intl";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
 
 export const metadata: Metadata = {
   title: "Buy Followers, Like, Subscribers & Views - Socialplug",

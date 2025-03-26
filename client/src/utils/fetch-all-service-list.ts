@@ -23,30 +23,39 @@ const SERVICE_TYPE_ORDER = {
 
 export async function fetchAllServiceList() {
   const locale = getCookie("NEXT_LOCALE");
-  const start = 0;
-  const limit = 100;
+  let pageCount = 1;
+  let rawData: RawData[] = [];
   try {
-    const path = "/services";
-    const urlParamsObject = {
-      fields: ["documentId", "type", "popular"],
-      populate: {
-        subservices: {
-          fields: ["name", "documentId", "popular"],
-          populate: "icon",
+    let i = 1;
+    while (true) {
+      const path = "/services";
+      const urlParamsObject = {
+        fields: ["documentId", "type", "popular"],
+        populate: {
+          subservices: {
+            fields: ["name", "documentId", "popular"],
+            populate: "icon",
+          },
+          icon: { fields: ["url"] },
         },
-        icon: { fields: ["url"] },
-      },
-      sort: [{ popular: "desc" }],
-      "[locale]": locale,
-      pagination: {
-        start,
-        limit,
-      },
-    };
-
-    const responseData = await fetchAPI(path, urlParamsObject, "");
-
-    const rawData: RawData[] = responseData.data;
+        sort: [{ popular: "desc" }],
+        "[locale]": locale,
+        pagination: {
+          page: i,
+          pageSize: 100,
+        },
+      };
+      const responseData = await fetchAPI(path, urlParamsObject, "");
+      const tempRawData: RawData[] = responseData.data;
+      rawData = [...rawData, ...tempRawData];
+      if (i == 1) {
+        pageCount = responseData.meta.pagination.pageCount;
+      }
+      i += 1;
+      if (i > pageCount) {
+        break;
+      }
+    }
     const filteredData = transformRawData(rawData);
     const processedList = processServiceData(filteredData);
     return processedList;
@@ -136,7 +145,6 @@ const getServiceIndex = (type: string): number => {
     return baseIndex;
   }
 
-  // Handle sub-types
   const subTypeIndices = {
     Twitter: 0,
     Reddit: 1,

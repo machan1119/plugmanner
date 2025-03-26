@@ -3,6 +3,7 @@ import { ServiceMetadataType } from "@/libs/types/ListTypes";
 import { ServicesProvider } from "@/providers/ServicesProvider";
 import { fetchServiceMetaData } from "@/utils/fetch-service-data";
 import { Metadata } from "next";
+import { getOriginalServiceItem } from "@/i18n/serviceItemMappings";
 
 export default async function ServicesPage({
   params,
@@ -10,8 +11,9 @@ export default async function ServicesPage({
   params: Promise<{ locale: string; item: string }>;
 }>) {
   const { locale, item } = await params;
+  const originalItem = await getOriginalServiceItem(item, locale);
   return (
-    <ServicesProvider locale={locale} item={item}>
+    <ServicesProvider locale={locale} item={originalItem}>
       <ServicesContent />;
     </ServicesProvider>
   );

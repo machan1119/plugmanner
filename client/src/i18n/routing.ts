@@ -10,10 +10,11 @@ export const routing = defineRouting({
       de: "/dienstleistungen",
       "pt-BR": "/serviços",
     },
-    "/services/telegram-members": {
-      "es-ES": "/servicios/telegram-members-es",
-      de: "/dienstleistungen/telegram-members-de",
-      "pt-BR": "/serviços/telegram-members-pt",
+    // // Dynamic service route with localized paths
+    "/services/[item]": {
+      "es-ES": "/servicios/[item]",
+      de: "/dienstleistungen/[item]",
+      "pt-BR": "/serviços/[item]",
     },
   },
 });

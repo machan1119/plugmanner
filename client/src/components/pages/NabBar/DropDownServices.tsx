@@ -1,10 +1,10 @@
 "use client";
-
 import { generate_slug, replace_str } from "@/utils/functions";
 import { ListType, Icon } from "@/libs/types/ListTypes";
 import Image from "next/image";
 import Link from "next/link";
 import React, { memo, useCallback, useState } from "react";
+import { useLocale } from "next-intl";
 
 interface ServiceItemProps {
   dataItem: {
@@ -15,11 +15,20 @@ interface ServiceItemProps {
   icon: string;
   title: string;
 }
+const LocaleLinks = {
+  en: "services",
+  "es-ES": "servicios",
+  de: "dienstleistungen",
+  "pt-BR": "serviços",
+};
+type SupportedLocale = "en" | "es-ES" | "de" | "pt-BR";
 
-const ServiceItem = memo(({ dataItem, icon, title }: ServiceItemProps) => (
-  <Link
-    href={`/services/${generate_slug(dataItem.name)}`}
-    className="
+const ServiceItem = memo(({ dataItem, icon, title }: ServiceItemProps) => {
+  const locale = useLocale() as SupportedLocale;
+  return (
+    <Link
+      href={`/${LocaleLinks[locale]}/${generate_slug(dataItem.name)}`}
+      className="
       flex items-center gap-2 
       py-2 px-4 
       w-full
@@ -29,39 +38,40 @@ const ServiceItem = memo(({ dataItem, icon, title }: ServiceItemProps) => (
       transition-all duration-300
       group
     "
-  >
-    {dataItem.icon ? (
-      <Image
-        src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${dataItem.icon.url}`}
-        width={20}
-        height={20}
-        alt={title}
-        className="
+    >
+      {dataItem.icon ? (
+        <Image
+          src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${dataItem.icon.url}`}
+          width={20}
+          height={20}
+          alt={title}
+          className="
         w-5 h-5 
         opacity-80 
         group-hover:opacity-100
         transition-opacity duration-300
       "
-      />
-    ) : (
-      <Image
-        src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${icon}`}
-        width={20}
-        height={20}
-        alt={title}
-        className="
+        />
+      ) : (
+        <Image
+          src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${icon}`}
+          width={20}
+          height={20}
+          alt={title}
+          className="
         w-5 h-5 
         opacity-80 
         group-hover:opacity-100
         transition-opacity duration-300
       "
-      />
-    )}
-    <span className="text-[14px] font-normal">
-      {replace_str(dataItem.name, title)}
-    </span>
-  </Link>
-));
+        />
+      )}
+      <span className="text-[14px] font-normal">
+        {replace_str(dataItem.name, title)}
+      </span>
+    </Link>
+  );
+});
 
 ServiceItem.displayName = "ServiceItem";
 

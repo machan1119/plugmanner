@@ -1,7 +1,7 @@
 "use client";
 
 import { ServicesDataType } from "@/libs/types/ListTypes";
-import { generate_slug } from "@/utils/functions";
+import { generate_slug, replace_str } from "@/utils/functions";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useCallback, memo } from "react";
@@ -76,7 +76,7 @@ const ServicesItem = memo(({ serviceData }: ServicesItemProps) => {
                 aria-label={serviceItem.name}
                 key={index}
               >
-                {serviceItem.name}
+                {replace_str(serviceItem.name, serviceData.title)}
               </Link>
             ))}
           </div>

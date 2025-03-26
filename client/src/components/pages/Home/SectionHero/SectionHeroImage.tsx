@@ -1,13 +1,9 @@
 import Image from "next/image";
 import React, { memo } from "react";
 
-interface SectionHeroImageProps {
-  className?: string;
-}
-
-const SectionHeroImage = memo(({ className = "" }: SectionHeroImageProps) => {
+const SectionHeroImage = memo(() => {
   return (
-    <div className={`relative w-full mt-4 sm:mt-6 md:mt-8 ${className}`}>
+    <div className="relative w-full mt-4 sm:mt-6 md:mt-8">
       <Image
         width={1315}
         height={366}

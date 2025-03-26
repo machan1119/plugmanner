@@ -3,34 +3,28 @@ import HowToOrderItems from "./HowToOrderItems";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
-interface HowToOrderProps {
-  className?: string;
-}
-
-const HowToOrder = memo(({ className = "" }: HowToOrderProps) => {
+const HowToOrder = memo(() => {
   const t = useTranslations("Home");
   const HowTo = [
     {
-      icon: "http://localhost:3000/image/how-to-order-3-p-500.png",
+      icon: "/image/how-to-order-3-p-500.png",
       title: t("HowToOrder.OrderSteps.0.title"),
       description: t("HowToOrder.OrderSteps.0.description"),
     },
     {
-      icon: "http://localhost:3000/image/how-to-order-2-p-500.png",
+      icon: "/image/how-to-order-2-p-500.png",
       title: t("HowToOrder.OrderSteps.1.title"),
       description: t("HowToOrder.OrderSteps.1.description"),
     },
     {
-      icon: "http://localhost:3000/image/how-to-order-1-p-500.png",
+      icon: "/image/how-to-order-1-p-500.png",
       title: t("HowToOrder.OrderSteps.2.title"),
       description: t("HowToOrder.OrderSteps.2.description"),
     },
   ];
 
   return (
-    <section
-      className={`flex flex-col py-12 md:py-16 lg:py-[80px] items-center bg-black-light w-full bg-cover bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ea7_hero_background-pattern.webp')] bg-center bg-no-repeat overflow-hidden ${className}`}
-    >
+    <section className="flex flex-col py-12 md:py-16 lg:py-[80px] items-center bg-black-light w-full bg-cover bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ea7_hero_background-pattern.webp')] bg-center bg-no-repeat overflow-hidden">
       <div className="mb-12 flex flex-col gap-3 items-center">
         <h2 id="section-how-to-order-title" className="font-h1 animate-fade-in">
           {t("HowToOrder.title_1")}

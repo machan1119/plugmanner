@@ -1,4 +1,13 @@
 {
+  "LocaleLayout": {
+    "title": "Comprar seguidores, me gusta, suscriptores y visualizaciones - Social Plug",
+    "description": "Compra seguidores, me gusta, visualizaciones, suscriptores y más en Socialplug, la tienda de redes sociales de última generación. Impulsa tu presencia en redes sociales y genera confianza.",
+    "icons": "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/629626671773b82cec88fdc4_socialplug-favicon-small.png",
+    "twitter": {
+      "title": "Comprar seguidores, me gusta, suscriptores y visualizaciones - Social Plug",
+      "description": "Compra seguidores, me gusta, visualizaciones, suscriptores y más en Socialplug, la tienda de redes sociales de última generación. Impulsa tu presencia en redes sociales y genera confianza."
+    }
+  },
   "Navbar": {
     "top": [
       {

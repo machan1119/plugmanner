@@ -1,3 +1,4 @@
+"use client";
 import React, { memo, useState } from "react";
 import MainButton from "@/components/Buttons";
 import FreeTrial from "./Freetrial";

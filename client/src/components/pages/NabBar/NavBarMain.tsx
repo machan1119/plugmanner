@@ -10,11 +10,7 @@ import { generate_slug } from "@/utils/functions";
 import LocaleSwitcher from "@/components/LocaleSwitcher";
 import { useTranslations } from "next-intl";
 
-interface NavBarMainProps {
-  className?: string;
-}
-
-const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
+const NavBarMain = memo(() => {
   const [searchShow, setSearchShow] = useState(false);
   const { serviceShow, setServiceShow } = useHome();
   const { serviceList } = useList();
@@ -30,13 +26,7 @@ const NavBarMain = memo(({ className = "" }: NavBarMainProps) => {
     setSearchService("");
   };
   return (
-    <div
-      className={`
-      w-full
-      transition-all duration-300
-      ${className}
-    `}
-    >
+    <div className="w-full transition-all duration-300">
       <div className="py-2 flex flex-col items-center w-full bg-white">
         <div className="max-w-[1366px] w-full flex items-center justify-between px-4 md:px-10">
           <Link

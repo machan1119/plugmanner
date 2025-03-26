@@ -6,17 +6,13 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/navigation";
 import { useTranslations } from "next-intl";
-interface StatusProps {
-  className?: string;
-}
-
 interface StatusData {
   count: number;
   type: string;
   time: number;
 }
 
-const Status = memo(({ className = "" }: StatusProps) => {
+const Status = memo(() => {
   const t = useTranslations("Home");
   const statusData: StatusData[] = [
     { count: 12751, type: t("hero.Status.follows"), time: 8 },
@@ -24,7 +20,7 @@ const Status = memo(({ className = "" }: StatusProps) => {
     { count: 6557, type: t("hero.Status.subscribers"), time: 38 },
   ];
   return (
-    <div className={`border-white size-full ${className}`}>
+    <div className="border-white size-full">
       <Swiper
         slidesPerView={"auto"}
         speed={1000}
@@ -41,12 +37,7 @@ const Status = memo(({ className = "" }: StatusProps) => {
       >
         {statusData.map((item, index) => (
           <SwiperSlide key={index}>
-            <StatusItem
-              count={item.count}
-              type={item.type}
-              time={item.time}
-              className="animate-fade-in-up"
-            />
+            <StatusItem count={item.count} type={item.type} time={item.time} />
           </SwiperSlide>
         ))}
       </Swiper>

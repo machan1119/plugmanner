@@ -24,28 +24,26 @@ const ServicesContext = createContext<ServicesContextType>({
 interface ServicesProviderProps {
   item: string;
   children: React.ReactNode;
+  locale: string;
 }
 
 export const ServicesProvider: React.FC<ServicesProviderProps> = ({
   item,
   children,
+  locale,
 }) => {
   const { serviceList } = useList();
   const [serviceItems, setServiceItems] = useState<ServiceJsonDataType | null>(
     null
   );
   const [isLoading, setIsLoading] = useState(true);
-  const userLocale =
-    document &&
-    (document.cookie
-      .split("; ")
-      .find((row) => row.startsWith("NEXT_LOCALE="))
-      ?.split("=")[1] ??
-      "");
+  const userLocale = locale;
+  // console.log(userLocale);
   useEffect(() => {
     const subservice = serviceList.data_3.find(
       (sub) => generate_slug(sub.name) == item
     );
+    // console.log(serviceList.data_3);
     if (subservice) {
       const fetchAndSetData = async () => {
         const serviceData = (await fetchServiceData(subservice.id)) ?? "";

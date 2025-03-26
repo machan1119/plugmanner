@@ -1,4 +1,13 @@
 {
+  "LocaleLayout": {
+    "title": "Compre seguidores, curtidas, assinantes e visualizações - Social Plug",
+    "description": "Compre Seguidores, Curtidas, Visualizações, Assinantes e mais da Socialplug - a loja de mídia social da próxima geração. Aumente sua presença na mídia social e crie prova social.",
+    "icons": "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/629626671773b82cec88fdc4_socialplug-favicon-small.png",
+    "twitter": {
+      "title": "Compre seguidores, curtidas, assinantes e visualizações - Social Plug",
+      "description": "Compre Seguidores, Curtidas, Visualizações, Assinantes e mais da Socialplug - a loja de mídia social da próxima geração. Aumente sua presença na mídia social e crie prova social."
+    }
+  },
   "Navbar": {
     "top": [
       {

@@ -1,3 +1,5 @@
+"use client";
+
 import { generate_slug, replace_str } from "@/utils/functions";
 import { ListType, Icon } from "@/libs/types/ListTypes";
 import Image from "next/image";

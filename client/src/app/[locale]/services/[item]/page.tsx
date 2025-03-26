@@ -7,11 +7,11 @@ import { Metadata } from "next";
 export default async function ServicesPage({
   params,
 }: Readonly<{
-  params: Promise<{ item: string }>;
+  params: Promise<{ locale: string; item: string }>;
 }>) {
-  const item = (await params).item;
+  const { locale, item } = await params;
   return (
-    <ServicesProvider item={item}>
+    <ServicesProvider locale={locale} item={item}>
       <ServicesContent />;
     </ServicesProvider>
   );

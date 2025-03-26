@@ -3,11 +3,7 @@ import QuestionsItem from "./QuestionsItem";
 import MainButton from "@/components/Buttons";
 import { useTranslations } from "next-intl";
 
-interface QuestionProps {
-  className?: string;
-}
-
-const Question = memo(({ className = "" }: QuestionProps) => {
+const Question = memo(() => {
   const t = useTranslations("Home");
   const Questions = [
     {
@@ -29,9 +25,7 @@ const Question = memo(({ className = "" }: QuestionProps) => {
   ];
 
   return (
-    <section
-      className={`flex flex-col py-12 md:py-16 lg:py-[80px] items-center bg-black-light w-full ${className}`}
-    >
+    <section className="flex flex-col py-12 md:py-16 lg:py-[80px] items-center bg-black-light w-full">
       <div className="max-w-[1366px] justify-self-center px-4 sm:px-6 md:px-8 lg:px-10">
         <h2 id="faq-title" className="font-h1 mb-8 sm:mb-12 animate-fade-in">
           {t("Question.title_1")}

@@ -1,5 +1,5 @@
 export function generate_slug(str: string): string {
-  str = "buy " + str;
+  // str = "buy " + str;
   return str
     .toLowerCase()
     .replace(" ", "-")

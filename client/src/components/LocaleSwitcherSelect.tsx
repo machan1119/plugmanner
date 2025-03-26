@@ -1,10 +1,10 @@
 "use client";
-
 import { useTransition, useState } from "react";
-import { Locale } from "@/i18n/config";
-import { setUserLocale } from "@/utils/locale";
 import Image from "next/image";
 import { LanguageOption } from "@/libs/types/Types";
+import { usePathname, useRouter } from "@/i18n/navigation";
+// import { useParams } from "next/navigation";
+import { Locale } from "next-intl";
 
 type Props = {
   defaultValue: string;
@@ -16,12 +16,18 @@ export default function LocaleSwitcherSelect({ defaultValue, items }: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState(defaultValue);
   const selectedItem = items.find((item) => item.code === selectedValue);
+  const router = useRouter();
+  const pathname = usePathname();
+  // const params = useParams();
+  // const item = (params.item ?? "en").toString();
+  // console.log("Params", params);
+  // console.log("Pathname", pathname);
 
   function onChange(value: string) {
-    const locale = value as Locale;
+    const nextLocale = value as Locale;
     setSelectedValue(value);
     startTransition(() => {
-      setUserLocale(locale);
+      router.replace({ pathname }, { locale: nextLocale });
     });
     setIsOpen(false);
   }

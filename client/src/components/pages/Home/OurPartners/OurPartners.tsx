@@ -2,16 +2,11 @@ import { OurPartnersItems } from "@/libs/data/OurPatnersItems";
 import React, { memo } from "react";
 import OurPartnersItem from "./OurPartnersItem";
 import { useTranslations } from "next-intl";
-interface OurPartnersProps {
-  className?: string;
-}
 
-const OurPartners = memo(({ className = "" }: OurPartnersProps) => {
+const OurPartners = memo(() => {
   const t = useTranslations("Home");
   return (
-    <section
-      className={`flex flex-col py-12 md:py-16 lg:py-[80px] items-center bg-black-medium w-full bg-cover bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ea7_hero_background-pattern.webp')] bg-center bg-no-repeat overflow-hidden ${className}`}
-    >
+    <section className="flex flex-col py-12 md:py-16 lg:py-[80px] items-center bg-black-medium w-full bg-cover bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ea7_hero_background-pattern.webp')] bg-center bg-no-repeat overflow-hidden">
       <div className="mb-12 flex flex-col gap-3 items-center w-[50%]">
         <h2 id="section-partners-title" className="font-h1 animate-fade-in">
           {t("OurPartners.title_1")}

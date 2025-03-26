@@ -5,16 +5,11 @@ import MainButton from "@/components/Buttons";
 import SectionHeroImage from "./SectionHeroImage";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-interface SectionHeroProps {
-  className?: string;
-}
 
-const SectionHero = memo(({ className = "" }: SectionHeroProps) => {
+const SectionHero = memo(() => {
   const t = useTranslations("Home");
   return (
-    <section
-      className={`flex flex-col gap-4 sm:gap-6 px-4 sm:px-6 md:px-8 lg:px-10 pt-5 items-center bg-black-light w-full bg-cover bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ea7_hero_background-pattern.webp')] bg-center bg-no-repeat overflow-hidden ${className}`}
-    >
+    <section className="flex flex-col gap-4 sm:gap-6 px-4 sm:px-6 md:px-8 lg:px-10 pt-5 items-center bg-black-light w-full bg-cover bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ea7_hero_background-pattern.webp')] bg-center bg-no-repeat overflow-hidden">
       <div className="flex flex-col gap-6 sm:gap-8 items-center max-w-7xl mx-auto w-full">
         <div className="flex items-center gap-2 p-[2px] pr-3 bg-black-light border-white border-2 rounded-full shadow-[0_4px_6px_rgba(0,0,0,0.1)] hover:shadow-lg transition-all duration-300">
           <span className="bg-black rounded-full text-[rgb(239,255,248)] font-clash px-2 py-[6px] text-[12px] lg:text-[16px] font-semibold">

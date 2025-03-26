@@ -28,7 +28,6 @@ export async function fetchAllServiceList() {
   try {
     const path = "/services";
     const urlParamsObject = {
-      sort: { popular: "desc" },
       fields: ["documentId", "type", "popular"],
       populate: {
         subservices: {
@@ -37,6 +36,7 @@ export async function fetchAllServiceList() {
         },
         icon: { fields: ["url"] },
       },
+      sort: [{ popular: "desc" }],
       "[locale]": locale,
       pagination: {
         start,

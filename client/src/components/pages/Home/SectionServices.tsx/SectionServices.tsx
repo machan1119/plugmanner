@@ -1,4 +1,3 @@
-"use client";
 import React, { useState, memo, useEffect, useCallback } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { SwitchButton } from "@/components/Buttons";
@@ -16,7 +15,7 @@ const SectionServices = memo(() => {
   const [filteredList, setFilteredList] = useState<ServicesListType[]>([]);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
-  const itemsPerPage = 10;
+  const itemsPerPage = 20;
   const t = useTranslations("Home");
   const filterAndSortList = useCallback(
     (list: ServicesListType[], filter: FilterType) => {
@@ -98,11 +97,7 @@ const SectionServices = memo(() => {
         >
           <div className="w-full grid lg:grid-cols-2 xl:grid-cols-3 gap-4">
             {filteredList.map((item, index) => (
-              <ServicesItem
-                serviceData={item}
-                key={index}
-                className="animate-fade-in-up"
-              />
+              <ServicesItem serviceData={item} key={index} />
             ))}
           </div>
         </InfiniteScroll>

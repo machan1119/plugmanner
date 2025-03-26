@@ -8,10 +8,6 @@ interface LogoData {
   height: number;
 }
 
-interface SectionLogosProps {
-  className?: string;
-}
-
 const logosData: LogoData[] = [
   {
     src: "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e47_Forbes%20logo.svg",
@@ -51,11 +47,11 @@ const logosData: LogoData[] = [
   },
 ];
 
-const SectionLogos = memo(({ className = "" }: SectionLogosProps) => {
+const SectionLogos = memo(() => {
   return (
     <section
       id="services-list"
-      className={`p-4 sm:p-6 md:p-8 lg:p-10 flex flex-col gap-6 items-center mb-4 bg-white/5 backdrop-blur-sm rounded-lg ${className}`}
+      className="p-4 sm:p-6 md:p-8 lg:p-10 flex flex-col gap-6 items-center mb-4 bg-white/5 backdrop-blur-sm rounded-lg"
     >
       <h2
         id="section-logos-title"

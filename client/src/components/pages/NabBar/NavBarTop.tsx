@@ -27,14 +27,7 @@ const NavBarTop = memo(() => {
     },
   ];
   return (
-    <div
-      className={`
-        bg-black text-white
-        text-xs md:text-sm
-        flex relative justify-center
-        overflow-hidden
-      `}
-    >
+    <div className="bg-black text-white text-xs md:text-sm flex relative justify-center overflow-hidden">
       <div className="flex justify-center gap-5 md:gap-15 lg:gap-25 p-3">
         {navBarTopItems.map((item, index) => (
           <div key={index} className="flex gap-3 items-center">
@@ -44,10 +37,7 @@ const NavBarTop = memo(() => {
               alt={item.alt}
               src={item.icon}
               priority
-              className="
-                w-[18px] h-[18px]
-                md:w-6 md:h-6
-              "
+              className="w-[18px] h-[18px] md:w-6 md:h-6"
             />
             <span className="font-medium">{item.text}</span>
           </div>

@@ -1,10 +1,22 @@
 import ServicesContent from "@/components/pages/Services/ServiceContent";
 import { ServiceMetadataType } from "@/libs/types/ListTypes";
+import { ServicesProvider } from "@/providers/ServicesProvider";
 import { fetchServiceMetaData } from "@/utils/fetch-service-data";
 import { Metadata } from "next";
+import { getOriginalServiceItem } from "@/i18n/serviceItemMappings";
 
-export default function ServicesPage() {
-  return <ServicesContent />;
+export default async function ServicesPage({
+  params,
+}: Readonly<{
+  params: Promise<{ locale: string; item: string }>;
+}>) {
+  const { locale, item } = await params;
+  const originalItem = await getOriginalServiceItem(item, locale);
+  return (
+    <ServicesProvider locale={locale} item={originalItem}>
+      <ServicesContent />;
+    </ServicesProvider>
+  );
 }
 type Props = {
   params: Promise<{ item: string }>;
@@ -22,7 +34,6 @@ export async function generateMetadata({
     description: metaData?.metaDescription,
     icons:
       "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/629626671773b82cec88fdc4_socialplug-favicon-small.png",
-    viewport: metaData?.metaViewport,
     ...(metaData.metaSocial?.[0] && {
       twitter: {
         title: metaData?.metaSocial[0]?.title,

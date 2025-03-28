@@ -3,17 +3,28 @@
 import { ServicesDataType } from "@/libs/types/ListTypes";
 import { useHome } from "@/providers/HomeProvider";
 import { generate_slug, replace_str } from "@/utils/functions";
+import { useLocale } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import React, { memo, useState } from "react";
+
+const LocaleLinks = {
+  en: "services",
+  "es-ES": "servicios",
+  de: "dienstleistungen",
+  "pt-BR": "serviços",
+};
 
 interface DropDownServicesResponsiveProps {
   serviceData: ServicesDataType;
   className?: string;
 }
 
+type SupportedLocale = "en" | "es-ES" | "de" | "pt-BR";
+
 const DropDownServicesResponsive = memo(
   ({ serviceData, className = "" }: DropDownServicesResponsiveProps) => {
+    const locale = useLocale() as SupportedLocale;
     const [status, setStatus] = useState(false);
     const { setServiceShow } = useHome();
 
@@ -96,7 +107,9 @@ const DropDownServicesResponsive = memo(
               <Link
                 key={index}
                 aria-label={serviceItem.name}
-                href={`/services/${generate_slug(serviceItem.name)}`}
+                href={`/${LocaleLinks[locale]}/${generate_slug(
+                  serviceItem.name
+                )}`}
                 onClick={() => {
                   setServiceShow(true);
                   setStatus(false);

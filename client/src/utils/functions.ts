@@ -1,5 +1,5 @@
 export function generate_slug(str: string): string {
-  str = "buy " + str;
+  // str = "buy " + str;
   return str
     .toLowerCase()
     .replace(" ", "-")
@@ -8,8 +8,17 @@ export function generate_slug(str: string): string {
 }
 
 export function replace_str(s1: string, s2: string): string {
-  s1 = s1.replace(s2, "");
-  return s1;
+  const patternsToRemove = [`de ${s2}`, s2, "Comprar"];
+  let result = patternsToRemove.reduce(
+    (currentString, pattern) => currentString.replace(pattern, ""),
+    s1.trim()
+  );
+  result = result.trim();
+  if (result.length > 0) {
+    result = result.charAt(0).toUpperCase() + result.slice(1);
+  }
+
+  return result;
 }
 
 export const getCookie = (name: string) => {

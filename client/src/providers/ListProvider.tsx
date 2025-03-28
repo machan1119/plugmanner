@@ -31,20 +31,17 @@ export const useList = () => {
   return context;
 };
 
-export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
+export const ListProvider: React.FC<{
+  children: React.ReactNode;
+  locale: string;
+}> = ({ children, locale }) => {
+  const userLocale = locale;
   const [serviceList, setServiceList] = useState<ProcessedListType>({
     data_1: [],
     data_2: [],
     data_3: [],
   });
   const [isLoading, setIsLoading] = useState(true);
-  const userLocale =
-    document.cookie
-      .split("; ")
-      .find((row) => row.startsWith("NEXT_LOCALE="))
-      ?.split("=")[1] ?? "";
   const fetchAndSetData = async () => {
     const processedList: ProcessedListType = (await fetchAllServiceList()) ?? {
       data_1: [],
@@ -58,6 +55,7 @@ export const ListProvider: React.FC<{ children: React.ReactNode }> = ({
     setIsLoading(false);
   };
   useEffect(() => {
+    setIsLoading(true);
     fetchAndSetData();
   }, [userLocale]);
   const value = useMemo(

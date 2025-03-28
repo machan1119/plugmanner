@@ -1,3 +1,5 @@
+"use client";
+
 import React, { memo, useEffect, useState } from "react";
 import DropDownServices from "./DropDownServices";
 import { useList } from "@/providers/ListProvider";

@@ -1,4 +1,13 @@
 {
+  "LocaleLayout": {
+    "title": "Kaufen Sie Follower, Likes, Abonnenten und Views - Social Plug",
+    "description": "Kaufen Sie Follower, Likes, Views, Abonnenten und mehr bei Socialplug – dem Social-Media-Shop der nächsten Generation. Steigern Sie Ihre Social-Media-Präsenz und sichern Sie sich Social Proof.",
+    "icons": "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/629626671773b82cec88fdc4_socialplug-favicon-small.png",
+    "twitter": {
+      "title": "Kaufen Sie Follower, Likes, Abonnenten und Views - Social Plug",
+      "description": "Kaufen Sie Follower, Likes, Views, Abonnenten und mehr bei Socialplug – dem Social-Media-Shop der nächsten Generation. Steigern Sie Ihre Social-Media-Präsenz und sichern Sie sich Social Proof."
+    }
+  },
   "Navbar": {
     "top": [
       {
@@ -181,6 +190,8 @@
         "title": "Ergebnisse abrufen",
         "description": "Zur Kasse & fertig! Unser Team liefert Ihre Bestellung noch am selben Tag."
       }
-    ]
+    ],
+    "title": "So geben Sie eine Bestellung auf",
+    "description": "Hier finden Sie eine kurze Übersicht darüber, wie Sie unsere Social-Media-Dienste bestellen können."
   }
 }

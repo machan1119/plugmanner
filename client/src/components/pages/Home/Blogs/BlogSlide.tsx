@@ -6,11 +6,7 @@ import MainButton from "@/components/Buttons";
 import { NextArrow, PrevArrow } from "@/libs/consts/MySvg";
 import { useTranslations } from "next-intl";
 
-interface BlogSlideProps {
-  className?: string;
-}
-
-const BlogSlide = memo(({ className = "" }: BlogSlideProps) => {
+const BlogSlide = memo(() => {
   const t = useTranslations("Home");
   const BlogItems = [
     {
@@ -46,7 +42,7 @@ const BlogSlide = memo(({ className = "" }: BlogSlideProps) => {
   ];
 
   return (
-    <div className={`border-white size-full ${className}`}>
+    <div className="border-white size-full">
       <Swiper
         slidesPerView={1}
         spaceBetween={10}

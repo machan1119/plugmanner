@@ -4,11 +4,7 @@ import { StrapiText } from "@/components/StrapiComponents";
 import ServiceQuestionItem from "./ServiceQuestionItem";
 import { QuestionType } from "@/libs/types/ServiceJsonDataType";
 
-interface ServiceQuestionProps {
-  className?: string;
-}
-
-const ServiceQuestion = memo(({ className = "" }: ServiceQuestionProps) => {
+const ServiceQuestion = memo(() => {
   const { serviceItems } = useServices();
 
   if (!serviceItems?.introduction) {
@@ -19,17 +15,7 @@ const ServiceQuestion = memo(({ className = "" }: ServiceQuestionProps) => {
   }
 
   return (
-    <section
-      className={`
-        flex flex-col py-16 md:py-20
-        items-center 
-        bg-white 
-        w-full 
-        border-b border-black-normal
-        animate-fade-in
-        ${className}
-      `}
-    >
+    <section className="flex flex-col py-16 md:py-20 items-center bg-white w-full border-b border-black-normal animate-fade-in">
       <div className="max-w-[1366px] w-full px-4 md:px-10">
         <h2
           id="faq-heading"

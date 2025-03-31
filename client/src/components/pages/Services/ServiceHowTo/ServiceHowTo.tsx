@@ -1,6 +1,7 @@
 import MainButton from "@/components/Buttons";
 import { StrapiText } from "@/components/StrapiComponents";
 import { useServices } from "@/providers/ServicesProvider";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import React, { memo } from "react";
 
@@ -11,7 +12,7 @@ interface Step {
 
 const ServiceHowTo = () => {
   const { serviceItems } = useServices();
-
+  const t = useTranslations("ServiceItem");
   if (!serviceItems?.introduction) {
     return null;
   }
@@ -64,7 +65,7 @@ const ServiceHowTo = () => {
         </div>
         <MainButton
           type="primary"
-          title="Order Now >"
+          title={`${t("OrderNow")} >`}
           customClass="md:w-[20%] w-full"
         />
       </div>

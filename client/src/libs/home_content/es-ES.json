@@ -193,5 +193,21 @@
     ],
     "title": "Cómo realizar un pedido",
     "description": "A continuación le mostramos un resumen rápido de cómo puede realizar un pedido de nuestros servicios de redes sociales."
+  },
+  "ServiceItem": {
+    "ReadMore": "Leer más",
+    "OrderNow": "Pedir ahora",
+    "Rated": "Calificado ",
+    "FromOver": "de más de ",
+    "Reviews": "reseñas",
+    "Starting": "Desde",
+    "ShowMore": "Mostrar más +",
+    "ShowLess": "Mostrar menos -",
+    "GoodPoints": "Ventajas del servicio",
+    "Packages": "Paquetes del servicio",
+    "Popular": "Popular",
+    "ReviewSubmit": "Reseña enviada por ",
+    "Video": "Video",
+    "Articles": "Artículos relacionados"
   }
 }

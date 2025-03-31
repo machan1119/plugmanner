@@ -5,13 +5,14 @@ import ReviewItem from "../ServiceReview/ReviewItem";
 import MainButton from "@/components/Buttons";
 import { StrapiText } from "@/components/StrapiComponents";
 import { Review } from "@/libs/types/ServiceJsonDataType";
+import { useTranslations } from "next-intl";
 
 const INITIAL_COUNT = 10;
 const COUNT_INCREMENT = 5;
 
 const ServiceCustomerReview = () => {
   const { serviceItems } = useServices();
-
+  const t = useTranslations("ServiceItem");
   const [count, setCount] = useState(INITIAL_COUNT);
 
   const handleShowMore = useCallback(() => {
@@ -54,13 +55,13 @@ const ServiceCustomerReview = () => {
               className="mr-1"
             />
             <span className="font-clash text-[#686889] text-[16px] leading-[25px] font-medium">
-              Rated{" "}
+              {t("Rated")}
               <span className="text-primary font-semibold">
                 {serviceItems.introduction.CustomerReviews.rate}/5
-              </span>{" "}
-              from over{" "}
+              </span>
+              {t("FromOver")}
               {serviceItems.introduction.CustomerReviews.counterofreviews}
-              reviews
+              {t("Reviews")}
             </span>
           </div>
         </div>
@@ -86,7 +87,7 @@ const ServiceCustomerReview = () => {
       {showMoreButton && (
         <MainButton
           type="white-main"
-          title="Show More +"
+          title={t("ShowMore")}
           customClass="w-[278px]"
           handleClick={handleShowMore}
         />
@@ -94,7 +95,7 @@ const ServiceCustomerReview = () => {
       {showLessButton && (
         <MainButton
           type="white-main"
-          title="Show Less -"
+          title={t("ShowLess")}
           customClass="w-[278px]"
           handleClick={handleShowLess}
         />

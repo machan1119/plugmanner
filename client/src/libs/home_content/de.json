@@ -193,5 +193,21 @@
     ],
     "title": "So geben Sie eine Bestellung auf",
     "description": "Hier finden Sie eine kurze Übersicht darüber, wie Sie unsere Social-Media-Dienste bestellen können."
+  },
+  "ServiceItem": {
+    "ReadMore": "Mehr lesen",
+    "OrderNow": "Jetzt bestellen",
+    "Rated": "Bewertet ",
+    "FromOver": "von über ",
+    "Reviews": "Bewertungen",
+    "Starting": "Ab",
+    "ShowMore": "Mehr anzeigen +",
+    "ShowLess": "Weniger anzeigen -",
+    "GoodPoints": "Vorteile des Dienstes",
+    "Packages": "Dienst-Pakete",
+    "Popular": "Beliebt",
+    "ReviewSubmit": "Bewertung eingereicht von ",
+    "Video": "Video",
+    "Articles": "Verwandte Artikel"
   }
 }

@@ -200,7 +200,7 @@ const NavBarMain = memo(() => {
             placeholder:text-text-light
             focus:outline-none w-full
           "
-              placeholder="Search Services(Ex: Instagram, Tiktok)"
+              placeholder="Search"
               value={searchService}
               onFocus={handleInputFocus}
               onBlur={() => setTimeout(() => setIsDropdownOpen(false), 200)}

@@ -10,21 +10,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "cdn.prod.website-files.com",
       },
+     
       {
         protocol: "https",
-        hostname: "socialplug-production.up.railway.app",
-      },
-      {
-        protocol: "http",
-        hostname: "localhost",
-      },
-      {
-        protocol: "http",
-        hostname: "192.168.142.33",
-      },
-      {
-        protocol: "http",
-        hostname: "164.92.76.156",
+        hostname: "plugmanner.com",
       },
       {
         protocol: "https",

@@ -26,13 +26,6 @@ const ServiceQuestionItem = memo(
       [handleToggle]
     );
 
-    const questionId = `question-${item.question
-      .replace(/\s+/g, "-")
-      .toLowerCase()}`;
-    const answerId = `answer-${item.question
-      .replace(/\s+/g, "-")
-      .toLowerCase()}`;
-
     return (
       <div
         className={`
@@ -52,7 +45,6 @@ const ServiceQuestionItem = memo(
         onClick={handleToggle}
         tabIndex={0}
         onKeyDown={handleKeyDown}
-        id={questionId}
       >
         <div
           className="
@@ -88,7 +80,6 @@ const ServiceQuestionItem = memo(
           />
         </div>
         <div
-          id={answerId}
           className={`grid transition-all duration-300 ease-in-out ${
             isExpanded
               ? "grid-rows-[1fr] opacity-100"

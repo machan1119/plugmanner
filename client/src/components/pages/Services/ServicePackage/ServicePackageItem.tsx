@@ -1,6 +1,7 @@
 import MainButton from "@/components/Buttons";
 import { StrapiParagraph } from "@/components/StrapiComponents";
 import { PackageType } from "@/libs/types/ServiceJsonDataType";
+import { useTranslations } from "next-intl";
 import React, { memo } from "react";
 
 const ServicePackageItem = ({
@@ -10,6 +11,7 @@ const ServicePackageItem = ({
   unit,
   list,
 }: PackageType) => {
+  const t = useTranslations("ServiceItem");
   return (
     <article
       className={`w-full flex flex-col justify-between border border-black-normal rounded-lg px-5 py-8 bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/6403335aa2b65391e848a999_socialplug-pricingbox-illustration-sm-light.svg')] bg-right-bottom bg-no-repeat bg-auto ${
@@ -25,7 +27,7 @@ const ServicePackageItem = ({
         </h3>
         {popular && (
           <div className="px-2 py-1 bg-primary font-clash text-black rounded-md">
-            Popular
+            {t("Popular")}
           </div>
         )}
       </div>
@@ -44,7 +46,7 @@ const ServicePackageItem = ({
         customClassName="font-clash text-[16px] text-[#686889] font-normal"
       />
       <div className="w-full h-[1px] bg-black-normal my-5" />
-      <MainButton type="primary" title="Order now" customClass="w-full" />
+      <MainButton type="primary" title={t("OrderNow")} customClass="w-full" />
     </article>
   );
 };

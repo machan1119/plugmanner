@@ -10,7 +10,6 @@ export const routing = defineRouting({
       de: "/dienstleistungen",
       "pt-BR": "/serviços",
     },
-    // // Dynamic service route with localized paths
     "/services/[item]": {
       "es-ES": "/servicios/[item]",
       de: "/dienstleistungen/[item]",

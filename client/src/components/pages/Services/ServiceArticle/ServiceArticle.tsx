@@ -3,6 +3,7 @@
 import MainButton from "@/components/Buttons";
 import { NextArrow, PrevArrow } from "@/libs/consts/MySvg";
 import { useServices } from "@/providers/ServicesProvider";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import React, { useMemo } from "react";
 import { Autoplay, Navigation } from "swiper/modules";
@@ -10,6 +11,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 const ServiceArticle = () => {
   const { serviceItems } = useServices();
+  const t = useTranslations("ServiceItem");
 
   const swiperConfig = useMemo(
     () => ({
@@ -46,11 +48,10 @@ const ServiceArticle = () => {
   if (!serviceItems?.article) {
     return null;
   }
-
   return (
     <section className="flex flex-col py-20 items-center bg-white w-full border-b border-black-normal">
       <div className="max-w-[1366px] w-full justify-self-center px-10">
-        <h2 className="font-h1 mb-12">Related Articles</h2>
+        <h2 className="font-h1 mb-12">{t("Articles")}</h2>
         <div className="border-white size-full">
           <Swiper {...swiperConfig}>
             {serviceItems.article.map((item, index) => (
@@ -68,7 +69,7 @@ const ServiceArticle = () => {
                     {item.title}
                   </h3>
                   <button className="text-primary text-base p-2 rounded-md hover:bg-gray-50 transition-colors">
-                    Read More
+                    {t("ReadMore")}
                   </button>
                 </article>
               </SwiperSlide>

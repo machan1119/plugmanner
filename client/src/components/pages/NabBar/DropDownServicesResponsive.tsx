@@ -105,6 +105,7 @@ const DropDownServicesResponsive = memo(
           <div className="py-2 px-4">
             {serviceData.services.map((serviceItem, index) => (
               <Link
+                rel="canonical"
                 key={index}
                 aria-label={serviceItem.name}
                 href={`/${LocaleLinks[locale]}/${generate_slug(

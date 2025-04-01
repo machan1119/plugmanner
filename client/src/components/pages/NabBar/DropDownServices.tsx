@@ -27,6 +27,7 @@ const ServiceItem = memo(({ dataItem, icon, title }: ServiceItemProps) => {
   const locale = useLocale() as SupportedLocale;
   return (
     <Link
+      rel="canonical"
       href={`/${LocaleLinks[locale]}/${generate_slug(dataItem.name)}`}
       className="
       flex items-center gap-2 

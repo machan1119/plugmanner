@@ -32,18 +32,28 @@ export async function generateMetadata(params: Promise<{ locale: Locale }>) {
       title: t("twitter.title"),
       description: t("twitter.description"),
     },
+    og: {
+      title: t("og.title"),
+      description: t("og.description"),
+    },
+    alternates: {
+      canonical: "https://plugmanner.com/",
+    },
     robots: {
       index: false,
-      follow: false,
-      nocache: true,
+      follow: true,
+      nocache: false,
       googleBot: {
         index: false,
-        follow: false,
-        noimageindex: true,
-        "max-video-preview": -1,
+        follow: true,
+        noimageindex: false,
+        "max-video-preview": "large",
         "max-image-preview": "large",
-        "max-snippet": -1,
+        "max-snippet": 320,
       },
+    },
+    verification: {
+      google: "ZgKIacqjmp0oVcsA0HrqM86jEXkrSuSvDwSi2MGClWo",
     },
   };
 }

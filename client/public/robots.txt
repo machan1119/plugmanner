@@ -1,2 +1,21 @@
+# Allow all search engines
+
 User-agent: *
-Disallow: /
+
+Allow: /
+
+Sitemap: https://plugmanner.com/sitemap.xml
+
+User-agent: Googlebot
+
+Allow: /
+
+User-agent: Bingbot
+
+Allow: /
+
+User-agent: OAI-SearchBot
+
+Allow: /
+
+Sitemap: https://plugmanner.com/sitemap.xml

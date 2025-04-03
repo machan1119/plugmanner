@@ -16,4 +16,5 @@ export const routing = defineRouting({
       "pt-BR": "/serviços/[item]",
     },
   },
+  localePrefix: "as-needed",
 });

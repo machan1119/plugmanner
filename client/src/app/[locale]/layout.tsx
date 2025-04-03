@@ -52,9 +52,6 @@ export async function generateMetadata(params: Promise<{ locale: Locale }>) {
         "max-snippet": 320,
       },
     },
-    verification: {
-      google: "ZgKIacqjmp0oVcsA0HrqM86jEXkrSuSvDwSi2MGClWo",
-    },
   };
 }
 

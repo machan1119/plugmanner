@@ -1,6 +1,6 @@
 import { ServiceItem } from "@/libs/types/ServiceItemsMapping";
 import { fetchServiceItemMappings } from "../utils/fetchServiceItemMappings";
-import { generate_slug } from "@/utils/functions";
+import { generate_item_url } from "@/utils/functions";
 
 export async function initServiceItemMappings(currentLocale: string) {
   const serviceItems: ServiceItem[] = await fetchServiceItemMappings(
@@ -13,15 +13,15 @@ export async function initServiceItemMappings(currentLocale: string) {
         ? item
         : item.localizations.find((l) => l.locale === currentLocale);
     if (!currentItem) return;
-    const currentSlug = generate_slug(currentItem.name);
+    const currentSlug = generate_item_url(currentItem.header.text);
     if (!mappings[currentSlug]) {
       mappings[currentSlug] = {};
     }
-    mappings[currentSlug][item.locale] = generate_slug(item.name);
+    mappings[currentSlug][item.locale] = generate_item_url(item.header.text);
     if (item.localizations && item.localizations) {
       item.localizations.forEach((localization) => {
-        mappings[currentSlug][localization.locale] = generate_slug(
-          localization.name
+        mappings[currentSlug][localization.locale] = generate_item_url(
+          localization.header.text
         );
       });
     }

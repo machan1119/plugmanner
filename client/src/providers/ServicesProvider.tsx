@@ -8,7 +8,7 @@ import React, {
 } from "react";
 import { ServiceJsonDataType } from "@/libs/types/ServiceJsonDataType";
 import { useList } from "./ListProvider";
-import { generate_slug } from "@/utils/functions";
+import { generate_item_url } from "@/utils/functions";
 import { fetchServiceData } from "@/utils/fetch-service-data";
 
 interface ServicesContextType {
@@ -41,7 +41,7 @@ export const ServicesProvider: React.FC<ServicesProviderProps> = ({
   // console.log(userLocale);
   useEffect(() => {
     const subservice = serviceList.data_3.find(
-      (sub) => generate_slug(sub.name) == item
+      (sub) => generate_item_url(sub.header.text) == item
     );
     // console.log(serviceList.data_3);
     if (subservice) {

@@ -1,6 +1,6 @@
 import { ProcessedListType } from "@/libs/types/ListTypes";
 import { fetchAPI } from "./fetch-api";
-import { generate_slug, getCookie } from "./functions";
+import { generate_item_url, getCookie } from "./functions";
 import { fetchAllServiceList } from "./fetch-all-service-list";
 
 export async function fetchServiceData(itemId: string) {
@@ -29,7 +29,7 @@ export async function fetchServiceMetaData(name: string) {
     data_3: [],
   };
   const subservice = allData.data_3.find(
-    (sub) => generate_slug(sub.name) == name
+    (sub) => generate_item_url(sub.header.text) == name
   );
   let itemId: string = "";
   if (subservice) {

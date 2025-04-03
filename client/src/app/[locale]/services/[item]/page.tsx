@@ -49,11 +49,11 @@ export async function generateMetadata({
     robots: {
       index: false,
       follow: false,
-      nocache: true,
+      nocache: false,
       googleBot: {
         index: false,
         follow: false,
-        noimageindex: true,
+        noimageindex: false,
         "max-video-preview": -1,
         "max-image-preview": "large",
         "max-snippet": -1,

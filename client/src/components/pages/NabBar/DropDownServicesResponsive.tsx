@@ -2,7 +2,7 @@
 
 import { ServicesDataType } from "@/libs/types/ListTypes";
 import { useHome } from "@/providers/HomeProvider";
-import { generate_slug, replace_str } from "@/utils/functions";
+import { generate_item_url, replace_str } from "@/utils/functions";
 import { useLocale } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
@@ -108,8 +108,8 @@ const DropDownServicesResponsive = memo(
                 rel="canonical"
                 key={index}
                 aria-label={serviceItem.name}
-                href={`/${LocaleLinks[locale]}/${generate_slug(
-                  serviceItem.name
+                href={`/${LocaleLinks[locale]}/${generate_item_url(
+                  serviceItem.header.text
                 )}`}
                 onClick={() => {
                   setServiceShow(true);

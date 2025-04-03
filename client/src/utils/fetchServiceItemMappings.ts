@@ -9,7 +9,7 @@ export async function fetchServiceItemMappings(currentLocale: string) {
     while (true) {
       const path = "/subservices";
       const urlParamsObject = {
-        populate: "localizations",
+        populate: ["localizations.header.text", "header.text"],
         pagination: {
           page: i,
           pageSize: 100,

@@ -41,19 +41,16 @@ export async function generateMetadata(params: Promise<{ locale: Locale }>) {
     },
     robots: {
       index: false,
-      follow: true,
+      follow: false,
       nocache: false,
       googleBot: {
         index: false,
-        follow: true,
+        follow: false,
         noimageindex: false,
         "max-video-preview": "large",
         "max-image-preview": "large",
         "max-snippet": 320,
       },
-    },
-    verification: {
-      google: "ZgKIacqjmp0oVcsA0HrqM86jEXkrSuSvDwSi2MGClWo",
     },
   };
 }

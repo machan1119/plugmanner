@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { memo, useState } from "react";
 import { useList } from "@/providers/ListProvider";
-import { generate_slug } from "@/utils/functions";
+import { generate_item_url } from "@/utils/functions";
 import LocaleSwitcher from "@/components/LocaleSwitcher";
 import { useTranslations } from "next-intl";
 
@@ -100,8 +100,8 @@ const NavBarMain = memo(() => {
                               <div key={subservice.id} onClick={removeSearch}>
                                 <Link
                                   className="flex px-2 py-1 text-base text-text-primary font-medium font-satoshi hover:bg-background-light hover:text-primary transition-all duration-300"
-                                  href={`/services/${generate_slug(
-                                    subservice.name
+                                  href={`/services/${generate_item_url(
+                                    subservice.header.text
                                   )}`}
                                   aria-label={subservice.name}
                                 >
@@ -115,8 +115,8 @@ const NavBarMain = memo(() => {
                           <div key={subservice.id} onClick={removeSearch}>
                             <Link
                               className="flex px-2 py-1 text-base text-text-primary font-medium font-satoshi hover:bg-background-light hover:text-primary transition-all duration-300"
-                              href={`/services/${generate_slug(
-                                subservice.name
+                              href={`/services/${generate_item_url(
+                                subservice.header.text
                               )}`}
                               aria-label={subservice.name}
                             >
@@ -223,8 +223,8 @@ const NavBarMain = memo(() => {
                             <div key={subservice.id} onClick={removeSearch}>
                               <Link
                                 className="flex px-2 py-1 text-base text-text-primary font-medium font-satoshi hover:bg-background-light hover:text-primary transition-all duration-300"
-                                href={`/services/${generate_slug(
-                                  subservice.name
+                                href={`/services/${generate_item_url(
+                                  subservice.header.text
                                 )}`}
                                 aria-label={subservice.name}
                               >
@@ -238,7 +238,9 @@ const NavBarMain = memo(() => {
                         <div key={subservice.id} onClick={removeSearch}>
                           <Link
                             className="flex px-2 py-1 text-base text-text-primary font-medium font-satoshi hover:bg-background-light hover:text-primary transition-all duration-300"
-                            href={`/services/${generate_slug(subservice.name)}`}
+                            href={`/services/${generate_item_url(
+                              subservice.header.text
+                            )}`}
                             aria-label={subservice.name}
                           >
                             {subservice.name}

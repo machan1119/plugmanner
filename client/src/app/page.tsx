@@ -5,8 +5,12 @@ export default async function RootPage() {
   const localeCookie = cookieStore.get("NEXT_LOCALE");
   if (localeCookie) {
     const locale = localeCookie.value;
-    redirect(`/${locale}`);
+    if (locale == "en") {
+      redirect("/");
+    } else {
+      redirect(`/${locale}`);
+    }
   } else {
-    redirect("/en");
+    redirect("/");
   }
 }

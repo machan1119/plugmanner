@@ -1,6 +1,6 @@
 import { ServiceItem } from "@/libs/types/ServiceItemsMapping";
 import { fetchServiceItemMappings } from "@/utils/fetchServiceItemMappings";
-import { generate_slug } from "@/utils/functions";
+import { generate_item_url } from "@/utils/functions";
 import { NextResponse } from "next/server";
 
 const BASE_URL = "https://plugmanner.com";
@@ -17,56 +17,62 @@ export async function GET() {
   for (const item of serviceItems) {
     if (item.locale == "en") {
       sitemapEntries.push({
-        loc: `${BASE_URL}/${item.locale}/services/${generate_slug(item.name)}`,
+        loc: `${BASE_URL}/${item.locale}/services/${generate_item_url(
+          item.header.text
+        )}`,
         alternateLinks: item.localizations.map((lang) => ({
           hreflang: lang.locale,
-          href: `${BASE_URL}/${lang.locale}/services/${generate_slug(
-            lang.name
+          href: `${BASE_URL}/${lang.locale}/services/${generate_item_url(
+            lang.header.text
           )}`,
         })),
-        "x-default": `${BASE_URL}/${item.locale}/services/${generate_slug(
-          item.name
+        "x-default": `${BASE_URL}/${item.locale}/services/${generate_item_url(
+          item.header.text
         )}`,
       });
     } else if (item.locale == "es-ES") {
       sitemapEntries.push({
-        loc: `${BASE_URL}/${item.locale}/servicios/${generate_slug(item.name)}`,
+        loc: `${BASE_URL}/${item.locale}/servicios/${generate_item_url(
+          item.header.text
+        )}`,
         alternateLinks: item.localizations.map((lang) => ({
           hreflang: lang.locale,
-          href: `${BASE_URL}/${lang.locale}/servicios/${generate_slug(
-            lang.name
+          href: `${BASE_URL}/${lang.locale}/servicios/${generate_item_url(
+            lang.header.text
           )}`,
         })),
-        "x-default": `${BASE_URL}/${item.locale}/servicios/${generate_slug(
-          item.name
+        "x-default": `${BASE_URL}/${item.locale}/servicios/${generate_item_url(
+          item.header.text
         )}`,
       });
     } else if (item.locale == "de") {
       sitemapEntries.push({
-        loc: `${BASE_URL}/${item.locale}/dienstleistungen/${generate_slug(
-          item.name
+        loc: `${BASE_URL}/${item.locale}/dienstleistungen/${generate_item_url(
+          item.header.text
         )}`,
         alternateLinks: item.localizations.map((lang) => ({
           hreflang: lang.locale,
-          href: `${BASE_URL}/${lang.locale}/dienstleistungen/${generate_slug(
-            lang.name
-          )}`,
+          href: `${BASE_URL}/${
+            lang.locale
+          }/dienstleistungen/${generate_item_url(lang.header.text)}`,
         })),
         "x-default": `${BASE_URL}/${
           item.locale
-        }/dienstleistungen/${generate_slug(item.name)}`,
+        }/dienstleistungen/${generate_item_url(item.header.text)}`,
       });
     } else if (item.locale == "pt-BR") {
       sitemapEntries.push({
-        loc: `${BASE_URL}/${item.locale}/serviços/${generate_slug(item.name)}`,
+        loc: `${BASE_URL}/${item.locale}/serviços/${generate_item_url(
+          item.header.text
+        )}`,
         alternateLinks: item.localizations.map((lang) => ({
           hreflang: lang.locale,
-          href: `${BASE_URL}/${lang.locale}/serviços/${generate_slug(
-            lang.name
+          href: `${BASE_URL}/${lang.locale}/serviços/${generate_item_url(
+            lang.header.text
           )}`,
         })),
-        "x-default": `${BASE_URL}/${item.locale}/serviços/${generate_slug(
-          item.name
+        "x-default": `${BASE_URL}/${item.locale}/serviços/${generate_item_url(
+          item.header.text
         )}`,
       });
     }

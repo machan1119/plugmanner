@@ -1,6 +1,11 @@
-export function generate_slug(str: string): string {
-  // str = "buy " + str;
-  return str
+interface HeaderTextType {
+  content: string;
+}
+
+export function generate_item_url(str: HeaderTextType[]): string {
+  let url = "";
+  url = str.map((item) => item.content).join(" ");
+  return url
     .toLowerCase()
     .replace(" ", "-")
     .replace(/[^a-z0-9]+/g, "-")
@@ -8,7 +13,7 @@ export function generate_slug(str: string): string {
 }
 
 export function replace_str(s1: string, s2: string): string {
-  const patternsToRemove = [`de ${s2}`, s2, "Comprar"];
+  const patternsToRemove = [`de ${s2}`, s2, "Comprar", "Compra"];
   let result = patternsToRemove.reduce(
     (currentString, pattern) => currentString.replace(pattern, ""),
     s1.trim()

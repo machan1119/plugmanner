@@ -34,7 +34,7 @@ export async function fetchAllServiceList() {
         populate: {
           subservices: {
             fields: ["name", "documentId", "popular"],
-            populate: "icon",
+            populate: ["icon", "header.text"],
           },
           icon: { fields: ["url"] },
         },
@@ -77,6 +77,7 @@ const transformRawData = (rawData: RawData[]): ListType[] => {
         services: item.subservices.map((subservice) => ({
           name: subservice.name,
           id: subservice.documentId,
+          header: subservice.header,
           icon: subservice.icon,
           recommend: subservice.recommend,
           popular: subservice.popular,

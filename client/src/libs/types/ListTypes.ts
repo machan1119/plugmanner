@@ -6,6 +6,9 @@ export interface Subservice {
   updatedAt: string;
   publishedAt: string;
   name: string;
+  header: {
+    text: [{ content: string }];
+  };
   popular: string;
   icon: Icon;
 }
@@ -57,6 +60,9 @@ export interface ServicesDataType {
     name: string;
     id: string;
     icon: Icon;
+    header: {
+      text: [{ content: string }];
+    };
     recommend?: boolean;
     popular: string;
   }[];
@@ -70,6 +76,9 @@ export interface ServicesListType {
     name: string;
     id: string;
     icon: Icon;
+    header: {
+      text: [{ content: string }];
+    };
     recommend?: boolean;
     popular: string;
   }[];
@@ -79,6 +88,9 @@ export interface SubserviceDataType {
   name: string;
   id: string;
   icon: Icon;
+  header: {
+    text: { content: string }[];
+  };
   recommend?: boolean;
   popular: string;
 }

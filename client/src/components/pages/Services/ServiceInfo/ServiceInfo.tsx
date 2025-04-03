@@ -18,7 +18,6 @@ const ServiceInfo = memo(() => {
   if (!serviceItems?.header) {
     return null;
   }
-
   return (
     <section className="flex flex-col w-full m-auto items-center">
       <div

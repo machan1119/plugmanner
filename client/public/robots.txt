@@ -2,20 +2,8 @@
 
 User-agent: *
 
-Allow: /
+Disallow: /
 
-Sitemap: https://plugmanner.com/sitemap.xml
-
-User-agent: Googlebot
+User-agent: Screaming Frog SEO Spider
 
 Allow: /
-
-User-agent: Bingbot
-
-Allow: /
-
-User-agent: OAI-SearchBot
-
-Allow: /
-
-Sitemap: https://plugmanner.com/sitemap.xml

@@ -1,7 +1,7 @@
 "use client";
 
 import { ServicesDataType } from "@/libs/types/ListTypes";
-import { generate_slug, replace_str } from "@/utils/functions";
+import { generate_item_url, replace_str } from "@/utils/functions";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useCallback, memo } from "react";
@@ -72,7 +72,7 @@ const ServicesItem = memo(({ serviceData }: ServicesItemProps) => {
             {serviceData.services.map((serviceItem, index) => (
               <Link
                 className="p-2 bg-white rounded-md flex items-center justify-center text-center transition-all duration-200 hover:bg-gray-50 hover:shadow-sm animate-fade-in-up"
-                href={`/services/${generate_slug(serviceItem.name)}`}
+                href={`/services/${generate_item_url(serviceItem.header.text)}`}
                 aria-label={serviceItem.name}
                 key={index}
               >

@@ -1,5 +1,5 @@
 "use client";
-import { generate_slug, replace_str } from "@/utils/functions";
+import { generate_item_url, replace_str } from "@/utils/functions";
 import { ListType, Icon } from "@/libs/types/ListTypes";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,6 +10,9 @@ interface ServiceItemProps {
   dataItem: {
     id: string;
     name: string;
+    header: {
+      text: { content: string }[];
+    };
     icon: Icon;
   };
   icon: string;
@@ -28,7 +31,9 @@ const ServiceItem = memo(({ dataItem, icon, title }: ServiceItemProps) => {
   return (
     <Link
       rel="canonical"
-      href={`/${LocaleLinks[locale]}/${generate_slug(dataItem.name)}`}
+      href={`/${LocaleLinks[locale]}/${generate_item_url(
+        dataItem.header.text
+      )}`}
       className="
       flex items-center gap-2 
       py-2 px-4 

@@ -7,3 +7,5 @@ Disallow: /
 User-agent: Screaming Frog SEO Spider
 
 Allow: /
+
+Sitemap: https://plugmanner.com/sitemap.xml

@@ -17,9 +17,7 @@ export async function GET() {
   for (const item of serviceItems) {
     if (item.locale == "en") {
       sitemapEntries.push({
-        loc: `${BASE_URL}/${item.locale}/services/${generate_item_url(
-          item.header.text
-        )}`,
+        loc: `${BASE_URL}/services/${generate_item_url(item.header.text)}`,
         alternateLinks: item.localizations.map((lang) => ({
           hreflang: lang.locale,
           href: `${BASE_URL}/${lang.locale}/services/${generate_item_url(

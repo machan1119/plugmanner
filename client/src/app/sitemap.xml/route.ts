@@ -24,7 +24,7 @@ export async function GET() {
             lang.header.text
           )}`,
         })),
-        "x-default": `${BASE_URL}/${item.locale}/services/${generate_item_url(
+        "x-default": `${BASE_URL}/services/${generate_item_url(
           item.header.text
         )}`,
       });
@@ -82,11 +82,11 @@ export async function GET() {
             <loc>
                 https://plugmanner.com
             </loc>
-            <xhtml:link rel="alternate" hreflang="en" href="https://plugmanner.com/en"/>
+            <xhtml:link rel="alternate" hreflang="en" href="https://plugmanner.com"/>
             <xhtml:link rel="alternate" hreflang="es-ES" href="https://plugmanner.com/es-ES"/>
             <xhtml:link rel="alternate" hreflang="es-ES" href="https://plugmanner.com/de"/>
             <xhtml:link rel="alternate" hreflang="es-ES" href="https://plugmanner.com/pt-BR"/>
-            <xhtml:link rel="alternate" hreflang="x-default" href="https://plugmanner.com/en"/>
+            <xhtml:link rel="alternate" hreflang="x-default" href="https://plugmanner.com"/>
         </url>  
     ${sitemapEntries
       .map(

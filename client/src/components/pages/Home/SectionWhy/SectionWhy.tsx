@@ -61,7 +61,7 @@ const SectionWhy = memo(() => {
             {statsData.map((stat, index) => (
               <React.Fragment key={index}>
                 <div className="flex flex-col grow gap-2 items-center animate-fade-in-up">
-                  <h3 className="font-h1">{stat.value}</h3>
+                  <p className="font-h1">{stat.value}</p>
                   <p className="text-black-dark text-[12px] md:text-[16px] lg:text-[18px] font-satoshi text-center">
                     {stat.label}
                   </p>

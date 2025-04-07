@@ -53,12 +53,12 @@ const SectionLogos = memo(() => {
       id="services-list"
       className="p-4 sm:p-6 md:p-8 lg:p-10 flex flex-col gap-6 items-center mb-4 bg-white/5 backdrop-blur-sm rounded-lg"
     >
-      <h2
+      <p
         id="section-logos-title"
         className="text-[rgba(0,_0,_0,_0.5)] font-satoshi text-[20px] font-medium leading-[25px] text-center"
       >
         FEATURED IN TOP MEDIA
-      </h2>
+      </p>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 md:gap-8 lg:gap-[52px] w-full max-w-7xl mx-auto">
         {logosData.map((logo, index) => (
           <div

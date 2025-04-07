@@ -1,3 +1,5 @@
+import { LocalizedServiceItem } from "./ServiceItemsMapping";
+
 export interface Subservice {
   id: number;
   recommend?: boolean;
@@ -102,27 +104,33 @@ export interface ProcessedListType {
 }
 
 export interface ServiceMetadataType {
-  metaTitle: string;
-  metaDescription: string;
-  keywords?: string;
-  metaRobots?: string;
-  metaViewport: string;
-  canonicalURL?: string;
-  structuredData?: string;
-  metaImage?: string;
-  metaSocial: [
-    {
-      socialNetwork: string;
-      title: string;
-      description: string;
-      image: string;
-    }
-  ];
-  openGraph: {
-    ogtitle?: string;
-    ogdescription?: string;
-    ogurl?: string;
-    ogtype?: string;
-    ogimage?: string;
+  seo: {
+    metaTitle: string;
+    metaDescription: string;
+    keywords?: string;
+    metaRobots?: string;
+    metaViewport: string;
+    structuredData?: string;
+    metaImage?: string;
+    metaSocial: [
+      {
+        socialNetwork: string;
+        title: string;
+        description: string;
+        image: string;
+      }
+    ];
+    openGraph: {
+      ogtitle?: string;
+      ogdescription?: string;
+      ogurl?: string;
+      ogtype?: string;
+      ogimage?: string;
+    };
   };
+  locale: string;
+  header: {
+    text: [{ content: string }];
+  };
+  localizations: LocalizedServiceItem[];
 }

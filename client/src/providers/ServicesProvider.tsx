@@ -38,15 +38,14 @@ export const ServicesProvider: React.FC<ServicesProviderProps> = ({
   );
   const [isLoading, setIsLoading] = useState(true);
   const userLocale = locale;
-  // console.log(userLocale);
   useEffect(() => {
     const subservice = serviceList.data_3.find(
       (sub) => generate_item_url(sub.header.text) == item
     );
-    // console.log(serviceList.data_3);
     if (subservice) {
       const fetchAndSetData = async () => {
-        const serviceData = (await fetchServiceData(subservice.id)) ?? "";
+        const serviceData =
+          (await fetchServiceData(subservice.id, userLocale)) ?? "";
         if (!serviceData) {
           throw new Error("Failed to fetch service list");
         }

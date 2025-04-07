@@ -41,7 +41,7 @@ const AllServices = () => {
                 <div className="flex items-center justify-center bg-black text-white border border-black rounded-md w-[50px] h-[50px] text-xl font-semibold leading-7 mb-4">
                   {index + 1}
                 </div>
-                <h2 className="font-h2">{item.title}</h2>
+                <h3 className="font-h2">{item.title}</h3>
                 <p className="font-service-text w-[70%] !text-center">
                   {item.description}
                 </p>

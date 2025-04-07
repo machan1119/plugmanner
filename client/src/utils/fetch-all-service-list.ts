@@ -5,7 +5,6 @@ import {
   SubserviceDataType,
 } from "@/libs/types/ListTypes";
 import { fetchAPI } from "./fetch-api";
-import { getCookie } from "./functions";
 
 const SERVICE_TYPE_ORDER = {
   "Twitter(X)": 0,
@@ -21,8 +20,7 @@ const SERVICE_TYPE_ORDER = {
   Tools: 9,
 } as const;
 
-export async function fetchAllServiceList() {
-  const locale = getCookie("NEXT_LOCALE");
+export async function fetchAllServiceList(locale: string) {
   let pageCount = 1;
   let rawData: RawData[] = [];
   try {

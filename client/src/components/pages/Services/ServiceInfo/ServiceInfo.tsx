@@ -25,10 +25,12 @@ const ServiceInfo = memo(() => {
         className="flex lg:flex-row lg:items-start lg:justify-between items-center flex-col gap-[120px] pt-[80px] w-full max-w-[1366px] px-10 bg-[linear-gradient(#fffffff5,#fff),url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/67bb4de67a2ea65794f385ee_perspective-grid-black.webp')] bg-[position:0_0,50%_0] bg-[size:auto,contain] bg-no-repeat"
       >
         <div className="flex flex-col gap-7 lg:w-[50%] lg:items-start items-center lg:text-left grow">
-          <StrapiText
-            data={serviceItems.header.text}
-            customClassName="!font-service text-wrap !text-center lg:!text-left"
-          />
+          <h1>
+            <StrapiText
+              data={serviceItems.header.text}
+              customClassName="!font-service text-wrap !text-center lg:!text-left"
+            />
+          </h1>
           <StrapiText
             data={serviceItems.simpledescription.text}
             customClassName="font-service-text lg:text-[20px] !text-center lg:!text-left"

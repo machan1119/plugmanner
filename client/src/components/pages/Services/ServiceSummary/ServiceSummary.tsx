@@ -22,10 +22,9 @@ const ServiceSummary = () => {
   return (
     <section className="w-full py-[80px] bg-black-light flex flex-col items-center border-b-[1px] border-black-normal">
       <div className="max-w-[1366px] w-full flex flex-col items-center px-10">
-        <StrapiText
-          data={serviceItems.introduction.Summary.title.text}
-          customClassName="font-h1 w-[50%] text-wrap"
-        />
+        <h2 className="font-h1 sm:80% lg:w-[50%] text-wrap">
+          <StrapiText data={serviceItems.introduction.Summary.title.text} />
+        </h2>
         <Image
           width={300}
           height={25}

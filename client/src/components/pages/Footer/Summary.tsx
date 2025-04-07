@@ -61,7 +61,7 @@ const Summary = memo(({ className = "" }: SummaryProps) => {
       </div>
 
       <div className="flex flex-col gap-4">
-        <h3
+        <p
           className="
           font-clash 
           leading-5 
@@ -73,7 +73,7 @@ const Summary = memo(({ className = "" }: SummaryProps) => {
         "
         >
           Company
-        </h3>
+        </p>
         <p
           className="
           text-white/50

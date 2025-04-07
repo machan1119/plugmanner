@@ -45,9 +45,9 @@ const SectionHero = memo(() => {
               priority
             />
           </h1>
-          <div className="text-black text-[14px] md:text-[18px] leading-[27px] font-medium text-center w-[90%] sm:w-[80%] lg:w-[50%] font-satoshi animate-fade-in-up">
+          <p className="text-black text-[14px] md:text-[18px] leading-[27px] font-medium text-center w-[90%] sm:w-[80%] lg:w-[50%] font-satoshi animate-fade-in-up">
             {t("hero.description")}
-          </div>
+          </p>
         </div>
         <div className="grid grid-cols-auto-2 lg:flex lg:flex-row gap-4 sm:gap-6 items-center">
           <div className="flex gap-[6px] order-2 lg:order-1 items-center justify-center text-center animate-fade-in-left">

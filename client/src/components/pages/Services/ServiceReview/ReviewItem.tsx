@@ -21,9 +21,9 @@ const ReviewItem = ({
   return (
     <article className="mb-5 flex flex-col gap-2 p-6 bg-white grow rounded-xl border border-[#e2e2e2] break-inside-avoid">
       <div className="font-h1 !text-left">&#34;</div>
-      <h3 id={`review-title-${customerName}`} className="font-h2">
+      <p id={`review-title-${customerName}`} className="font-h2">
         {title}
-      </h3>
+      </p>
       <div>
         <RatingStar rating={rating} />
       </div>

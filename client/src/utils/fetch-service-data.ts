@@ -1,10 +1,10 @@
 import { ProcessedListType } from "@/libs/types/ListTypes";
 import { fetchAPI } from "./fetch-api";
-import { generate_item_url, getCookie } from "./functions";
+import { generate_item_url } from "./functions";
 import { fetchAllServiceList } from "./fetch-all-service-list";
+import { getLocale } from "next-intl/server";
 
-export async function fetchServiceData(itemId: string) {
-  const locale = getCookie("NEXT_LOCALE");
+export async function fetchServiceData(itemId: string, locale: string) {
   try {
     const path = `/subservices/${itemId}`;
     const urlParamsObject = {
@@ -23,7 +23,8 @@ export async function fetchServiceData(itemId: string) {
 }
 
 export async function fetchServiceMetaData(name: string) {
-  const allData: ProcessedListType = (await fetchAllServiceList()) ?? {
+  const locale = await getLocale();
+  const allData: ProcessedListType = (await fetchAllServiceList(locale)) ?? {
     data_1: [],
     data_2: [],
     data_3: [],
@@ -34,7 +35,6 @@ export async function fetchServiceMetaData(name: string) {
   let itemId: string = "";
   if (subservice) {
     itemId = subservice.id;
-    const locale = getCookie("NEXT_LOCALE");
     try {
       const path = `/subservices/${itemId}`;
       const urlParamsObject = {
@@ -42,6 +42,12 @@ export async function fetchServiceMetaData(name: string) {
         populate: {
           seo: {
             populate: ["openGraph"],
+          },
+          localizations: {
+            populate: "header.text",
+          },
+          header: {
+            populate: "text",
           },
         },
         "[locale]": locale,

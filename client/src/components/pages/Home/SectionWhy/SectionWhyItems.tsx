@@ -10,12 +10,12 @@ const SectionWhyItems = memo(({ item }: SectionWhyItemsProps) => {
   return (
     <article className="bg-white border border-black-dark/50 text-black rounded-[16px] p-4 sm:p-6 flex flex-col justify-between text-center hover:shadow-lg transition-all duration-300">
       <div className="flex flex-col gap-3 mb-5">
-        <h3
+        <p
           id={`review-title-${item.title}`}
           className="font-clash font-semibold text-[18px] sm:text-[20px] leading-[25px] animate-fade-in"
         >
           {item.title}
-        </h3>
+        </p>
         <p className="font-satoshi text-[14px] text-black leading-[21px] font-medium text-center animate-fade-in-up">
           {item.description}
         </p>

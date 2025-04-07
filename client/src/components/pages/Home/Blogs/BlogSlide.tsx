@@ -72,11 +72,7 @@ const BlogSlide = memo(() => {
         modules={[Autoplay, Navigation]}
       >
         {BlogItems.map((item, index) => (
-          <SwiperSlide
-            key={`blog-${index}-${item.title
-              .replace(/\s+/g, "-")
-              .toLowerCase()}`}
-          >
+          <SwiperSlide key={index}>
             <article className="flex flex-col justify-between bg-white rounded-lg p-5 items-center hover:shadow-lg transition-all duration-300">
               <div className="relative w-full aspect-[365/242] overflow-hidden rounded-lg">
                 <Image

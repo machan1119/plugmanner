@@ -4,7 +4,7 @@ export interface LocalizedServiceItem {
   header: {
     text: [{ content: string }];
   };
-  locale: string;
+  locale: "en" | "es-ES" | "de" | "pt-BR";
 }
 
 export interface ServiceItem {

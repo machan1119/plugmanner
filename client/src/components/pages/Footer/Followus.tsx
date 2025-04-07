@@ -52,9 +52,9 @@ const FollowUs = memo(({ className = "" }: FollowUsProps) => {
         ${className}
       `}
     >
-      <h3 className="font-clash mb-4 leading-5 text-base md:text-xl font-semibold text-white">
+      <p className="font-clash mb-4 leading-5 text-base md:text-xl font-semibold text-white">
         Follow Us
-      </h3>
+      </p>
       <div className="flex gap-4">
         {socialLinks.map((link) => (
           <Link

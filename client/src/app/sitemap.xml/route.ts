@@ -14,66 +14,25 @@ interface SitemapEntry {
 export async function GET() {
   const sitemapEntries: SitemapEntry[] = [];
   const serviceItems: ServiceItem[] = await fetchServiceItemMappings("en");
+  const Locale_URL = {
+    en: `${BASE_URL}/services`,
+    "es-ES": `${BASE_URL}/es-ES/servicios`,
+    de: `${BASE_URL}/de/dienstleistungen`,
+    "pt-BR": `${BASE_URL}/pt-BR/serviços`,
+  };
   for (const item of serviceItems) {
-    if (item.locale == "en") {
-      sitemapEntries.push({
-        loc: `${BASE_URL}/services/${generate_item_url(item.header.text)}`,
-        alternateLinks: item.localizations.map((lang) => ({
-          hreflang: lang.locale,
-          href: `${BASE_URL}/${lang.locale}/services/${generate_item_url(
-            lang.header.text
-          )}`,
-        })),
-        "x-default": `${BASE_URL}/services/${generate_item_url(
-          item.header.text
+    sitemapEntries.push({
+      loc: `${BASE_URL}/services/${generate_item_url(item.header.text)}`,
+      alternateLinks: item.localizations.map((lang) => ({
+        hreflang: lang.locale,
+        href: `${Locale_URL[lang.locale]}/${generate_item_url(
+          lang.header.text
         )}`,
-      });
-    } else if (item.locale == "es-ES") {
-      sitemapEntries.push({
-        loc: `${BASE_URL}/${item.locale}/servicios/${generate_item_url(
-          item.header.text
-        )}`,
-        alternateLinks: item.localizations.map((lang) => ({
-          hreflang: lang.locale,
-          href: `${BASE_URL}/${lang.locale}/servicios/${generate_item_url(
-            lang.header.text
-          )}`,
-        })),
-        "x-default": `${BASE_URL}/${item.locale}/servicios/${generate_item_url(
-          item.header.text
-        )}`,
-      });
-    } else if (item.locale == "de") {
-      sitemapEntries.push({
-        loc: `${BASE_URL}/${item.locale}/dienstleistungen/${generate_item_url(
-          item.header.text
-        )}`,
-        alternateLinks: item.localizations.map((lang) => ({
-          hreflang: lang.locale,
-          href: `${BASE_URL}/${
-            lang.locale
-          }/dienstleistungen/${generate_item_url(lang.header.text)}`,
-        })),
-        "x-default": `${BASE_URL}/${
-          item.locale
-        }/dienstleistungen/${generate_item_url(item.header.text)}`,
-      });
-    } else if (item.locale == "pt-BR") {
-      sitemapEntries.push({
-        loc: `${BASE_URL}/${item.locale}/serviços/${generate_item_url(
-          item.header.text
-        )}`,
-        alternateLinks: item.localizations.map((lang) => ({
-          hreflang: lang.locale,
-          href: `${BASE_URL}/${lang.locale}/serviços/${generate_item_url(
-            lang.header.text
-          )}`,
-        })),
-        "x-default": `${BASE_URL}/${item.locale}/serviços/${generate_item_url(
-          item.header.text
-        )}`,
-      });
-    }
+      })),
+      "x-default": `${BASE_URL}/services/${generate_item_url(
+        item.header.text
+      )}`,
+    });
   }
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -84,8 +43,8 @@ export async function GET() {
             </loc>
             <xhtml:link rel="alternate" hreflang="en" href="https://plugmanner.com"/>
             <xhtml:link rel="alternate" hreflang="es-ES" href="https://plugmanner.com/es-ES"/>
-            <xhtml:link rel="alternate" hreflang="es-ES" href="https://plugmanner.com/de"/>
-            <xhtml:link rel="alternate" hreflang="es-ES" href="https://plugmanner.com/pt-BR"/>
+            <xhtml:link rel="alternate" hreflang="de" href="https://plugmanner.com/de"/>
+            <xhtml:link rel="alternate" hreflang="pt-BR" href="https://plugmanner.com/pt-BR"/>
             <xhtml:link rel="alternate" hreflang="x-default" href="https://plugmanner.com"/>
         </url>  
     ${sitemapEntries

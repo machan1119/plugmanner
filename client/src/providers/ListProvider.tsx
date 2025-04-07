@@ -43,7 +43,9 @@ export const ListProvider: React.FC<{
   });
   const [isLoading, setIsLoading] = useState(true);
   const fetchAndSetData = async () => {
-    const processedList: ProcessedListType = (await fetchAllServiceList()) ?? {
+    const processedList: ProcessedListType = (await fetchAllServiceList(
+      userLocale
+    )) ?? {
       data_1: [],
       data_2: [],
       data_3: [],

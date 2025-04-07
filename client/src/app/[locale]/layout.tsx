@@ -1,4 +1,4 @@
-import type { Viewport } from "next";
+import type { Metadata, Viewport } from "next";
 import "../globals.css";
 import "../../css/clash-display.css";
 import "../../css/satoshi.css";
@@ -19,11 +19,11 @@ export const viewport: Viewport = {
   userScalable: false,
 };
 
-export async function generateMetadata(params: Promise<{ locale: Locale }>) {
+export async function generateMetadata(
+  params: Promise<{ locale: Locale }>
+): Promise<Metadata | null> {
   const { locale } = await params;
-
   const t = await getTranslations({ locale, namespace: "LocaleLayout" });
-
   return {
     title: t("title"),
     description: t("description"),
@@ -32,12 +32,18 @@ export async function generateMetadata(params: Promise<{ locale: Locale }>) {
       title: t("twitter.title"),
       description: t("twitter.description"),
     },
-    og: {
+    openGraph: {
       title: t("og.title"),
       description: t("og.description"),
     },
     alternates: {
       canonical: "https://plugmanner.com/",
+      languages: {
+        en: "https://plugmanner.com/",
+        "es-ES": "https://plugmanner.com/es-ES/",
+        de: "https://plugmanner.com/de/",
+        "pt-BR": "https://plugmanner.com/pt-BR/",
+      },
     },
     robots: {
       index: false,

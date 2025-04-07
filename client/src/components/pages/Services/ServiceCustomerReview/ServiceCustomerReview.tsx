@@ -38,10 +38,12 @@ const ServiceCustomerReview = () => {
     <section className="py-[80px] flex flex-col items-center border-b-[1px] border-black-normal">
       <div className="max-w-[1366px] px-10 flex flex-col gap-7 w-full items-center mb-8">
         <div className="flex flex-col gap-5 items-center w-full">
-          <StrapiText
-            data={serviceItems.introduction.CustomerReviews.title.text}
-            customClassName="font-h1 text-wrap"
-          />
+          <h2>
+            <StrapiText
+              data={serviceItems.introduction.CustomerReviews.title.text}
+              customClassName="font-h1 text-wrap"
+            />
+          </h2>
           <StrapiText
             data={serviceItems.introduction.CustomerReviews.text[0].text}
             customClassName="font-service-text text-[18px] lg:w-[50%] !text-center"

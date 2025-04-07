@@ -27,9 +27,7 @@ const ServiceGoodPoints = memo(({ className = "" }: ServiceGoodPointsProps) => {
       `}
     >
       <div className="max-w-[1366px] px-10 flex flex-col gap-7 w-full items-start mb-8">
-        <h2 id="good-points-heading" className="sr-only">
-          {t("GoodPoints")}
-        </h2>
+        <h2 id="good-points-heading">{t("GoodPoints")}</h2>
         <div className="w-full flex flex-col gap-20">
           {serviceItems.introduction.GoodPoints.chapter.map(
             (chapterItem: GoodPointsChapterType, chapterIndex: number) => (

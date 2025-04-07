@@ -22,9 +22,7 @@ const ServiceSummary2 = memo(() => {
   return (
     <section className="w-full py-[80px] bg-black-light flex flex-col items-center border-b-[1px] border-black-normal">
       <div className="max-w-[1366px] w-full flex flex-col items-center px-10">
-        <h2 id="summary2-heading" className="sr-only">
-          {title.text[0].content}
-        </h2>
+        <h2 id="summary2-heading">{title.text[0].content}</h2>
         <StrapiText
           data={title.text}
           customClassName="font-h1 w-[50%] text-wrap"

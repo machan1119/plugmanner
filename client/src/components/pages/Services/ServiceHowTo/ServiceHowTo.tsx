@@ -23,10 +23,9 @@ const ServiceHowTo = () => {
   return (
     <section className="w-full py-[80px] bg-black-light flex flex-col items-center border-b-[1px] border-black-normal">
       <div className="max-w-[1366px] w-full flex flex-col items-center px-10">
-        <StrapiText
-          data={serviceItems.introduction.HowToOrder.title.text}
-          customClassName="font-h1 w-[50%] text-wrap justify-center"
-        />
+        <h2 className="font-h1 sm:80% lg:w-[50%] text-wrap justify-center">
+          <StrapiText data={serviceItems.introduction.HowToOrder.title.text} />
+        </h2>
         <StrapiText
           data={serviceItems.introduction.HowToOrder.description.text}
           customClassName="font-service-text text-[18px] my-5 !text-center"
@@ -41,7 +40,7 @@ const ServiceHowTo = () => {
                 <div className="flex items-center justify-center bg-black text-white border border-black rounded-md w-[50px] h-[50px] text-xl font-semibold leading-7">
                   {index + 1}
                 </div>
-                <h3 className="font-h2">{item.simple}</h3>
+                <p className="font-h2">{item.simple}</p>
                 <p className="font-service-text !text-center">{item.detail}</p>
               </div>
             )

@@ -42,22 +42,23 @@ export const ListProvider: React.FC<{
     data_3: [],
   });
   const [isLoading, setIsLoading] = useState(true);
-  const fetchAndSetData = async () => {
-    const processedList: ProcessedListType = (await fetchAllServiceList(
-      userLocale
-    )) ?? {
-      data_1: [],
-      data_2: [],
-      data_3: [],
-    };
-    if (!processedList) {
-      throw new Error("Failed to fetch service list");
-    }
-    setServiceList(processedList);
-    setIsLoading(false);
-  };
+
   useEffect(() => {
     setIsLoading(true);
+    const fetchAndSetData = async () => {
+      const processedList: ProcessedListType = (await fetchAllServiceList(
+        userLocale
+      )) ?? {
+        data_1: [],
+        data_2: [],
+        data_3: [],
+      };
+      if (!processedList) {
+        throw new Error("Failed to fetch service list");
+      }
+      setServiceList(processedList);
+      setIsLoading(false);
+    };
     fetchAndSetData();
   }, [userLocale]);
   const value = useMemo(

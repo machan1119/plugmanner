@@ -1,23 +1,22 @@
 export default ({ env }) => ({
-    // ...
-    'users-permissions': {
-      config: {
-        jwt: {
-          expiresIn: '30m',
-        },
-        register: {
-            allowedFields: ["nickname"],
-        },
-
+  // ...
+  "users-permissions": {
+    config: {
+      jwt: {
+        expiresIn: "30m",
       },
-      seo: {
-        enabled: true,
-      }
+      register: {
+        allowedFields: ["nickname"],
+      },
     },
-    'strapi-plugin-populate-deep': {
+    seo: {
+      enabled: true,
+    },
+  },
+  "strapi-plugin-populate-deep": {
     config: {
       defaultDepth: 3, // Default is 5
-    }
+    },
   },
-    // ...
-  });
+  // ...
+});

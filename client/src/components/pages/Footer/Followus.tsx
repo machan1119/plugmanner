@@ -73,9 +73,9 @@ const FollowUs = memo(({ className = "" }: FollowUsProps) => {
           </Link>
         ))}
       </div>
-      <h3 className="font-clash mt-4 mb-4 leading-5 text-xl font-semibold text-white">
+      <div className="font-clash mt-4 mb-4 leading-5 text-xl font-semibold text-white">
         Receive Exclusive Offers
-      </h3>
+      </div>
       <form onSubmit={handleSubmit} className="flex flex-col gap-5">
         <input
           type="email"

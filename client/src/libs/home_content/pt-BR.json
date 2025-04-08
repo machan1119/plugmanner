@@ -1,0 +1,217 @@
+{
+  "LocaleLayout": {
+    "title": "Compre seguidores, curtidas, assinantes e visualizações - Social Plug",
+    "description": "Compre Seguidores, Curtidas, Visualizações, Assinantes e mais da Socialplug - a loja de mídia social da próxima geração. Aumente sua presença na mídia social e crie prova social.",
+    "icons": "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/629626671773b82cec88fdc4_socialplug-favicon-small.png",
+    "twitter": {
+      "title": "Compre seguidores, curtidas, assinantes e visualizações - Social Plug",
+      "description": "Compre Seguidores, Curtidas, Visualizações, Assinantes e mais da Socialplug - a loja de mídia social da próxima geração. Aumente sua presença na mídia social e crie prova social."
+    },
+    "og": {
+      "title": "Compre seguidores, curtidas, assinantes e visualizações - Social Plug",
+      "description": "Compre Seguidores, Curtidas, Visualizações, Assinantes e mais da Socialplug - a loja de mídia social da próxima geração. Aumente sua presença na mídia social e crie prova social."
+    }
+  },
+  "Navbar": {
+    "top": [
+      {
+        "title": "Suporte 24/7",
+        "alt": "Suporte icon"
+      },
+      {
+        "title": "Entrega Instantânea",
+        "alt": "Entrega icon"
+      },
+      {
+        "title": "100k+ Clientes",
+        "alt": "Clientes icon"
+      }
+    ],
+    "main": {
+      "login": "Entrar",
+      "all_services": "Todos os serviços"
+    }
+  },
+  "Home": {
+    "hero": {
+      "rated": "Classificado 4.8/5",
+      "from": "de mais de 100K+ clientes",
+      "title_1": "Compre seguidores, likes",
+      "title_2": "Assinantes, visualizações & ",
+      "title_3": "Crescer exponencialmente ",
+      "description": "Ajudando marcas e influencers a construir provas de social através de inovações",
+      "users": "1.5B+ Pessoas atingidas",
+      "cursor": "5M+ Cliques mensais",
+      "view_all_services": "Ver todos os serviços",
+      "client_portal": "Portal do cliente",
+      "Status": {
+        "follows": "Segue",
+        "likes": "Curtidas",
+        "subscribers": "Assinantes",
+        "delivered": "entregue",
+        "minutes_ago": "minutos atrás"
+      }
+    },
+    "Services": {
+      "title": "Todos os serviços de marketing",
+      "sort_by": "Ordenar por:",
+      "popular": "Popular",
+      "AToZ": "Ordenar de A-Z",
+      "ZToA": "Ordenar de Z-A",
+      "SwitchButton": {
+        "Services": "Serviços",
+        "Tools": "Ferramentas gratuitas"
+      }
+    },
+    "Why": {
+      "title_1": "Por que os clientes ",
+      "title_2": "escolhemos a gente",
+      "title_3": "",
+      "description": "Leia o que nossos clientes pensam sobre este serviço. Tomamos seu feedback a sério - ajude-nos a melhorar deixando um comentário.",
+      "review": "deixando um comentário",
+      "read_more": "Leia mais",
+      "Review_Status": {
+        "happy": "Clientes felizes",
+        "population": "População atingida",
+        "review_rate": "Taxa de revisão"
+      }
+    },
+    "Why_2": {
+      "title_1": "Por que escolher ",
+      "title_2": "SocialPlug?",
+      "title_3": "",
+      "description": "Nosso enfoque está em aumentar a interação, aumentar a visibilidade e impulsionar resultados em todas as plataformas.",
+      "WhyChooseThisItems": [
+        {
+          "title": "Padrões de qualidade altos",
+          "description": "Testamos nossos serviços diariamente e sempre obtemos de fornecedores de alta qualidade."
+        },
+        {
+          "title": "30 segundos de checkout - nenhum cadastro necessário",
+          "description": "Compre rapidamente serviços de mídia social sem precisar fornecer detalhes pessoais."
+        },
+        {
+          "title": "Comunicação fácil",
+          "description": "Nosso time oferece suporte para todos os pedidos colocados no SocialPlug, paz de espírito e respostas rápidas."
+        }
+      ]
+    },
+    "HowToOrder": {
+      "title_1": "Como ",
+      "title_2": "fazer um pedido?",
+      "description": "Aqui está um resumo rápido de como você pode colocar um pedido para nossos serviços de mídia social.",
+      "OrderSteps": [
+        {
+          "title": "Escolha um serviço",
+          "description": "Navegue pela nossa gama de serviços de mídia social e selecione o que melhor se adapta às suas necessidades."
+        },
+        {
+          "title": "Adicione ao carrinho",
+          "description": "Adicione o serviço escolhido ao seu carrinho clicando no botão 'Adicionar ao carrinho'."
+        },
+        {
+          "title": "Checkout",
+          "description": "Complete o processo de checkout para colocar seu pedido."
+        }
+      ]
+    },
+    "Question": {
+      "title_1": "Sua perguntas ",
+      "title_2": "Respondidas",
+      "Questions": [
+        {
+          "question": "Quais métodos de pagamento você aceita?",
+          "answer": "Oferecemos checkouts fáceis e seguros via cartão, criptomoeda, Google Pay e Apple Pay."
+        },
+        {
+          "question": "Tenho uma solicitação personalizada, como procedo?",
+          "answer": "Para questões urgentes, entre em contato conosco através da página de contato."
+        },
+        {
+          "question": "Quais são os horários de atendimento?",
+          "answer": "Nosso suporte ao cliente está disponível 24/7, pronto para responder a suas perguntas quentes o dia todo."
+        },
+        {
+          "question": "Quão rápido é a entrega?",
+          "answer": "O tempo de entrega depende do serviço, alguns serviços levam 30 segundos para entregar e outros serviços levam até 24 horas para entregar."
+        }
+      ],
+      "Still_have_questions": {
+        "title": "Ainda tem perguntas?",
+        "description": "Não consegue encontrar a resposta que você está procurando? Por favor, entre em contato com nosso time amigável.",
+        "button": "Entre em contato"
+      }
+    },
+    "OurPartners": {
+      "title_1": "Nossos",
+      "title_2": "Parceiros",
+      "description": "Trabalhamos com os melhores no mercado."
+    },
+    "Blogs": {
+      "title": "Notícias e artigos",
+      "description": "Mais recentes",
+      "BlogItems": [
+        {
+          "title": "Como obter mais seguidores no Instagram",
+          "type": "Dicas de mídia social",
+          "date": "6. fev. 2025"
+        },
+        {
+          "title": "Como obter mais seguidores no Instagram",
+          "type": "Dicas de mídia social",
+          "date": "6. fev. 2025"
+        },
+        {
+          "title": "Como obter mais seguidores no Instagram",
+          "type": "Dicas de mídia social",
+          "date": "6. fev. 2025"
+        },
+        {
+          "title": "Como obter mais seguidores no Instagram",
+          "type": "Dicas de mídia social",
+          "date": "6. fev. 2025"
+        },
+        {
+          "title": "Como obter mais seguidores no Instagram",
+          "type": "Dicas de mídia social",
+          "date": "6. fev. 2025"
+        }
+      ],
+      "ReadMore": "Leia mais >"
+    }
+  },
+  "AllServices": {
+    "HowTo": [
+      {
+        "title": "Escolha o serviço",
+        "description": "Escolha a plataforma de mídia social e o serviço necessário."
+      },
+      {
+        "title": "Defina a meta",
+        "description": "Escolha a quantidade desejada de serviços, por exemplo, 100 seguidores."
+      },
+      {
+        "title": "Obtenha os resultados",
+        "description": "Finalize a compra e pronto! Nossa equipe entregará seu pedido no mesmo dia."
+      }
+    ],
+    "title": "Como fazer um pedido",
+    "description": "Aqui está um rápido resumo de como você pode fazer um pedido de nossos serviços de mídia social."
+  },
+  "ServiceItem": {
+    "ReadMore": "Ler mais >",
+    "OrderNow": "Pedir agora",
+    "Rated": "Avaliado ",
+    "FromOver": "de mais de ",
+    "Reviews": "avaliações",
+    "Starting": "A partir de",
+    "ShowMore": "Mostrar mais +",
+    "ShowLess": "Mostrar menos -",
+    "GoodPoints": "Pontos positivos do serviço",
+    "Packages": "Pacotes do serviço",
+    "Popular": "Popular",
+    "ReviewSubmit": "Avaliação enviada por ",
+    "Video": "Vídeo",
+    "Articles": "Artigos relacionados"
+  }
+}

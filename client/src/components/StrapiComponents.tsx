@@ -75,23 +75,15 @@ const StrapiParagraph = memo(
         className={`
         ${variantClasses[variant]}
         ${customParentClassName}
-        animate-fade-in
       `}
       >
         {paragraph?.map((item, index) => (
-          <div
-            className={`
-            flex gap-3 items-start
-            transition-transform duration-200
-          `}
-            key={index}
-          >
+          <div className={`flex gap-3 items-start`} key={index}>
             {item.icon && (
               <div
                 className={`
               relative
               flex-shrink-0
-              animate-fade-in
               w-[16px] h-[16px]
             `}
               >

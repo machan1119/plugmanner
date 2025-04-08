@@ -2,18 +2,29 @@
 
 import { ServicesDataType } from "@/libs/types/ListTypes";
 import { useHome } from "@/providers/HomeProvider";
-import { generate_slug, replace_str } from "@/utils/functions";
+import { generate_item_url, replace_str } from "@/utils/functions";
+import { useLocale } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import React, { memo, useState } from "react";
+
+const LocaleLinks = {
+  en: "services",
+  "es-ES": "servicios",
+  de: "dienstleistungen",
+  "pt-BR": "serviços",
+};
 
 interface DropDownServicesResponsiveProps {
   serviceData: ServicesDataType;
   className?: string;
 }
 
+type SupportedLocale = "en" | "es-ES" | "de" | "pt-BR";
+
 const DropDownServicesResponsive = memo(
   ({ serviceData, className = "" }: DropDownServicesResponsiveProps) => {
+    const locale = useLocale() as SupportedLocale;
     const [status, setStatus] = useState(false);
     const { setServiceShow } = useHome();
 
@@ -46,6 +57,7 @@ const DropDownServicesResponsive = memo(
             <Image
               width={40}
               height={40}
+              priority
               src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${serviceData.icon}`}
               alt={serviceData.title}
               className="
@@ -70,6 +82,7 @@ const DropDownServicesResponsive = memo(
             width={16}
             height={16}
             alt="expand"
+            priority
             src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e52_marketing-services_dd%20(Stroke).svg"
             className={`
             transition-transform duration-300
@@ -92,9 +105,12 @@ const DropDownServicesResponsive = memo(
           <div className="py-2 px-4">
             {serviceData.services.map((serviceItem, index) => (
               <Link
+                rel="canonical"
                 key={index}
                 aria-label={serviceItem.name}
-                href={`/services/${generate_slug(serviceItem.name)}`}
+                href={`/${LocaleLinks[locale]}/${generate_item_url(
+                  serviceItem.header.text
+                )}`}
                 onClick={() => {
                   setServiceShow(true);
                   setStatus(false);
@@ -108,9 +124,7 @@ const DropDownServicesResponsive = memo(
                 hover:text-primary
                 transition-all duration-300
                 group
-                animate-fade-in
               "
-                style={{ animationDelay: `${index * 50}ms` }}
               >
                 <Image
                   width={20}

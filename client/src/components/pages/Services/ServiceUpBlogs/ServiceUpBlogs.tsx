@@ -17,7 +17,10 @@ const ServiceUpBlogs = memo(({ className = "" }: ServiceUpBlogsProps) => {
     console.log(`Read more about ${title}`);
   }, []);
 
-  if (!serviceItems?.introduction.UpBlogs) {
+  if (!serviceItems?.introduction) {
+    return null;
+  }
+  if (!serviceItems.introduction?.UpBlogs) {
     return null;
   }
 
@@ -51,7 +54,7 @@ const ServiceUpBlogs = memo(({ className = "" }: ServiceUpBlogsProps) => {
                   height={500}
                   alt={`illustration`}
                   src={item.img}
-                  className="lg:w-[40%]"
+                  className="lg:w-[35%] md:w-[50%] w-[70%]"
                   priority={index < 2}
                   loading={index < 2 ? "eager" : "lazy"}
                 />

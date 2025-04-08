@@ -8,10 +8,6 @@ interface LogoData {
   height: number;
 }
 
-interface SectionLogosProps {
-  className?: string;
-}
-
 const logosData: LogoData[] = [
   {
     src: "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e47_Forbes%20logo.svg",
@@ -51,24 +47,23 @@ const logosData: LogoData[] = [
   },
 ];
 
-const SectionLogos = memo(({ className = "" }: SectionLogosProps) => {
+const SectionLogos = memo(() => {
   return (
     <section
       id="services-list"
-      className={`p-4 sm:p-6 md:p-8 lg:p-10 flex flex-col gap-6 items-center mb-4 bg-white/5 backdrop-blur-sm rounded-lg ${className}`}
+      className="p-4 sm:p-6 md:p-8 lg:p-10 flex flex-col gap-6 items-center mb-4 bg-white/5 backdrop-blur-sm rounded-lg"
     >
-      <h2
+      <p
         id="section-logos-title"
-        className="text-[rgba(0,_0,_0,_0.5)] font-satoshi text-[20px] font-medium leading-[25px] animate-fade-in text-center"
+        className="text-[rgba(0,_0,_0,_0.5)] font-satoshi text-[20px] font-medium leading-[25px] text-center"
       >
         FEATURED IN TOP MEDIA
-      </h2>
+      </p>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 md:gap-8 lg:gap-[52px] w-full max-w-7xl mx-auto">
         {logosData.map((logo, index) => (
           <div
             key={logo.alt}
-            className="justify-self-center animate-fade-in-up bg-white/5 rounded-lg p-4 hover:bg-white/10 transition-all duration-300"
-            style={{ animationDelay: `${index * 100}ms` }}
+            className="justify-self-center bg-white/5 rounded-lg p-4 hover:bg-white/10 transition-all duration-300"
           >
             <Image
               width={logo.width}

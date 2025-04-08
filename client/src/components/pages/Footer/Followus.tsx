@@ -1,3 +1,4 @@
+"use client";
 import React, { memo, useState } from "react";
 import MainButton from "@/components/Buttons";
 import FreeTrial from "./Freetrial";
@@ -51,11 +52,11 @@ const FollowUs = memo(({ className = "" }: FollowUsProps) => {
         ${className}
       `}
     >
-      <h3 className="font-clash mb-4 leading-5 text-base md:text-xl font-semibold text-white">
+      <p className="font-clash mb-4 leading-5 text-base md:text-xl font-semibold text-white">
         Follow Us
-      </h3>
+      </p>
       <div className="flex gap-4">
-        {socialLinks.map((link, index) => (
+        {socialLinks.map((link) => (
           <Link
             key={link.label}
             href={link.href}
@@ -66,17 +67,15 @@ const FollowUs = memo(({ className = "" }: FollowUsProps) => {
               transition-all duration-300
               hover:scale-110
               hover:text-primary
-              animate-fade-in
             "
-            style={{ animationDelay: `${index * 100}ms` }}
           >
             {link.icon}
           </Link>
         ))}
       </div>
-      <h3 className="font-clash mt-4 mb-4 leading-5 text-xl font-semibold text-white">
+      <div className="font-clash mt-4 mb-4 leading-5 text-xl font-semibold text-white">
         Receive Exclusive Offers
-      </h3>
+      </div>
       <form onSubmit={handleSubmit} className="flex flex-col gap-5">
         <input
           type="email"
@@ -96,15 +95,9 @@ const FollowUs = memo(({ className = "" }: FollowUsProps) => {
           "
           required
         />
-        <MainButton
-          type="primary"
-          title="Subscribe"
-          customClass="animate-fade-in [animation-delay:300ms]"
-        />
+        <MainButton type="primary" title="Subscribe" />
       </form>
-      <div className="animate-fade-in" style={{ animationDelay: "400ms" }}>
-        <FreeTrial />
-      </div>
+      <FreeTrial />
     </div>
   );
 });

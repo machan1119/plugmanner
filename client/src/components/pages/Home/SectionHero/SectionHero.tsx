@@ -4,28 +4,24 @@ import Status from "./Status";
 import MainButton from "@/components/Buttons";
 import SectionHeroImage from "./SectionHeroImage";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
-interface SectionHeroProps {
-  className?: string;
-}
-
-const SectionHero = memo(({ className = "" }: SectionHeroProps) => {
+const SectionHero = memo(() => {
+  const t = useTranslations("Home");
   return (
-    <section
-      className={`flex flex-col gap-4 sm:gap-6 px-4 sm:px-6 md:px-8 lg:px-10 pt-5 items-center bg-black-light w-full bg-cover bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ea7_hero_background-pattern.webp')] bg-center bg-no-repeat overflow-hidden ${className}`}
-    >
+    <section className="flex flex-col gap-4 sm:gap-6 px-4 sm:px-6 md:px-8 lg:px-10 pt-5 items-center bg-black-light w-full bg-cover bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ea7_hero_background-pattern.webp')] bg-center bg-no-repeat overflow-hidden">
       <div className="flex flex-col gap-6 sm:gap-8 items-center max-w-7xl mx-auto w-full">
         <div className="flex items-center gap-2 p-[2px] pr-3 bg-black-light border-white border-2 rounded-full shadow-[0_4px_6px_rgba(0,0,0,0.1)] hover:shadow-lg transition-all duration-300">
           <span className="bg-black rounded-full text-[rgb(239,255,248)] font-clash px-2 py-[6px] text-[12px] lg:text-[16px] font-semibold">
-            Rated 4.8/5
+            {t("hero.rated")}
           </span>
           <span className="text-[12px] sm:text-[16px] font-medium text-black">
-            from over 100K+ customers
+            {t("hero.from")}
           </span>
         </div>
         <div className="flex flex-col gap-4 font-satoshi text-black items-center">
           <h1 className="font-h lg:w-[70%] text-center">
-            <span className="animate-fade-in">Buy Followers, Likes </span>
+            <span>{t("hero.title_1")} </span>
             <Image
               width={46}
               height={46}
@@ -35,9 +31,9 @@ const SectionHero = memo(({ className = "" }: SectionHeroProps) => {
               className="inline-block w-auto h-auto animated-image animate-bounce-slow"
               priority
             />
-            <span className="animate-fade-in"> , Subscribers, Views & </span>
+            <span> , {t("hero.title_2")} </span>
             <span className="text-primary animate-fade-in">
-              Grow Exponentially{" "}
+              {t("hero.title_3")}
             </span>
             <Image
               src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/676522ff439c1d92501b3b6e_Graph%20PNG-p-500.png"
@@ -49,10 +45,9 @@ const SectionHero = memo(({ className = "" }: SectionHeroProps) => {
               priority
             />
           </h1>
-          <div className="text-black text-[14px] md:text-[18px] leading-[27px] font-medium text-center w-[90%] sm:w-[80%] lg:w-[50%] font-satoshi animate-fade-in-up">
-            Helping brands and influencers build social proof through innovative
-            social media services
-          </div>
+          <p className="text-black text-[14px] md:text-[18px] leading-[27px] font-medium text-center w-[90%] sm:w-[80%] lg:w-[50%] font-satoshi animate-fade-in-up">
+            {t("hero.description")}
+          </p>
         </div>
         <div className="grid grid-cols-auto-2 lg:flex lg:flex-row gap-4 sm:gap-6 items-center">
           <div className="flex gap-[6px] order-2 lg:order-1 items-center justify-center text-center animate-fade-in-left">
@@ -65,7 +60,7 @@ const SectionHero = memo(({ className = "" }: SectionHeroProps) => {
               priority
             />
             <span className="text-black font-satoshi text-[14px] font-medium">
-              1.5B+ People Reached
+              {t("hero.users")}
             </span>
           </div>
           <div className="order-1 lg:order-2 col-span-2 lg:col-span-1 flex h-fit items-center gap-5 animate-fade-in-up">
@@ -83,7 +78,7 @@ const SectionHero = memo(({ className = "" }: SectionHeroProps) => {
               priority
             />
             <span className="text-black font-satoshi text-[14px] font-medium">
-              5M+ Monthly Clicks
+              {t("hero.cursor")}
             </span>
           </div>
         </div>
@@ -91,11 +86,11 @@ const SectionHero = memo(({ className = "" }: SectionHeroProps) => {
           <Link
             href={"#services-list"}
             scroll={true}
-            aria-label="View All Services"
+            aria-label={t("hero.view_all_services")}
           >
-            <MainButton type="primary" title="View All Services" />
+            <MainButton type="primary" title={t("hero.view_all_services")} />
           </Link>
-          <MainButton type="white-main" title="Client Portal" />
+          <MainButton type="white-main" title={t("hero.client_portal")} />
         </div>
       </div>
       <SectionHeroImage />

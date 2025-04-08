@@ -65,7 +65,6 @@ const Supports: React.FC<SupportsProps> = ({
         flex flex-wrap gap-2 p-2 
         rounded-lg bg-[#2b2b2b]
         shadow-soft
-        animate-fade-in
         ${className}
       `}
     >

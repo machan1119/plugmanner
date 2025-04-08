@@ -12,17 +12,19 @@ interface SummaryItem {
 const ServiceSummary = () => {
   const { serviceItems } = useServices();
 
-  if (!serviceItems?.introduction.Summary) {
+  if (!serviceItems?.introduction) {
+    return null;
+  }
+  if (!serviceItems.introduction?.Summary) {
     return null;
   }
 
   return (
     <section className="w-full py-[80px] bg-black-light flex flex-col items-center border-b-[1px] border-black-normal">
       <div className="max-w-[1366px] w-full flex flex-col items-center px-10">
-        <StrapiText
-          data={serviceItems.introduction.Summary.title.text}
-          customClassName="font-h1 w-[50%] text-wrap"
-        />
+        <h2 className="font-h1 sm:80% lg:w-[50%] text-wrap">
+          <StrapiText data={serviceItems.introduction.Summary.title.text} />
+        </h2>
         <Image
           width={300}
           height={25}
@@ -34,7 +36,7 @@ const ServiceSummary = () => {
         <div className="w-full flex flex-col gap-5 md:grid md:grid-cols-3 items-stretch mt-8">
           {serviceItems.introduction.Summary.EachSummary.map(
             (item: SummaryItem, index: number) => (
-              <div className="w-full" key={`summary-${index + 1}`}>
+              <div className="w-full" key={index}>
                 <div
                   className="relative mt-[25px] flex flex-col h-[calc(100%-25px)] gap-5 px-5 pb-5 pt-10 cursor-pointer border border-black-normal hover:border-primary rounded-md transition-all duration-500"
                   tabIndex={0}
@@ -47,12 +49,12 @@ const ServiceSummary = () => {
                     className="absolute top-[-25px] left-5"
                     priority={false}
                   />
-                  <h3
+                  <p
                     id={`summary-title-${index + 1}`}
                     className="font-h2 !text-left"
                   >
                     {item.title}
-                  </h3>
+                  </p>
                   <p className="font-service-text lg:text-[18px]">
                     {item.content}
                   </p>

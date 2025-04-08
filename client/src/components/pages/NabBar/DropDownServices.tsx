@@ -1,23 +1,40 @@
-import { generate_slug, replace_str } from "@/utils/functions";
+"use client";
+import { generate_item_url, replace_str } from "@/utils/functions";
 import { ListType, Icon } from "@/libs/types/ListTypes";
 import Image from "next/image";
 import Link from "next/link";
 import React, { memo, useCallback, useState } from "react";
+import { useLocale } from "next-intl";
 
 interface ServiceItemProps {
   dataItem: {
     id: string;
     name: string;
+    header: {
+      text: { content: string }[];
+    };
     icon: Icon;
   };
   icon: string;
   title: string;
 }
+const LocaleLinks = {
+  en: "services",
+  "es-ES": "servicios",
+  de: "dienstleistungen",
+  "pt-BR": "serviços",
+};
+type SupportedLocale = "en" | "es-ES" | "de" | "pt-BR";
 
-const ServiceItem = memo(({ dataItem, icon, title }: ServiceItemProps) => (
-  <Link
-    href={`/services/${generate_slug(dataItem.name)}`}
-    className="
+const ServiceItem = memo(({ dataItem, icon, title }: ServiceItemProps) => {
+  const locale = useLocale() as SupportedLocale;
+  return (
+    <Link
+      rel="canonical"
+      href={`/${LocaleLinks[locale]}/${generate_item_url(
+        dataItem.header.text
+      )}`}
+      className="
       flex items-center gap-2 
       py-2 px-4 
       w-full
@@ -27,39 +44,40 @@ const ServiceItem = memo(({ dataItem, icon, title }: ServiceItemProps) => (
       transition-all duration-300
       group
     "
-  >
-    {dataItem.icon ? (
-      <Image
-        src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${dataItem.icon.url}`}
-        width={20}
-        height={20}
-        alt={title}
-        className="
+    >
+      {dataItem.icon ? (
+        <Image
+          src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${dataItem.icon.url}`}
+          width={20}
+          height={20}
+          alt={title}
+          className="
         w-5 h-5 
         opacity-80 
         group-hover:opacity-100
         transition-opacity duration-300
       "
-      />
-    ) : (
-      <Image
-        src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${icon}`}
-        width={20}
-        height={20}
-        alt={title}
-        className="
+        />
+      ) : (
+        <Image
+          src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${icon}`}
+          width={20}
+          height={20}
+          alt={title}
+          className="
         w-5 h-5 
         opacity-80 
         group-hover:opacity-100
         transition-opacity duration-300
       "
-      />
-    )}
-    <span className="text-[14px] font-normal">
-      {replace_str(dataItem.name, title)}
-    </span>
-  </Link>
-));
+        />
+      )}
+      <span className="text-[14px] font-normal">
+        {replace_str(dataItem.name, title)}
+      </span>
+    </Link>
+  );
+});
 
 ServiceItem.displayName = "ServiceItem";
 
@@ -97,28 +115,25 @@ ServiceCategory.displayName = "ServiceCategory";
 
 interface DropDownServicesProps {
   item: ListType;
-  className?: string;
 }
 
-const DropDownServices = memo(
-  ({ item, className = "" }: DropDownServicesProps) => {
-    const [isOpen, setIsOpen] = useState(false);
+const DropDownServices = memo(({ item }: DropDownServicesProps) => {
+  const [isOpen, setIsOpen] = useState(false);
 
-    const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setIsOpen(false);
-      }
-    }, []);
+  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
+    if (e.key === "Escape") {
+      setIsOpen(false);
+    }
+  }, []);
 
-    return (
-      <div
-        className={`
+  return (
+    <div
+      className={`
       inline-block group relative
-      ${className}
     `}
-      >
-        <div
-          className="
+    >
+      <div
+        className="
           flex gap-1 items-center 
           cursor-pointer 
           py-4 
@@ -127,24 +142,25 @@ const DropDownServices = memo(
           transition-colors duration-300
           hover:text-primary
         "
-          tabIndex={0}
-          onKeyDown={handleKeyDown}
-        >
-          <p>{item.type}</p>
-          <Image
-            width={16}
-            height={16}
-            className="
+        tabIndex={0}
+        onKeyDown={handleKeyDown}
+      >
+        <p>{item.type}</p>
+        <Image
+          width={16}
+          height={16}
+          priority
+          className="
             w-auto h-auto
             transition-transform duration-300
             group-hover:rotate-180
           "
-            alt="down"
-            src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e87_nav_dd-icon.svg"
-          />
-        </div>
-        <div
-          className={`
+          alt="down"
+          src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e87_nav_dd-icon.svg"
+        />
+      </div>
+      <div
+        className={`
           absolute 
           ${isOpen ? "block" : "hidden"}
           group-hover:block 
@@ -158,10 +174,10 @@ const DropDownServices = memo(
               : "left-0"
           }
         `}
-        >
-          {item.type === "Other" ? (
-            <div
-              className="
+      >
+        {item.type === "Other" ? (
+          <div
+            className="
             w-[50vw] 
             max-h-[70vh] 
             overflow-y-auto 
@@ -169,35 +185,34 @@ const DropDownServices = memo(
             p-1
             scrollbar-thin scrollbar-thumb-black-normal scrollbar-track-transparent
           "
-            >
-              <div className="columns-[100px] w-full gap-6">
-                {item.data.map((val, index) => (
-                  <ServiceCategory val={val} key={index} />
-                ))}
-              </div>
+          >
+            <div className="columns-[100px] w-full gap-6">
+              {item.data.map((val, index) => (
+                <ServiceCategory val={val} key={index} />
+              ))}
             </div>
-          ) : (
-            <div
-              className="
+          </div>
+        ) : (
+          <div
+            className="
             max-h-[70vh] 
             max-w-[50vw] 
             overflow-auto 
             p-1
             scrollbar-thin scrollbar-thumb-black-normal scrollbar-track-transparent
           "
-            >
-              <div className="flex w-max gap-6">
-                {item.data.map((val, index) => (
-                  <ServiceCategory val={val} key={index} />
-                ))}
-              </div>
+          >
+            <div className="flex w-max gap-6">
+              {item.data.map((val, index) => (
+                <ServiceCategory val={val} key={index} />
+              ))}
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
-    );
-  }
-);
+    </div>
+  );
+});
 
 DropDownServices.displayName = "DropDownServices";
 

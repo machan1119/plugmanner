@@ -26,11 +26,13 @@ const ServiceBenefit = memo(({ className = "" }: ServiceBenefitProps) => {
     },
     [handleTabClick]
   );
-
-  if (!serviceItems?.introduction.Benefits) {
+  if (!serviceItems?.introduction) {
     return null;
   }
-  if (!serviceItems?.introduction.Benefits.title) {
+  if (!serviceItems.introduction?.Benefits) {
+    return null;
+  }
+  if (!serviceItems.introduction.Benefits?.title) {
     return null;
   }
 
@@ -42,10 +44,12 @@ const ServiceBenefit = memo(({ className = "" }: ServiceBenefitProps) => {
       `}
     >
       <div className="max-w-[1366px] w-full justify-self-center px-10 items-center">
-        <StrapiText
-          data={serviceItems.introduction.Benefits.title?.text}
-          customClassName="font-h1 !text-white"
-        />
+        <h2>
+          <StrapiText
+            data={serviceItems.introduction.Benefits.title?.text}
+            customClassName="font-h1 !text-white"
+          />
+        </h2>
         <div className="w-full flex flex-col items-center">
           <div className="w-full flex flex-col sm:flex-row gap-4 justify-between my-8">
             {serviceItems.introduction.Benefits.Benefit.map(
@@ -82,14 +86,16 @@ const ServiceBenefit = memo(({ className = "" }: ServiceBenefitProps) => {
                     priority
                     alt={`illustration`}
                     src={currentBenefit.img}
-                    className="object-cover"
+                    className="lg:w-[60%] w-[50%]"
                   />
                 </div>
                 <div className="w-full lg:w-[50%] flex flex-col gap-5">
-                  <StrapiText
-                    data={currentBenefit.title.text}
-                    customClassName="font-h1 !text-white !text-left"
-                  />
+                  <h2>
+                    <StrapiText
+                      data={currentBenefit.title.text}
+                      customClassName="font-h1 !text-white !text-left"
+                    />
+                  </h2>
                   <StrapiParagraph
                     paragraph={currentBenefit.paragraph}
                     customClassName="font-satoshi !text-[18px] text-black-steel"

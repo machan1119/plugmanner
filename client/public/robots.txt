@@ -1,0 +1,11 @@
+# Allow all search engines
+
+User-agent: *
+
+Disallow: /
+
+User-agent: Screaming Frog SEO Spider
+
+Allow: /
+
+Sitemap: https://plugmanner.com/sitemap.xml

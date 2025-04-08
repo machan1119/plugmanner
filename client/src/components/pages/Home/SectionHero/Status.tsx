@@ -5,26 +5,22 @@ import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/navigation";
-
-interface StatusProps {
-  className?: string;
-}
-
+import { useTranslations } from "next-intl";
 interface StatusData {
   count: number;
-  type: "follows" | "likes" | "subscribers";
+  type: string;
   time: number;
 }
 
-const statusData: StatusData[] = [
-  { count: 12751, type: "follows", time: 8 },
-  { count: 1580, type: "likes", time: 28 },
-  { count: 6557, type: "subscribers", time: 38 },
-];
-
-const Status = memo(({ className = "" }: StatusProps) => {
+const Status = memo(() => {
+  const t = useTranslations("Home");
+  const statusData: StatusData[] = [
+    { count: 12751, type: t("hero.Status.follows"), time: 8 },
+    { count: 1580, type: t("hero.Status.likes"), time: 28 },
+    { count: 6557, type: t("hero.Status.subscribers"), time: 38 },
+  ];
   return (
-    <div className={`border-white size-full ${className}`}>
+    <div className="border-white size-full">
       <Swiper
         slidesPerView={"auto"}
         speed={1000}
@@ -40,13 +36,8 @@ const Status = memo(({ className = "" }: StatusProps) => {
         className="status-swiper"
       >
         {statusData.map((item, index) => (
-          <SwiperSlide key={`${item.type}-${index}`}>
-            <StatusItem
-              count={item.count}
-              type={item.type}
-              time={item.time}
-              className="animate-fade-in-up"
-            />
+          <SwiperSlide key={index}>
+            <StatusItem count={item.count} type={item.type} time={item.time} />
           </SwiperSlide>
         ))}
       </Swiper>

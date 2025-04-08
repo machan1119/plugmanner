@@ -1,17 +1,11 @@
-// export function slugify(str: string): string {
-//   return str
-//     .toLowerCase()
-//     .replace(/[^a-z0-9]+/g, "-")
-//     .replace(/^-|-$/g, "");
-// }
+interface HeaderTextType {
+  content: string;
+}
 
-// export function slugify_reverse(slug: string[]): string {
-//   return slug.join("-");
-// }
-
-export function generate_slug(str: string): string {
-  str = "buy " + str;
-  return str
+export function generate_item_url(str: HeaderTextType[]): string {
+  let url = "";
+  url = str.map((item) => item.content).join(" ");
+  return url
     .toLowerCase()
     .replace(" ", "-")
     .replace(/[^a-z0-9]+/g, "-")
@@ -19,6 +13,29 @@ export function generate_slug(str: string): string {
 }
 
 export function replace_str(s1: string, s2: string): string {
-  s1 = s1.replace(s2, "");
-  return s1;
+  const patternsToRemove = [`de ${s2}`, s2, "Comprar", "Compra"];
+  let result = patternsToRemove.reduce(
+    (currentString, pattern) => currentString.replace(pattern, ""),
+    s1.trim()
+  );
+  result = result.trim();
+  if (result.length > 0) {
+    result = result.charAt(0).toUpperCase() + result.slice(1);
+  }
+
+  return result;
 }
+
+export const getCookie = (name: string) => {
+  if (typeof document === "undefined") {
+    return null;
+  }
+  const cookies = document.cookie.split(";");
+  for (let cookie of cookies) {
+    cookie = cookie.trim();
+    if (cookie.startsWith(`${name}=`)) {
+      return cookie.substring(name.length + 1);
+    }
+  }
+  return null;
+};

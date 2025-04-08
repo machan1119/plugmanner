@@ -5,7 +5,10 @@ import React, { memo } from "react";
 const ServiceAdvantage = memo(() => {
   const { serviceItems } = useServices();
 
-  if (!serviceItems?.introduction.Quality) {
+  if (!serviceItems?.introduction) {
+    return null;
+  }
+  if (!serviceItems.introduction?.Quality) {
     return null;
   }
 

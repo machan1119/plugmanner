@@ -4,6 +4,7 @@ import ReviewItem from "./ReviewItem";
 import MainButton from "@/components/Buttons";
 import { StrapiText } from "@/components/StrapiComponents";
 import RatingStar from "@/components/RatingStar";
+import { useTranslations } from "next-intl";
 
 interface Review {
   title: string;
@@ -15,8 +16,11 @@ interface Review {
 
 const ServiceReview = () => {
   const { serviceItems } = useServices();
-
-  if (!serviceItems?.introduction.TopReviews) {
+  const t = useTranslations("ServiceItem");
+  if (!serviceItems?.introduction) {
+    return null;
+  }
+  if (!serviceItems.introduction?.TopReviews) {
     return null;
   }
 
@@ -50,7 +54,7 @@ const ServiceReview = () => {
         </div>
         <MainButton
           type="primary"
-          title="Order Now >"
+          title={`${t("OrderNow")} >`}
           customClass="md:w-[20%] w-full"
         />
       </div>

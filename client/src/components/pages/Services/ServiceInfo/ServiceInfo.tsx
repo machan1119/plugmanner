@@ -5,6 +5,7 @@ import React, { memo } from "react";
 import ServiceAdvantage from "./ServiceAdvantage";
 import { StrapiParagraph, StrapiText } from "@/components/StrapiComponents";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 interface ServiceState {
   counters: string;
@@ -13,11 +14,10 @@ interface ServiceState {
 
 const ServiceInfo = memo(() => {
   const { serviceItems } = useServices();
-
+  const t = useTranslations("ServiceItem");
   if (!serviceItems?.header) {
     return null;
   }
-
   return (
     <section className="flex flex-col w-full m-auto items-center">
       <div
@@ -25,10 +25,12 @@ const ServiceInfo = memo(() => {
         className="flex lg:flex-row lg:items-start lg:justify-between items-center flex-col gap-[120px] pt-[80px] w-full max-w-[1366px] px-10 bg-[linear-gradient(#fffffff5,#fff),url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/67bb4de67a2ea65794f385ee_perspective-grid-black.webp')] bg-[position:0_0,50%_0] bg-[size:auto,contain] bg-no-repeat"
       >
         <div className="flex flex-col gap-7 lg:w-[50%] lg:items-start items-center lg:text-left grow">
-          <StrapiText
-            data={serviceItems.header.text}
-            customClassName="!font-service text-wrap !text-center lg:!text-left"
-          />
+          <h1>
+            <StrapiText
+              data={serviceItems.header.text}
+              customClassName="!font-service text-wrap !text-center lg:!text-left"
+            />
+          </h1>
           <StrapiText
             data={serviceItems.simpledescription.text}
             customClassName="font-service-text lg:text-[20px] !text-center lg:!text-left"
@@ -42,11 +44,12 @@ const ServiceInfo = memo(() => {
               className="mr-1"
             />
             <p className="font-clash text-[#686889] text-[16px] leading-[25px] font-medium">
-              Rated{" "}
+              {t("Rated")}
               <span className="text-primary font-semibold">
                 {serviceItems.introduction.rated}/5
-              </span>{" "}
-              from over {serviceItems.introduction.CounterOfReviews}reviews
+              </span>
+              {t("FromOver")} {serviceItems.introduction.CounterOfReviews}
+              {t("Reviews")}
             </p>
           </div>
           <ServiceAdvantage />
@@ -54,7 +57,7 @@ const ServiceInfo = memo(() => {
         <div className="z-20 px-8 py-9 flex grow flex-col gap-2 items-center bg-[rgb(20,_20,_27)] bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/63ff3f8c57c2b777f07afb19_socialplug-pricingbox-illustration.svg')] bg-right-top bg-no-repeat bg-auto rounded-2xl">
           <div className="w-full flex flex-col items-start">
             <p className="font-service-card-text text-[16px] !text-black-steel mb-1">
-              Starting from
+              {t("Starting")}
             </p>
             <p className="font-service !text-white">
               ${serviceItems.introduction.OrderIntro.price}{" "}
@@ -69,13 +72,12 @@ const ServiceInfo = memo(() => {
           />
           <Link
             href={`${serviceItems.ordernow}`}
-            className="w-full animate-fade-in my-6"
+            className="w-full my-6"
             aria-label="Order Now"
-            style={{ animationDelay: "100ms" }}
           >
             <MainButton
               type="primary"
-              title="Order Now >"
+              title={`${t("OrderNow")} >`}
               customClass="w-full border-none"
             />
           </Link>

@@ -1,6 +1,7 @@
 import MainButton from "@/components/Buttons";
 import { StrapiText } from "@/components/StrapiComponents";
 import { useServices } from "@/providers/ServicesProvider";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import React, { memo } from "react";
 
@@ -11,18 +12,20 @@ interface Step {
 
 const ServiceHowTo = () => {
   const { serviceItems } = useServices();
-
-  if (!serviceItems?.introduction.HowToOrder) {
+  const t = useTranslations("ServiceItem");
+  if (!serviceItems?.introduction) {
+    return null;
+  }
+  if (!serviceItems.introduction.HowToOrder) {
     return null;
   }
 
   return (
     <section className="w-full py-[80px] bg-black-light flex flex-col items-center border-b-[1px] border-black-normal">
       <div className="max-w-[1366px] w-full flex flex-col items-center px-10">
-        <StrapiText
-          data={serviceItems.introduction.HowToOrder.title.text}
-          customClassName="font-h1 w-[50%] text-wrap justify-center"
-        />
+        <h2 className="font-h1 sm:80% lg:w-[50%] text-wrap justify-center">
+          <StrapiText data={serviceItems.introduction.HowToOrder.title.text} />
+        </h2>
         <StrapiText
           data={serviceItems.introduction.HowToOrder.description.text}
           customClassName="font-service-text text-[18px] my-5 !text-center"
@@ -37,7 +40,7 @@ const ServiceHowTo = () => {
                 <div className="flex items-center justify-center bg-black text-white border border-black rounded-md w-[50px] h-[50px] text-xl font-semibold leading-7">
                   {index + 1}
                 </div>
-                <h3 className="font-h2">{item.simple}</h3>
+                <p className="font-h2">{item.simple}</p>
                 <p className="font-service-text !text-center">{item.detail}</p>
               </div>
             )
@@ -61,7 +64,7 @@ const ServiceHowTo = () => {
         </div>
         <MainButton
           type="primary"
-          title="Order Now >"
+          title={`${t("OrderNow")} >`}
           customClass="md:w-[20%] w-full"
         />
       </div>

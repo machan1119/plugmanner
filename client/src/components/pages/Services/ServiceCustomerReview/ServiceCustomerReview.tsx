@@ -5,13 +5,14 @@ import ReviewItem from "../ServiceReview/ReviewItem";
 import MainButton from "@/components/Buttons";
 import { StrapiText } from "@/components/StrapiComponents";
 import { Review } from "@/libs/types/ServiceJsonDataType";
+import { useTranslations } from "next-intl";
 
 const INITIAL_COUNT = 10;
 const COUNT_INCREMENT = 5;
 
 const ServiceCustomerReview = () => {
   const { serviceItems } = useServices();
-
+  const t = useTranslations("ServiceItem");
   const [count, setCount] = useState(INITIAL_COUNT);
 
   const handleShowMore = useCallback(() => {
@@ -22,7 +23,10 @@ const ServiceCustomerReview = () => {
     setCount(INITIAL_COUNT);
   }, []);
 
-  if (!serviceItems?.introduction.CustomerReviews) {
+  if (!serviceItems?.introduction) {
+    return null;
+  }
+  if (!serviceItems.introduction?.CustomerReviews) {
     return null;
   }
   const maxCount = serviceItems.introduction.CustomerReviews.Review.length;
@@ -34,10 +38,12 @@ const ServiceCustomerReview = () => {
     <section className="py-[80px] flex flex-col items-center border-b-[1px] border-black-normal">
       <div className="max-w-[1366px] px-10 flex flex-col gap-7 w-full items-center mb-8">
         <div className="flex flex-col gap-5 items-center w-full">
-          <StrapiText
-            data={serviceItems.introduction.CustomerReviews.title.text}
-            customClassName="font-h1 text-wrap"
-          />
+          <h2>
+            <StrapiText
+              data={serviceItems.introduction.CustomerReviews.title.text}
+              customClassName="font-h1 text-wrap"
+            />
+          </h2>
           <StrapiText
             data={serviceItems.introduction.CustomerReviews.text[0].text}
             customClassName="font-service-text text-[18px] lg:w-[50%] !text-center"
@@ -51,13 +57,13 @@ const ServiceCustomerReview = () => {
               className="mr-1"
             />
             <span className="font-clash text-[#686889] text-[16px] leading-[25px] font-medium">
-              Rated{" "}
+              {t("Rated")}
               <span className="text-primary font-semibold">
                 {serviceItems.introduction.CustomerReviews.rate}/5
-              </span>{" "}
-              from over{" "}
+              </span>
+              {t("FromOver")}
               {serviceItems.introduction.CustomerReviews.counterofreviews}
-              reviews
+              {t("Reviews")}
             </span>
           </div>
         </div>
@@ -83,7 +89,7 @@ const ServiceCustomerReview = () => {
       {showMoreButton && (
         <MainButton
           type="white-main"
-          title="Show More +"
+          title={t("ShowMore")}
           customClass="w-[278px]"
           handleClick={handleShowMore}
         />
@@ -91,7 +97,7 @@ const ServiceCustomerReview = () => {
       {showLessButton && (
         <MainButton
           type="white-main"
-          title="Show Less -"
+          title={t("ShowLess")}
           customClass="w-[278px]"
           handleClick={handleShowLess}
         />

@@ -17,7 +17,10 @@ const ServiceDownBlogs = memo(({ className = "" }: ServiceDownBlogsProps) => {
     console.log(`Read more about ${title}`);
   }, []);
 
-  if (!serviceItems?.introduction.DownBlogs) {
+  if (!serviceItems?.introduction) {
+    return null;
+  }
+  if (!serviceItems.introduction?.DownBlogs) {
     return null;
   }
 
@@ -49,17 +52,17 @@ const ServiceDownBlogs = memo(({ className = "" }: ServiceDownBlogsProps) => {
                   height={500}
                   alt={`illustration`}
                   src={item.img}
-                  className="lg:w-[40%]"
+                  className="lg:w-[35%] md:w-[50%] w-[70%]"
                   priority={index < 2}
                   loading={index < 2 ? "eager" : "lazy"}
                 />
                 <div className="flex flex-col gap-5 lg:w-[55%]">
-                  <h3 className="font-h1 !text-left">
+                  <h2 className="font-h1 !text-left">
                     <StrapiText
                       data={item.title.text}
                       customClassName="font-h1 !text-left"
                     />
-                  </h3>
+                  </h2>
                   <StrapiParagraph
                     paragraph={item.paragraph}
                     customClassName="font-satoshi text-[#686889] text-[18px]"

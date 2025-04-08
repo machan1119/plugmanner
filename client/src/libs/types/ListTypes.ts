@@ -1,3 +1,5 @@
+import { LocalizedServiceItem } from "./ServiceItemsMapping";
+
 export interface Subservice {
   id: number;
   recommend?: boolean;
@@ -6,6 +8,9 @@ export interface Subservice {
   updatedAt: string;
   publishedAt: string;
   name: string;
+  header: {
+    text: [{ content: string }];
+  };
   popular: string;
   icon: Icon;
 }
@@ -53,16 +58,79 @@ export interface ListType {
 export interface ServicesDataType {
   title: string;
   icon: string;
-  services: { name: string; id: string; icon: Icon; recommend?:boolean;  popular:string;}[];
+  services: {
+    name: string;
+    id: string;
+    icon: Icon;
+    header: {
+      text: [{ content: string }];
+    };
+    recommend?: boolean;
+    popular: string;
+  }[];
 }
 
 export interface ServicesListType {
   popular: string;
   title: string;
   icon: string;
-  services: { name: string; id: string; icon: Icon; recommend?:boolean;  popular:string;}[];
+  services: {
+    name: string;
+    id: string;
+    icon: Icon;
+    header: {
+      text: [{ content: string }];
+    };
+    recommend?: boolean;
+    popular: string;
+  }[];
 }
 
 export interface SubserviceDataType {
-  name : string; id: string; icon: Icon; recommend?:boolean; popular:string;
+  name: string;
+  id: string;
+  icon: Icon;
+  header: {
+    text: { content: string }[];
+  };
+  recommend?: boolean;
+  popular: string;
+}
+
+export interface ProcessedListType {
+  data_1: ListType[];
+  data_2: ServicesListType[];
+  data_3: SubserviceDataType[];
+}
+
+export interface ServiceMetadataType {
+  seo: {
+    metaTitle: string;
+    metaDescription: string;
+    keywords?: string;
+    metaRobots?: string;
+    metaViewport: string;
+    structuredData?: string;
+    metaImage?: string;
+    metaSocial: [
+      {
+        socialNetwork: string;
+        title: string;
+        description: string;
+        image: string;
+      }
+    ];
+    openGraph: {
+      ogtitle?: string;
+      ogdescription?: string;
+      ogurl?: string;
+      ogtype?: string;
+      ogimage?: string;
+    };
+  };
+  locale: string;
+  header: {
+    text: [{ content: string }];
+  };
+  localizations: LocalizedServiceItem[];
 }

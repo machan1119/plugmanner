@@ -1,20 +1,16 @@
 import Image from "next/image";
 import React, { memo } from "react";
 import BlogSlide from "./BlogSlide";
+import { useTranslations } from "next-intl";
 
-interface BlogsProps {
-  className?: string;
-}
-
-const Blogs = memo(({ className = "" }: BlogsProps) => {
+const Blogs = memo(() => {
+  const t = useTranslations("Home");
   return (
-    <section
-      className={`w-full flex flex-col p-12 md:p-16 lg:p-[80px] items-center bg-black-light ${className}`}
-    >
+    <section className="w-full flex flex-col p-12 md:p-16 lg:p-[80px] items-center bg-black-light">
       <div className="w-full max-w-7xl mx-auto relative">
         <div className="mb-12 flex flex-col gap-3 items-center">
           <h2 id="section-blogs-title" className="font-h1 animate-fade-in">
-            News and Articles
+            {t("Blogs.title")}
           </h2>
           <div className="flex gap-4 sm:gap-8 items-center z-10 bg-black-light animate-fade-in-up">
             <div>
@@ -28,7 +24,7 @@ const Blogs = memo(({ className = "" }: BlogsProps) => {
               />
             </div>
             <p className="text-black text-[18px] text-center font-satoshi w-[90%] sm:w-[75%]">
-              Most Recent
+              {t("Blogs.description")}
             </p>
             <div>
               <Image

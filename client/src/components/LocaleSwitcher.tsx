@@ -1,24 +1,32 @@
-// import {useLocale, useTranslations} from 'next-intl';
-// import LocaleSwitcherSelect from './LocaleSwitcherSelect';
+import { useLocale } from "next-intl";
+import LocaleSwitcherSelect from "./LocaleSwitcherSelect";
+import { LanguageOption } from "@/libs/types/Types";
 
-// export default function LocaleSwitcher() {
-//   const t = useTranslations('LocaleSwitcher');
-//   const locale = useLocale();
+const languages: LanguageOption[] = [
+  {
+    code: "en",
+    flag: "https://cdn.weglot.com/flags/square/us.svg",
+    name: "English",
+  },
+  {
+    code: "es-ES",
+    flag: "https://cdn.weglot.com/flags/square/es.svg",
+    name: "Español",
+  },
+  {
+    code: "de",
+    flag: "https://cdn.weglot.com/flags/square/de.svg",
+    name: "Deutsch",
+  },
+  {
+    code: "pt-BR",
+    flag: "https://cdn.weglot.com/flags/square/br.svg",
+    name: "Português",
+  },
+];
 
-//   return (
-//     <LocaleSwitcherSelect
-//       defaultValue={locale}
-//       items={[
-//         {
-//           value: 'en',
-//           label: t('en')
-//         },
-//         {
-//           value: 'de',
-//           label: t('de')
-//         }
-//       ]}
-//       label={t('label')}
-//     />
-//   );
-// }
+export default function LocaleSwitcher() {
+  const locale = useLocale();
+
+  return <LocaleSwitcherSelect defaultValue={locale} items={languages} />;
+}

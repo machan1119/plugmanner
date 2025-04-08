@@ -86,7 +86,7 @@ const ServiceBenefit = memo(({ className = "" }: ServiceBenefitProps) => {
                     priority
                     alt={`illustration`}
                     src={currentBenefit.img}
-                    className="lg:w-[80%] w-[50%]"
+                    className="lg:w-[60%] w-[50%]"
                   />
                 </div>
                 <div className="w-full lg:w-[50%] flex flex-col gap-5">

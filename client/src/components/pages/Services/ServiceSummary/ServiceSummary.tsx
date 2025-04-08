@@ -49,12 +49,12 @@ const ServiceSummary = () => {
                     className="absolute top-[-25px] left-5"
                     priority={false}
                   />
-                  <h3
+                  <p
                     id={`summary-title-${index + 1}`}
                     className="font-h2 !text-left"
                   >
                     {item.title}
-                  </h3>
+                  </p>
                   <p className="font-service-text lg:text-[18px]">
                     {item.content}
                   </p>

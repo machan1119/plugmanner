@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_subservice_offers",
+  "info": {
+    "displayName": "offers",
+    "icon": "emotionUnhappy"
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "string",
+      "required": true,
+      "default": "AggregateOffer"
+    },
+    "url": {
+      "type": "text"
+    },
+    "priceCurrency": {
+      "type": "string",
+      "default": "USD"
+    },
+    "offerCount": {
+      "type": "integer",
+      "default": 200
+    },
+    "price": {
+      "type": "float"
+    }
+  }
+}

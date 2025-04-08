@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-03-20T18:26:21.373Z"
+    "x-generation-date": "2025-04-08T15:11:05.346Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -24,7 +24,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:1337/api",
+      "url": "https://plugmanner.com/app/api",
       "description": "Development server"
     }
   ],
@@ -5096,6 +5096,9 @@
                       "recommend": {
                         "type": "boolean"
                       },
+                      "Product": {
+                        "$ref": "#/components/schemas/SubserviceProductComponent"
+                      },
                       "createdAt": {
                         "type": "string",
                         "format": "date-time"
@@ -5962,6 +5965,97 @@
           "structuredData": {},
           "metaImage": {
             "type": "string"
+          }
+        }
+      },
+      "SubserviceOffersComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "type": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "priceCurrency": {
+            "type": "string"
+          },
+          "offerCount": {
+            "type": "integer"
+          },
+          "price": {
+            "type": "number",
+            "format": "float"
+          }
+        }
+      },
+      "SubserviceAggregateRatingComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "type": {
+            "type": "string"
+          },
+          "ratingValue": {
+            "type": "number",
+            "format": "float"
+          },
+          "ratingCount": {
+            "type": "integer"
+          }
+        }
+      },
+      "SubserviceBrandComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "type": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "SubserviceProductComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "type": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "sku": {
+            "type": "string"
+          },
+          "offers": {
+            "$ref": "#/components/schemas/SubserviceOffersComponent"
+          },
+          "aggregateRating": {
+            "$ref": "#/components/schemas/SubserviceAggregateRatingComponent"
+          },
+          "brand": {
+            "$ref": "#/components/schemas/SubserviceBrandComponent"
           }
         }
       },
@@ -8406,6 +8500,9 @@
                 "recommend": {
                   "type": "boolean"
                 },
+                "Product": {
+                  "$ref": "#/components/schemas/SubserviceProductComponent"
+                },
                 "createdAt": {
                   "type": "string",
                   "format": "date-time"
@@ -9822,6 +9919,9 @@
               "recommend": {
                 "type": "boolean"
               },
+              "Product": {
+                "$ref": "#/components/schemas/SubserviceProductComponent"
+              },
               "locale": {
                 "type": "string"
               },
@@ -10805,6 +10905,9 @@
                     "recommend": {
                       "type": "boolean"
                     },
+                    "Product": {
+                      "$ref": "#/components/schemas/SubserviceProductComponent"
+                    },
                     "createdAt": {
                       "type": "string",
                       "format": "date-time"
@@ -11094,6 +11197,9 @@
           },
           "recommend": {
             "type": "boolean"
+          },
+          "Product": {
+            "$ref": "#/components/schemas/SubserviceProductComponent"
           },
           "createdAt": {
             "type": "string",

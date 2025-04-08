@@ -121,6 +121,16 @@
       },
       "type": "boolean",
       "default": false
+    },
+    "Product": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "subservice.product"
     }
   }
 }

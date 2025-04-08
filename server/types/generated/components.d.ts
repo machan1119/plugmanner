@@ -199,6 +199,19 @@ export interface SocialContactSocialLinkedin extends Struct.ComponentSchema {
   };
 }
 
+export interface SubserviceAggregateRating extends Struct.ComponentSchema {
+  collectionName: 'components_subservice_aggregate_ratings';
+  info: {
+    displayName: 'aggregateRating';
+  };
+  attributes: {
+    ratingCount: Schema.Attribute.Integer;
+    ratingValue: Schema.Attribute.Float & Schema.Attribute.DefaultTo<4.8>;
+    type: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'AggregateRating'>;
+  };
+}
+
 export interface SubserviceBenefits extends Struct.ComponentSchema {
   collectionName: 'components_subservice_benefits';
   info: {
@@ -221,6 +234,18 @@ export interface SubserviceBlogs extends Struct.ComponentSchema {
   attributes: {
     Blog: Schema.Attribute.Component<'subservice.sub-blog', true>;
     title: Schema.Attribute.Component<'general.list', false>;
+  };
+}
+
+export interface SubserviceBrand extends Struct.ComponentSchema {
+  collectionName: 'components_subservice_brands';
+  info: {
+    description: '';
+    displayName: 'brand';
+  };
+  attributes: {
+    name: Schema.Attribute.String & Schema.Attribute.DefaultTo<'SocialPlug'>;
+    type: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Brand'>;
   };
 }
 
@@ -322,6 +347,23 @@ export interface SubserviceHowToOrderStep extends Struct.ComponentSchema {
   };
 }
 
+export interface SubserviceOffers extends Struct.ComponentSchema {
+  collectionName: 'components_subservice_offers';
+  info: {
+    displayName: 'offers';
+    icon: 'emotionUnhappy';
+  };
+  attributes: {
+    offerCount: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<200>;
+    price: Schema.Attribute.Float;
+    priceCurrency: Schema.Attribute.String & Schema.Attribute.DefaultTo<'USD'>;
+    type: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'AggregateOffer'>;
+    url: Schema.Attribute.Text;
+  };
+}
+
 export interface SubservicePackage extends Struct.ComponentSchema {
   collectionName: 'components_subservice_packages';
   info: {
@@ -335,6 +377,31 @@ export interface SubservicePackage extends Struct.ComponentSchema {
     popular: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     price: Schema.Attribute.String;
     unit: Schema.Attribute.String;
+  };
+}
+
+export interface SubserviceProduct extends Struct.ComponentSchema {
+  collectionName: 'components_subservice_products';
+  info: {
+    description: '';
+    displayName: 'Product';
+    icon: 'alien';
+  };
+  attributes: {
+    aggregateRating: Schema.Attribute.Component<
+      'subservice.aggregate-rating',
+      false
+    >;
+    brand: Schema.Attribute.Component<'subservice.brand', false>;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Text;
+    name: Schema.Attribute.String;
+    offers: Schema.Attribute.Component<'subservice.offers', false>;
+    sku: Schema.Attribute.String;
+    type: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Product'>;
+    url: Schema.Attribute.Text;
   };
 }
 
@@ -517,8 +584,10 @@ declare module '@strapi/strapi' {
       'shared.open-graph': SharedOpenGraph;
       'shared.seo': SharedSeo;
       'social-contact.social-linkedin': SocialContactSocialLinkedin;
+      'subservice.aggregate-rating': SubserviceAggregateRating;
       'subservice.benefits': SubserviceBenefits;
       'subservice.blogs': SubserviceBlogs;
+      'subservice.brand': SubserviceBrand;
       'subservice.choose-package': SubserviceChoosePackage;
       'subservice.customer-reviews': SubserviceCustomerReviews;
       'subservice.each-summary': SubserviceEachSummary;
@@ -526,7 +595,9 @@ declare module '@strapi/strapi' {
       'subservice.good-point': SubserviceGoodPoint;
       'subservice.how-to-order': SubserviceHowToOrder;
       'subservice.how-to-order-step': SubserviceHowToOrderStep;
+      'subservice.offers': SubserviceOffers;
       'subservice.package': SubservicePackage;
+      'subservice.product': SubserviceProduct;
       'subservice.quality': SubserviceQuality;
       'subservice.question': SubserviceQuestion;
       'subservice.review': SubserviceReview;

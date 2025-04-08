@@ -667,6 +667,12 @@ export interface ApiSubserviceSubservice extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    Product: Schema.Attribute.Component<'subservice.product', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     recommend: Schema.Attribute.Boolean &
       Schema.Attribute.SetPluginOptions<{

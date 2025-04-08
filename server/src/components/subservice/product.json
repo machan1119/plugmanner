@@ -1,0 +1,49 @@
+{
+  "collectionName": "components_subservice_products",
+  "info": {
+    "displayName": "Product",
+    "icon": "alien",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "string",
+      "default": "Product",
+      "required": true
+    },
+    "url": {
+      "type": "text"
+    },
+    "name": {
+      "type": "string"
+    },
+    "image": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "sku": {
+      "type": "string"
+    },
+    "offers": {
+      "displayName": "offers",
+      "type": "component",
+      "repeatable": false,
+      "component": "subservice.offers"
+    },
+    "aggregateRating": {
+      "displayName": "aggregateRating",
+      "type": "component",
+      "repeatable": false,
+      "component": "subservice.aggregate-rating"
+    },
+    "brand": {
+      "displayName": "brand",
+      "type": "component",
+      "repeatable": false,
+      "component": "subservice.brand"
+    }
+  }
+}

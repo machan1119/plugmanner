@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_subservice_brands",
+  "info": {
+    "displayName": "brand",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "string",
+      "default": "Brand"
+    },
+    "name": {
+      "type": "string",
+      "default": "SocialPlug"
+    }
+  }
+}

@@ -2,7 +2,7 @@ import MainButton from "@/components/Buttons";
 import { StrapiParagraph, StrapiText } from "@/components/StrapiComponents";
 import { useServices } from "@/providers/ServicesProvider";
 import Image from "next/image";
-import React, { memo, useCallback } from "react";
+import React, { memo } from "react";
 import { BlogType } from "@/libs/types/ServiceJsonDataType";
 
 interface ServiceUpBlogsProps {
@@ -11,11 +11,6 @@ interface ServiceUpBlogsProps {
 
 const ServiceUpBlogs = memo(({ className = "" }: ServiceUpBlogsProps) => {
   const { serviceItems } = useServices();
-
-  const handleButtonClick = useCallback((title: string) => {
-    // Add any button click handling if needed
-    console.log(`Read more about ${title}`);
-  }, []);
 
   if (!serviceItems?.introduction) {
     return null;
@@ -74,9 +69,7 @@ const ServiceUpBlogs = memo(({ className = "" }: ServiceUpBlogsProps) => {
                       type="primary"
                       title={item.button}
                       customClass="w-[50%]"
-                      handleClick={() =>
-                        handleButtonClick(item.title.text[0].content)
-                      }
+                      link={`${serviceItems.ordernow}`}
                     />
                   )}
                 </div>

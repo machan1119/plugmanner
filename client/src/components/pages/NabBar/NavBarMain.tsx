@@ -130,20 +130,18 @@ const NavBarMain = memo(() => {
             </div>
 
             <div className="w-px h-[50px] bg-gradient-to-b from-transparent via-black-normal to-transparent" />
-            <Link href="https://panel.socialplug.io/" aria-label="Login">
-              <MainButton type="white-main" title={t("main.login")} />
-            </Link>
-            <Link
-              href="/services/"
-              className="lg:block hidden"
-              aria-label="All Services"
-            >
-              <MainButton
-                type="primary"
-                title={t("main.all_services")}
-                customChildClass="!bg-none !bg-primary"
-              />
-            </Link>
+            <MainButton
+              type="white-main"
+              title={t("main.login")}
+              link="https://panel.socialplug.io/"
+            />
+            <MainButton
+              type="primary"
+              title={t("main.all_services")}
+              customChildClass="!bg-none !bg-primary"
+              customClass="lg:block hidden"
+              link="/services/"
+            />
             <LocaleSwitcher />
             <button
               onClick={() => setServiceShow(!serviceShow)}

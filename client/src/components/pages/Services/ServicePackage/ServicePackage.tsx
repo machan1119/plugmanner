@@ -27,7 +27,8 @@ const ServicePackage = () => {
                 unit={item.unit}
                 popular={item.popular}
                 list={item.list}
-                key={`package-${index + 1}`}
+                key={index}
+                link={serviceItems.ordernow}
               />
             )
           )}

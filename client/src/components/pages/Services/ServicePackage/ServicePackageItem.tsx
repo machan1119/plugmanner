@@ -10,6 +10,7 @@ const ServicePackageItem = ({
   popular,
   unit,
   list,
+  link,
 }: PackageType) => {
   const t = useTranslations("ServiceItem");
   return (
@@ -46,7 +47,12 @@ const ServicePackageItem = ({
         customClassName="font-clash text-[16px] text-[#686889] font-normal"
       />
       <div className="w-full h-[1px] bg-black-normal my-5" />
-      <MainButton type="primary" title={t("OrderNow")} customClass="w-full" />
+      <MainButton
+        type="primary"
+        title={`${t("OrderNow")} >`}
+        customClass="w-full"
+        link={link}
+      />
     </article>
   );
 };

@@ -105,6 +105,7 @@ const ServiceBenefit = memo(({ className = "" }: ServiceBenefitProps) => {
                       type="primary"
                       title={currentBenefit.Button}
                       customClass="w-[30%]"
+                      link={`${serviceItems.ordernow}`}
                     />
                   )}
                 </div>

@@ -127,7 +127,7 @@ const ServiceContent = memo(() => {
     mainEntity: faq,
   };
   return (
-    <main className="flex flex-col animate-fade-in">
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(product_schema) }}
@@ -136,12 +136,14 @@ const ServiceContent = memo(() => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faq_schema) }}
       />
-      {sections.map((section) => (
-        <div key={section.id} className="animate-fade-in" id={section.id}>
-          {section.component}
-        </div>
-      ))}
-    </main>
+      <main className="flex flex-col animate-fade-in">
+        {sections.map((section) => (
+          <div key={section.id} className="animate-fade-in" id={section.id}>
+            {section.component}
+          </div>
+        ))}
+      </main>
+    </>
   );
 });
 

@@ -21,7 +21,7 @@ const ServiceInfo = memo(() => {
     <section className="flex flex-col w-full m-auto items-center">
       <div
         rel="preload"
-        className="flex lg:flex-row lg:items-start lg:justify-between items-center flex-col gap-[120px] pt-[80px] w-full max-w-[1366px] px-10 bg-[linear-gradient(#fffffff5,#fff),url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/67bb4de67a2ea65794f385ee_perspective-grid-black.webp')] bg-[position:0_0,50%_0] bg-[size:auto,contain] bg-no-repeat"
+        className="flex lg:flex-row lg:items-start lg:justify-between items-center flex-col gap-[60px] md:gap-[120px] pt-[80px] w-full max-w-[1366px] px-10 bg-[linear-gradient(#fffffff5,#fff),url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/67bb4de67a2ea65794f385ee_perspective-grid-black.webp')] bg-[position:0_0,50%_0] bg-[size:auto,contain] bg-no-repeat"
       >
         <div className="flex flex-col gap-7 lg:w-[50%] lg:items-start items-center lg:text-left grow">
           <h1>
@@ -34,7 +34,7 @@ const ServiceInfo = memo(() => {
             data={serviceItems.simpledescription.text}
             customClassName="font-service-text lg:text-[20px] !text-center lg:!text-left"
           />
-          <div className="flex items-center mt-2">
+          <div className="flex items-center mt-2 gap-2 w-max">
             <Image
               width={24}
               height={24}
@@ -80,7 +80,7 @@ const ServiceInfo = memo(() => {
               width={316}
               height={24}
               src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/66292d46e99717b0f56ae2a2_payment-icons-24.svg"
-              alt=""
+              alt="payments methods"
               priority={false}
             />
           </div>

@@ -111,16 +111,17 @@ const ServiceContent = memo(() => {
     },
   };
   const faq: FaqType[] = [];
-  serviceItems.introduction.FrequentlyQuestions.Question.map((item) =>
-    faq.push({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })
-  );
+  if (serviceItems.introduction.FrequentlyQuestions)
+    serviceItems.introduction.FrequentlyQuestions.Question.map((item) =>
+      faq.push({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })
+    );
   const faq_schema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -132,10 +133,12 @@ const ServiceContent = memo(() => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(product_schema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faq_schema) }}
-      />
+      {serviceItems.introduction.FrequentlyQuestions && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faq_schema) }}
+        />
+      )}
       <main className="flex flex-col animate-fade-in">
         {sections.map((section) => (
           <div key={section.id} className="animate-fade-in" id={section.id}>

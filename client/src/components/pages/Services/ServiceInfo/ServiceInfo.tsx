@@ -4,7 +4,6 @@ import Image from "next/image";
 import React, { memo } from "react";
 import ServiceAdvantage from "./ServiceAdvantage";
 import { StrapiParagraph, StrapiText } from "@/components/StrapiComponents";
-import Link from "next/link";
 import { useTranslations } from "next-intl";
 
 interface ServiceState {
@@ -70,17 +69,12 @@ const ServiceInfo = memo(() => {
             paragraph={serviceItems.introduction.OrderIntro.list}
             customClassName="font-service-card-text text-[16px] !text-black-steel"
           />
-          <Link
-            href={`${serviceItems.ordernow}`}
-            className="w-full my-6"
-            aria-label="Order Now"
-          >
-            <MainButton
-              type="primary"
-              title={`${t("OrderNow")} >`}
-              customClass="w-full border-none"
-            />
-          </Link>
+          <MainButton
+            type="primary"
+            title={`${t("OrderNow")} >`}
+            customClass="w-full my-6 border-none"
+            link={`${serviceItems.ordernow}`}
+          />
           <div>
             <Image
               width={316}

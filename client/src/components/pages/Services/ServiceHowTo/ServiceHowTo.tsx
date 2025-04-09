@@ -66,6 +66,7 @@ const ServiceHowTo = () => {
           type="primary"
           title={`${t("OrderNow")} >`}
           customClass="md:w-[20%] w-full"
+          link={`${serviceItems.ordernow}`}
         />
       </div>
     </section>

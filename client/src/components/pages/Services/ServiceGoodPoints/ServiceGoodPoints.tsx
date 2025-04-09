@@ -3,7 +3,6 @@ import { useServices } from "@/providers/ServicesProvider";
 import Image from "next/image";
 import React, { memo } from "react";
 import { GoodPointsChapterType } from "@/libs/types/ServiceJsonDataType";
-import { useTranslations } from "next-intl";
 
 interface ServiceGoodPointsProps {
   className?: string;
@@ -11,7 +10,6 @@ interface ServiceGoodPointsProps {
 
 const ServiceGoodPoints = memo(({ className = "" }: ServiceGoodPointsProps) => {
   const { serviceItems } = useServices();
-  const t = useTranslations("ServiceItem");
   if (!serviceItems?.introduction) {
     return null;
   }
@@ -27,7 +25,6 @@ const ServiceGoodPoints = memo(({ className = "" }: ServiceGoodPointsProps) => {
       `}
     >
       <div className="max-w-[1366px] px-10 flex flex-col gap-7 w-full items-start mb-8">
-        <h2 id="good-points-heading">{t("GoodPoints")}</h2>
         <div className="w-full flex flex-col gap-20">
           {serviceItems.introduction.GoodPoints.chapter.map(
             (chapterItem: GoodPointsChapterType, chapterIndex: number) => (

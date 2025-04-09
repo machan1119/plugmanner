@@ -127,6 +127,7 @@ export type PackageType = {
   level: string;
   price: string;
   unit: string;
+  link: string;
   popular: number;
   list: ParagraphType[];
 };

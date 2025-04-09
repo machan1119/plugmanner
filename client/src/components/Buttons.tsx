@@ -34,9 +34,9 @@ const MainButton = ({
 
   const buttonClasses = `${baseClasses} ${customClass || ""}`;
 
-  return (
+  return link ? (
     <button className={buttonClasses} onClick={handleClick}>
-      <Link href={link ? link : "#"}>
+      <Link href={link}>
         {type === "white-main" ? (
           <p
             className={`bg-white text-text-primary hover:bg-black-medium hover:shadow-hover rounded-[10px] ${
@@ -55,6 +55,26 @@ const MainButton = ({
           </p>
         )}
       </Link>
+    </button>
+  ) : (
+    <button className={buttonClasses} onClick={handleClick}>
+      {type === "white-main" ? (
+        <p
+          className={`bg-white text-text-primary hover:bg-black-medium hover:shadow-hover rounded-[10px] ${
+            sizeClasses[size]
+          } ${customChildClass || ""}`}
+        >
+          {title}
+        </p>
+      ) : (
+        <p
+          className={`bg-gradient-to-t from-primary to-accent text-white hover:bg-accent hover:shadow-hover rounded-[10px] ${
+            sizeClasses[size]
+          } ${customChildClass || ""}`}
+        >
+          {title}
+        </p>
+      )}
     </button>
   );
 };

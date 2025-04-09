@@ -6,6 +6,7 @@ import { Metadata } from "next";
 import { getOriginalServiceItem } from "@/i18n/serviceItemMappings";
 import { generate_item_url } from "@/utils/functions";
 import { AlternateURLs } from "next/dist/lib/metadata/types/alternative-urls-types";
+import { notFound } from "next/navigation";
 
 export default async function ServicesPage({
   params,
@@ -14,7 +15,7 @@ export default async function ServicesPage({
 }>) {
   const { locale, item } = await params;
   const originalItem = await getOriginalServiceItem(item, locale);
-
+  if (!originalItem) notFound();
   return (
     <ServicesProvider locale={locale} item={originalItem}>
       <ServicesContent />;

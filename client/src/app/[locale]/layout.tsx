@@ -1,11 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import "../globals.css";
-import "../../css/clash-display.css";
-import "../../css/satoshi.css";
-import "../../css/animation.css";
-import "swiper/css";
-import "swiper/css/autoplay";
-import "swiper/css/navigation";
 import HomeLayout from "@/components/HomeLayout";
 import { hasLocale, Locale, NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";

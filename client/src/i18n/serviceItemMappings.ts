@@ -45,13 +45,11 @@ export async function getOriginalServiceItem(
   localizedItem: string,
   locale: string
 ): Promise<string> {
-  if (locale === "en") return localizedItem;
-
   const mappings = await initServiceItemMappings(locale);
   for (const [originalItem, translations] of Object.entries(mappings)) {
     if (translations[locale] === localizedItem) {
       return originalItem;
     }
   }
-  return localizedItem;
+  return "";
 }

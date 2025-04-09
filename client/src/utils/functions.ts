@@ -9,7 +9,8 @@ export function generate_item_url(str: HeaderTextType[]): string {
     .toLowerCase()
     .replace(" ", "-")
     .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "");
+    .replace(/^-|-$/g, "")
+    .replace("-x", "");
 }
 
 export function generate_name(str: HeaderTextType[]): string {

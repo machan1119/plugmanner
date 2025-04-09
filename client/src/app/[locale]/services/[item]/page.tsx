@@ -14,85 +14,11 @@ export default async function ServicesPage({
 }>) {
   const { locale, item } = await params;
   const originalItem = await getOriginalServiceItem(item, locale);
-  const product_schema = {
-    "@context": "http://schema.org",
-    "@type": "Product",
-    url: "https://www.socialplug.io/es/servicios/comprar-seguidores-twitter",
-    name: "Comprar seguidores Twitter (X)",
-    image:
-      "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/67811a78b723437c08e9863a_buy-twitter-followers.png",
-    description:
-      "Comprar seguidores Twitter (X) de Socialplug por $0.053. Los seguidores son de calidad y se entregan en solo 2 minutos.",
-    sku: "SCPX)036",
-    offers: {
-      "@type": "AggregateOffer",
-      url: "https://www.socialplug.io/es/servicios/comprar-seguidores-twitter",
-      priceCurrency: "USD",
-      Price: " 0.036",
-      offerCount: "200",
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      ratingCount: "47",
-    },
-    brand: {
-      "@type": "Brand",
-      name: "SocialPlug",
-    },
-  };
-  const faq_schema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "¿Son seguidores de verdad?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Se trata de seguidores de alta calidad y con perfiles realistas. Sin embargo, estos seguidores no interactuarán con tus publicaciones.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "¿Es seguro?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Sí, comprar seguidores de Twitter (X) es seguro y no afectará negativamente a tu cuenta de ninguna manera posible. Sólo asegúrate de que trabajas con una empresa confiable cada vez que compres seguidores.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "¿Cuánto tiempo se tarda en conseguir seguidores en mi página de Twitter (X)?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Procesamos los pedidos de seguidores automáticamente, lo que significa que tus seguidores empezarán a aparecer justo después de realizar el pedido. En casos excepcionales, es posible que tengamos que procesar tu pedido manualmente en un plazo de 12 horas.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Necesito más de 10.000 seguidores, ¿qué podéis ofrecerme?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Abre un ticket en el servicio de asistencia y te crearemos una factura personalizada a un precio con descuento para pedidos superiores a 10.000 seguidores.",
-        },
-      },
-    ],
-  };
+
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(product_schema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faq_schema) }}
-      />
-      <ServicesProvider locale={locale} item={originalItem}>
-        <ServicesContent />;
-      </ServicesProvider>
-    </>
+    <ServicesProvider locale={locale} item={originalItem}>
+      <ServicesContent />;
+    </ServicesProvider>
   );
 }
 

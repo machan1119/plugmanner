@@ -104,33 +104,35 @@ export interface ProcessedListType {
 }
 
 export interface ServiceMetadataType {
-  seo: {
-    metaTitle: string;
-    metaDescription: string;
-    keywords?: string;
-    metaRobots?: string;
-    metaViewport: string;
-    structuredData?: string;
-    metaImage?: string;
-    metaSocial: [
-      {
-        socialNetwork: string;
-        title: string;
-        description: string;
-        image: string;
-      }
-    ];
-    openGraph: {
-      ogtitle?: string;
-      ogdescription?: string;
-      ogurl?: string;
-      ogtype?: string;
-      ogimage?: string;
-    };
-  };
+  seo: SEOType;
   locale: string;
   header: {
     text: [{ content: string }];
   };
   localizations: LocalizedServiceItem[];
+}
+
+export interface SEOType {
+  metaTitle: string;
+  metaDescription: string;
+  keywords?: string;
+  metaRobots?: string;
+  metaViewport: string;
+  structuredData?: string;
+  metaImage?: string;
+  metaSocial: [
+    {
+      socialNetwork: string;
+      title: string;
+      description: string;
+      image: string;
+    }
+  ];
+  openGraph: {
+    ogtitle?: string;
+    ogdescription?: string;
+    ogurl?: string;
+    ogtype?: string;
+    ogimage?: string;
+  };
 }

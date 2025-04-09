@@ -17,19 +17,26 @@ import ServiceDownBlogs from "./ServiceDownBlogs/ServiceDownBlogs";
 import ServiceGoodPoints from "./ServiceGoodPoints/ServiceGoodPoints";
 import ServicePackage from "./ServicePackage/ServicePackage";
 import ServiceSummary2 from "./ServiceSummary2/ServiceSummary2";
-
-interface ServiceContentProps {
-  className?: string;
-}
+import { generate_item_url, generate_name } from "@/utils/functions";
+import { useLocale } from "next-intl";
 
 interface ServiceSection {
   component: React.ReactNode;
   id: string;
 }
 
-const ServiceContent = memo(({ className = "" }: ServiceContentProps) => {
-  const { isLoading } = useServices();
+interface FaqType {
+  "@type": string;
+  name: string;
+  acceptedAnswer: {
+    "@type": string;
+    text: string;
+  };
+}
 
+const ServiceContent = memo(() => {
+  const { isLoading, serviceItems } = useServices();
+  const locale = useLocale();
   const scrollToTop = useCallback(() => {
     window.scrollTo({
       top: 0,
@@ -62,15 +69,73 @@ const ServiceContent = memo(({ className = "" }: ServiceContentProps) => {
     { component: <ServiceArticle />, id: "article" },
     { component: <SectionServices />, id: "services" },
   ];
-
+  if (!serviceItems?.header.text) return;
+  const url = generate_item_url(serviceItems?.header.text);
+  const name = generate_name(serviceItems?.header.text);
+  const price = serviceItems.introduction.OrderIntro.price;
+  function get_url() {
+    if (locale == "en") return `https://plugmanner.com/services/${url}`;
+    else if (locale == "es-ES")
+      return `https://plugmanner.com/es-ES/servicios/${url}`;
+    else if (locale == "de")
+      return `https://plugmanner.com/de/dienstleistungen/${url}`;
+    else if (locale == "pt-BR")
+      return `https://plugmanner.com/pt-BR/serviços/${url}`;
+  }
+  const product_schema = {
+    "@context": "http://schema.org",
+    "@type": "Product",
+    url: get_url(),
+    name: name,
+    image: serviceItems.seo.openGraph.ogimage,
+    description: serviceItems.seo.metaDescription,
+    sku: "SCP" + name.slice(-2).toUpperCase() + price.toString().slice(-3),
+    offers: {
+      "@type": "AggregateOffer",
+      url: get_url(),
+      priceCurrency: "USD",
+      Price: price.toString(),
+      offerCount: "200",
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: serviceItems.introduction.rated.toString(),
+      ratingCount: (
+        (serviceItems.introduction.CustomerReviews?.Review.length | 0) +
+        (serviceItems.introduction.TopReviews?.review.length | 0)
+      ).toString(),
+    },
+    brand: {
+      "@type": "Brand",
+      name: "SocialPlug",
+    },
+  };
+  const faq: FaqType[] = [];
+  serviceItems.introduction.FrequentlyQuestions.Question.map((item) =>
+    faq.push({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })
+  );
+  const faq_schema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq,
+  };
   return (
-    <main
-      className={`
-        flex flex-col
-        animate-fade-in
-        ${className}
-      `}
-    >
+    <main className="flex flex-col animate-fade-in">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(product_schema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faq_schema) }}
+      />
       {sections.map((section) => (
         <div key={section.id} className="animate-fade-in" id={section.id}>
           {section.component}

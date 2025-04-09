@@ -15,7 +15,11 @@ export default async function ServicesPage({
 }>) {
   const { locale, item } = await params;
   const originalItem = await getOriginalServiceItem(item, locale);
-  if (!originalItem) notFound();
+  if (!originalItem) {
+    setTimeout(() => {
+      notFound();
+    }, 2000);
+  }
   return (
     <ServicesProvider locale={locale} item={originalItem}>
       <ServicesContent />;

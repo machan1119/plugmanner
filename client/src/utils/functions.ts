@@ -33,17 +33,3 @@ export function replace_str(s1: string, s2: string): string {
 
   return result;
 }
-
-export const getCookie = (name: string) => {
-  if (typeof document === "undefined") {
-    return null;
-  }
-  const cookies = document.cookie.split(";");
-  for (let cookie of cookies) {
-    cookie = cookie.trim();
-    if (cookie.startsWith(`${name}=`)) {
-      return cookie.substring(name.length + 1);
-    }
-  }
-  return null;
-};

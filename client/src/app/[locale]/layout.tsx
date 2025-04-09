@@ -66,6 +66,7 @@ export default async function LocaleLayout({
   params: Promise<{ locale: Locale }>;
 }>) {
   const { locale } = await params;
+  console.log(locale);
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }

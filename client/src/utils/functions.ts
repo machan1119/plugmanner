@@ -12,6 +12,13 @@ export function generate_item_url(str: HeaderTextType[]): string {
     .replace(/^-|-$/g, "");
 }
 
+export function generate_name(str: HeaderTextType[]): string {
+  let name = "";
+  name = str.map((item) => item.content).join(" ");
+  name = name.trim();
+  return name;
+}
+
 export function replace_str(s1: string, s2: string): string {
   const patternsToRemove = [`de ${s2}`, s2, "Comprar", "Compra"];
   let result = patternsToRemove.reduce(

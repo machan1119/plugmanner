@@ -33,6 +33,7 @@ export async function fetchAllServiceList(locale: string) {
           subservices: {
             fields: ["name", "documentId", "popular"],
             populate: ["icon", "header.text"],
+            sort: [{ popular: "desc" }],
           },
           icon: { fields: ["url"] },
         },

@@ -156,7 +156,7 @@ const getServiceIndex = (type: string): number => {
   };
 
   for (const [baseType, index] of Object.entries(subTypeIndices)) {
-    if (type.startsWith(baseType)) {
+    if (type.includes(baseType)) {
       return index;
     }
   }

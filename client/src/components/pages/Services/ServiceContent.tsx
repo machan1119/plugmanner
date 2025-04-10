@@ -74,13 +74,13 @@ const ServiceContent = memo(() => {
   const name = generate_name(serviceItems?.header.text);
   const price = serviceItems.introduction.OrderIntro.price;
   function get_url() {
-    if (locale == "en") return `https://plugmanner.com/services/${url}`;
+    if (locale == "en") return `${process.env.NEXT_PUBLIC_URL}/services/${url}`;
     else if (locale == "es-ES")
-      return `https://plugmanner.com/es-ES/servicios/${url}`;
+      return `${process.env.NEXT_PUBLIC_URL}/es-ES/servicios/${url}`;
     else if (locale == "de")
-      return `https://plugmanner.com/de/dienstleistungen/${url}`;
+      return `${process.env.NEXT_PUBLIC_URL}/de/dienstleistungen/${url}`;
     else if (locale == "pt-BR")
-      return `https://plugmanner.com/pt-BR/serviços/${url}`;
+      return `${process.env.NEXT_PUBLIC_URL}/pt-BR/serviços/${url}`;
   }
   const product_schema = {
     "@context": "http://schema.org",

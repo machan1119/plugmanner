@@ -15,7 +15,11 @@ export default async function ServicesPage({
 }>) {
   const { locale, item } = await params;
   const originalItem = await getOriginalServiceItem(item, locale);
-  if (!originalItem) notFound();
+  if (!originalItem) {
+    setTimeout(() => {
+      notFound();
+    }, 2000);
+  }
   return (
     <ServicesProvider locale={locale} item={originalItem}>
       <ServicesContent />;
@@ -32,7 +36,7 @@ interface AlternatesDataType {
   url: string;
 }
 
-const BASE_URL = "https://plugmanner.com";
+const BASE_URL = `${process.env.NEXT_PUBLIC_URL}`;
 export async function generateMetadata({
   params,
 }: Props): Promise<Metadata | null> {

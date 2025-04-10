@@ -30,12 +30,12 @@ export async function generateMetadata(
       description: t("og.description"),
     },
     alternates: {
-      canonical: "https://plugmanner.com/",
+      canonical: `${process.env.NEXT_PUBLIC_URL}`,
       languages: {
-        en: "https://plugmanner.com/",
-        "es-ES": "https://plugmanner.com/es-ES/",
-        de: "https://plugmanner.com/de/",
-        "pt-BR": "https://plugmanner.com/pt-BR/",
+        en: `${process.env.NEXT_PUBLIC_URL}`,
+        "es-ES": `${process.env.NEXT_PUBLIC_URL}/es-ES`,
+        de: `${process.env.NEXT_PUBLIC_URL}/de`,
+        "pt-BR": `${process.env.NEXT_PUBLIC_URL}/pt-BR`,
       },
     },
     robots: {
@@ -66,7 +66,6 @@ export default async function LocaleLayout({
   params: Promise<{ locale: Locale }>;
 }>) {
   const { locale } = await params;
-  console.log(locale);
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }

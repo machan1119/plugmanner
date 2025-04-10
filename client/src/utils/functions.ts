@@ -21,7 +21,10 @@ export function generate_name(str: HeaderTextType[]): string {
 }
 
 export function replace_str(s1: string, s2: string): string {
-  const patternsToRemove = [`de ${s2}`, s2, "Comprar", "Compra"];
+  let patternsToRemove = [];
+  if (s1.startsWith("Twitter"))
+    patternsToRemove = [`de ${s2}`, "Comprar", "Compra"];
+  else patternsToRemove = [`de ${s2}`, s2, "Comprar", "Compra"];
   let result = patternsToRemove.reduce(
     (currentString, pattern) => currentString.replace(pattern, ""),
     s1.trim()

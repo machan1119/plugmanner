@@ -36,7 +36,7 @@ interface AlternatesDataType {
   url: string;
 }
 
-const BASE_URL = "https://plugmanner.com";
+const BASE_URL = `${process.env.NEXT_PUBLIC_URL}`;
 export async function generateMetadata({
   params,
 }: Props): Promise<Metadata | null> {

@@ -3,7 +3,7 @@ import { fetchServiceItemMappings } from "@/utils/fetchServiceItemMappings";
 import { generate_item_url } from "@/utils/functions";
 import { NextResponse } from "next/server";
 
-const BASE_URL = "https://plugmanner.com";
+const BASE_URL = process.env.NEXT_PUBLIC_URL as string;
 
 interface SitemapEntry {
   loc: string;

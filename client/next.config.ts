@@ -10,10 +10,13 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "cdn.prod.website-files.com",
       },
-
       {
         protocol: "https",
         hostname: "plugmanner.com",
+      },
+      {
+        protocol: "https",
+        hostname: "socialplug.io",
       },
       {
         protocol: "https",
@@ -23,6 +26,7 @@ const nextConfig: NextConfig = {
   },
   env: {
     NEXT_PUBLIC_STRAPI_API_URL: process.env.NEXT_PUBLIC_STRAPI_API_URL,
+    NEXT_PUBLIC_URL: process.env.NEXT_PUBLIC_URL,
   },
 };
 

@@ -3,7 +3,6 @@ import { useTransition, useState } from "react";
 import Image from "next/image";
 import { LanguageOption } from "@/libs/types/Types";
 import { usePathname, useRouter } from "@/i18n/navigation";
-import { useServiceNavigation } from "@/utils/navigationHelpers";
 import { Locale } from "next-intl";
 import { useParams } from "next/navigation";
 
@@ -20,7 +19,6 @@ export default function LocaleSwitcherSelect({ defaultValue, items }: Props) {
   const router = useRouter();
   const pathname = usePathname();
   const params = useParams();
-  const { navigateToService } = useServiceNavigation();
   const item = (params.item ?? "").toString();
 
   async function onChange(value: string) {
@@ -31,9 +29,6 @@ export default function LocaleSwitcherSelect({ defaultValue, items }: Props) {
         { locale: nextLocale }
       );
     });
-    if (item) {
-      await navigateToService(item, selectedValue, nextLocale);
-    }
     setSelectedValue(value);
     setIsOpen(false);
   }

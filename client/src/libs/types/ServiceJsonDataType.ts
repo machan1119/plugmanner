@@ -1,4 +1,4 @@
-import { SEOType } from "./ListTypes";
+import { Icon, SEOType } from "./ListTypes";
 
 export interface ServiceJsonDataType {
   id: number;
@@ -11,6 +11,7 @@ export interface ServiceJsonDataType {
   name: string;
   popular: number;
   header: Header;
+  icon: Icon;
   simpledescription: {
     id: number;
     text: Text[];

@@ -13,7 +13,7 @@ export function GoToTop({
   className,
   showAt = 400,
   smooth = true,
-  position = "bottom-right",
+  position = "bottom-left",
 }: GoToTopProps) {
   const [show, setShow] = useState(false);
   const [isHovered, setIsHovered] = useState(false);

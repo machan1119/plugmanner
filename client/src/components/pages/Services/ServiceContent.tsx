@@ -1,5 +1,5 @@
 "use client";
-import React, { memo, useEffect, useCallback } from "react";
+import React, { memo, useEffect, useCallback, useState } from "react";
 import ServiceArticle from "@/components/pages/Services/ServiceArticle/ServiceArticle";
 import ServiceCustomerReview from "@/components/pages/Services/ServiceCustomerReview/ServiceCustomerReview";
 import ServiceInfo from "@/components/pages/Services/ServiceInfo/ServiceInfo";
@@ -19,6 +19,8 @@ import ServicePackage from "./ServicePackage/ServicePackage";
 import ServiceSummary2 from "./ServiceSummary2/ServiceSummary2";
 import { generate_item_url, generate_name } from "@/utils/functions";
 import { useLocale } from "next-intl";
+import { OrderNow } from "@/components/OrderNow";
+import { fetchAPI } from "@/utils/fetch-api";
 
 interface ServiceSection {
   component: React.ReactNode;
@@ -36,6 +38,7 @@ interface FaqType {
 
 const ServiceContent = memo(() => {
   const { isLoading, serviceItems } = useServices();
+  const [serviceIcon, setServiceIcon] = useState("");
   const locale = useLocale();
   const scrollToTop = useCallback(() => {
     window.scrollTo({
@@ -45,13 +48,40 @@ const ServiceContent = memo(() => {
   }, []);
 
   useEffect(() => {
+    const fetchServiceIcon = async () => {
+      try {
+        const path = `/subservices/${serviceItems?.documentId}`;
+        const urlParamsObject = {
+          populate: {
+            service: {
+              populate: {
+                icon: {
+                  fields: ["url"],
+                },
+              },
+            },
+          },
+        };
+        const options = "";
+        const fetchedData = await fetchAPI(path, urlParamsObject, options);
+        if (fetchedData.data)
+          setServiceIcon(
+            process.env.NEXT_PUBLIC_STRAPI_API_URL +
+              fetchedData.data.service.icon.url
+          );
+      } catch (error) {
+        console.error(error);
+      }
+    };
     scrollToTop();
-  }, [scrollToTop]);
+    if (serviceItems?.documentId) fetchServiceIcon();
+  }, [scrollToTop, serviceItems?.documentId]);
 
   if (isLoading) {
     return <ServicePageSkeleton />;
   }
 
+  if (!serviceItems?.header.text) return;
   const sections: ServiceSection[] = [
     { component: <ServiceInfo />, id: "info" },
     { component: <ServiceReview />, id: "review" },
@@ -69,7 +99,7 @@ const ServiceContent = memo(() => {
     { component: <ServiceArticle />, id: "article" },
     { component: <SectionServices />, id: "services" },
   ];
-  if (!serviceItems?.header.text) return;
+  const iconURL = serviceItems.icon?.url ? serviceItems.icon.url : serviceIcon;
   const url = generate_item_url(serviceItems?.header.text);
   const name = generate_name(serviceItems?.header.text);
   const price = serviceItems.introduction.OrderIntro.price;
@@ -146,6 +176,13 @@ const ServiceContent = memo(() => {
           </div>
         ))}
       </main>
+      {iconURL && (
+        <OrderNow
+          title={generate_name(serviceItems.header.text)}
+          link={serviceItems.ordernow}
+          icon={iconURL}
+        />
+      )}
     </>
   );
 });

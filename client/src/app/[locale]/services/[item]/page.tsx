@@ -6,7 +6,8 @@ import { Metadata } from "next";
 import { getOriginalServiceItem } from "@/i18n/serviceItemMappings";
 import { generate_item_url } from "@/utils/functions";
 import { AlternateURLs } from "next/dist/lib/metadata/types/alternative-urls-types";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
+import { Contact } from "@/components/Contact";
 
 export default async function ServicesPage({
   params,
@@ -20,9 +21,17 @@ export default async function ServicesPage({
       notFound();
     }, 2000);
   }
+  if (item != originalItem) {
+    let basePath = "/services";
+    if (locale === "es-ES") basePath = "/servicios";
+    else if (locale === "de") basePath = "/dienstleistungen";
+    else if (locale === "pt-BR") basePath = "/serviços";
+    redirect(`${basePath}/${originalItem}`);
+  }
   return (
     <ServicesProvider locale={locale} item={originalItem}>
       <ServicesContent />;
+      <Contact />
     </ServicesProvider>
   );
 }

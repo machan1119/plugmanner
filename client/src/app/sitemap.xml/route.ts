@@ -11,7 +11,7 @@ interface SitemapEntry {
   "x-default": string;
 }
 
-export async function GET() {
+export async function GET(request: Request) {
   const sitemapEntries: SitemapEntry[] = [];
   const serviceItems: ServiceItem[] = await fetchServiceItemMappings("en");
   const Locale_URL = {
@@ -35,20 +35,16 @@ export async function GET() {
     });
   }
 
-  const sitemap =
-    `<?xml version="1.0" encoding="UTF-8"?>
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
-        <loc>
-            ${BASE_URL}
-        </loc>
+        <loc>${BASE_URL}</loc>
         <xhtml:link rel="alternate" hreflang="en" href="${BASE_URL}"/>
         <xhtml:link rel="alternate" hreflang="es-ES" href="${BASE_URL}/es-ES"/>
         <xhtml:link rel="alternate" hreflang="de" href="${BASE_URL}/de"/>
         <xhtml:link rel="alternate" hreflang="pt-BR" href="${BASE_URL}/pt-BR"/>
         <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}"/>
-    </url>` +
-    `${sitemapEntries
+    </url>${sitemapEntries
       .map(
         (entry) => `
     <url>
@@ -64,26 +60,34 @@ export async function GET() {
         <xhtml:link rel="alternate" hreflang="x-default" href="${
           entry["x-default"]
         }"/>
-    </url>
-  `
+    </url>`
       )
       .join("")}
 </urlset>`;
-  const html = `
-  <!DOCTYPE html>
-  <html>
-    <head>
-      <title>Sitemap</title>
-      <meta name="color-scheme" content="light dark">
-    </head>
-    <body>
-      <pre>${sitemap.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</pre>
-    </body>
-  </html>
-  `;
-  return new NextResponse(html, {
+  const html = `<!DOCTYPE html>
+<html>
+<head>
+    <meta name="color-scheme" content="light dark">
+    <title>Sitemap</title>
+    <style>
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <pre>${sitemap.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</pre>
+</body>
+</html>`;
+
+  const userAgent = request.headers.get("user-agent") || "";
+  const isSearchEngine =
+    /bot|crawl|spider|slurp|baidu|bing|yandex|google/i.test(userAgent);
+
+  return new NextResponse(isSearchEngine ? sitemap : html, {
     headers: {
-      "Content-Type": "text/html",
+      "Content-Type": isSearchEngine ? "application/xml" : "text/html",
     },
   });
 }

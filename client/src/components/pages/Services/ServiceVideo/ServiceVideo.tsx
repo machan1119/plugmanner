@@ -1,18 +1,11 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useServices } from "@/providers/ServicesProvider";
 
-interface ServiceVideoProps {
-  serviceItems: {
-    name: string;
-    introduction: {
-      video: string;
-    };
-  };
-}
-
-export default function ServiceVideo({ serviceItems }: ServiceVideoProps) {
+export default function ServiceVideo() {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [isIntersecting, setIsIntersecting] = useState(false);
+  const { serviceItems } = useServices();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -32,6 +25,12 @@ export default function ServiceVideo({ serviceItems }: ServiceVideoProps) {
 
     return () => observer.disconnect();
   }, []);
+  if (!serviceItems?.introduction) {
+    return null;
+  }
+  if (!serviceItems.introduction?.video) {
+    return null;
+  }
 
   return (
     <section className="w-full h-full p-[50px] border-b-[1px] border-black-normal">

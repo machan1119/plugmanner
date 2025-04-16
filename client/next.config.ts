@@ -4,6 +4,19 @@ import createNextIntlPlugin from "next-intl/plugin";
 const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "Link",
+            value: "<https://www.youtube.com>; rel=preconnect",
+          },
+        ],
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {

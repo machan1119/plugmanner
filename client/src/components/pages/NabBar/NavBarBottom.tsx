@@ -83,10 +83,10 @@ const NavBarBottom = memo(() => {
     <div
       className="
         flex flex-row justify-between 
-        justify-self-center 
+        justify-self-center bg-black-light
         w-full 2xl:px-[15%] xl:px-[10%] px-[5%]
         border-y border-black-dark/50 
-        py-1.5
+        py-2
       "
     >
       {serviceList.data_1.map((val, index) => (

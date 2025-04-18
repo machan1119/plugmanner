@@ -78,7 +78,7 @@ const StrapiParagraph = memo(
       `}
       >
         {paragraph?.map((item, index) => (
-          <div className={`flex gap-3 items-start`} key={index}>
+          <div className={`flex gap-2 items-start`} key={index}>
             {item.icon && (
               <div
                 className={`

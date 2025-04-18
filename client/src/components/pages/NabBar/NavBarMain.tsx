@@ -43,7 +43,7 @@ const NavBarMain = memo(() => {
               className="w-[123px] h-[24px] md:w-[164px] md:h-[32px] mr-4 md:mr-10"
             />
           </Link>
-          <div className="flex items-center gap-2 lg:grow">
+          <div className="flex items-center gap-4 lg:grow">
             <div
               className="
               rounded-lg gap-3 
@@ -134,11 +134,12 @@ const NavBarMain = memo(() => {
               type="white-main"
               title={t("main.login")}
               link="https://panel.socialplug.io/"
+              customChildClass="px-6"
             />
             <MainButton
               type="primary"
               title={t("main.all_services")}
-              customChildClass="!bg-none !bg-primary"
+              customChildClass="!bg-none !bg-primary px-6"
               customClass="lg:block hidden"
               link="/services/"
             />

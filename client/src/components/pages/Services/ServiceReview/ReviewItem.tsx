@@ -1,5 +1,6 @@
 import RatingStar from "@/components/RatingStar";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import React, { memo } from "react";
 
 interface ReviewItemProps {
@@ -20,8 +21,13 @@ const ReviewItem = ({
   const t = useTranslations("ServiceItem");
   return (
     <article className="mb-5 flex flex-col gap-2 p-6 bg-white grow rounded-xl border border-[#e2e2e2] break-inside-avoid">
-      <div className="font-h1 !text-left">&#34;</div>
-      <p id={`review-title-${customerName}`} className="font-h2">
+      <Image
+        src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/642aa24862a9ec01de9afae0_quotes-fill.svg"
+        alt="review"
+        width={25}
+        height={25}
+      />
+      <p id={`review-title-${customerName}`} className="font-h2 !text-black">
         {title}
       </p>
       <div>

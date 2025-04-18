@@ -86,7 +86,7 @@ const ServiceBenefit = memo(({ className = "" }: ServiceBenefitProps) => {
                     priority
                     alt={`illustration`}
                     src={currentBenefit.img}
-                    className="lg:w-[60%] w-[50%]"
+                    className="lg:w-[80%] w-[60%]"
                   />
                 </div>
                 <div className="w-full lg:w-[50%] flex flex-col gap-5">
@@ -104,7 +104,8 @@ const ServiceBenefit = memo(({ className = "" }: ServiceBenefitProps) => {
                     <MainButton
                       type="primary"
                       title={currentBenefit.Button}
-                      customClass="w-[30%]"
+                      customClass="w-max !border-none mt-10"
+                      customChildClass="px-12 py-4"
                       link={`${serviceItems.ordernow}`}
                     />
                   )}

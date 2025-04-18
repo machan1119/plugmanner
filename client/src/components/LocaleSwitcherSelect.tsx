@@ -34,7 +34,7 @@ export default function LocaleSwitcherSelect({ defaultValue, items }: Props) {
   }
 
   return (
-    <div className="relative w-[62px] h-[40px] flex justify-center">
+    <div className="relative w-[62px] h-[40px] flex justify-center mr-4">
       <button
         className="flex items-center p-2"
         onClick={() => setIsOpen(!isOpen)}
@@ -44,9 +44,9 @@ export default function LocaleSwitcherSelect({ defaultValue, items }: Props) {
           <Image
             src={selectedItem.flag}
             alt={selectedItem.name}
-            width={28}
-            height={20}
-            className="w-7 h-5 object-cover"
+            width={36}
+            height={24}
+            className="w-9 h-6 object-cover rounded-sm"
           />
         )}
         <Image

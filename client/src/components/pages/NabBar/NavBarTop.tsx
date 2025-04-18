@@ -28,9 +28,9 @@ const NavBarTop = memo(() => {
   ];
   return (
     <div className="bg-black text-white text-xs md:text-sm flex relative justify-center overflow-hidden">
-      <div className="flex justify-center gap-5 md:gap-15 lg:gap-25 p-3">
+      <div className="flex justify-center gap-18 md:gap-15 lg:gap-25 py-1">
         {navBarTopItems.map((item, index) => (
-          <div key={index} className="flex gap-3 items-center">
+          <div key={index} className="flex gap-2 items-center p-2">
             <Image
               width={24}
               height={24}
@@ -39,23 +39,23 @@ const NavBarTop = memo(() => {
               priority
               className="w-[18px] h-[18px] md:w-6 md:h-6"
             />
-            <span className="font-medium">{item.text}</span>
+            <span className="font-normal">{item.text}</span>
           </div>
         ))}
       </div>
       <div className="absolute inset-0 pointer-events-none">
         <Image
-          width={125}
-          height={125}
+          width={120}
+          height={120}
           alt=""
           priority
           src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e8d_Group%201000004059.svg"
           className="
             hidden sm:block
-            w-[8%] lg:w-[125px]
+            w-[8%] lg:w-[120px]
             absolute
-            inset-[-20%_auto_auto_13%]
-            lg:inset-[-90%_auto_auto_13%]
+            inset-[-20%_auto_auto_8.5%]
+            lg:inset-[-60%_auto_auto_8.5%]
             transition-transform duration-500
             hover:scale-105
           "
@@ -68,10 +68,10 @@ const NavBarTop = memo(() => {
           src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e8e_Group.svg"
           className="
             hidden sm:block
-            w-[8%] lg:w-[120px]
+            w-[8%] lg:w-[110px]
             absolute
-            inset-[10%_13%_-25%_auto]
-            lg:inset-[-30%_13%_-25%_auto]
+            inset-[10%_9%_-25%_auto]
+            lg:inset-[-23%_9%_-25%_auto]
           "
         />
       </div>

@@ -39,8 +39,10 @@ const ServiceUpBlogs = memo(({ className = "" }: ServiceUpBlogsProps) => {
           {serviceItems.introduction.UpBlogs.Blog.map(
             (item: BlogType, index: number) => (
               <article
-                className={`w-[100%] flex lg:flex-row flex-col gap-[80px] items-center ${
-                  index % 2 !== 0 && "lg:flex-row-reverse flex-col-reverse"
+                className={`w-[100%] flex lg:flex-row flex-col gap-[120px] items-center ${
+                  index % 2 !== 0
+                    ? "lg:flex-row-reverse flex-col-reverse mr-16"
+                    : "ml-16"
                 }`}
                 key={index}
               >
@@ -49,11 +51,11 @@ const ServiceUpBlogs = memo(({ className = "" }: ServiceUpBlogsProps) => {
                   height={500}
                   alt={`illustration`}
                   src={item.img}
-                  className="lg:w-[35%] md:w-[50%] w-[70%]"
+                  className="lg:w-[40%] md:w-[50%] w-[70%]"
                   priority={index < 2}
                   loading={index < 2 ? "eager" : "lazy"}
                 />
-                <div className="flex flex-col gap-5 lg:w-[55%]">
+                <div className="flex flex-col gap-5 lg:w-[50%]">
                   <h3 className="font-h1 !text-left">
                     <StrapiText
                       data={item.title.text}

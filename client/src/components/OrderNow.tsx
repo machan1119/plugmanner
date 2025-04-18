@@ -22,7 +22,7 @@ export function OrderNow({ title, link, icon }: OrderNowProps) {
 
   return (
     show && (
-      <div className="w-[60%] flex md:bg-white border-black-light border-[2px] z-[50] rounded-lg md:p-3 justify-between bottom-0 left-[50%] fixed -translate-x-1/2 -translate-y-1/2">
+      <div className="w-[50%] flex md:bg-white border-black-light border-[2px] z-[50] rounded-lg md:p-3 justify-between bottom-0 left-[50%] fixed -translate-x-1/2 -translate-y-1/2">
         <div className="hidden md:flex gap-2">
           <Image
             src={icon}

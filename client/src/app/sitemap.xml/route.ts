@@ -1,5 +1,5 @@
 import { ServiceItem } from "@/libs/types/ServiceItemsMapping";
-import { fetchServiceItemMappings } from "@/utils/fetchServiceItemMappings";
+import { fetchServiceItemMappings } from "@/utils/fetch-service-data";
 import { generate_item_url } from "@/utils/functions";
 import { NextResponse } from "next/server";
 

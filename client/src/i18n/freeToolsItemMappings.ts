@@ -1,13 +1,13 @@
-import { ServiceItem } from "@/libs/types/ServiceItemsMapping";
-import { fetchServiceItemMappings } from "@/utils/fetch-service-data";
+import { FreeToolsItem } from "@/libs/types/FreeToolsItemsMapping";
+import { fetchFreeToolsItemMappings } from "@/utils/fetch-free-tools-data";
 import { generate_item_url } from "@/utils/functions";
 
-export async function initServiceItemMappings(currentLocale: string) {
-  const serviceItems: ServiceItem[] = await fetchServiceItemMappings(
+export async function initFreeToolsItemMappings(currentLocale: string) {
+  const freeToolsItems: FreeToolsItem[] = await fetchFreeToolsItemMappings(
     currentLocale
   );
   const mappings: Record<string, Record<string, string>> = {};
-  serviceItems.forEach((item) => {
+  freeToolsItems.forEach((item) => {
     const currentItem =
       item.locale === currentLocale
         ? item
@@ -29,12 +29,12 @@ export async function initServiceItemMappings(currentLocale: string) {
   return mappings;
 }
 
-export async function getLocalizedServiceItem(
+export async function getLocalizedFreeToolsItem(
   item: string,
   currentLocale: string,
   nextLocale: string
 ): Promise<string> {
-  const mappings = await initServiceItemMappings(currentLocale);
+  const mappings = await initFreeToolsItemMappings(currentLocale);
   if (!mappings[item]) {
     return item;
   }
@@ -43,11 +43,11 @@ export async function getLocalizedServiceItem(
 
 const Locales = ["en", "es-ES", "de", "pt-BR"];
 
-export async function getOriginalServiceItem(
+export async function getOriginalFreeToolsItem(
   localizedItem: string,
   locale: string
 ): Promise<string> {
-  const mappings = await initServiceItemMappings(locale);
+  const mappings = await initFreeToolsItemMappings(locale);
   for (const [originalItem, translations] of Object.entries(mappings)) {
     if (translations[locale] === localizedItem) {
       return originalItem;

@@ -41,8 +41,8 @@ const ServiceUpBlogs = memo(({ className = "" }: ServiceUpBlogsProps) => {
               <article
                 className={`w-[100%] flex lg:flex-row flex-col gap-[120px] items-center ${
                   index % 2 !== 0
-                    ? "lg:flex-row-reverse flex-col-reverse mr-16"
-                    : "ml-16"
+                    ? "lg:flex-row-reverse flex-col-reverse md:mr-16"
+                    : "md:ml-16"
                 }`}
                 key={index}
               >

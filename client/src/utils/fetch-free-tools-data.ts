@@ -3,15 +3,15 @@ import { fetchAPI } from "./fetch-api";
 import { generate_item_url } from "./functions";
 import { fetchAllServiceList } from "./fetch-all-service-list";
 import { getLocale } from "next-intl/server";
-import { ServiceItem } from "@/libs/types/ServiceItemsMapping";
+import { FreeToolsItem } from "@/libs/types/FreeToolsItemsMapping";
 
-export async function fetchServiceItemMappings(currentLocale: string) {
+export async function fetchFreeToolsItemMappings(currentLocale: string) {
   try {
     let i = 1;
     let pageCount = 1;
-    let data: ServiceItem[] = [];
+    let data: FreeToolsItem[] = [];
     while (true) {
-      const path = "/subservices";
+      const path = "/free-tools";
       const urlParamsObject = {
         populate: ["localizations.header.text", "header.text"],
         pagination: {
@@ -38,9 +38,9 @@ export async function fetchServiceItemMappings(currentLocale: string) {
   }
 }
 
-export async function fetchServiceData(itemId: string, locale: string) {
+export async function fetchFreeToolsData(itemId: string, locale: string) {
   try {
-    const path = `/subservices/${itemId}`;
+    const path = `/free-tools/${itemId}`;
     const urlParamsObject = {
       pLevel: "7",
       sort: { createdAt: "asc" },
@@ -56,21 +56,21 @@ export async function fetchServiceData(itemId: string, locale: string) {
   return "";
 }
 
-export async function fetchServiceMetaData(name: string) {
+export async function fetchFreeToolsMetaData(name: string) {
   const locale = await getLocale();
   const allData: ProcessedListType = (await fetchAllServiceList(locale)) ?? {
     data_1: [],
     data_2: [],
     data_3: [],
   };
-  const subservice = allData.data_3.find(
+  const freeTool = allData.data_3.find(
     (sub) => generate_item_url(sub.header.text) == name
   );
   let itemId: string = "";
-  if (subservice) {
-    itemId = subservice.id;
+  if (freeTool) {
+    itemId = freeTool.id;
     try {
-      const path = `/subservices/${itemId}`;
+      const path = `/free-tools/${itemId}`;
       const urlParamsObject = {
         field: ["name"],
         populate: {

@@ -29,6 +29,10 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "www.plugmanner.com",
+      },
+      {
+        protocol: "https",
         hostname: "socialplug.io",
       },
       {

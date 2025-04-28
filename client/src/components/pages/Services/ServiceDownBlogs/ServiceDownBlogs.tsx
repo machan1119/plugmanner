@@ -36,10 +36,10 @@ const ServiceDownBlogs = memo(({ className = "" }: ServiceDownBlogsProps) => {
           {serviceItems.introduction.DownBlogs.Blog.map(
             (item: BlogType, index: number) => (
               <article
-                className={`w-[100%] flex lg:flex-row flex-col gap-[120px] items-center ${
+                className={`w-[100%] flex lg:flex-row flex-col lg:justify-between items-center ${
                   index % 2 !== 0
-                    ? "lg:flex-row-reverse flex-col-reverse md:mr-16"
-                    : "md:ml-16"
+                    ? "lg:flex-row-reverse flex-col-reverse md:pl-16"
+                    : "md:pr-16"
                 }`}
                 key={index}
               >

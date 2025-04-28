@@ -78,6 +78,11 @@
       "relation": "manyToMany",
       "target": "api::subservice.subservice",
       "inversedBy": "sub_free_tools"
+    },
+    "SimpleDescription": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.list"
     }
   }
 }

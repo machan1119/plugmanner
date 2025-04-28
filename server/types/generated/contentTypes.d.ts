@@ -602,6 +602,7 @@ export interface ApiSubFreeToolSubFreeTool extends Struct.CollectionTypeSchema {
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     service: Schema.Attribute.Relation<'oneToOne', 'api::service.service'>;
+    SimpleDescription: Schema.Attribute.Component<'general.list', false>;
     subservices: Schema.Attribute.Relation<
       'manyToMany',
       'api::subservice.subservice'

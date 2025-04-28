@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-04-28T09:49:49.955Z"
+    "x-generation-date": "2025-04-28T10:16:46.965Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -24,7 +24,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:1337/api",
+      "url": "https://www.plugmanner.com/test/api",
       "description": "Development server"
     }
   ],
@@ -5496,6 +5496,9 @@
                                 }
                               }
                             },
+                            "SimpleDescription": {
+                              "$ref": "#/components/schemas/GeneralListComponent"
+                            },
                             "createdAt": {
                               "type": "string",
                               "format": "date-time"
@@ -8322,6 +8325,9 @@
                     }
                   }
                 },
+                "SimpleDescription": {
+                  "$ref": "#/components/schemas/GeneralListComponent"
+                },
                 "createdAt": {
                   "type": "string",
                   "format": "date-time"
@@ -9754,6 +9760,9 @@
                             }
                           }
                         },
+                        "SimpleDescription": {
+                          "$ref": "#/components/schemas/GeneralListComponent"
+                        },
                         "createdAt": {
                           "type": "string",
                           "format": "date-time"
@@ -10655,6 +10664,9 @@
                   ],
                   "example": "string or id"
                 }
+              },
+              "SimpleDescription": {
+                "$ref": "#/components/schemas/GeneralListComponent"
               },
               "locale": {
                 "type": "string"
@@ -12246,6 +12258,9 @@
                         }
                       }
                     },
+                    "SimpleDescription": {
+                      "$ref": "#/components/schemas/GeneralListComponent"
+                    },
                     "createdAt": {
                       "type": "string",
                       "format": "date-time"
@@ -12527,6 +12542,9 @@
                 }
               }
             }
+          },
+          "SimpleDescription": {
+            "$ref": "#/components/schemas/GeneralListComponent"
           },
           "createdAt": {
             "type": "string",
@@ -14077,6 +14095,9 @@
                                 }
                               }
                             }
+                          },
+                          "SimpleDescription": {
+                            "$ref": "#/components/schemas/GeneralListComponent"
                           },
                           "createdAt": {
                             "type": "string",

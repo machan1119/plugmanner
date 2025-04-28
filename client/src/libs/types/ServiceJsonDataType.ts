@@ -1,3 +1,5 @@
+import { Icon, SEOType } from "./ListTypes";
+
 export interface ServiceJsonDataType {
   id: number;
   documentId: string;
@@ -9,6 +11,7 @@ export interface ServiceJsonDataType {
   name: string;
   popular: number;
   header: Header;
+  icon: Icon;
   simpledescription: {
     id: number;
     text: Text[];
@@ -94,6 +97,7 @@ export interface ServiceJsonDataType {
     };
   };
   article: Article[];
+  seo: SEOType;
 }
 
 export type Header = {
@@ -124,6 +128,7 @@ export type PackageType = {
   level: string;
   price: string;
   unit: string;
+  link: string;
   popular: number;
   list: ParagraphType[];
 };
@@ -206,41 +211,3 @@ export type Article = {
   author_name: string;
   img: string;
 };
-
-// type string = {
-//   id?: number;
-//   documentId: string;
-//   name: string;
-//   alternativeText: string;
-//   caption: string;
-//   width: number;
-//   height: number;
-//   formats: {
-//     small: ImageFormat;
-//     medium?: ImageFormat;
-//     thumbnail: ImageFormat;
-//   };
-//   hash: string;
-//   ext: string;
-//   mime: string;
-//   size: number;
-//   url: string;
-//   previewUrl: null;
-//   provider: string;
-//   provider_metadata: null;
-//   createdAt: string;
-//   updatedAt: string;
-//   publishedAt: string;
-// };
-
-// type ImageFormat = {
-//   ext: string;
-//   url: string;
-//   hash: string;
-//   mime: string;
-//   name: string;
-//   path: null;
-//   size: number;
-//   width: number;
-//   height: number;
-// };

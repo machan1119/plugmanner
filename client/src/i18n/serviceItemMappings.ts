@@ -41,17 +41,22 @@ export async function getLocalizedServiceItem(
   return mappings[item][nextLocale];
 }
 
+const Locales = ["en", "es-ES", "de", "pt-BR"];
+
 export async function getOriginalServiceItem(
   localizedItem: string,
   locale: string
 ): Promise<string> {
-  if (locale === "en") return localizedItem;
-
   const mappings = await initServiceItemMappings(locale);
   for (const [originalItem, translations] of Object.entries(mappings)) {
     if (translations[locale] === localizedItem) {
       return originalItem;
     }
+    for (let i = 0; i < Locales.length; i++) {
+      if (translations[Locales[i]] === localizedItem) {
+        return translations[locale];
+      }
+    }
   }
-  return localizedItem;
+  return "";
 }

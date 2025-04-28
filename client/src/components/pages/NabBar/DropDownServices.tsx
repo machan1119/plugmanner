@@ -199,7 +199,7 @@ const DropDownServices = memo(({ item }: DropDownServicesProps) => {
             max-w-[50vw] 
             overflow-auto 
             p-1
-            scrollbar-thin scrollbar-thumb-black-normal scrollbar-track-transparent
+            w-full
           "
           >
             <div className="flex w-max gap-6">

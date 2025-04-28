@@ -3,7 +3,6 @@ import { useTransition, useState } from "react";
 import Image from "next/image";
 import { LanguageOption } from "@/libs/types/Types";
 import { usePathname, useRouter } from "@/i18n/navigation";
-import { useServiceNavigation } from "@/utils/navigationHelpers";
 import { Locale } from "next-intl";
 import { useParams } from "next/navigation";
 
@@ -20,7 +19,6 @@ export default function LocaleSwitcherSelect({ defaultValue, items }: Props) {
   const router = useRouter();
   const pathname = usePathname();
   const params = useParams();
-  const { navigateToService } = useServiceNavigation();
   const item = (params.item ?? "").toString();
 
   async function onChange(value: string) {
@@ -31,15 +29,12 @@ export default function LocaleSwitcherSelect({ defaultValue, items }: Props) {
         { locale: nextLocale }
       );
     });
-    if (item) {
-      await navigateToService(item, selectedValue, nextLocale);
-    }
     setSelectedValue(value);
     setIsOpen(false);
   }
 
   return (
-    <div className="relative w-[62px] h-[40px] flex justify-center">
+    <div className="relative w-[62px] h-[40px] flex justify-center mr-4">
       <button
         className="flex items-center p-2"
         onClick={() => setIsOpen(!isOpen)}
@@ -49,9 +44,9 @@ export default function LocaleSwitcherSelect({ defaultValue, items }: Props) {
           <Image
             src={selectedItem.flag}
             alt={selectedItem.name}
-            width={28}
-            height={20}
-            className="w-7 h-5 object-cover"
+            width={36}
+            height={24}
+            className="w-9 h-6 object-cover rounded-sm"
           />
         )}
         <Image

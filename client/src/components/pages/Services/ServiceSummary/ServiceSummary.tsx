@@ -33,14 +33,11 @@ const ServiceSummary = () => {
           className="my-5"
           priority={false}
         />
-        <div className="w-full flex flex-col gap-5 md:grid md:grid-cols-3 items-stretch mt-8">
+        <div className="w-full flex flex-col gap-6 md:grid md:grid-cols-3 lg:grid-cols-4 items-stretch mt-8">
           {serviceItems.introduction.Summary.EachSummary.map(
             (item: SummaryItem, index: number) => (
               <div className="w-full" key={index}>
-                <div
-                  className="relative mt-[25px] flex flex-col h-[calc(100%-25px)] gap-5 px-5 pb-5 pt-10 cursor-pointer border border-black-normal hover:border-primary rounded-md transition-all duration-500"
-                  tabIndex={0}
-                >
+                <div className="relative mt-[25px] flex flex-col h-[calc(100%-25px)] gap-2 px-6 pb-6 pt-10 cursor-pointer border border-black-normal hover:border-primary rounded-md transition-all duration-500">
                   <Image
                     width={50}
                     height={50}
@@ -49,12 +46,7 @@ const ServiceSummary = () => {
                     className="absolute top-[-25px] left-5"
                     priority={false}
                   />
-                  <p
-                    id={`summary-title-${index + 1}`}
-                    className="font-h2 !text-left"
-                  >
-                    {item.title}
-                  </p>
+                  <p className="font-h2 !text-left mt-3">{item.title}</p>
                   <p className="font-service-text lg:text-[18px]">
                     {item.content}
                   </p>

@@ -33,6 +33,7 @@ export async function fetchAllServiceList(locale: string) {
           subservices: {
             fields: ["name", "documentId", "popular"],
             populate: ["icon", "header.text"],
+            sort: [{ popular: "desc" }],
           },
           icon: { fields: ["url"] },
         },
@@ -156,7 +157,7 @@ const getServiceIndex = (type: string): number => {
   };
 
   for (const [baseType, index] of Object.entries(subTypeIndices)) {
-    if (type.startsWith(baseType)) {
+    if (type.includes(baseType)) {
       return index;
     }
   }

@@ -1,3 +1,4 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -72,7 +73,7 @@ body {
   }
 
   .font-service-lg {
-    @apply font-clash text-[56px] text-black leading-[56px] font-semibold text-left;
+    @apply font-clash text-[64px] text-black leading-[64px] font-semibold text-left;
   }
   .font-service-md {
     @apply font-clash text-[52px] text-black leading-[52px] font-semibold text-left;

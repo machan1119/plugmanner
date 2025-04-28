@@ -3,7 +3,6 @@ import React, { memo } from "react";
 import Status from "./Status";
 import MainButton from "@/components/Buttons";
 import SectionHeroImage from "./SectionHeroImage";
-import Link from "next/link";
 import { useTranslations } from "next-intl";
 
 const SectionHero = memo(() => {
@@ -83,13 +82,11 @@ const SectionHero = memo(() => {
           </div>
         </div>
         <div className="flex flex-col sm:flex-row gap-4 items-center animate-fade-in-up">
-          <Link
-            href={"#services-list"}
-            scroll={true}
-            aria-label={t("hero.view_all_services")}
-          >
-            <MainButton type="primary" title={t("hero.view_all_services")} />
-          </Link>
+          <MainButton
+            type="primary"
+            title={t("hero.view_all_services")}
+            link={"#services-list"}
+          />
           <MainButton type="white-main" title={t("hero.client_portal")} />
         </div>
       </div>

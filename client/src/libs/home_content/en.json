@@ -202,8 +202,8 @@
     "ReadMore": "Read More >",
     "OrderNow": "Order Now",
     "Rated": "Rated ",
-    "FromOver": "from over ",
-    "Reviews": "reviews",
+    "FromOver": " from over ",
+    "Reviews": "+ reviews",
     "Starting": "Starting from",
     "ShowMore": "Show More +",
     "ShowLess": "Show Less -",
@@ -212,6 +212,7 @@
     "Popular": "Popular",
     "ReviewSubmit": "Review submitted by ",
     "Video": "Video",
-    "Articles": "Related Articles"
+    "Articles": "Related Articles",
+    "OrderNowFix": "Instant delivery, order now >"
   }
 }

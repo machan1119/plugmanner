@@ -72,6 +72,12 @@
       "relation": "oneToOne",
       "target": "api::service.service",
       "inversedBy": "sub_free_tool"
+    },
+    "subservices": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::subservice.subservice",
+      "inversedBy": "sub_free_tools"
     }
   }
 }

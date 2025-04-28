@@ -76,10 +76,10 @@ body {
     @apply font-clash text-[64px] text-black leading-[64px] font-semibold text-left;
   }
   .font-service-md {
-    @apply font-clash text-[52px] text-black leading-[52px] font-semibold text-left;
+    @apply font-clash text-[56px] text-black leading-[56px] font-semibold text-left;
   }
   .font-service-main {
-    @apply font-clash text-[40px] text-black leading-[40px] font-semibold text-left;
+    @apply font-clash text-[52px] text-black leading-[52px] font-semibold text-left;
   }
   .font-service {
     @apply font-service-main md:font-service-md lg:font-service-lg;

@@ -32,7 +32,7 @@ const ServiceInfo = memo(() => {
           </h1>
           <StrapiText
             data={serviceItems.simpledescription.text}
-            customClassName="font-service-text lg:text-[20px] !text-center lg:!text-left"
+            customClassName="font-service-text !text-[20px] !text-center lg:!text-left w-[80%]"
           />
           <div className="flex items-center mt-2 gap-2 w-max">
             <Image
@@ -53,7 +53,7 @@ const ServiceInfo = memo(() => {
           </div>
           <ServiceAdvantage />
         </div>
-        <div className="z-20 px-8 py-10 flex grow lg:w-[30%] flex-col gap-3 items-center bg-[rgb(20,_20,_27)] bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/63ff3f8c57c2b777f07afb19_socialplug-pricingbox-illustration.svg')] bg-right-top bg-no-repeat bg-auto rounded-2xl">
+        <div className="z-20 px-8 py-10 flex w-[450px] flex-col gap-3 items-center bg-[rgb(20,_20,_27)] bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/63ff3f8c57c2b777f07afb19_socialplug-pricingbox-illustration.svg')] bg-right-top bg-no-repeat bg-auto rounded-2xl">
           <div className="w-full flex flex-col items-start">
             <p className="font-service-card-text text-[16px] !text-black-steel mb-1">
               {t("Starting")}
@@ -87,7 +87,7 @@ const ServiceInfo = memo(() => {
           </div>
         </div>
       </div>
-      <div className="z-10 mt-[-50px] w-full bg-black-light pt-[60px] flex flex-col items-center gap-[50px]">
+      <div className="z-10 mt-[-50px] w-full bg-black-light pt-[100px] md:pt-[60px] flex flex-col items-center gap-[50px]">
         <div className="max-w-[1366px] px-10 w-full flex gap-12 items-center">
           {serviceItems.introduction.StateOfService.States.map(
             (item: ServiceState) => (

@@ -30,7 +30,7 @@ const ServiceHowTo = () => {
           data={serviceItems.introduction.HowToOrder.description.text}
           customClassName="font-service-text text-[18px] my-5 !text-center sm:80% lg:w-[40%]"
         />
-        <div className="relative w-full flex flex-col gap-12 md:grid md:grid-cols-3 items-center my-10">
+        <div className="relative w-full flex flex-col gap-12 sm:grid sm:grid-cols-3 items-center my-10">
           {serviceItems.introduction.HowToOrder.step.map(
             (item: Step, index: number) => (
               <div

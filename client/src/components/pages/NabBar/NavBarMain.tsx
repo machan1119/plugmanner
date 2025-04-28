@@ -134,7 +134,7 @@ const NavBarMain = memo(() => {
               type="white-main"
               title={t("main.login")}
               link="https://panel.socialplug.io/"
-              customChildClass="px-6"
+              customChildClass="px-6 hidden md:block"
             />
             <MainButton
               type="primary"

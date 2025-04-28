@@ -469,12 +469,9 @@ export interface ApiFreeToolFreeTool extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    alt: Schema.Attribute.RichText;
-    alt2: Schema.Attribute.Blocks;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -526,6 +523,14 @@ export interface ApiServiceService extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::service.service'
     >;
+    order_icon: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     popular: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -541,6 +546,10 @@ export interface ApiServiceService extends Struct.CollectionTypeSchema {
       > &
       Schema.Attribute.DefaultTo<0>;
     publishedAt: Schema.Attribute.DateTime;
+    sub_free_tool: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::sub-free-tool.sub-free-tool'
+    >;
     subservices: Schema.Attribute.Relation<
       'oneToMany',
       'api::subservice.subservice'
@@ -571,18 +580,19 @@ export interface ApiSubFreeToolSubFreeTool extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    Benefits: Schema.Attribute.Component<'subservice.benefits', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Description: Schema.Attribute.Text;
+    DownBlogs: Schema.Attribute.Component<'subservice.blogs', false>;
+    FAQ: Schema.Attribute.Component<'subservice.frequently-questions', false>;
     free_tool: Schema.Attribute.Relation<
       'manyToOne',
       'api::free-tool.free-tool'
     >;
-    icon: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    Header: Schema.Attribute.Component<'general.list', false>;
+    HowToOrder: Schema.Attribute.Component<'subservice.how-to-order', false>;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -591,8 +601,9 @@ export interface ApiSubFreeToolSubFreeTool extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    seo: Schema.Attribute.Component<'shared.seo', false>;
-    type: Schema.Attribute.String;
+    service: Schema.Attribute.Relation<'oneToOne', 'api::service.service'>;
+    Summary: Schema.Attribute.Component<'subservice.service-summary', false>;
+    UpBlog: Schema.Attribute.Component<'subservice.blogs', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -649,6 +660,14 @@ export interface ApiSubserviceSubservice extends Struct.CollectionTypeSchema {
     name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    order_icon: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

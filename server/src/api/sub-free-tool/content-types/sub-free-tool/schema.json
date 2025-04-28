@@ -15,9 +15,15 @@
     "name": {
       "type": "string"
     },
+    "free_tool": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::free-tool.free-tool",
+      "inversedBy": "sub_free_tools"
+    },
     "icon": {
       "type": "media",
-      "multiple": true,
+      "multiple": false,
       "required": false,
       "allowedTypes": [
         "images",
@@ -26,22 +32,46 @@
         "audios"
       ]
     },
-    "type": {
-      "type": "string"
-    },
-    "Description": {
-      "type": "text"
-    },
-    "free_tool": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::free-tool.free-tool",
-      "inversedBy": "sub_free_tools"
-    },
-    "seo": {
+    "HowToOrder": {
       "type": "component",
       "repeatable": false,
-      "component": "shared.seo"
+      "component": "subservice.how-to-order"
+    },
+    "Summary": {
+      "type": "component",
+      "repeatable": false,
+      "component": "subservice.service-summary"
+    },
+    "UpBlog": {
+      "type": "component",
+      "repeatable": false,
+      "component": "subservice.blogs"
+    },
+    "Benefits": {
+      "type": "component",
+      "repeatable": false,
+      "component": "subservice.benefits"
+    },
+    "DownBlogs": {
+      "type": "component",
+      "repeatable": false,
+      "component": "subservice.blogs"
+    },
+    "FAQ": {
+      "type": "component",
+      "repeatable": false,
+      "component": "subservice.frequently-questions"
+    },
+    "Header": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.list"
+    },
+    "service": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::service.service",
+      "inversedBy": "sub_free_tool"
     }
   }
 }

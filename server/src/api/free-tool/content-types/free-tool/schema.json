@@ -15,28 +15,11 @@
     "name": {
       "type": "string"
     },
-    "icon": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "sub_free_tools": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::sub-free-tool.sub-free-tool",
       "mappedBy": "free_tool"
-    },
-    "alt": {
-      "type": "richtext"
-    },
-    "alt2": {
-      "type": "blocks"
     }
   }
 }

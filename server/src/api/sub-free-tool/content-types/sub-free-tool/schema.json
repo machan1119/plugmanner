@@ -10,10 +10,19 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "free_tool": {
       "type": "relation",
@@ -30,42 +39,82 @@
         "files",
         "videos",
         "audios"
-      ]
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "HowToOrder": {
       "type": "component",
       "repeatable": false,
-      "component": "subservice.how-to-order"
+      "component": "subservice.how-to-order",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "Summary": {
       "type": "component",
       "repeatable": false,
-      "component": "subservice.service-summary"
+      "component": "subservice.service-summary",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "UpBlog": {
       "type": "component",
       "repeatable": false,
-      "component": "subservice.blogs"
+      "component": "subservice.blogs",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "Benefits": {
       "type": "component",
       "repeatable": false,
-      "component": "subservice.benefits"
+      "component": "subservice.benefits",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "DownBlogs": {
       "type": "component",
       "repeatable": false,
-      "component": "subservice.blogs"
+      "component": "subservice.blogs",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "FAQ": {
       "type": "component",
       "repeatable": false,
-      "component": "subservice.frequently-questions"
+      "component": "subservice.frequently-questions",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "Header": {
       "type": "component",
       "repeatable": false,
-      "component": "general.list"
+      "component": "general.list",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "service": {
       "type": "relation",
@@ -82,7 +131,12 @@
     "SimpleDescription": {
       "type": "component",
       "repeatable": false,
-      "component": "general.list"
+      "component": "general.list",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

@@ -579,36 +579,90 @@ export interface ApiSubFreeToolSubFreeTool extends Struct.CollectionTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    Benefits: Schema.Attribute.Component<'subservice.benefits', false>;
+    Benefits: Schema.Attribute.Component<'subservice.benefits', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    DownBlogs: Schema.Attribute.Component<'subservice.blogs', false>;
-    FAQ: Schema.Attribute.Component<'subservice.frequently-questions', false>;
+    DownBlogs: Schema.Attribute.Component<'subservice.blogs', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    FAQ: Schema.Attribute.Component<'subservice.frequently-questions', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     free_tool: Schema.Attribute.Relation<
       'manyToOne',
       'api::free-tool.free-tool'
     >;
-    Header: Schema.Attribute.Component<'general.list', false>;
-    HowToOrder: Schema.Attribute.Component<'subservice.how-to-order', false>;
-    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    Header: Schema.Attribute.Component<'general.list', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    HowToOrder: Schema.Attribute.Component<'subservice.how-to-order', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::sub-free-tool.sub-free-tool'
-    > &
-      Schema.Attribute.Private;
-    name: Schema.Attribute.String;
+    >;
+    name: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     service: Schema.Attribute.Relation<'oneToOne', 'api::service.service'>;
-    SimpleDescription: Schema.Attribute.Component<'general.list', false>;
+    SimpleDescription: Schema.Attribute.Component<'general.list', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     subservices: Schema.Attribute.Relation<
       'manyToMany',
       'api::subservice.subservice'
     >;
-    Summary: Schema.Attribute.Component<'subservice.service-summary', false>;
-    UpBlog: Schema.Attribute.Component<'subservice.blogs', false>;
+    Summary: Schema.Attribute.Component<'subservice.service-summary', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    UpBlog: Schema.Attribute.Component<'subservice.blogs', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

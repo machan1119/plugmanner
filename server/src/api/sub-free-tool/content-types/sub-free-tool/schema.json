@@ -158,6 +158,14 @@
           "localized": true
         }
       }
+    },
+    "popular": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "integer"
     }
   }
 }

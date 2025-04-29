@@ -472,6 +472,7 @@ export interface ApiFreeToolFreeTool extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -479,6 +480,7 @@ export interface ApiFreeToolFreeTool extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
+    popular: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
     sub_free_tools: Schema.Attribute.Relation<
       'oneToMany',
@@ -648,6 +650,12 @@ export interface ApiSubFreeToolSubFreeTool extends Struct.CollectionTypeSchema {
         };
       }>;
     Orders: Schema.Attribute.Component<'order.orders', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    popular: Schema.Attribute.Integer &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

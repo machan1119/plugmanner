@@ -20,6 +20,20 @@
       "relation": "oneToMany",
       "target": "api::sub-free-tool.sub-free-tool",
       "mappedBy": "free_tool"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "popular": {
+      "type": "integer"
     }
   }
 }

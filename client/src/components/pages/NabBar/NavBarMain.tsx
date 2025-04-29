@@ -27,7 +27,7 @@ const NavBarMain = memo(() => {
   };
   return (
     <div className="w-full transition-all duration-300">
-      <div className="py-2 flex flex-col items-center w-full bg-white">
+      <div className="py-3 flex flex-col items-center w-full bg-white">
         <div className="max-w-[1366px] w-full flex items-center justify-between px-4 md:px-10">
           <Link
             href="/"

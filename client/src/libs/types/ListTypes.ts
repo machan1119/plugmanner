@@ -49,6 +49,18 @@ export interface RawData {
   subservices: Subservice[];
 }
 
+export interface ToolsRawData {
+  id: number;
+  documentId: string;
+  name: string;
+  popular: string;
+  icon: {
+    id: number;
+    documentId: string;
+    url: string;
+  };
+}
+
 export interface ListType {
   type: string;
   data: ServicesDataType[];
@@ -101,6 +113,13 @@ export interface ProcessedListType {
   data_1: ListType[];
   data_2: ServicesListType[];
   data_3: SubserviceDataType[];
+}
+
+export interface FreeToolsListType {
+  name: string;
+  id: string;
+  icon: string;
+  popular: string;
 }
 
 export interface ServiceMetadataType {

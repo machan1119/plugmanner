@@ -1,6 +1,6 @@
 import { FreeToolsItem } from "@/libs/types/FreeToolsItemsMapping";
 import { fetchFreeToolsItemMappings } from "@/utils/fetch-free-tools-data";
-import { generate_item_url } from "@/utils/functions";
+import { generate_item_url_from_name } from "@/utils/functions";
 
 export async function initFreeToolsItemMappings(currentLocale: string) {
   const freeToolsItems: FreeToolsItem[] = await fetchFreeToolsItemMappings(
@@ -13,16 +13,15 @@ export async function initFreeToolsItemMappings(currentLocale: string) {
         ? item
         : item.localizations.find((l) => l.locale === currentLocale);
     if (!currentItem) return;
-    const currentSlug = generate_item_url(currentItem.header.text);
+    const currentSlug = generate_item_url_from_name(currentItem.name);
     if (!mappings[currentSlug]) {
       mappings[currentSlug] = {};
     }
-    mappings[currentSlug][item.locale] = generate_item_url(item.header.text);
+    mappings[currentSlug][item.locale] = generate_item_url_from_name(item.name);
     if (item.localizations && item.localizations) {
       item.localizations.forEach((localization) => {
-        mappings[currentSlug][localization.locale] = generate_item_url(
-          localization.header.text
-        );
+        mappings[currentSlug][localization.locale] =
+          generate_item_url_from_name(localization.name);
       });
     }
   });

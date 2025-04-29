@@ -8,18 +8,18 @@ import { useTranslations } from "next-intl";
 const SectionHero = memo(() => {
   const t = useTranslations("Home");
   return (
-    <section className="flex flex-col gap-4 sm:gap-6 px-4 sm:px-6 md:px-8 lg:px-10 pt-5 items-center bg-black-light w-full bg-cover bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ea7_hero_background-pattern.webp')] bg-center bg-no-repeat overflow-hidden">
+    <section className="flex flex-col gap-4 sm:gap-6 px-4 sm:px-6 md:px-8 lg:px-10 pt-8 items-center bg-black-light w-full bg-cover bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ea7_hero_background-pattern.webp')] bg-center bg-no-repeat overflow-hidden">
       <div className="flex flex-col gap-6 sm:gap-8 items-center max-w-7xl mx-auto w-full">
         <div className="flex items-center gap-2 p-[2px] pr-3 bg-black-light border-white border-2 rounded-full shadow-[0_4px_6px_rgba(0,0,0,0.1)] hover:shadow-lg transition-all duration-300">
-          <span className="bg-black rounded-full text-[rgb(239,255,248)] font-clash px-2 py-[6px] text-[12px] lg:text-[16px] font-semibold">
+          <span className="bg-black rounded-full text-[rgb(239,255,248)] font-clash px-2 py-[6px] text-[14px] lg:text-[16px] font-semibold">
             {t("hero.rated")}
           </span>
-          <span className="text-[12px] sm:text-[16px] font-medium text-black">
+          <span className="text-[14px] lg:text-[16px] font-medium text-black">
             {t("hero.from")}
           </span>
         </div>
         <div className="flex flex-col gap-4 font-satoshi text-black items-center">
-          <h1 className="font-h lg:w-[70%] text-center">
+          <h1 className="font-h lg:w-[80%] w-full text-center">
             <span>{t("hero.title_1")} </span>
             <Image
               width={46}
@@ -27,11 +27,11 @@ const SectionHero = memo(() => {
               alt="Thumbs up emoji"
               src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e3c_hero_thumb-img.svg"
               loading="eager"
-              className="inline-block w-auto h-auto animated-image animate-bounce-slow"
+              className="inline-block w-[35px] h-[35px] md:w-[40px] md:h-[40px] lg:w-[50px] lg:h-[50px] animated-image animate-bounce-slow"
               priority
             />
             <span> , {t("hero.title_2")} </span>
-            <span className="text-primary animate-fade-in">
+            <span className="text-primary animate-fade-in !text-[24px] lg:!text-[48px]">
               {t("hero.title_3")}
             </span>
             <Image
@@ -40,11 +40,11 @@ const SectionHero = memo(() => {
               loading="eager"
               width={500}
               height={500}
-              className="inline-block w-[50px] h-[50px] animate-pulse-slow"
+              className="inline-block w-[20px] h-[20px] md:w-[30px] md:h-[30px] lg:w-[50px] lg:h-[50px] animate-pulse-slow mt-[-10px]"
               priority
             />
           </h1>
-          <p className="text-black text-[14px] md:text-[18px] leading-[27px] font-medium text-center w-[90%] sm:w-[80%] lg:w-[50%] font-satoshi animate-fade-in-up">
+          <p className="text-black text-[16px] md:text-[18px] leading-[27px] font-normal text-center w-[70%] lg:w-[40%] font-satoshi animate-fade-in-up">
             {t("hero.description")}
           </p>
         </div>

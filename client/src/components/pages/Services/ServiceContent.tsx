@@ -124,8 +124,8 @@ const ServiceContent = memo(() => {
       "@type": "AggregateOffer",
       url: get_url(),
       priceCurrency: "USD",
-      offerCount: "200",
       Price: price.toString(),
+      offerCount: "200",
     },
     aggregateRating: {
       "@type": "AggregateRating",

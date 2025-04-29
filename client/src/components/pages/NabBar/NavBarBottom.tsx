@@ -8,10 +8,11 @@ import DropDownServicesResponsive from "./DropDownServicesResponsive";
 import { useHome } from "@/providers/HomeProvider";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { ListType } from "@/libs/types/ListTypes";
+import DropDownTools from "./DropDownTools";
 
 const NavBarBottom = memo(() => {
   const { serviceShow } = useHome();
-  const { serviceList, isLoading } = useList();
+  const { serviceList, freeToolsList, isLoading } = useList();
   const [isMobile, setIsMobile] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   const [currentList, setCurrentList] = useState<ListType[]>([]);
@@ -92,6 +93,7 @@ const NavBarBottom = memo(() => {
       {serviceList.data_1.map((val, index) => (
         <DropDownServices item={val} key={index} />
       ))}
+      <DropDownTools items={freeToolsList} />
     </div>
   );
 });

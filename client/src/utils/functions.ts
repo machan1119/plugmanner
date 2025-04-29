@@ -13,6 +13,15 @@ export function generate_item_url(str: HeaderTextType[]): string {
     .replace("-x", "");
 }
 
+export function generate_item_url_from_name(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(" ", "-")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "")
+    .replace("-x", "");
+}
+
 export function generate_name(str: HeaderTextType[]): string {
   let name = "";
   name = str.map((item) => item.content).join(" ");

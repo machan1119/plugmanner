@@ -25,7 +25,7 @@ import YoutubeHashtagGenerator from "./YoutubeTools/YoutubeHashtagGenerator";
 import YoutubeNameGenerator from "./YoutubeTools/YoutubeNameGenerator";
 import YoutubeTitleGenerator from "./YoutubeTools/YoutubeTitleGenerator";
 
-interface FreeToolsListType {
+interface FreeToolsComponentType {
   component: React.ReactNode;
   id: {
     en: string;
@@ -35,7 +35,7 @@ interface FreeToolsListType {
   };
 }
 
-const freeToolsList: FreeToolsListType[] = [
+const freeToolsComponent: FreeToolsComponentType[] = [
   {
     component: <InstagramUsernameChecker />,
     id: {
@@ -273,7 +273,7 @@ const FreeToolsContent = memo(() => {
       return `${process.env.NEXT_PUBLIC_URL}/pt-BR/ferramentas-gratuitas/${url}`;
   }
 
-  const currentComponent = freeToolsList.find(
+  const currentComponent = freeToolsComponent.find(
     (section) => section.id[locale as keyof typeof section.id] === url
   );
   const product_schema = {

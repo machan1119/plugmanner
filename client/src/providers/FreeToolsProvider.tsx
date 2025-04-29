@@ -8,8 +8,8 @@ import React, {
 } from "react";
 import { ServiceJsonDataType } from "@/libs/types/ServiceJsonDataType";
 import { useList } from "./ListProvider";
-import { generate_item_url } from "@/utils/functions";
-import { fetchServiceData } from "@/utils/fetch-service-data";
+import { generate_item_url_from_name } from "@/utils/functions";
+import { fetchFreeToolsData } from "@/utils/fetch-free-tools-data";
 
 interface FreeToolsContextType {
   freeToolItems: ServiceJsonDataType | null;
@@ -32,29 +32,29 @@ export const FreeToolsProvider: React.FC<FreeToolsProviderProps> = ({
   children,
   locale,
 }) => {
-  const { serviceList } = useList();
+  const { freeToolsList } = useList();
   const [freeToolItems, setFreeToolItems] =
     useState<ServiceJsonDataType | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const userLocale = locale;
   useEffect(() => {
-    const subservice = serviceList.data_3.find(
-      (sub) => generate_item_url(sub.header.text) == item
+    const toolsItem = freeToolsList.find(
+      (sub) => generate_item_url_from_name(sub.name) == item
     );
-    if (subservice) {
+    if (toolsItem) {
       const fetchAndSetData = async () => {
-        const serviceData =
-          (await fetchServiceData(subservice.id, userLocale)) ?? "";
-        if (!serviceData) {
+        const toolsData =
+          (await fetchFreeToolsData(toolsItem.id, userLocale)) ?? "";
+        if (!toolsData) {
           throw new Error("Failed to fetch service list");
         }
-        setFreeToolItems(serviceData);
+        setFreeToolItems(toolsData);
         setIsLoading(false);
       };
       setIsLoading(true);
       fetchAndSetData();
     }
-  }, [item, serviceList, userLocale]);
+  }, [item, freeToolsList, userLocale]);
   const contextValue = useMemo(
     () => ({
       freeToolItems,

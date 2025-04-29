@@ -11,9 +11,14 @@ export async function fetchFreeToolsItemMappings(currentLocale: string) {
     let pageCount = 1;
     let data: FreeToolsItem[] = [];
     while (true) {
-      const path = "/free-tools";
+      const path = "/sub-free-tools";
       const urlParamsObject = {
-        populate: ["localizations.header.text", "header.text"],
+        fields: ["name", "locale"],
+        populate: {
+          localizations: {
+            fields: ["name", "locale"],
+          },
+        },
         pagination: {
           page: i,
           pageSize: 100,
@@ -40,7 +45,7 @@ export async function fetchFreeToolsItemMappings(currentLocale: string) {
 
 export async function fetchFreeToolsData(itemId: string, locale: string) {
   try {
-    const path = `/free-tools/${itemId}`;
+    const path = `/sub-free-tools/${itemId}`;
     const urlParamsObject = {
       pLevel: "7",
       sort: { createdAt: "asc" },
@@ -48,6 +53,7 @@ export async function fetchFreeToolsData(itemId: string, locale: string) {
     };
     const options = "";
     const fetchedData = await fetchAPI(path, urlParamsObject, options);
+    console.log(fetchedData);
     return fetchedData.data;
   } catch (error) {
     console.error(error);

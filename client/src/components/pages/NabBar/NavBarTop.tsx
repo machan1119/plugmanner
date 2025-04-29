@@ -28,9 +28,9 @@ const NavBarTop = memo(() => {
   ];
   return (
     <div className="bg-black text-white text-xs md:text-sm flex relative justify-center overflow-hidden">
-      <div className="flex justify-center gap-4 md:gap-14 lg:gap-24 py-1">
+      <div className="flex justify-center gap-0 md:gap-14 lg:gap-24 py-1">
         {navBarTopItems.map((item, index) => (
-          <div key={index} className="flex gap-2 items-center p-2">
+          <div key={index} className="flex gap-2 items-center py-2 px-1">
             <Image
               width={24}
               height={24}
@@ -54,7 +54,8 @@ const NavBarTop = memo(() => {
             hidden sm:block
             w-[8%] lg:w-[120px]
             absolute
-            inset-[-20%_auto_auto_8.5%]
+            inset-[-20%_auto_auto_1%]
+            md:inset-[-20%_auto_auto_8.5%]
             lg:inset-[-60%_auto_auto_8.5%]
             transition-transform duration-500
             hover:scale-105
@@ -70,7 +71,8 @@ const NavBarTop = memo(() => {
             hidden sm:block
             w-[8%] lg:w-[110px]
             absolute
-            inset-[10%_9%_-25%_auto]
+            inset-[10%_1%_-25%_auto]
+            md:inset-[10%_9%_-25%_auto]
             lg:inset-[-23%_9%_-25%_auto]
           "
         />

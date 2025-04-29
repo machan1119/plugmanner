@@ -37,13 +37,13 @@ body {
 /* tailwind customize */
 @layer utilities {
   .font-h-main {
-    @apply font-clash text-[24px] font-semibold leading-[28x] text-center;
+    @apply font-clash text-[32px] font-semibold leading-[32px] text-center;
   }
   .font-h-md {
-    @apply font-clash text-[36px] font-semibold leading-[44x] text-center;
+    @apply font-clash text-[36px] font-semibold leading-[44px] text-center;
   }
   .font-h-lg {
-    @apply font-clash text-[48px] font-semibold leading-[60x] text-center;
+    @apply font-clash text-[48px] font-semibold leading-[60px] text-center;
   }
   .font-h {
     @apply font-h-main md:font-h-md lg:font-h-lg;

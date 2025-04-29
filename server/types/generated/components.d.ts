@@ -469,6 +469,7 @@ export interface SubserviceServiceSummary extends Struct.ComponentSchema {
     icon: 'car';
   };
   attributes: {
+    description: Schema.Attribute.Component<'general.list', false>;
     EachSummary: Schema.Attribute.Component<'subservice.each-summary', true>;
     title: Schema.Attribute.Component<'general.list', false>;
   };

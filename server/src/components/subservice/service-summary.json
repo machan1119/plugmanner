@@ -17,6 +17,11 @@
       "type": "component",
       "repeatable": false,
       "component": "general.list"
+    },
+    "description": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.list"
     }
   }
 }

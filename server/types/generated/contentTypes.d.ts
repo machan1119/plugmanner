@@ -639,6 +639,20 @@ export interface ApiSubFreeToolSubFreeTool extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    order_icon: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Orders: Schema.Attribute.Component<'order.orders', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     service: Schema.Attribute.Relation<'oneToOne', 'api::service.service'>;
     SimpleDescription: Schema.Attribute.Component<'general.list', false> &

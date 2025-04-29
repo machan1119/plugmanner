@@ -118,6 +118,20 @@ export interface OrderOrderIntro extends Struct.ComponentSchema {
   };
 }
 
+export interface OrderOrders extends Struct.ComponentSchema {
+  collectionName: 'components_order_orders';
+  info: {
+    displayName: 'Orders';
+  };
+  attributes: {
+    subservice: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::subservice.subservice'
+    >;
+    Title: Schema.Attribute.String;
+  };
+}
+
 export interface OrderQqq extends Struct.ComponentSchema {
   collectionName: 'components_order_qqqs';
   info: {
@@ -579,6 +593,7 @@ declare module '@strapi/strapi' {
       'general.sentence': GeneralSentence;
       'general.social-link': GeneralSocialLink;
       'order.order-intro': OrderOrderIntro;
+      'order.orders': OrderOrders;
       'order.qqq': OrderQqq;
       'shared.meta-social': SharedMetaSocial;
       'shared.open-graph': SharedOpenGraph;

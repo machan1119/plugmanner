@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_order_orders",
+  "info": {
+    "displayName": "Orders"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "subservice": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::subservice.subservice"
+    }
+  }
+}

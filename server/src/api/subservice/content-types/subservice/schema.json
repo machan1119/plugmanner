@@ -146,12 +146,6 @@
           "localized": true
         }
       }
-    },
-    "sub_free_tools": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::sub-free-tool.sub-free-tool",
-      "mappedBy": "subservices"
     }
   }
 }

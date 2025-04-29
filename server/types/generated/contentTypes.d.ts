@@ -661,10 +661,6 @@ export interface ApiSubFreeToolSubFreeTool extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
-    subservices: Schema.Attribute.Relation<
-      'manyToMany',
-      'api::subservice.subservice'
-    >;
     Summary: Schema.Attribute.Component<'subservice.service-summary', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -786,10 +782,6 @@ export interface ApiSubserviceSubservice extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
-    sub_free_tools: Schema.Attribute.Relation<
-      'manyToMany',
-      'api::sub-free-tool.sub-free-tool'
-    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

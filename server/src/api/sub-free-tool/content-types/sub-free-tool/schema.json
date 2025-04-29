@@ -122,12 +122,6 @@
       "target": "api::service.service",
       "inversedBy": "sub_free_tool"
     },
-    "subservices": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::subservice.subservice",
-      "inversedBy": "sub_free_tools"
-    },
     "SimpleDescription": {
       "type": "component",
       "repeatable": false,
@@ -150,14 +144,15 @@
       "component": "order.orders"
     },
     "order_icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
       ],
-      "type": "media",
-      "multiple": false,
       "pluginOptions": {
         "i18n": {
           "localized": true

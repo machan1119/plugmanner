@@ -24,8 +24,8 @@ const HowToOrder = memo(() => {
   ];
 
   return (
-    <section className="flex flex-col py-12 md:py-16 lg:py-[80px] items-center bg-black-light w-full bg-cover bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ea7_hero_background-pattern.webp')] bg-center bg-no-repeat overflow-hidden">
-      <div className="mb-12 flex flex-col gap-3 items-center">
+    <section className="flex flex-col py-[20px] md:py-16 lg:py-[80px] items-center bg-black-light w-full bg-cover bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ea7_hero_background-pattern.webp')] bg-center bg-no-repeat overflow-hidden">
+      <div className="mb-8 flex flex-col gap-3 items-center">
         <h2 id="section-how-to-order-title" className="font-h1 animate-fade-in">
           {t("HowToOrder.title_1")}
           <span className="text-primary">{t("HowToOrder.title_2")}</span>

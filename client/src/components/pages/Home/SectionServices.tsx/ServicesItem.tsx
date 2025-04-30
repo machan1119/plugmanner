@@ -44,7 +44,7 @@ const ServicesItem = memo(({ serviceData }: ServicesItemProps) => {
             className="lg:size-10 size-8 animate-fade-in"
             loading="lazy"
           />
-          <span className="text-black text-[16px] lg:text-[20px] font-semibold font-clash leading-[25px] animate-fade-in">
+          <span className="text-black text-[20px] font-semibold font-clash leading-[25px] animate-fade-in">
             {serviceData.title}
           </span>
         </div>
@@ -71,7 +71,7 @@ const ServicesItem = memo(({ serviceData }: ServicesItemProps) => {
           <div className="grid grid-cols-2 gap-2">
             {serviceData.services.map((serviceItem, index) => (
               <Link
-                className="p-2 bg-white rounded-md flex items-center justify-center text-center transition-all duration-200 hover:bg-gray-50 hover:shadow-sm animate-fade-in-up"
+                className="p-2 bg-white rounded-md flex text-left text-[14px] transition-all duration-200 hover:bg-gray-50 hover:shadow-sm animate-fade-in-up"
                 href={`/services/${generate_item_url(serviceItem.header.text)}`}
                 aria-label={serviceItem.name}
                 key={index}

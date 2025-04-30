@@ -23,9 +23,9 @@ const SectionWhyChoose = memo(() => {
   ];
 
   return (
-    <section className="flex flex-col py-12 md:py-16 lg:py-[80px] items-center bg-black-light w-full bg-cover bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ea7_hero_background-pattern.webp')] bg-center bg-no-repeat overflow-hidden border-black-dark border-t-[1px] border-b-[1px]">
+    <section className="flex flex-col py-[20px] md:py-16 lg:py-[80px] items-center bg-black-light w-full bg-cover bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ea7_hero_background-pattern.webp')] bg-center bg-no-repeat overflow-hidden border-black-dark border-t-[1px] border-b-[1px]">
       <div className="max-w-[1366px] justify-self-center px-4 sm:px-6 md:px-8 lg:px-10">
-        <div className="mb-12 flex flex-col gap-3 items-center w-[50%] justify-self-center">
+        <div className="mb-8 flex flex-col gap-3 items-center w-full md:w-[50%] justify-self-center">
           <h2 className="font-h1 animate-fade-in">
             {t("Why_2.title_1")}
             <span className="text-primary">{t("Why_2.title_2")}</span>

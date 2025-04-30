@@ -37,7 +37,7 @@ const Blogs = memo(() => {
               />
             </div>
           </div>
-          <div className="absolute w-full h-[2px] bg-black-dark top-[61px] lg:top-[65px] animate-fade-in" />
+          <div className="absolute w-full h-[2px] bg-black-dark top-[56px] md:top-[61px] lg:top-[65px] animate-fade-in" />
         </div>
         <BlogSlide />
       </div>

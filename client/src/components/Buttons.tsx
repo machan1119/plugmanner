@@ -98,7 +98,7 @@ export const SwitchButton = ({
       <button
         onClick={() => setStatus("Services")}
         className={`
-          w-full lg:w-fit px-6 py-3 border font-clash text-base font-semibold rounded-full
+          w-full lg:w-fit px-6 py-3 border font-clash text-base md:text-[20px] font-semibold rounded-full
           transition-all duration-300
           ${
             status === "Tools"
@@ -112,7 +112,7 @@ export const SwitchButton = ({
       <button
         onClick={() => setStatus("Tools")}
         className={`
-          w-full lg:w-fit px-6 py-3 border font-clash text-base font-semibold rounded-full
+          w-full lg:w-fit px-6 py-3 border font-clash text-base md:text-[20px] font-semibold rounded-full
           transition-all duration-300
           ${
             status === "Tools"

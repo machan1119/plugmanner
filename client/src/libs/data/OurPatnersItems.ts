@@ -41,4 +41,10 @@ export const OurPartnersItems = [
     host: "#", // Replace with actual URL
     alt: "Nudora Logo",
   },
+  {
+    name: "Dolphin",
+    icon: "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/67c73b2039e8b01d6f885f55_anty.png",
+    host: "#", // Replace with actual URL
+    alt: "Dolphin Logo",
+  },
 ];

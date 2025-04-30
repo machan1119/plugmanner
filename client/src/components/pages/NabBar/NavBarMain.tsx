@@ -26,8 +26,10 @@ const NavBarMain = memo(() => {
     setSearchService("");
   };
   return (
-    <div className="w-full transition-all duration-300">
-      <div className="py-3 flex flex-col items-center w-full bg-white">
+    <div
+      className={`w-full transition-all duration-300 ${searchShow && "pb-2"}`}
+    >
+      <div className="py-2 flex flex-col items-center w-full bg-white">
         <div className="max-w-[1366px] w-full flex items-center justify-between px-4 md:px-10">
           <Link
             href="/"
@@ -43,13 +45,13 @@ const NavBarMain = memo(() => {
               className="w-[123px] h-[24px] md:w-[164px] md:h-[32px] mr-4 md:mr-10"
             />
           </Link>
-          <div className="flex items-center gap-4 lg:grow">
+          <div className="flex items-center md:gap-4 gap-1 lg:grow">
             <div
               className="
               rounded-lg gap-3 
               flex items-center 
               border border-black-normal
-              p-3 grow 
+              p-2 grow 
               bg-black-light
               transition-all duration-300
               hover:border-primary
@@ -128,14 +130,26 @@ const NavBarMain = memo(() => {
                 </div>
               )}
             </div>
-
             <div className="w-px h-[50px] bg-gradient-to-b from-transparent via-black-normal to-transparent" />
             <MainButton
               type="white-main"
               title={t("main.login")}
               link="https://panel.socialplug.io/"
-              customChildClass="px-6 hidden md:block"
+              customChildClass="px-6"
+              customClass="hidden md:block"
             />
+            <a
+              href="https://panel.socialplug.io/"
+              className="rounded-lg border border-black-normal p-2 md:hidden"
+            >
+              <Image
+                src="/image/user-icon.png"
+                alt="user-icon"
+                width={24}
+                height={24}
+                className="w-full h-full"
+              />
+            </a>
             <MainButton
               type="primary"
               title={t("main.all_services")}
@@ -163,7 +177,7 @@ const NavBarMain = memo(() => {
                 priority
                 alt="Menu"
                 src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e9a_nav-ham-icon.svg"
-                className="w-[19px] h-[15px]"
+                className="w-full h-full"
               />
             </button>
           </div>
@@ -177,7 +191,7 @@ const NavBarMain = memo(() => {
           flex items-center 
           border border-black-normal
           bg-black-light 
-          mb-2 mx-4 md:mx-10 p-3
+          mx-4 md:mx-10 p-3
           animate-fade-in
           transition-all duration-300
           hover:border-primary

@@ -28,7 +28,7 @@ const NavBarTop = memo(() => {
   ];
   return (
     <div className="bg-black text-white text-xs md:text-sm flex relative justify-center overflow-hidden">
-      <div className="flex justify-center gap-0 md:gap-14 lg:gap-24 py-1">
+      <div className="flex justify-center gap-0 md:gap-14 lg:gap-18 py-1">
         {navBarTopItems.map((item, index) => (
           <div key={index} className="flex gap-2 items-center py-2 px-1">
             <Image

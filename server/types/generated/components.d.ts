@@ -498,7 +498,7 @@ export interface SubserviceSubBenefit extends Struct.ComponentSchema {
     button_api: Schema.Attribute.Text;
     img: Schema.Attribute.Text & Schema.Attribute.Required;
     paragraph: Schema.Attribute.Component<'general.list', true>;
-    tabname: Schema.Attribute.String & Schema.Attribute.Required;
+    tabname: Schema.Attribute.String;
     title: Schema.Attribute.Component<'general.list', false>;
   };
 }

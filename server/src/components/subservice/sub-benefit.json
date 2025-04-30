@@ -8,7 +8,7 @@
   "attributes": {
     "tabname": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "Button": {
       "type": "string",

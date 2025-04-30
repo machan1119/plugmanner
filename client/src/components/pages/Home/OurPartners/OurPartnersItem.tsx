@@ -17,13 +17,13 @@ const OurPartnersItem = memo(({ item }: OurPartnersItemProps) => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <div className="relative w-full aspect-[238/83] bg-white/5 rounded-lg p-4 hover:bg-white/10 transition-all duration-300">
+        <div className="relative w-full aspect-[238/83] bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300">
           <Image
             width={238}
             height={83}
             alt={item.alt}
             src={item.icon}
-            className="filter brightness-[21%] grayscale hover:filter-none w-full h-full object-contain transition-all duration-300"
+            className="filter brightness-[21%] grayscale hover:filter-none w-full object-contain transition-all duration-300"
             loading="lazy"
             priority={false}
           />

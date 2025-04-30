@@ -34,7 +34,7 @@ export default function LocaleSwitcherSelect({ defaultValue, items }: Props) {
   }
 
   return (
-    <div className="relative w-[62px] h-[40px] flex justify-center mr-4">
+    <div className="relative w-[62px] h-[40px] flex justify-center md:mr-4">
       <button
         className="flex items-center p-2"
         onClick={() => setIsOpen(!isOpen)}

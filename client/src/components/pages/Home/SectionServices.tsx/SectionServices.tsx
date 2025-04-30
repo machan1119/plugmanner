@@ -66,13 +66,13 @@ const SectionServices = memo(() => {
           customClass="lg:w-fit w-full"
         />
         <div className="xl:absolute right-[5%] border-[1px] border-black-dark flex rounded-[10px] shadow-sm hover:shadow-md transition-shadow duration-300">
-          <div className="bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e53_flowbite_sort-outline.svg')] bg-[4px_center] bg-no-repeat bg-auto border-r-[1px] border-black-dark text-black text-[12px] lg:text-[16px] font-satoshi leading-6 pl-8 p-2 bg-black-light rounded-l-[10px]">
+          <div className="bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e53_flowbite_sort-outline.svg')] bg-[4px_center] bg-no-repeat bg-auto border-r-[1px] border-black-dark text-black text-[16px] font-satoshi leading-6 pl-8 p-2 bg-black-light rounded-l-[10px]">
             {t("Services.sort_by")}
           </div>
           <select
             value={filter}
             onChange={handleFilterChange}
-            className="w-30 lg:w-40 p-2 cursor-pointer bg-inherit text-[12px] lg:text-[16px] rounded-r-[10px] transition-all duration-300"
+            className="w-30 lg:w-40 p-2 cursor-pointer bg-inherit text-[16px] rounded-r-[10px] transition-all duration-300"
           >
             <option label={t("Services.popular")} value="popular">
               {t("Services.popular")}

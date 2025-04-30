@@ -8,9 +8,9 @@ import { useTranslations } from "next-intl";
 const SectionHero = memo(() => {
   const t = useTranslations("Home");
   return (
-    <section className="flex flex-col gap-4 sm:gap-6 px-4 sm:px-6 md:px-8 lg:px-10 pt-8 items-center bg-black-light w-full bg-cover bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ea7_hero_background-pattern.webp')] bg-center bg-no-repeat overflow-hidden">
-      <div className="flex flex-col gap-6 sm:gap-8 items-center max-w-7xl mx-auto w-full">
-        <div className="flex items-center gap-2 p-[2px] pr-3 bg-black-light border-white border-2 rounded-full shadow-[0_4px_6px_rgba(0,0,0,0.1)] hover:shadow-lg transition-all duration-300">
+    <section className="flex flex-col px-4 sm:px-6 md:px-8 lg:px-10 pt-[25px] items-center bg-black-light w-full bg-cover bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ea7_hero_background-pattern.webp')] bg-center bg-no-repeat overflow-hidden">
+      <div className="flex flex-col gap-[25px] md:gap-8 items-center max-w-7xl mx-auto w-full">
+        <div className="flex items-center gap-2 text-center p-[2px] pr-3 mb-1 bg-black-light border-white border-2 rounded-full shadow-[0_4px_6px_rgba(0,0,0,0.1)] hover:shadow-lg transition-all duration-300">
           <span className="bg-black rounded-full text-[rgb(239,255,248)] font-clash px-2 py-[6px] text-[14px] lg:text-[16px] font-semibold">
             {t("hero.rated")}
           </span>
@@ -48,7 +48,7 @@ const SectionHero = memo(() => {
             {t("hero.description")}
           </p>
         </div>
-        <div className="grid grid-cols-auto-2 lg:flex lg:flex-row gap-4 sm:gap-6 items-center">
+        <div className="md:grid md:grid-cols-auto-2 flex flex-col lg:flex lg:flex-row gap-4 sm:gap-6 items-center">
           <div className="flex gap-[6px] order-2 lg:order-1 items-center justify-center text-center animate-fade-in-left">
             <Image
               width={20}
@@ -81,13 +81,18 @@ const SectionHero = memo(() => {
             </span>
           </div>
         </div>
-        <div className="flex flex-col sm:flex-row gap-4 items-center animate-fade-in-up">
+        <div className="flex gap-3 flex-col sm:flex-row items-center animate-fade-in-up">
           <MainButton
             type="primary"
             title={t("hero.view_all_services")}
             link={"#services-list"}
+            customClass="w-[180px]"
           />
-          <MainButton type="white-main" title={t("hero.client_portal")} />
+          <MainButton
+            type="white-main"
+            title={t("hero.client_portal")}
+            customClass="w-[180px]"
+          />
         </div>
       </div>
       <SectionHeroImage />

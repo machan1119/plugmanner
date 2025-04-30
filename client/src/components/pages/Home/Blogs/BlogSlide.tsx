@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React, { memo } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
@@ -73,21 +72,21 @@ const BlogSlide = memo(() => {
       >
         {BlogItems.map((item, index) => (
           <SwiperSlide key={index}>
-            <article className="flex flex-col justify-between bg-white rounded-lg p-5 items-center hover:shadow-lg transition-all duration-300">
-              <div className="relative w-full aspect-[365/242] overflow-hidden rounded-lg">
-                <Image
+            <article className="flex flex-col w-full justify-between bg-white rounded-lg p-5 items-center hover:shadow-lg transition-all duration-300">
+              <div className="w-full aspect-[365/242] overflow-hidden rounded-lg">
+                <img
                   width={365}
                   height={242}
                   src={item.icon}
                   alt={`${item.title} thumbnail`}
-                  className="object-cover hover:scale-105 transition-transform duration-300 w-full h-full"
+                  className="object-cover hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
               </div>
-              <h3 className="text-black text-[20px] text-center font-semibold font-clash leading-[25px] mt-4 hover:text-primary transition-colors duration-300">
+              <h3 className="text-black text-[20px] text-left font-semibold font-clash leading-[25px] mt-4 hover:text-primary transition-colors duration-300">
                 {item.title}
               </h3>
-              <div className="flex flex-wrap w-full justify-between gap-2 mt-10">
+              <div className="flex flex-wrap w-full justify-between gap-2 mt-6">
                 <div className="flex bg-black-light border-black-dark border-[1px] p-2 rounded-md hover:bg-black-dark transition-colors duration-300">
                   <p className="text-black text-[14px] text-center font-satoshi font-medium">
                     {item.type}
@@ -100,7 +99,7 @@ const BlogSlide = memo(() => {
                     {item.date}
                   </time>
                 </div>
-                <button className="text-primary text-[16px] p-2 rounded-md hover:bg-primary/10 transition-colors duration-300">
+                <button className="text-primary font-semibold text-[16px] p-2 rounded-md hover:bg-primary/10 transition-colors duration-300">
                   {t("Blogs.ReadMore")}
                 </button>
               </div>

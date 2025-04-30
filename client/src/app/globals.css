@@ -50,7 +50,7 @@ body {
   }
 
   .font-h1-main {
-    @apply font-clash text-[28px] text-black leading-8 font-semibold text-center;
+    @apply font-clash text-[24px] text-black leading-8 font-semibold text-center;
   }
   .font-h1-md {
     @apply font-clash text-[30px] text-black leading-9 font-semibold text-center;
@@ -102,6 +102,8 @@ body {
 }
 
 .swiper-slide {
+  width: 100%;
+  height: 100%;
   text-align: center;
   font-size: 18px;
   background: #fff;

@@ -18,15 +18,15 @@ const SectionWhy = memo(() => {
     { value: "4.8", label: t("Why.Review_Status.review_rate") },
   ];
   return (
-    <section className="flex flex-col py-12 md:py-16 lg:py-[80px] items-center bg-black-light w-full bg-cover bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ea7_hero_background-pattern.webp')] bg-center bg-no-repeat overflow-hidden border-black-dark border-t-[1px] border-b-[1px]">
+    <section className="flex flex-col py-[20px] md:py-16 lg:py-[80px] items-center bg-black-light w-full bg-cover bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ea7_hero_background-pattern.webp')] bg-center bg-no-repeat overflow-hidden border-black-dark border-t-[1px] border-b-[1px]">
       <div className="max-w-[1366px] justify-self-center px-4 sm:px-6 md:px-8 lg:px-10">
-        <div className="mb-12 flex flex-col gap-3 items-center w-[50%] justify-self-center">
+        <div className="flex flex-col gap-3 items-center w-full md:w-[50%] justify-self-center">
           <h2 id="section-why-title" className="font-h1 animate-fade-in">
             {t("Why.title_1")}
             <span className="text-primary">{t("Why.title_2")}</span>
             {t("Why.title_3")}
           </h2>
-          <p className="text-black text-[16px] leading-6 text-center font-satoshi w-[90%] sm:w-[75%] animate-fade-in-up">
+          <p className="text-black text-[16px] leading-6 text-center font-satoshi w-full sm:w-[75%] animate-fade-in-up">
             {t("Why.description")}
             <Link
               href={"#"}
@@ -38,9 +38,9 @@ const SectionWhy = memo(() => {
             .
           </p>
         </div>
-        <div className="flex flex-col gap-8 items-center w-full ">
+        <div className="flex flex-col gap-8 md:mt-8 items-center w-full ">
           <div className="mt-[70px] lg:mt-0 flex flex-col sm:flex-row bg-white border border-black-dark/50 rounded-[16px] py-6 relative w-full sm:w-[90%] items-center shadow-sm hover:shadow-md transition-all duration-300">
-            <div className="absolute -top-0 right-0 transform -translate-y-[78%] translate-x-[10%] md:translate-x-[20%] z-20 w-[120px] lg:w-[10%] flex flex-col items-end">
+            <div className="absolute -top-0 right-0 transform -translate-y-[78%] translate-x-[10%] md:translate-x-[20%] z-20 w-[80px] lg:w-[10%] flex flex-col items-end">
               <Image
                 width={136}
                 height={176}
@@ -62,7 +62,7 @@ const SectionWhy = memo(() => {
               <React.Fragment key={index}>
                 <div className="flex flex-col grow gap-2 items-center animate-fade-in-up">
                   <p className="font-h1">{stat.value}</p>
-                  <p className="text-black-dark text-[12px] md:text-[16px] lg:text-[18px] font-satoshi text-center">
+                  <p className="text-black-dark text-[16px] lg:text-[18px] font-satoshi text-center">
                     {stat.label}
                   </p>
                 </div>

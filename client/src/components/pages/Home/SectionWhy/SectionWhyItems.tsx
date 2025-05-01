@@ -8,19 +8,19 @@ interface SectionWhyItemsProps {
 
 const SectionWhyItems = memo(({ item }: SectionWhyItemsProps) => {
   return (
-    <article className="bg-white border border-black-dark/50 text-black rounded-[16px] p-4 sm:p-6 flex flex-col justify-between text-center hover:shadow-lg transition-all duration-300">
-      <div className="flex flex-col gap-3 mb-5">
+    <article className="bg-white border border-black-dark/50 px-4 py-6 text-black rounded-[16px] flex flex-col justify-between text-center hover:shadow-lg transition-all duration-300">
+      <div className="flex flex-col gap-3 mb-7 grow">
         <p
           id={`review-title-${item.title}`}
           className="font-clash font-semibold text-[18px] sm:text-[20px] leading-[25px] animate-fade-in"
         >
           {item.title}
         </p>
-        <p className="font-satoshi text-[14px] text-black leading-[21px] font-medium text-center animate-fade-in-up">
+        <p className="font-satoshi text-[14px] text-black/80 leading-[21px] font-medium text-center animate-fade-in-up">
           {item.description}
         </p>
       </div>
-      <div className="flex flex-col gap-3 items-center">
+      <div className="flex flex-col gap-3 items-center grow">
         <div>
           <Image
             width={144}
@@ -30,9 +30,9 @@ const SectionWhyItems = memo(({ item }: SectionWhyItemsProps) => {
             priority={false}
           />
         </div>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col">
           <p className="font-satoshi text-[16px] sm:text-[18px] leading-[27px] font-medium animate-fade-in">
-            {item.title}
+            {item.name}
           </p>
           <time
             dateTime={item.date}

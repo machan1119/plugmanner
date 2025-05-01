@@ -18,9 +18,15 @@ const ServiceSummary = () => {
   if (!serviceItems.introduction?.Summary) {
     return null;
   }
-
+  const totalCount = serviceItems.introduction.Summary.EachSummary.length;
+  const getGridColsClass = (count: number) => {
+    if (count === 1) return "md:grid-cols-1 lg:grid-cols-1";
+    if (count === 2) return "md:grid-cols-2 lg:grid-cols-2";
+    if (count === 3) return "md:grid-cols-3 lg:grid-cols-3";
+    return "md:grid-cols-3 lg:grid-cols-4";
+  };
   return (
-    <section className="w-full py-[80px] bg-black-light flex flex-col items-center border-b-[1px] border-black-normal">
+    <section className="w-full py-8 md:py-[80px] bg-black-light flex flex-col items-center border-b-[1px] border-black-normal">
       <div className="max-w-[1366px] w-full flex flex-col items-center px-10">
         <h2 className="font-h1 sm:80% lg:w-[50%] text-wrap">
           <StrapiText data={serviceItems.introduction.Summary.title.text} />
@@ -33,7 +39,11 @@ const ServiceSummary = () => {
           className="my-5"
           priority={false}
         />
-        <div className="w-full flex flex-col gap-6 md:grid md:grid-cols-3 lg:grid-cols-4 items-stretch mt-8">
+        <div
+          className={`w-full flex flex-col gap-6 md:grid items-stretch mt-8 ${getGridColsClass(
+            totalCount
+          )}`}
+        >
           {serviceItems.introduction.Summary.EachSummary.map(
             (item: SummaryItem, index: number) => (
               <div className="w-full" key={index}>
@@ -46,8 +56,10 @@ const ServiceSummary = () => {
                     className="absolute top-[-25px] left-5"
                     priority={false}
                   />
-                  <p className="font-h2 !text-left mt-3">{item.title}</p>
-                  <p className="font-service-text lg:text-[18px]">
+                  <p className="font-h2 !text-left mt-3 !text-[#1b2d45]">
+                    {item.title}
+                  </p>
+                  <p className="font-service-text text-[18px]">
                     {item.content}
                   </p>
                 </div>

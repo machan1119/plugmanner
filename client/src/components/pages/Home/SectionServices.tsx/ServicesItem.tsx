@@ -41,7 +41,7 @@ const ServicesItem = memo(({ serviceData }: ServicesItemProps) => {
             height={40}
             src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${serviceData.icon}`}
             alt={`${serviceData.title} icon`}
-            className="lg:size-10 size-8 animate-fade-in"
+            className="md:size-12 size-8 animate-fade-in"
             loading="lazy"
           />
           <span className="text-black text-[20px] font-semibold font-clash leading-[25px] animate-fade-in">

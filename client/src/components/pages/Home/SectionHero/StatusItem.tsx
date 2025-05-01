@@ -12,7 +12,7 @@ const StatusItem = memo(({ count, type, time }: StatusType) => {
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>
           <span className="relative inline-flex size-3 rounded-full bg-primary"></span>
         </span>
-        <div className="text-primary font-satoshi font-semibold text-center leading-[16px]">
+        <div className="text-primary font-satoshi font-semibold text-center text-[14px] lg:text-[16px] leading-[16px]">
           <span className="text-secondary font-satoshi font-medium">
             {count.toLocaleString()} {type}{" "}
           </span>

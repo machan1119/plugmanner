@@ -21,7 +21,7 @@ const ServiceDownBlogs = memo(({ className = "" }: ServiceDownBlogsProps) => {
   return (
     <section
       className={`
-        w-full py-[80px] border-b-[1px] border-black-normal
+        w-full py-8 md:py-[80px] border-b-[1px] border-black-normal
         ${className}
       `}
     >
@@ -36,7 +36,7 @@ const ServiceDownBlogs = memo(({ className = "" }: ServiceDownBlogsProps) => {
           {serviceItems.introduction.DownBlogs.Blog.map(
             (item: BlogType, index: number) => (
               <article
-                className={`w-[100%] flex lg:flex-row flex-col lg:justify-between items-center ${
+                className={`w-[100%] flex lg:flex-row flex-col gap-5 lg:justify-between items-center ${
                   index % 2 !== 0
                     ? "lg:flex-row-reverse flex-col-reverse md:pl-16"
                     : "md:pr-16"
@@ -48,7 +48,7 @@ const ServiceDownBlogs = memo(({ className = "" }: ServiceDownBlogsProps) => {
                   height={500}
                   alt={`illustration`}
                   src={item.img}
-                  className="lg:w-[40%] md:w-[50%] w-[70%]"
+                  className="lg:w-[40%] md:w-[50%] w-[60%]"
                   priority={index < 2}
                   loading={index < 2 ? "eager" : "lazy"}
                 />

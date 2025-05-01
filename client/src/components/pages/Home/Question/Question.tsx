@@ -31,14 +31,14 @@ const Question = memo(() => {
           {t("Question.title_1")}
           <span className="text-primary">{t("Question.title_2")}</span>
         </h2>
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4 sm:mb-6">
           {Questions.map((item) => (
             <QuestionsItem item={item} key={item.question} />
           ))}
         </div>
-        <div className="flex flex-col sm:flex-row justify-between bg-black-medium border-[1px] border-[rgb(224,_224,_224)] rounded-[12px] p-6 w-full h-max hover:shadow-lg transition-all duration-300 animate-fade-in-up">
+        <div className="flex flex-col gap-5 sm:flex-row justify-between bg-black-medium border-[1px] border-[rgb(224,_224,_224)] rounded-[12px] p-8 w-full h-max hover:shadow-lg transition-all duration-300 animate-fade-in-up">
           <div className="flex flex-col gap-2 mb-4 sm:mb-0">
-            <h3 className="text-black text-[16px] md:text-[20px] font-semibold font-clash leading-[25px]">
+            <h3 className="text-black text-[16px] md:text-[20px] font-[650] font-clash leading-[25px]">
               {t("Question.Still_have_questions.title")}
             </h3>
             <p className="text-[rgba(0,0,0,0.5)] text-[14px] md:text-[18px]">

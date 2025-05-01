@@ -15,7 +15,7 @@ const ServiceQuestion = memo(() => {
   }
 
   return (
-    <section className="flex flex-col py-16 md:py-20 items-center bg-white w-full border-b border-black-normal animate-fade-in">
+    <section className="flex flex-col py-8 md:py-[80px] items-center bg-white w-full border-b border-black-normal animate-fade-in">
       <div className="max-w-[1366px] w-full px-4 md:px-10">
         <h2
           id="faq-heading"

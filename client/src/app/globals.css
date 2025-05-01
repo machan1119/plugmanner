@@ -39,37 +39,37 @@ body {
   .font-h-main {
     @apply font-clash text-[32px] font-semibold leading-[32px] text-center;
   }
-  .font-h-md {
-    @apply font-clash text-[36px] font-semibold leading-[44px] text-center;
-  }
+  /* .font-h-md {
+    @apply font-clash text-[40px] font-semibold leading-[40px] text-center;
+  } */
   .font-h-lg {
     @apply font-clash text-[48px] font-semibold leading-[60px] text-center;
   }
   .font-h {
-    @apply font-h-main md:font-h-md lg:font-h-lg;
+    @apply font-h-main md:font-h-lg;
   }
 
   .font-h1-main {
-    @apply font-clash text-[24px] text-black leading-8 font-semibold text-center;
+    @apply font-clash text-[24px] text-black leading-8 font-[650] text-center;
   }
   .font-h1-md {
-    @apply font-clash text-[30px] text-black leading-9 font-semibold text-center;
+    @apply font-clash text-[30px] text-black leading-9 font-[650] text-center;
   }
   .font-h1-lg {
-    @apply font-clash text-[32px] text-black leading-10 font-semibold text-center;
+    @apply font-clash text-[32px] text-black leading-10 font-[650] text-center;
   }
   .font-h1 {
     @apply font-h1-main md:font-h1-md lg:font-h1-lg;
   }
-
+/* 
   .font-h2-main {
     @apply font-clash text-[16px] text-[rgb(20,_20,_27)] leading-6 font-semibold;
   }
   .font-h2-lg {
     @apply font-clash text-[18px] text-[rgb(20,_20,_27)] leading-7 font-semibold;
-  }
+  } */
   .font-h2 {
-    @apply font-h2-main lg:font-h2-lg;
+    @apply font-clash text-[18px] text-[rgb(20,_20,_27)] leading-7 font-semibold;
   }
 
   .font-service-lg {

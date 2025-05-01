@@ -33,7 +33,7 @@ export default function ServiceVideo() {
   }
 
   return (
-    <section className="w-full h-full p-[50px] border-b-[1px] border-black-normal">
+    <section className="w-full h-full p-[50px]">
       <div className="max-w-[1220px] w-full h-full justify-self-center mx-auto">
         <div className="video-container relative pt-[56.25%] overflow-hidden my-8 w-full max-w-[1220px] max-h-[450px] bg-[#f5f5f5] bg-center bg-cover rounded-lg mx-auto">
           {!isVideoLoaded && (

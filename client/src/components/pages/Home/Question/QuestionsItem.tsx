@@ -26,13 +26,13 @@ const QuestionsItem = memo(({ item }: QuestionsItemProps) => {
 
   return (
     <div
-      className="inline-block relative bg-black-medium border-[1px] border-[rgb(224,_224,_224)] rounded-[12px] p-4 sm:p-6 w-full h-max cursor-pointer transition-all duration-300 hover:border-gray-400 hover:shadow-md"
+      className="inline-block relative bg-black-medium border-[1px] border-[rgb(224,_224,_224)] rounded-[12px] p-3 w-full h-max cursor-pointer transition-all duration-300 hover:border-gray-400 hover:shadow-md"
       onClick={handleToggle}
       tabIndex={0}
       onKeyDown={handleKeyDown}
     >
       <div className="flex justify-between items-center">
-        <h3 className="text-black text-[16px] md:text-[20px] font-semibold font-clash animate-fade-in">
+        <h3 className="text-black text-[16px] md:text-[20px] font-[650] font-clash animate-fade-in mr-8">
           {item.question}
         </h3>
         <div className="rounded-[4px] bg-white border-[1px] border-[rgb(224,_224,_224)] p-2 transition-all duration-300 hover:bg-gray-50">

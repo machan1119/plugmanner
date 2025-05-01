@@ -3,7 +3,7 @@ import React, { memo } from "react";
 
 const SectionHeroImage = memo(() => {
   return (
-    <div className="w-[950px] md:w-[1300px] flex justify-center">
+    <div className="w-full flex justify-center">
       <Image
         width={1315}
         height={366}

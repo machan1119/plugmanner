@@ -102,16 +102,16 @@
       "description": "Aqui está um resumo rápido de como você pode colocar um pedido para nossos serviços de mídia social.",
       "OrderSteps": [
         {
-          "title": "Escolha um serviço",
-          "description": "Navegue pela nossa gama de serviços de mídia social e selecione o que melhor se adapta às suas necessidades."
+          "title": "Escolha o serviço",
+          "description": "Selecione a plataforma de mídia social e o serviço desejado."
         },
         {
-          "title": "Adicione ao carrinho",
-          "description": "Adicione o serviço escolhido ao seu carrinho clicando no botão 'Adicionar ao carrinho'."
+          "title": "Defina o objetivo",
+          "description": "Escolha a quantidade de serviços desejada, por exemplo, 100 seguidores."
         },
         {
-          "title": "Checkout",
-          "description": "Complete o processo de checkout para colocar seu pedido."
+          "title": "Receba os resultados",
+          "description": "Finalize a compra e pronto! Nossa equipe entregará seu pedido no mesmo dia."
         }
       ]
     },

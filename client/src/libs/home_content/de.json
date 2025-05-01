@@ -102,16 +102,16 @@
       "description": "Hier ist eine schnelle Übersicht darüber, wie Sie einen Auftrag für unsere sozialen Medien-Dienste platzieren können.",
       "OrderSteps": [
         {
-          "title": "Wählen Sie einen Service",
-          "description": "Durchsuchen Sie unseren Bereich sozialer Medien-Dienste und wählen Sie denjenigen, der Ihren Bedürfnissen am besten entspricht."
+          "title": "Wählen Sie den Service",
+          "description": "Wählen Sie die gewünschte Social-Media-Plattform und den Service aus."
         },
         {
-          "title": "In den Warenkorb hinzufügen",
-          "description": "Fügen Sie den ausgewählten Service zu Ihrem Warenkorb hinzu, indem Sie auf die Schaltfläche 'In den Warenkorb hinzufügen' klicken."
+          "title": "Ziel festlegen",
+          "description": "Wählen Sie die gewünschte Anzahl an Services, zum Beispiel 100 Follower."
         },
         {
-          "title": "Checkout",
-          "description": "Vervollständigen Sie den Checkout-Prozess, um Ihre Bestellung zu platzieren."
+          "title": "Ergebnisse erhalten",
+          "description": "Zur Kasse gehen und fertig! Unser Team liefert Ihre Bestellung noch am selben Tag."
         }
       ]
     },
@@ -143,7 +143,7 @@
       }
     },
     "OurPartners": {
-      "title_1": "Unsere",
+      "title_1": "Unsere ",
       "title_2": "Partner",
       "description": "Wir arbeiten mit den Besten in der Branche zusammen."
     },

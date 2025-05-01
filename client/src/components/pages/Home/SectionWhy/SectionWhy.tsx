@@ -18,9 +18,9 @@ const SectionWhy = memo(() => {
     { value: "4.8", label: t("Why.Review_Status.review_rate") },
   ];
   return (
-    <section className="flex flex-col py-[20px] md:py-16 lg:py-[80px] items-center bg-black-light w-full bg-cover bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ea7_hero_background-pattern.webp')] bg-center bg-no-repeat overflow-hidden border-black-dark border-t-[1px] border-b-[1px]">
+    <section className="flex flex-col py-[20px] md:py-16 lg:py-[80px] items-center bg-black-light w-full bg-cover bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ea7_hero_background-pattern.webp')] bg-center bg-no-repeat overflow-hidden border-black/10 border-b-[1px]">
       <div className="max-w-[1366px] justify-self-center px-4 sm:px-6 md:px-8 lg:px-10">
-        <div className="flex flex-col gap-3 items-center w-full md:w-[50%] justify-self-center">
+        <div className="flex flex-col gap-3 items-center w-full md:w-[90%] lg:w-[50%] justify-self-center">
           <h2 id="section-why-title" className="font-h1 animate-fade-in">
             {t("Why.title_1")}
             <span className="text-primary">{t("Why.title_2")}</span>
@@ -33,13 +33,12 @@ const SectionWhy = memo(() => {
               aria-label="Leave a review"
               className="text-primary underline hover:text-secondary transition-colors duration-300 rounded-sm"
             >
-              {t("Why.review")}
+              {t("Why.review")}.
             </Link>
-            .
           </p>
         </div>
-        <div className="flex flex-col gap-8 md:mt-8 items-center w-full ">
-          <div className="mt-[70px] lg:mt-0 flex flex-col sm:flex-row bg-white border border-black-dark/50 rounded-[16px] py-6 relative w-full sm:w-[90%] items-center shadow-sm hover:shadow-md transition-all duration-300">
+        <div className="flex flex-col gap-8 lg:mt-8 items-center w-full ">
+          <div className="mt-[70px] lg:mt-0 flex flex-col sm:flex-row bg-white border border-black-dark/50 rounded-[16px] py-6 relative w-full items-center shadow-sm hover:shadow-md transition-all duration-300">
             <div className="absolute -top-0 right-0 transform -translate-y-[78%] translate-x-[10%] md:translate-x-[20%] z-20 w-[80px] lg:w-[10%] flex flex-col items-end">
               <Image
                 width={136}
@@ -62,7 +61,7 @@ const SectionWhy = memo(() => {
               <React.Fragment key={index}>
                 <div className="flex flex-col grow gap-2 items-center animate-fade-in-up">
                   <p className="font-h1">{stat.value}</p>
-                  <p className="text-black-dark text-[16px] lg:text-[18px] font-satoshi text-center">
+                  <p className="text-black/40 text-[18px] font-satoshi text-center">
                     {stat.label}
                   </p>
                 </div>
@@ -75,7 +74,7 @@ const SectionWhy = memo(() => {
               </React.Fragment>
             ))}
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 w-full">
             {Reviews.map((item, index) => (
               <SectionWhyItems item={item} key={index} />
             ))}

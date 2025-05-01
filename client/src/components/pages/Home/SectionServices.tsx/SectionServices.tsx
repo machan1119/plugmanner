@@ -57,13 +57,13 @@ const SectionServices = memo(() => {
   };
 
   return (
-    <section className="flex flex-col items-center m-[5%] justify-self-center relative w-full px-[5%]">
+    <section className="flex flex-col items-center my-16 justify-self-center relative w-full px-[5%]">
       <h2 className="font-h1 mb-12 animate-fade-in">{t("Services.title")}</h2>
       <div className="flex flex-col gap-4 lg:flex-row lg:justify-center items-end mb-5 w-full relative">
         <SwitchButton
           status={status}
           setStatus={setStatus}
-          customClass="lg:w-fit w-full"
+          customClass="md:w-fit w-full"
         />
         <div className="xl:absolute right-[5%] border-[1px] border-black-dark flex rounded-[10px] shadow-sm hover:shadow-md transition-shadow duration-300">
           <div className="bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e53_flowbite_sort-outline.svg')] bg-[4px_center] bg-no-repeat bg-auto border-r-[1px] border-black-dark text-black text-[16px] font-satoshi leading-6 pl-8 p-2 bg-black-light rounded-l-[10px]">
@@ -72,7 +72,7 @@ const SectionServices = memo(() => {
           <select
             value={filter}
             onChange={handleFilterChange}
-            className="w-30 lg:w-40 p-2 cursor-pointer bg-inherit text-[16px] rounded-r-[10px] transition-all duration-300"
+            className="w-30 lg:w-40 p-2 mr-2 cursor-pointer bg-inherit text-[16px] rounded-r-[10px] transition-all duration-300"
           >
             <option label={t("Services.popular")} value="popular">
               {t("Services.popular")}
@@ -95,7 +95,7 @@ const SectionServices = memo(() => {
           loader={<>Loading...</>}
           className="w-full h-max"
         >
-          <div className="w-full grid lg:grid-cols-2 xl:grid-cols-3 gap-4">
+          <div className="w-full grid md:grid-cols-2 xl:grid-cols-3 gap-4">
             {filteredList.map((item, index) => (
               <ServicesItem serviceData={item} key={index} />
             ))}

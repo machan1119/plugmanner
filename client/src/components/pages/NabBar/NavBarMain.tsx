@@ -27,7 +27,7 @@ const NavBarMain = memo(() => {
   };
   return (
     <div className={`w-full ${searchShow && "pb-2"}`}>
-      <div className="py-[18px] flex flex-col items-center w-full bg-white border-b border-black/25">
+      <div className="py-[18px] lg:py-4 flex flex-col items-center w-full bg-white border-b border-black/25">
         <div className="max-w-[1366px] w-full flex items-center justify-between px-4 md:px-10">
           <Link
             href="/"

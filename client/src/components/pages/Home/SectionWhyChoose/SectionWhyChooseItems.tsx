@@ -13,11 +13,11 @@ const SectionWhyChooseItems = memo(
       <div
         className={`flex ${
           count === 2 ? "" : "md:flex-col-reverse pt-4"
-        } gap-4 lg:flex-row grow w-full h-full px-4 items-center bg-white border-black-dark text-black rounded-[16px] hover:shadow-lg transition-all duration-300 border border-black-dark/50`}
+        } gap-4 lg:gap-0 lg:flex-row grow w-full h-full px-4 items-center bg-white border-black-dark text-black rounded-[16px] hover:shadow-lg transition-all duration-300 border border-black-dark/50`}
       >
         <div
           className={`relative max-w-[200px] ${
-            count === 2 ? "w-[50%] md:w-[30%]" : "w-[50%]"
+            count === 2 ? "w-[50%] md:w-[30%] lg:w-[35%]" : "w-[50%] lg:w-[35%]"
           } h-full mb-6 md:mb-0 md:mr-6`}
         >
           <Image

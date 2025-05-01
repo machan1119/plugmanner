@@ -26,7 +26,7 @@ const Question = memo(() => {
 
   return (
     <section className="flex flex-col py-12 md:py-16 lg:py-[80px] items-center bg-black-light w-full">
-      <div className="max-w-[1366px] justify-self-center px-4 sm:px-6 md:px-8 lg:px-10">
+      <div className="max-w-[1366px] justify-self-center px-6 sm:px-10 md:px-20 lg:px-30">
         <h2 id="faq-title" className="font-h1 mb-8 sm:mb-12 animate-fade-in">
           {t("Question.title_1")}
           <span className="text-primary">{t("Question.title_2")}</span>

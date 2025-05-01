@@ -25,8 +25,8 @@ const ServiceReview = () => {
   }
 
   return (
-    <section className="w-full py-8 md:py-[80px] bg-black-light flex flex-col items-center border-b-[1px] border-black-normal">
-      <div className="max-w-[1366px] w-full flex flex-col gap-5 items-center px-10">
+    <section className="w-full py-8 md:py-14 lg:py-[80px] bg-black-light flex flex-col items-center border-b-[1px] border-black-normal">
+      <div className="max-w-[1366px] w-full flex flex-col gap-8 items-center px-10">
         <div className="flex flex-col gap-4 items-center">
           <h2 id="reviews-heading" className="font-h1">
             <StrapiText
@@ -55,7 +55,8 @@ const ServiceReview = () => {
         <MainButton
           type="primary"
           title={`${t("OrderNow")} >`}
-          customClass="sm:w-[30%] xl:w-[20%] w-full"
+          customClass="sm:w-[45%] xl:w-[20%] w-full"
+          customChildClass="py-4"
           link={`${serviceItems.ordernow}`}
         />
       </div>

@@ -38,7 +38,7 @@ const SectionWhy = memo(() => {
           </p>
         </div>
         <div className="flex flex-col gap-8 lg:mt-8 items-center w-full ">
-          <div className="mt-[70px] lg:mt-0 flex flex-col sm:flex-row bg-white border border-black-dark/50 rounded-[16px] py-6 relative w-full items-center shadow-sm hover:shadow-md transition-all duration-300">
+          <div className="mt-[70px] lg:mt-0 flex flex-col sm:flex-row bg-white border border-black-dark/50 rounded-[16px] py-6 relative w-full lg:w-[80%] items-center shadow-sm hover:shadow-md transition-all duration-300">
             <div className="absolute -top-0 right-0 transform -translate-y-[78%] translate-x-[10%] md:translate-x-[20%] z-20 w-[80px] lg:w-[10%] flex flex-col items-end">
               <Image
                 width={136}

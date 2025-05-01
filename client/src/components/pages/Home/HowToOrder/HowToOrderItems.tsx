@@ -21,7 +21,7 @@ const HowToOrderItems = memo(({ item, count }: HowToOrderItemsProps) => {
           priority={false}
         />
       </div>
-      <div className="flex flex-col gap-6 justify-between items-center">
+      <div className="flex flex-col gap-2 justify-between items-center">
         <div className="text-[#01c573] bg-black rounded-lg flex justify-center items-center w-8 h-8 font-clash text-xl font-semibold leading-[1.25]">
           {count + 1}
         </div>

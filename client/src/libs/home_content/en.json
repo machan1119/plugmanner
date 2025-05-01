@@ -212,7 +212,9 @@
     "Popular": "Popular",
     "ReviewSubmit": "Review submitted by ",
     "Video": "Video",
-    "Articles": "Related Articles",
+    "Articles_1": "Related ",
+    "Articles_2": "Articles",
+    "ReadAllNews":"Read all News & Articles >",
     "OrderNowFix": "Instant delivery, order now >"
   }
 }

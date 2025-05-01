@@ -20,7 +20,7 @@ const ServiceSummary2 = memo(() => {
   const { title, EachSummary } = serviceItems.introduction.Summary2;
 
   return (
-    <section className="w-full py-8 md:py-[80px] bg-black-light flex flex-col items-center border-b-[1px] border-black-normal">
+    <section className="w-full py-6 md:py-14 lg:py-[80px] bg-black-light flex flex-col items-center border-b-[1px] border-black-normal">
       <div className="max-w-[1366px] w-full flex flex-col items-center px-10">
         <h2 id="summary2-heading">{title.text[0].content}</h2>
         <StrapiText

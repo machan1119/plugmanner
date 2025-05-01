@@ -21,7 +21,7 @@ const ServiceDownBlogs = memo(({ className = "" }: ServiceDownBlogsProps) => {
   return (
     <section
       className={`
-        w-full py-8 md:py-[80px] border-b-[1px] border-black-normal
+        w-full py-6 md:py-16 lg:py-[80px] border-b-[1px] border-black-normal
         ${className}
       `}
     >
@@ -32,14 +32,14 @@ const ServiceDownBlogs = memo(({ className = "" }: ServiceDownBlogsProps) => {
             customClassName="font-h1 w-[50%] text-wrap"
           />
         )}
-        <div className="w-full flex flex-col gap-10">
+        <div className="w-full flex flex-col gap-20">
           {serviceItems.introduction.DownBlogs.Blog.map(
             (item: BlogType, index: number) => (
               <article
-                className={`w-[100%] flex lg:flex-row flex-col gap-5 lg:justify-between items-center ${
+                className={`w-[100%] flex md:flex-row flex-col gap-5 md:justify-between items-center ${
                   index % 2 !== 0
-                    ? "lg:flex-row-reverse flex-col-reverse md:pl-16"
-                    : "md:pr-16"
+                    ? "md:flex-row-reverse flex-col-reverse lg:pl-16"
+                    : "lg:pr-16"
                 }`}
                 key={index}
               >

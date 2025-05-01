@@ -1,22 +1,43 @@
-import React, { useState, memo, useEffect, useCallback } from "react";
+import React, { useState, memo, useEffect, useCallback, useMemo } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { SwitchButton } from "@/components/Buttons";
 import ServicesItem from "./ServicesItem";
 import { useList } from "@/providers/ListProvider";
-import { ServicesListType } from "@/libs/types/ListTypes";
+import { GroupedToolsType, ServicesListType } from "@/libs/types/ListTypes";
 import { useTranslations } from "next-intl";
+import FreeToolsItem from "./FreeToolsItem";
 
 type FilterType = "popular" | "AToZ" | "ZToA";
 
 const SectionServices = memo(() => {
-  const { serviceList } = useList();
+  const { serviceList, freeToolsList } = useList();
   const [status, setStatus] = useState<"Services" | "Tools">("Services");
   const [filter, setFilter] = useState<FilterType>("popular");
   const [filteredList, setFilteredList] = useState<ServicesListType[]>([]);
+  const [filteredToolsList, setFilteredToolsList] = useState<
+    GroupedToolsType[]
+  >([]);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const itemsPerPage = 20;
   const t = useTranslations("Home");
+  const groupedFreeTools = useMemo(() => {
+    return Object.values(
+      Object.groupBy(freeToolsList, (item) => item.free_tool.trim())
+    )
+      .map((group) => {
+        if (group) {
+          return {
+            type: group[0].free_tool.trim(),
+            popular: group[0].free_tool_popular,
+            tools: group,
+          };
+        }
+        return undefined;
+      })
+      .filter((group): group is GroupedToolsType => group !== undefined);
+  }, [freeToolsList]);
+
   const filterAndSortList = useCallback(
     (list: ServicesListType[], filter: FilterType) => {
       return [...list].sort((a, b) => {
@@ -32,13 +53,36 @@ const SectionServices = memo(() => {
     []
   );
 
+  const filterAndSortToolsList = useCallback(
+    (list: GroupedToolsType[], filter: FilterType) => {
+      return [...list].sort((a, b) => {
+        if (filter === "AToZ") {
+          return a.type.toLowerCase().localeCompare(b.type.toLowerCase());
+        }
+        if (filter === "ZToA") {
+          return b.type.toLowerCase().localeCompare(a.type.toLowerCase());
+        }
+        return Number(b.popular) - Number(a.popular);
+      });
+    },
+    []
+  );
+
   useEffect(() => {
     const sortedList = filterAndSortList(serviceList.data_2, filter);
+    const sortedToolsList = filterAndSortToolsList(groupedFreeTools, filter);
     const initialData = sortedList.slice(0, itemsPerPage);
+    setFilteredToolsList(sortedToolsList);
     setFilteredList(initialData);
     setPage(1);
     setHasMore(sortedList.length > itemsPerPage);
-  }, [filter, serviceList, filterAndSortList]);
+  }, [
+    filter,
+    serviceList,
+    filterAndSortList,
+    groupedFreeTools,
+    filterAndSortToolsList,
+  ]);
 
   const loadMore = () => {
     const nextPage = page + 1;
@@ -96,9 +140,13 @@ const SectionServices = memo(() => {
           className="w-full h-max"
         >
           <div className="w-full grid md:grid-cols-2 xl:grid-cols-3 gap-4">
-            {filteredList.map((item, index) => (
-              <ServicesItem serviceData={item} key={index} />
-            ))}
+            {status == "Services"
+              ? filteredList.map((item, index) => (
+                  <ServicesItem serviceData={item} key={index} />
+                ))
+              : filteredToolsList.map((item, index) => (
+                  <FreeToolsItem freeToolsData={item} key={index} />
+                ))}
           </div>
         </InfiniteScroll>
       </div>

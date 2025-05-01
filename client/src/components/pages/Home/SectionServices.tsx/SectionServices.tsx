@@ -21,14 +21,26 @@ const SectionServices = memo(() => {
   const [hasMore, setHasMore] = useState(true);
   const itemsPerPage = 20;
   const t = useTranslations("Home");
+  function groupBy<T>(
+    array: T[],
+    keyGetter: (item: T) => string
+  ): Record<string, T[]> {
+    return array.reduce((result, item) => {
+      const key = keyGetter(item);
+      if (!result[key]) {
+        result[key] = [];
+      }
+      result[key].push(item);
+      return result;
+    }, {} as Record<string, T[]>);
+  }
   const groupedFreeTools = useMemo(() => {
-    return Object.values(
-      Object.groupBy(freeToolsList, (item) => item.free_tool.trim())
-    )
-      .map((group) => {
+    const grouped = groupBy(freeToolsList, (item) => item.free_tool.trim());
+    return Object.entries(grouped)
+      .map(([type, group]) => {
         if (group) {
           return {
-            type: group[0].free_tool.trim(),
+            type: type,
             popular: group[0].free_tool_popular,
             tools: group,
           };

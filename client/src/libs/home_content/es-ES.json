@@ -102,16 +102,16 @@
       "description": "Aquí tienes un resumen rápido de cómo puedes colocar una orden para nuestros servicios de redes sociales.",
       "OrderSteps": [
         {
-          "title": "Elige un Servicio",
-          "description": "Navega por nuestro rango de servicios de redes sociales y selecciona el que mejor se adapte a tus necesidades."
+          "title": "Elige el servicio",
+          "description": "Selecciona la plataforma de redes sociales y el servicio requerido."
         },
         {
-          "title": "Añadir al Carrito",
-          "description": "Añade el servicio elegido a tu carrito haciendo clic en el botón 'Añadir al Carrito'."
+          "title": "Establece el objetivo",
+          "description": "Elige la cantidad de servicios deseada, por ejemplo, 100 seguidores."
         },
         {
-          "title": "Checkout",
-          "description": "Completa el proceso de pago para colocar tu orden."
+          "title": "Obtén los resultados",
+          "description": "¡Finaliza la compra y listo! Nuestro equipo entregará tu pedido el mismo día."
         }
       ]
     },
@@ -143,7 +143,7 @@
       }
     },
     "OurPartners": {
-      "title_1": "Nuestros",
+      "title_1": "Nuestros ",
       "title_2": "Socios",
       "description": "Trabajamos con los mejores en el negocio."
     },

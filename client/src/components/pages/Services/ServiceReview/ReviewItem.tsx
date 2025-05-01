@@ -20,7 +20,7 @@ const ReviewItem = ({
 }: ReviewItemProps) => {
   const t = useTranslations("ServiceItem");
   return (
-    <article className="mb-5 flex flex-col gap-2 p-6 bg-white grow rounded-xl border border-[#e2e2e2] break-inside-avoid">
+    <article className="flex flex-col gap-2 p-6 mt-5 bg-white grow rounded-xl border border-[#e2e2e2] break-inside-avoid">
       <Image
         src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/642aa24862a9ec01de9afae0_quotes-fill.svg"
         alt="review"

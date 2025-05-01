@@ -35,7 +35,7 @@ const ServiceCustomerReview = () => {
   const showLessButton = count > INITIAL_COUNT && count >= maxCount;
 
   return (
-    <section className="py-[80px] flex flex-col items-center border-b-[1px] border-black-normal">
+    <section className="py-8 md:py-[80px] flex flex-col items-center border-b-[1px] border-black-normal">
       <div className="max-w-[1366px] px-10 flex flex-col gap-7 w-full items-center mb-8">
         <div className="flex flex-col gap-5 items-center w-full">
           <h2>
@@ -46,7 +46,7 @@ const ServiceCustomerReview = () => {
           </h2>
           <StrapiText
             data={serviceItems.introduction.CustomerReviews.text[0].text}
-            customClassName="font-service-text text-[18px] lg:w-[50%] !text-center"
+            customClassName="font-service-text text-[16px] md:text-[18px] w-[90%] lg:w-[50%] !text-center"
           />
           <div className="flex items-center mt-2">
             <Image

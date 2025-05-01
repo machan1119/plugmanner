@@ -46,23 +46,8 @@ const ServiceQuestionItem = memo(
         tabIndex={0}
         onKeyDown={handleKeyDown}
       >
-        <div
-          className="
-        flex justify-between items-center 
-        p-4 
-        transition-all duration-500 ease-in-out
-        font-clash
-        group-hover:text-primary
-      "
-        >
-          <span
-            className="
-          text-text-primary
-          text-base md:text-lg
-          font-semibold
-          transition-all duration-500 ease-in-out
-        "
-          >
+        <div className="flex justify-between items-center p-8 transition-all duration-500 ease-in-out font-clash group-hover:text-primary">
+          <span className="text-text-primary text-lg font-semibold transition-all duration-500 ease-in-out      ">
             {item.question}
           </span>
           <Image
@@ -88,7 +73,7 @@ const ServiceQuestionItem = memo(
         >
           <div className="overflow-hidden">
             <div className="py-2 px-4">
-              <div className="text-text-secondary text-lg leading-relaxed transition-all duration-300 ease-in-out">
+              <div className="text-text-secondary text-base leading-relaxed transition-all duration-300 ease-in-out">
                 {item.answer}
               </div>
             </div>

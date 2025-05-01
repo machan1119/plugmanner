@@ -51,7 +51,7 @@ const SectionLogos = memo(() => {
   return (
     <section
       id="services-list"
-      className="p-4 sm:p-6 md:p-8 lg:p-10 flex flex-col gap-6 items-center mb-4 bg-white/5 backdrop-blur-sm rounded-lg"
+      className="p-10 flex flex-col gap-2 items-center bg-white/5 backdrop-blur-sm rounded-lg"
     >
       <p
         id="section-logos-title"
@@ -59,7 +59,7 @@ const SectionLogos = memo(() => {
       >
         FEATURED IN TOP MEDIA
       </p>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 md:gap-8 lg:gap-[52px] w-full max-w-7xl mx-auto">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-1 lg:gap-[52px] w-full max-w-7xl mx-auto">
         {logosData.map((logo, index) => (
           <div
             key={logo.alt}

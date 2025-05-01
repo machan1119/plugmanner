@@ -92,13 +92,14 @@ export const SwitchButton = ({
 }: SwitchButtonProps) => {
   const t = useTranslations("Home");
   return (
-    <div
-      className={`bg-background-light rounded-full flex border border-black-dark p-1 shadow-soft animate-fade-in ${customClass}`}
-    >
-      <button
-        onClick={() => setStatus("Services")}
-        className={`
-          w-full lg:w-fit px-6 py-3 border font-clash text-base md:text-[20px] font-semibold rounded-full
+    <div className="w-full justify-self-center">
+      <div
+        className={`bg-background-light rounded-full flex border border-black-dark p-1 shadow-soft animate-fade-in justify-self-center ${customClass}`}
+      >
+        <button
+          onClick={() => setStatus("Services")}
+          className={`
+          w-full md:w-fit px-6 py-4 border font-clash text-base md:text-[20px] font-semibold rounded-full
           transition-all duration-300
           ${
             status === "Tools"
@@ -106,13 +107,13 @@ export const SwitchButton = ({
               : "bg-primary border-black-dark text-white shadow-soft"
           }
         `}
-      >
-        {t("Services.SwitchButton.Services")}
-      </button>
-      <button
-        onClick={() => setStatus("Tools")}
-        className={`
-          w-full lg:w-fit px-6 py-3 border font-clash text-base md:text-[20px] font-semibold rounded-full
+        >
+          {t("Services.SwitchButton.Services")}
+        </button>
+        <button
+          onClick={() => setStatus("Tools")}
+          className={`
+          w-full md:w-fit px-6 py-4 border font-clash text-base md:text-[20px] font-semibold rounded-full
           transition-all duration-300
           ${
             status === "Tools"
@@ -120,9 +121,10 @@ export const SwitchButton = ({
               : "border-transparent text-text-light hover:text-primary"
           }
         `}
-      >
-        {t("Services.SwitchButton.Tools")}
-      </button>
+        >
+          {t("Services.SwitchButton.Tools")}
+        </button>
+      </div>
     </div>
   );
 };

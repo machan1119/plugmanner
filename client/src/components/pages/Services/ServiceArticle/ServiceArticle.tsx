@@ -12,7 +12,7 @@ const ServiceArticle = () => {
     return null;
   }
   return (
-    <section className="flex flex-col py-20 items-center bg-white w-full border-b border-black-normal">
+    <section className="flex flex-col py-8 md:py-[80px] items-center bg-white w-full border-b border-black-normal">
       <div className="max-w-[1366px] w-full h-fit justify-self-center px-10">
         <h2 className="font-h1 mb-12">{t("Articles")}</h2>
         <div className="border-white w-full h-full grid md:grid-cols-3 grid-cols-1 gap-3">

@@ -26,10 +26,8 @@ const NavBarMain = memo(() => {
     setSearchService("");
   };
   return (
-    <div
-      className={`w-full transition-all duration-300 ${searchShow && "pb-2"}`}
-    >
-      <div className="py-2 flex flex-col items-center w-full bg-white">
+    <div className={`w-full ${searchShow && "pb-2"}`}>
+      <div className="py-[18px] flex flex-col items-center w-full bg-white border-b border-black/25">
         <div className="max-w-[1366px] w-full flex items-center justify-between px-4 md:px-10">
           <Link
             href="/"
@@ -64,7 +62,7 @@ const NavBarMain = memo(() => {
               </div>
               <button
                 onClick={() => setSearchShow(!searchShow)}
-                className="lg:hidden text-text-secondary hover:text-primary transition-colors"
+                className="lg:hidden text-text-secondary hover:text-primary transition-colors p-[2px]"
               >
                 {SearchIcon}
               </button>
@@ -130,17 +128,17 @@ const NavBarMain = memo(() => {
                 </div>
               )}
             </div>
-            <div className="w-px h-[50px] bg-gradient-to-b from-transparent via-black-normal to-transparent" />
+            <div className="hidden lg:block w-px h-[50px] bg-gradient-to-b from-transparent via-black-normal to-transparent" />
             <MainButton
               type="white-main"
               title={t("main.login")}
               link="https://panel.socialplug.io/"
               customChildClass="px-6"
-              customClass="hidden md:block"
+              customClass="hidden lg:block"
             />
             <a
               href="https://panel.socialplug.io/"
-              className="rounded-lg border border-black-normal p-2 md:hidden"
+              className="rounded-lg border border-black-normal p-2 lg:hidden"
             >
               <Image
                 src="/image/user-icon.png"
@@ -165,7 +163,7 @@ const NavBarMain = memo(() => {
                 rounded-lg gap-3 
                 flex items-center 
                 border border-black-normal
-                p-3 
+                py-3 px-[10px] bg-black-light
                 transition-all duration-300
                 hover:border-primary
                 hover:shadow-soft

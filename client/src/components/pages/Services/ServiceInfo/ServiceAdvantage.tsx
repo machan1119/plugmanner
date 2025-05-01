@@ -13,7 +13,7 @@ const ServiceAdvantage = memo(() => {
   }
 
   return (
-    <div className="w-max px-4 py-3 flex sm:flex-row flex-col items-start gap-4 lg:items-center bg-[#f6faff] border-[1px] border-black-medium rounded-lg">
+    <div className="mt-[40px] lg:mt-0 w-max px-4 py-3 flex sm:flex-row flex-col items-start gap-4 lg:items-center bg-[#f6faff] border-[1px] border-black-medium rounded-lg">
       <StrapiParagraph
         paragraph={serviceItems.introduction.Quality.list}
         customClassName="flex font-service-text text-[14px] leading-[28px]"

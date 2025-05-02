@@ -247,7 +247,6 @@ const FreeToolsContent = memo(() => {
   if (isLoading) {
     return <ServicePageSkeleton />;
   }
-  console.log(freeToolItem);
   if (!freeToolItem?.Header.text) return;
 
   const url = generate_item_url_from_name(freeToolItem?.name);

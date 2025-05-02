@@ -15,6 +15,16 @@ export const routing = defineRouting({
       de: "/dienstleistungen/[item]",
       "pt-BR": "/serviços/[item]",
     },
+    "/free-tools": {
+      "es-ES": "/herramientas-gratis",
+      de: "/kostenlose-tools",
+      "pt-BR": "/ferramentas-gratuitas",
+    },
+    "/free-tools/[item]": {
+      "es-ES": "/herramientas-gratis/[item]",
+      de: "/kostenlose-tools/[item]",
+      "pt-BR": "/ferramentas-gratuitas/[item]",
+    },
   },
   localePrefix: "as-needed",
 });

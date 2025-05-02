@@ -47,13 +47,38 @@ export async function fetchFreeToolsData(itemId: string, locale: string) {
   try {
     const path = `/sub-free-tools/${itemId}`;
     const urlParamsObject = {
-      pLevel: "7",
-      sort: { createdAt: "asc" },
+      fields: ["name", "popular"],
+      populate: [
+        "free_tool.icon",
+        "Header.text",
+        "SimpleDescription.text",
+        "Orders.subservice.introduction.OrderIntro",
+        "HowToOrder.step",
+        "HowToOrder.title.text",
+        "HowToOrder.description.text",
+        "Summary.title.text",
+        "Summary.EachSummary",
+        "Benefits",
+        "Benefits.title.text",
+        "Benefits.Benefit.paragraph.text",
+        "Benefits.Benefit.title.text",
+        "UpBlog.Blog",
+        "UpBlog.title.text",
+        "UpBlog.Blog.paragraph.text",
+        "UpBlog.Blog.title.text",
+        "DownBlogs.Blog",
+        "DownBlogs.title.text",
+        "DownBlogs.Blog.paragraph.text",
+        "DownBlogs.Blog.title.text",
+        "FAQ.header.text",
+        "FAQ.Question",
+        "icon",
+        "order_icon",
+      ],
       "[locale]": locale,
     };
     const options = "";
     const fetchedData = await fetchAPI(path, urlParamsObject, options);
-    console.log(fetchedData);
     return fetchedData.data;
   } catch (error) {
     console.error(error);

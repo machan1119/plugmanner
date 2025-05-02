@@ -28,10 +28,13 @@ const ServiceUpBlogs = memo(({ className = "" }: ServiceUpBlogsProps) => {
     >
       <div className="flex flex-col gap-20 max-w-[1366px] justify-self-center items-center px-10">
         {serviceItems.introduction.UpBlogs.title?.text && (
-          <h2 id="blogs-heading" className="font-h1 w-[50%] text-wrap">
+          <h2
+            id="blogs-heading"
+            className="font-h1 w-full md:w-[50%] text-wrap"
+          >
             <StrapiText
               data={serviceItems.introduction.UpBlogs.title.text}
-              customClassName="font-h1 w-[50%] text-wrap"
+              customClassName="font-h1 text-wrap"
             />
           </h2>
         )}

@@ -1,5 +1,7 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
+import { StrapiText } from "@/components/StrapiComponents";
+import { useFreeTools } from "@/providers/FreeToolsProvider";
 
 interface VectorImage {
   artifacts: Array<{
@@ -88,6 +90,7 @@ const LinkedinProfileViewer = () => {
     new Set()
   );
   const profileCardRef = useRef<HTMLDivElement>(null);
+  const { freeToolItem } = useFreeTools();
 
   const getImageUrl = (
     imageData: ImageData | undefined,
@@ -202,174 +205,285 @@ const LinkedinProfileViewer = () => {
     setExpandedDescriptions(new Set());
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
-
+  if (!freeToolItem?.Header) {
+    return null;
+  }
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
-      {/* Input Form */}
-      <div className="max-w-3xl mx-auto mb-8">
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="flex flex-col md:flex-row gap-4">
-            <input
-              type="text"
-              value={profileUrl}
-              onChange={(e) => setProfileUrl(e.target.value)}
-              placeholder="Enter LinkedIn Profile URL"
-              className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-            />
-            <button
-              type="submit"
-              disabled={isLoading}
-              className={`flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-white font-semibold transition-colors ${
-                isLoading
-                  ? "bg-green-600 cursor-not-allowed opacity-80"
-                  : "bg-green-500 hover:bg-green-600"
-              }`}
-            >
-              {isLoading ? (
-                <>
-                  <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
-                    <circle
-                      className="opacity-25"
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="currentColor"
-                      strokeWidth="4"
+    <section className="w-full py-6 md:py-14 lg:py-[64px] gap-6 md:gap-14 lg:gap-16 bg-white flex flex-col items-center bg-[linear-gradient(#fffffff5,#fff),url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/67bb4de67a2ea65794f385ee_perspective-grid-black.webp')] bg-[position:0_0,50%_0] bg-[size:auto,contain] bg-no-repeat">
+      <div className="max-w-[1366px] w-full flex flex-col gap-4 items-center px-10">
+        <h1>
+          <StrapiText
+            data={freeToolItem?.Header.text}
+            customClassName="!font-service text-wrap !text-center lg:!text-left"
+          />
+        </h1>
+        {/* Input Form */}
+        <div className="mx-auto mb-8 w-[80%] mt-10">
+          <form onSubmit={handleSubmit} className="space-y-4 w-full">
+            <div className="flex flex-col md:flex-row gap-4 w-full">
+              <input
+                type="text"
+                value={profileUrl}
+                onChange={(e) => setProfileUrl(e.target.value)}
+                placeholder="Enter LinkedIn Profile URL"
+                className="flex-1 p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+              <button
+                type="submit"
+                disabled={isLoading}
+                className={`flex items-center justify-center gap-2 px-10 py-3 rounded-lg text-white text-[25px] font-clash font-semibold transition-colors ${
+                  isLoading
+                    ? "bg-primary cursor-not-allowed opacity-80"
+                    : "bg-primary hover:bg-primary"
+                }`}
+              >
+                {isLoading ? (
+                  <>
+                    <svg
+                      className="loading-spinner"
+                      width="26"
+                      height="26"
+                      viewBox="0 0 26 26"
                       fill="none"
-                    />
-                    <path
-                      className="opacity-75"
-                      fill="currentColor"
-                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                    />
-                  </svg>
-                  <span>Loading...</span>
-                </>
-              ) : (
-                <>
-                  <svg
-                    className="w-5 h-5"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M12 4a8 8 0 100 16 8 8 0 000-16zM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12z"
-                      fill="currentColor"
-                    />
-                    <path
-                      d="M12 6a6 6 0 100 12 6 6 0 000-12zM4 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8-8-3.582-8-8z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                  <span>See Profile</span>
-                </>
-              )}
-            </button>
-          </div>
-          {error && <p className="text-red-500 text-sm">{error}</p>}
-        </form>
-      </div>
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M21.2639 9.11111C19.9106 6.02042 16.5749 4.25 12.9786 4.25C8.42958 4.25 4.69042 7.70333 4.25 12.125"
+                        stroke="white"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      ></path>
+                      <path
+                        d="M17.3645 9.5H21.2242C21.3635 9.5 21.497 9.44469 21.5955 9.34623C21.6939 9.24777 21.7492 9.11424 21.7492 8.975V5.125M4.73633 16.8889C6.08966 19.9796 9.42536 21.75 13.0216 21.75C17.5706 21.75 21.3098 18.2967 21.7502 13.875"
+                        stroke="white"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      ></path>
+                      <path
+                        d="M8.63569 16.5H4.77597C4.70695 16.4999 4.63857 16.5134 4.57476 16.5397C4.51096 16.566 4.45297 16.6047 4.40411 16.6534C4.35526 16.7022 4.3165 16.7601 4.29006 16.8239C4.26361 16.8876 4.25 16.956 4.25 17.025V20.875"
+                        stroke="white"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      ></path>
+                    </svg>
+                    <span>Loading...</span>
+                  </>
+                ) : (
+                  <>
+                    <svg
+                      width="26"
+                      height="25"
+                      viewBox="0 0 26 25"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g clip-path="url(#clip0_284_1180)">
+                        <path
+                          fillRule="evenodd"
+                          clipRule="evenodd"
+                          d="M14.7857 8.03585C14.7857 10.9945 12.3872 13.393 9.42857 13.393C6.46991 13.393 4.07143 10.9945 4.07143 8.03585C4.07143 5.07719 6.46991 2.67871 9.42857 2.67871C12.3872 2.67871 14.7857 5.07719 14.7857 8.03585ZM9.42857 15.1787C4.49746 15.1787 0.5 19.1762 0.5 24.1072C0.5 24.6003 0.899746 25.0001 1.39286 25.0001H17.4643C17.9574 25.0001 18.3571 24.6003 18.3571 24.1072C18.3571 19.1762 14.3597 15.1787 9.42857 15.1787ZM24.6073 25.0001H20.46C20.5443 24.7172 20.5895 24.4174 20.5895 24.1072C20.5895 20.4624 18.8423 17.2257 16.1399 15.1889C16.2829 15.1821 16.4268 15.1787 16.5716 15.1787C21.5027 15.1787 25.5002 19.1762 25.5002 24.1072C25.5002 24.6003 25.1004 25.0001 24.6073 25.0001ZM16.5716 13.393C16.0328 13.393 15.5126 13.3134 15.022 13.1655C16.2615 11.8147 17.018 10.0136 17.018 8.03585C17.018 6.05809 16.2615 4.25701 15.022 2.90623C15.5126 2.75825 16.0328 2.67871 16.5716 2.67871C19.5302 2.67871 21.9287 5.07719 21.9287 8.03585C21.9287 10.9945 19.5302 13.393 16.5716 13.393Z"
+                          fill="white"
+                        ></path>
+                      </g>
+                    </svg>
+                    <span>See Profile</span>
+                  </>
+                )}
+              </button>
+            </div>
+            {error && (
+              <div className="text-[#d32f2f] rounded-md bg-[#fdecea] p-[10px] text-center text-base font-satoshi">
+                {error}
+              </div>
+            )}
+          </form>
+        </div>
 
-      {/* Profile Card */}
-      {profileData && (
-        <div
-          ref={profileCardRef}
-          className="max-w-3xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden"
-        >
-          {/* Cover Photo */}
-          <div className="relative h-48 bg-gray-100">
-            <Image
-              src={getImageUrl(
-                profileData.profile.miniProfile?.backgroundImage,
-                "cover"
-              )}
-              alt="Cover Photo"
-              fill
-              className="object-cover"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.src =
-                  "https://freetools.socialplug.io/linkedin-profile-viewer/api/default-cover";
-              }}
-            />
-          </div>
+        {/* Profile Card */}
+        {profileData && (
+          <div
+            ref={profileCardRef}
+            className="max-w-3xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden"
+          >
+            {/* Cover Photo */}
+            <div className="relative h-48 bg-gray-100">
+              <Image
+                src={getImageUrl(
+                  profileData.profile.miniProfile?.backgroundImage,
+                  "cover"
+                )}
+                alt="Cover Photo"
+                fill
+                className="object-cover"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src =
+                    "https://freetools.socialplug.io/linkedin-profile-viewer/api/default-cover";
+                }}
+              />
+            </div>
 
-          {/* Profile Header */}
-          <div className="relative px-6 py-4">
-            <div className="absolute -top-16 left-6">
-              <div className="relative w-32 h-32 rounded-full border-4 border-white shadow-lg overflow-hidden">
-                <Image
-                  src={getImageUrl(profileData.profile.miniProfile?.picture)}
-                  alt="Profile Picture"
-                  fill
-                  className="object-cover"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src =
-                      "https://freetools.socialplug.io/linkedin-profile-viewer/api/default-profile";
-                  }}
-                />
+            {/* Profile Header */}
+            <div className="relative px-6 py-4">
+              <div className="absolute -top-16 left-6">
+                <div className="relative w-32 h-32 rounded-full border-4 border-white shadow-lg overflow-hidden">
+                  <Image
+                    src={getImageUrl(profileData.profile.miniProfile?.picture)}
+                    alt="Profile Picture"
+                    fill
+                    className="object-cover"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src =
+                        "https://freetools.socialplug.io/linkedin-profile-viewer/api/default-profile";
+                    }}
+                  />
+                </div>
+              </div>
+
+              <div className="ml-36">
+                <h1 className="text-2xl font-semibold text-gray-900">
+                  {profileData.profile.firstName} {profileData.profile.lastName}
+                </h1>
+                <p className="text-gray-600">{profileData.profile.headline}</p>
+                <p className="text-gray-500 text-sm">
+                  {profileData.profile.locationName}
+                </p>
               </div>
             </div>
 
-            <div className="ml-36">
-              <h1 className="text-2xl font-semibold text-gray-900">
-                {profileData.profile.firstName} {profileData.profile.lastName}
-              </h1>
-              <p className="text-gray-600">{profileData.profile.headline}</p>
-              <p className="text-gray-500 text-sm">
-                {profileData.profile.locationName}
-              </p>
-            </div>
-          </div>
-
-          {/* About Section */}
-          {profileData.profile.summary && (
-            <div className="px-6 py-4 border-t border-gray-200">
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">
-                About
-              </h2>
-              <div className="prose prose-sm text-gray-600">
-                {profileData.profile.summary
-                  .split("\n\n")
-                  .map((paragraph, index) => (
-                    <p key={index} className="mb-4 last:mb-0">
-                      {paragraph.split("\n").map((line, lineIndex) => (
-                        <span key={lineIndex}>
-                          {line}
-                          <br />
-                        </span>
-                      ))}
-                    </p>
-                  ))}
+            {/* About Section */}
+            {profileData.profile.summary && (
+              <div className="px-6 py-4 border-t border-gray-200">
+                <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                  About
+                </h2>
+                <div className="prose prose-sm text-gray-600">
+                  {profileData.profile.summary
+                    .split("\n\n")
+                    .map((paragraph, index) => (
+                      <p key={index} className="mb-4 last:mb-0">
+                        {paragraph.split("\n").map((line, lineIndex) => (
+                          <span key={lineIndex}>
+                            {line}
+                            <br />
+                          </span>
+                        ))}
+                      </p>
+                    ))}
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
-          {/* Experience Section */}
-          {profileData.positionGroupView?.elements && (
-            <div className="px-6 py-4 border-t border-gray-200">
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">
-                Experience
-              </h2>
-              <div className="space-y-6">
-                {profileData.positionGroupView.elements.map((group, index) => {
-                  const position = group.positions[0];
-                  const company =
-                    position.company?.miniCompany || group.miniCompany;
-                  const duration = calculateDuration(
-                    position.timePeriod.startDate,
-                    position.timePeriod.endDate
-                  );
+            {/* Experience Section */}
+            {profileData.positionGroupView?.elements && (
+              <div className="px-6 py-4 border-t border-gray-200">
+                <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                  Experience
+                </h2>
+                <div className="space-y-6">
+                  {profileData.positionGroupView.elements.map(
+                    (group, index) => {
+                      const position = group.positions[0];
+                      const company =
+                        position.company?.miniCompany || group.miniCompany;
+                      const duration = calculateDuration(
+                        position.timePeriod.startDate,
+                        position.timePeriod.endDate
+                      );
 
-                  return (
+                      return (
+                        <div key={index} className="flex gap-4">
+                          <div className="flex-shrink-0">
+                            <div className="relative w-12 h-12 rounded-lg border border-gray-200 overflow-hidden">
+                              <Image
+                                src={getImageUrl(company?.logo, "company")}
+                                alt={company?.name || ""}
+                                fill
+                                className="object-contain"
+                                onError={(e) => {
+                                  const target = e.target as HTMLImageElement;
+                                  target.src =
+                                    "https://freetools.socialplug.io/linkedin-profile-viewer/api/default-company";
+                                }}
+                              />
+                            </div>
+                          </div>
+                          <div className="flex-1">
+                            <h3 className="text-lg font-semibold text-gray-900">
+                              {position.title}
+                            </h3>
+                            <p className="text-gray-600">{company?.name}</p>
+                            <p className="text-sm text-gray-500">
+                              {position.timePeriod.startDate.year} -{" "}
+                              {position.timePeriod.endDate
+                                ? position.timePeriod.endDate.year
+                                : "Present"}{" "}
+                              · {duration}
+                            </p>
+                            {position.description && (
+                              <>
+                                <div
+                                  className={`mt-2 text-sm text-gray-600 ${
+                                    !expandedDescriptions.has(index)
+                                      ? "line-clamp-2"
+                                      : ""
+                                  }`}
+                                >
+                                  {position.description
+                                    .split("\n\n")
+                                    .map((paragraph, pIndex) => (
+                                      <p
+                                        key={pIndex}
+                                        className="mb-2 last:mb-0"
+                                      >
+                                        {paragraph
+                                          .split("\n")
+                                          .map((line, lIndex) => (
+                                            <span key={lIndex}>
+                                              {line}
+                                              <br />
+                                            </span>
+                                          ))}
+                                      </p>
+                                    ))}
+                                </div>
+                                <button
+                                  onClick={() => toggleDescription(index)}
+                                  className="text-sm font-semibold text-blue-600 hover:text-blue-800 mt-2"
+                                >
+                                  {expandedDescriptions.has(index)
+                                    ? "See less"
+                                    : "...See more"}
+                                </button>
+                              </>
+                            )}
+                          </div>
+                        </div>
+                      );
+                    }
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* Education Section */}
+            {profileData.educationView?.elements && (
+              <div className="px-6 py-4 border-t border-gray-200">
+                <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                  Education
+                </h2>
+                <div className="space-y-6">
+                  {profileData.educationView.elements.map((edu, index) => (
                     <div key={index} className="flex gap-4">
                       <div className="flex-shrink-0">
                         <div className="relative w-12 h-12 rounded-lg border border-gray-200 overflow-hidden">
                           <Image
-                            src={getImageUrl(company?.logo, "company")}
-                            alt={company?.name || ""}
+                            src={getImageUrl(edu.school?.logo, "company")}
+                            alt={edu.schoolName}
                             fill
                             className="object-contain"
                             onError={(e) => {
@@ -382,114 +496,41 @@ const LinkedinProfileViewer = () => {
                       </div>
                       <div className="flex-1">
                         <h3 className="text-lg font-semibold text-gray-900">
-                          {position.title}
+                          {edu.schoolName}
                         </h3>
-                        <p className="text-gray-600">{company?.name}</p>
-                        <p className="text-sm text-gray-500">
-                          {position.timePeriod.startDate.year} -{" "}
-                          {position.timePeriod.endDate
-                            ? position.timePeriod.endDate.year
-                            : "Present"}{" "}
-                          · {duration}
+                        <p className="text-gray-600">
+                          {edu.degreeName} in {edu.fieldOfStudy}
                         </p>
-                        {position.description && (
-                          <>
-                            <div
-                              className={`mt-2 text-sm text-gray-600 ${
-                                !expandedDescriptions.has(index)
-                                  ? "line-clamp-2"
-                                  : ""
-                              }`}
-                            >
-                              {position.description
-                                .split("\n\n")
-                                .map((paragraph, pIndex) => (
-                                  <p key={pIndex} className="mb-2 last:mb-0">
-                                    {paragraph
-                                      .split("\n")
-                                      .map((line, lIndex) => (
-                                        <span key={lIndex}>
-                                          {line}
-                                          <br />
-                                        </span>
-                                      ))}
-                                  </p>
-                                ))}
-                            </div>
-                            <button
-                              onClick={() => toggleDescription(index)}
-                              className="text-sm font-semibold text-blue-600 hover:text-blue-800 mt-2"
-                            >
-                              {expandedDescriptions.has(index)
-                                ? "See less"
-                                : "...See more"}
-                            </button>
-                          </>
-                        )}
+                        <p className="text-sm text-gray-500">
+                          {edu.timePeriod.startDate.year} -{" "}
+                          {edu.timePeriod.endDate
+                            ? edu.timePeriod.endDate.year
+                            : "Present"}
+                        </p>
                       </div>
                     </div>
-                  );
-                })}
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
-          {/* Education Section */}
-          {profileData.educationView?.elements && (
-            <div className="px-6 py-4 border-t border-gray-200">
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">
-                Education
-              </h2>
-              <div className="space-y-6">
-                {profileData.educationView.elements.map((edu, index) => (
-                  <div key={index} className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="relative w-12 h-12 rounded-lg border border-gray-200 overflow-hidden">
-                        <Image
-                          src={getImageUrl(edu.school?.logo, "company")}
-                          alt={edu.schoolName}
-                          fill
-                          className="object-contain"
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement;
-                            target.src =
-                              "https://freetools.socialplug.io/linkedin-profile-viewer/api/default-company";
-                          }}
-                        />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-gray-900">
-                        {edu.schoolName}
-                      </h3>
-                      <p className="text-gray-600">
-                        {edu.degreeName} in {edu.fieldOfStudy}
-                      </p>
-                      <p className="text-sm text-gray-500">
-                        {edu.timePeriod.startDate.year} -{" "}
-                        {edu.timePeriod.endDate
-                          ? edu.timePeriod.endDate.year
-                          : "Present"}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+            {/* View Another Button */}
+            <div className="px-6 py-4 border-t border-gray-200 text-center">
+              <button
+                onClick={resetForm}
+                className="px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary transition-colors"
+              >
+                View Another Profile
+              </button>
             </div>
-          )}
-
-          {/* View Another Button */}
-          <div className="px-6 py-4 border-t border-gray-200 text-center">
-            <button
-              onClick={resetForm}
-              className="px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors"
-            >
-              View Another Profile
-            </button>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+        <StrapiText
+          data={freeToolItem.SimpleDescription.text}
+          customClassName="font-service-text !text-[20px] !text-center w-[40%]"
+        />
+      </div>
+    </section>
   );
 };
 

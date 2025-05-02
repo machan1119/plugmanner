@@ -1,10 +1,8 @@
 "use client";
-import React, { memo, useEffect, useCallback, useState } from "react";
+import React, { memo, useEffect, useCallback } from "react";
 import { ServicePageSkeleton } from "@/components/Skeletons";
-import { generate_item_url, generate_name } from "@/utils/functions";
+import { generate_item_url_from_name } from "@/utils/functions";
 import { useLocale } from "next-intl";
-import { OrderNow } from "@/components/OrderNow";
-import { fetchAPI } from "@/utils/fetch-api";
 import { useFreeTools } from "@/providers/FreeToolsProvider";
 import InstagramUsernameChecker from "./Instgram/InstagramUsernameChecker";
 import FacebookVideoDownloader from "./OtherTools/FacebookVideoDownloader";
@@ -24,6 +22,15 @@ import YoutubeDescriptionGenerator from "./YoutubeTools/YoutubeDescriptionGenera
 import YoutubeHashtagGenerator from "./YoutubeTools/YoutubeHashtagGenerator";
 import YoutubeNameGenerator from "./YoutubeTools/YoutubeNameGenerator";
 import YoutubeTitleGenerator from "./YoutubeTools/YoutubeTitleGenerator";
+import FreeToolsRelatedServices from "./FreeToolsSections/FreeToolsRelatedServices";
+import FreeToolsHowTo from "./FreeToolsSections/FreeToolsHowTo";
+import FreeToolsSummary from "./FreeToolsSections/FreeToolsSummary";
+import FreeToolsUpBlogs from "./FreeToolsSections/FreeToolsUpBlogs";
+import FreeToolsBenefit from "./FreeToolsSections/FreeToolsBenefit";
+import FreeToolsDownBlogs from "./FreeToolsSections/FreeToolsDownBlogs";
+import FreeToolsQuestion from "./FreeToolsSections/FreeToolsQuestion";
+import SectionServices from "../Home/SectionServices.tsx/SectionServices";
+import LinkedinProfileViewer from "./OtherTools/LinkedinProfileViewer";
 
 interface FreeToolsComponentType {
   component: React.ReactNode;
@@ -66,10 +73,10 @@ const freeToolsComponent: FreeToolsComponentType[] = [
   {
     component: <HookGenerator />,
     id: {
-      en: "hook-generator",
-      "es-ES": "generador-de-ganchos",
-      de: "hook-generator",
-      "pt-BR": "gerador-de-ganchos",
+      en: "ai-hook-generator",
+      "es-ES": "ai-generador-de-ganchos",
+      de: "ai-hook-generator",
+      "pt-BR": "ai-gerador-de-ganchos",
     },
   },
   {
@@ -79,6 +86,15 @@ const freeToolsComponent: FreeToolsComponentType[] = [
       "es-ES": "descargador-de-videos-de-linkedin",
       de: "linkedin-video-downloader",
       "pt-BR": "descarregador-de-vídeos-do-linkedin",
+    },
+  },
+  {
+    component: <LinkedinProfileViewer />,
+    id: {
+      en: "linkedin-profile-viewer",
+      "es-ES": "visor-de-perfiles-de-linkedon",
+      de: "linkedin-profilbetrachter",
+      "pt-BR": "visualizador de perfis do linkedin",
     },
   },
   {
@@ -200,18 +216,22 @@ const freeToolsComponent: FreeToolsComponentType[] = [
   },
 ];
 
-interface FaqType {
-  "@type": string;
-  name: string;
-  acceptedAnswer: {
-    "@type": string;
-    text: string;
-  };
+interface FreeToolsSection {
+  component: React.ReactNode;
+  id: string;
 }
 
+// interface FaqType {
+//   "@type": string;
+//   name: string;
+//   acceptedAnswer: {
+//     "@type": string;
+//     text: string;
+//   };
+// }
+
 const FreeToolsContent = memo(() => {
-  const { isLoading, freeToolItems } = useFreeTools();
-  const [serviceIcon, setServiceIcon] = useState("");
+  const { isLoading, freeToolItem } = useFreeTools();
   const locale = useLocale();
   const scrollToTop = useCallback(() => {
     window.scrollTo({
@@ -221,128 +241,104 @@ const FreeToolsContent = memo(() => {
   }, []);
 
   useEffect(() => {
-    const fetchServiceIcon = async () => {
-      try {
-        const path = `/free-tools/${freeToolItems?.documentId}`;
-        const urlParamsObject = {
-          populate: {
-            service: {
-              populate: {
-                icon: {
-                  fields: ["url"],
-                },
-              },
-            },
-          },
-        };
-        const options = "";
-        const fetchedData = await fetchAPI(path, urlParamsObject, options);
-        if (fetchedData.data)
-          setServiceIcon(
-            process.env.NEXT_PUBLIC_STRAPI_API_URL +
-              fetchedData.data.service.icon.url
-          );
-      } catch (error) {
-        console.error(error);
-      }
-    };
     scrollToTop();
-    if (freeToolItems?.documentId) fetchServiceIcon();
-  }, [scrollToTop, freeToolItems?.documentId]);
+  }, [scrollToTop]);
 
   if (isLoading) {
     return <ServicePageSkeleton />;
   }
+  console.log(freeToolItem);
+  if (!freeToolItem?.Header.text) return;
 
-  if (!freeToolItems?.header.text) return;
-
-  const iconURL = freeToolItems.icon?.url
-    ? freeToolItems.icon.url
-    : serviceIcon;
-  const url = generate_item_url(freeToolItems?.header.text);
-  const name = generate_name(freeToolItems?.header.text);
-  const price = freeToolItems.introduction.OrderIntro.price;
-  function get_url() {
-    if (locale == "en")
-      return `${process.env.NEXT_PUBLIC_URL}/free-tools/${url}`;
-    else if (locale == "es-ES")
-      return `${process.env.NEXT_PUBLIC_URL}/es-ES/herramientas-gratis/${url}`;
-    else if (locale == "de")
-      return `${process.env.NEXT_PUBLIC_URL}/de/kostenlose-tools/${url}`;
-    else if (locale == "pt-BR")
-      return `${process.env.NEXT_PUBLIC_URL}/pt-BR/ferramentas-gratuitas/${url}`;
-  }
+  const url = generate_item_url_from_name(freeToolItem?.name);
+  // function get_url() {
+  //   if (locale == "en")
+  //     return `${process.env.NEXT_PUBLIC_URL}/free-tools/${url}`;
+  //   else if (locale == "es-ES")
+  //     return `${process.env.NEXT_PUBLIC_URL}/es-ES/herramientas-gratis/${url}`;
+  //   else if (locale == "de")
+  //     return `${process.env.NEXT_PUBLIC_URL}/de/kostenlose-tools/${url}`;
+  //   else if (locale == "pt-BR")
+  //     return `${process.env.NEXT_PUBLIC_URL}/pt-BR/ferramentas-gratuitas/${url}`;
+  // }
 
   const currentComponent = freeToolsComponent.find(
     (section) => section.id[locale as keyof typeof section.id] === url
   );
-  const product_schema = {
-    "@context": "http://schema.org",
-    "@type": "Product",
-    url: get_url(),
-    name: name,
-    image: freeToolItems.seo.openGraph.ogimage,
-    description: freeToolItems.seo.metaDescription,
-    sku: "SCP" + name.slice(-2).toUpperCase() + price.toString().slice(-3),
-    offers: {
-      "@type": "AggregateOffer",
-      url: get_url(),
-      priceCurrency: "USD",
-      Price: price.toString(),
-      offerCount: "200",
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: freeToolItems.introduction.rated.toString(),
-      ratingCount: (
-        (freeToolItems.introduction.CustomerReviews?.Review.length | 0) +
-        (freeToolItems.introduction.TopReviews?.review.length | 0)
-      ).toString(),
-    },
-    brand: {
-      "@type": "Brand",
-      name: "SocialPlug",
-    },
-  };
-  const faq: FaqType[] = [];
-  if (freeToolItems.introduction.FrequentlyQuestions)
-    freeToolItems.introduction.FrequentlyQuestions.Question.map((item) =>
-      faq.push({
-        "@type": "Question",
-        name: item.question,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: item.answer,
-        },
-      })
-    );
-  const faq_schema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faq,
-  };
+  // const product_schema = {
+  //   "@context": "http://schema.org",
+  //   "@type": "Product",
+  //   url: get_url(),
+  //   name: freeToolItems?.name,
+  //   image: freeToolItems.seo.openGraph.ogimage,
+  //   description: freeToolItems.seo.metaDescription,
+  //   sku: "SCP" + freeToolItems?.name.slice(-2).toUpperCase(),
+  //   offers: {
+  //     "@type": "AggregateOffer",
+  //     url: get_url(),
+  //     priceCurrency: "USD",
+  //     offerCount: "200",
+  //   },
+  //   aggregateRating: {
+  //     "@type": "AggregateRating",
+  //     ratingValue: freeToolItems.introduction.rated.toString(),
+  //     ratingCount: (
+  //       (freeToolItems.introduction.CustomerReviews?.Review.length | 0) +
+  //       (freeToolItems.introduction.TopReviews?.review.length | 0)
+  //     ).toString(),
+  //   },
+  //   brand: {
+  //     "@type": "Brand",
+  //     name: "SocialPlug",
+  //   },
+  // };
+  // const faq: FaqType[] = [];
+  // if (freeToolItems.FAQ)
+  //   freeToolItems.FAQ.Question.map((item) =>
+  //     faq.push({
+  //       "@type": "Question",
+  //       name: item.question,
+  //       acceptedAnswer: {
+  //         "@type": "Answer",
+  //         text: item.answer,
+  //       },
+  //     })
+  //   );
+  // const faq_schema = {
+  //   "@context": "https://schema.org",
+  //   "@type": "FAQPage",
+  //   mainEntity: faq,
+  // };
+  const sections: FreeToolsSection[] = [
+    { component: <FreeToolsRelatedServices />, id: "related-services" },
+    { component: <FreeToolsHowTo />, id: "how-to" },
+    { component: <FreeToolsSummary />, id: "summary" },
+    { component: <FreeToolsUpBlogs />, id: "up-blogs" },
+    { component: <FreeToolsBenefit />, id: "benefit" },
+    { component: <FreeToolsDownBlogs />, id: "down-blogs" },
+    { component: <FreeToolsQuestion />, id: "question" },
+    { component: <SectionServices />, id: "services" },
+  ];
   return (
     <>
-      <script
+      {/* <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(product_schema) }}
       />
-      {freeToolItems.introduction.FrequentlyQuestions && (
+      {freeToolItems.FAQ && (
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faq_schema) }}
         />
-      )}
+      )} */}
       <main className="flex flex-col animate-fade-in">
         {currentComponent?.component}
+        {sections.map((section) => (
+          <div key={section.id} className="animate-fade-in" id={section.id}>
+            {section.component}
+          </div>
+        ))}
       </main>
-      {iconURL && (
-        <OrderNow
-          title={generate_name(freeToolItems.header.text)}
-          link={freeToolItems.ordernow}
-          icon={iconURL}
-        />
-      )}
     </>
   );
 });

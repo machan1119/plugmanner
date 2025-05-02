@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-04-30T20:55:30.455Z"
+    "x-generation-date": "2025-05-02T03:42:24.047Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -24,7 +24,7 @@
   },
   "servers": [
     {
-      "url": "https://www.plugmanner.com/test/api",
+      "url": "http://localhost:1337/api",
       "description": "Development server"
     }
   ],
@@ -5824,6 +5824,9 @@
                     "popular": {
                       "type": "integer"
                     },
+                    "SEO": {
+                      "$ref": "#/components/schemas/SharedSeoComponent"
+                    },
                     "createdAt": {
                       "type": "string",
                       "format": "date-time"
@@ -8851,6 +8854,9 @@
                 "popular": {
                   "type": "integer"
                 },
+                "SEO": {
+                  "$ref": "#/components/schemas/SharedSeoComponent"
+                },
                 "createdAt": {
                   "type": "string",
                   "format": "date-time"
@@ -10674,6 +10680,9 @@
                         "popular": {
                           "type": "integer"
                         },
+                        "SEO": {
+                          "$ref": "#/components/schemas/SharedSeoComponent"
+                        },
                         "createdAt": {
                           "type": "string",
                           "format": "date-time"
@@ -11570,6 +11579,9 @@
               },
               "popular": {
                 "type": "integer"
+              },
+              "SEO": {
+                "$ref": "#/components/schemas/SharedSeoComponent"
               },
               "locale": {
                 "type": "string"
@@ -13274,6 +13286,9 @@
                     "popular": {
                       "type": "integer"
                     },
+                    "SEO": {
+                      "$ref": "#/components/schemas/SharedSeoComponent"
+                    },
                     "createdAt": {
                       "type": "string",
                       "format": "date-time"
@@ -13814,6 +13829,9 @@
           },
           "popular": {
             "type": "integer"
+          },
+          "SEO": {
+            "$ref": "#/components/schemas/SharedSeoComponent"
           },
           "createdAt": {
             "type": "string",
@@ -15678,6 +15696,9 @@
                   },
                   "popular": {
                     "type": "integer"
+                  },
+                  "SEO": {
+                    "$ref": "#/components/schemas/SharedSeoComponent"
                   },
                   "createdAt": {
                     "type": "string",

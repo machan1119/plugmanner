@@ -681,6 +681,12 @@ export interface ApiSubFreeToolSubFreeTool extends Struct.CollectionTypeSchema {
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
+    SEO: Schema.Attribute.Component<'shared.seo', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     service: Schema.Attribute.Relation<'oneToOne', 'api::service.service'>;
     SimpleDescription: Schema.Attribute.Component<'general.list', false> &
       Schema.Attribute.SetPluginOptions<{

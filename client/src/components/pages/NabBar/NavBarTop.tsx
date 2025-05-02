@@ -51,10 +51,9 @@ const NavBarTop = memo(() => {
           priority
           src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e8d_Group%201000004059.svg"
           className="
-            hidden sm:block
-            w-[8%] lg:w-[120px]
+            w-[40px] sm:w-[8%] lg:w-[120px]
             absolute
-            inset-[-20%_auto_auto_1%]
+            inset-[30%_auto_auto_-5%]
             md:inset-[-20%_auto_auto_8.5%]
             lg:inset-[-60%_auto_auto_8.5%]
             transition-transform duration-500
@@ -68,10 +67,9 @@ const NavBarTop = memo(() => {
           priority
           src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e8e_Group.svg"
           className="
-            hidden sm:block
-            w-[8%] lg:w-[110px]
+            w-[40px] sm:w-[8%] lg:w-[110px]
             absolute
-            inset-[10%_1%_-25%_auto]
+            inset-[10%_-5%_-25%_auto]
             md:inset-[10%_9%_-25%_auto]
             lg:inset-[-23%_9%_-25%_auto]
           "

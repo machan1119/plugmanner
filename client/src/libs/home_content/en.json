@@ -102,16 +102,16 @@
       "description": "Here's a quick rundown of how you can place an order for our social media services.",
       "OrderSteps": [
         {
-          "title": "Choose a Service",
-          "description": "Browse our range of social media services and select the one that best suits your needs."
+          "title": "Pick the service",
+          "description": "Choose the social media platform & service required."
         },
         {
-          "title": "Add to Cart",
-          "description": "Add the chosen service to your cart by clicking the 'Add to Cart' button."
+          "title": "Set the target",
+          "description": "Choose your desired amount of services, for example 100 followers."
         },
         {
-          "title": "Checkout",
-          "description": "Complete the checkout process to place your order."
+          "title": "Get the results",
+          "description": "Checkout & done! Our team will deliver your order within the same day."
         }
       ]
     },
@@ -143,7 +143,7 @@
       }
     },
     "OurPartners": {
-      "title_1": "Our",
+      "title_1": "Our ",
       "title_2": "Partners",
       "description": "We team up with the best in the business."
     },
@@ -212,7 +212,9 @@
     "Popular": "Popular",
     "ReviewSubmit": "Review submitted by ",
     "Video": "Video",
-    "Articles": "Related Articles",
+    "Articles_1": "Related ",
+    "Articles_2": "Articles",
+    "ReadAllNews":"Read all News & Articles >",
     "OrderNowFix": "Instant delivery, order now >"
   }
 }

@@ -61,7 +61,7 @@ const DropDownServicesResponsive = memo(
               src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${serviceData.icon}`}
               alt={serviceData.title}
               className="
-              w-5 h-5 
+              w-8 h-8 
               opacity-80 
               group-hover:opacity-100
               transition-opacity duration-300

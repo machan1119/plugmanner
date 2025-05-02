@@ -24,7 +24,7 @@ const HowToOrder = memo(() => {
   ];
 
   return (
-    <section className="flex flex-col py-[20px] md:py-16 lg:py-[80px] items-center bg-black-light w-full bg-cover bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ea7_hero_background-pattern.webp')] bg-center bg-no-repeat overflow-hidden">
+    <section className="flex flex-col py-[20px] md:py-10 lg:py-[80px] items-center bg-black-light w-full bg-cover overflow-hidden">
       <div className="mb-8 flex flex-col gap-3 items-center">
         <h2 id="section-how-to-order-title" className="font-h1 animate-fade-in">
           {t("HowToOrder.title_1")}
@@ -43,8 +43,8 @@ const HowToOrder = memo(() => {
           className="absolute top-[10%] left-[20%] w-[60%] hidden xl:block"
         />
         <div className="grid md:[&>*:nth-child(3)]:col-span-2 xl:[&>*:nth-child(3)]:col-span-1 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 md:gap-8 lg:gap-[5%] items-center w-full">
-          {HowTo.map((item) => (
-            <HowToOrderItems item={item} key={item.title} />
+          {HowTo.map((item, index) => (
+            <HowToOrderItems item={item} key={index} count={index} />
           ))}
         </div>
       </div>

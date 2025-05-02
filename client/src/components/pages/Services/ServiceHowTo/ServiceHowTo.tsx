@@ -21,15 +21,17 @@ const ServiceHowTo = () => {
   }
 
   return (
-    <section className="w-full py-[80px] bg-black-light flex flex-col items-center border-b-[1px] border-black-normal">
+    <section className="w-full py-6 md:py-14 lg:py-[80px] bg-black-light flex flex-col items-center border-b-[1px] border-black-normal">
       <div className="max-w-[1366px] w-full flex flex-col items-center px-10">
         <h2 className="font-h1 sm:80% lg:w-[50%] text-wrap justify-center">
           <StrapiText data={serviceItems.introduction.HowToOrder.title.text} />
         </h2>
-        <StrapiText
-          data={serviceItems.introduction.HowToOrder.description.text}
-          customClassName="font-service-text text-[18px] my-5 !text-center sm:80% lg:w-[40%]"
-        />
+        <div className="sm:80% md:w-[70%] lg:w-[40%]">
+          <StrapiText
+            data={serviceItems.introduction.HowToOrder.description.text}
+            customClassName="font-service-text text-[16px] my-5 !text-center"
+          />
+        </div>
         <div className="relative w-full flex flex-col gap-12 sm:grid sm:grid-cols-3 items-center my-10">
           {serviceItems.introduction.HowToOrder.step.map(
             (item: Step, index: number) => (
@@ -50,7 +52,7 @@ const ServiceHowTo = () => {
             height={55}
             alt=""
             src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/6400d6caf94166be7ca4de87_6110b1396056a5e6b0bd01f9_Dot%20Wave.svg"
-            className="absolute self-start top-[20px] left-[22%] w-[20%] hidden lg:flex"
+            className="absolute self-start top-[20px] left-[22%] w-[20%] hidden md:flex"
             priority={false}
           />
           <Image
@@ -58,14 +60,15 @@ const ServiceHowTo = () => {
             height={55}
             alt=""
             src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/6400d6caf94166be7ca4de87_6110b1396056a5e6b0bd01f9_Dot%20Wave.svg"
-            className="absolute self-start top-[20px] right-[22%] w-[20%] hidden lg:flex"
+            className="absolute self-start top-[20px] right-[22%] w-[20%] hidden md:flex"
             priority={false}
           />
         </div>
         <MainButton
           type="primary"
           title={`${t("OrderNow")} >`}
-          customClass="md:w-[20%] w-full"
+          customClass="sm:w-[45%] xl:w-[20%] w-full"
+          customChildClass="py-4"
           link={`${serviceItems.ordernow}`}
         />
       </div>

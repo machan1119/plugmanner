@@ -85,7 +85,7 @@ const NavBarBottom = memo(() => {
       className="
         flex flex-row justify-between 
         justify-self-center bg-black-light
-        w-full 2xl:px-[15%] xl:px-[10%] px-[5%]
+        w-full xl:px-[12%] px-[5%]
         border-y border-black-dark/50 
         py-2
       "

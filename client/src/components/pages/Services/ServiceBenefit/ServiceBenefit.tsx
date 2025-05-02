@@ -39,7 +39,7 @@ const ServiceBenefit = memo(({ className = "" }: ServiceBenefitProps) => {
   return (
     <section
       className={`
-        w-full py-[80px] bg-[#14141b] bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/64030a7b422e3a3f6bb5ed7f_Vector-dark-bg.svg')] bg-right-bottom bg-no-repeat bg-auto
+        w-full py-6 md:py-16 lg:py-[80px] bg-[#14141b] bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/64030a7b422e3a3f6bb5ed7f_Vector-dark-bg.svg')] bg-right-bottom bg-no-repeat bg-auto
         ${className}
       `}
     >
@@ -50,15 +50,15 @@ const ServiceBenefit = memo(({ className = "" }: ServiceBenefitProps) => {
             customClassName="font-h1 !text-white"
           />
         </h2>
-        <div className="w-full flex flex-col items-center">
-          <div className="w-full flex flex-col sm:flex-row gap-4 justify-between my-8">
+        <div className="w-full flex flex-col gap-5 items-center">
+          <div className="w-full flex flex-col sm:gap-3 sm:flex-row justify-between my-8">
             {serviceItems.introduction.Benefits.Benefit.map(
               (item: BenefitType, index: number) => (
                 <button
                   key={index}
                   onClick={() => handleTabClick(index)}
                   onKeyDown={(e) => handleKeyDown(e, index)}
-                  className={`w-full py-2 bg-transparent font-clash lg:text-[18px] !text-center !font-semibold border-b-[2px] ${
+                  className={`w-full px-6 py-4 bg-transparent font-clash lg:text-[18px] !text-center leading-4 !font-semibold border-b-[2px] ${
                     currentStep === index
                       ? "border-primary !text-primary"
                       : "border-black-dark !text-black-dark hover:border-white hover:!text-white"
@@ -73,7 +73,7 @@ const ServiceBenefit = memo(({ className = "" }: ServiceBenefitProps) => {
           {serviceItems.introduction.Benefits.Benefit.map(
             (currentBenefit, index) => (
               <div
-                className={`w-full flex flex-col lg:flex-row gap-8 items-center ${
+                className={`w-full flex flex-col md:flex-row gap-8 items-center ${
                   index !== currentStep && "hidden"
                 }`}
                 key={index}
@@ -86,7 +86,7 @@ const ServiceBenefit = memo(({ className = "" }: ServiceBenefitProps) => {
                     priority
                     alt={`illustration`}
                     src={currentBenefit.img}
-                    className="lg:w-[80%] w-[60%]"
+                    className="md:w-full w-[60%]"
                   />
                 </div>
                 <div className="w-full lg:w-[50%] flex flex-col gap-5">

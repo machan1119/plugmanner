@@ -14,7 +14,7 @@ export function OrderNow({ title, link, icon }: OrderNowProps) {
   const [show, setShow] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
-      setShow(window.scrollY > 600);
+      setShow(window.scrollY > 800);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -22,7 +22,7 @@ export function OrderNow({ title, link, icon }: OrderNowProps) {
 
   return (
     show && (
-      <div className="w-[50%] flex md:bg-white border-black-light border-[2px] z-[50] rounded-lg md:p-3 justify-between bottom-0 left-[50%] fixed -translate-x-1/2 -translate-y-1/2">
+      <div className="w-[80%] lg:w-[50%] flex md:bg-white border-black-light border-[2px] z-[50] rounded-lg md:p-3 justify-between bottom-[-20px] left-[50%] fixed -translate-x-1/2 -translate-y-1/2">
         <div className="hidden md:flex gap-2">
           <Image
             src={icon}
@@ -44,6 +44,7 @@ export function OrderNow({ title, link, icon }: OrderNowProps) {
           type="primary"
           title={`${t("OrderNow")} >`}
           customClass="w-full md:w-max border-none"
+          customChildClass="!py-4 !px-8"
           link={link}
         />
       </div>

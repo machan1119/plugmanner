@@ -53,6 +53,12 @@ export interface ToolsRawData {
   id: number;
   documentId: string;
   name: string;
+  free_tool: {
+    id: number;
+    documentId: string;
+    name: string;
+    popular: string;
+  };
   popular: string;
   icon: {
     id: number;
@@ -120,6 +126,14 @@ export interface FreeToolsListType {
   id: string;
   icon: string;
   popular: string;
+  free_tool: string;
+  free_tool_popular: string;
+}
+
+export interface GroupedToolsType {
+  type: string;
+  popular: string;
+  tools: FreeToolsListType[];
 }
 
 export interface ServiceMetadataType {

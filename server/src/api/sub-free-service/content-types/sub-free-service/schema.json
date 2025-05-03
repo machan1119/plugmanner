@@ -10,80 +10,159 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "name": {
       "type": "string",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "SimpleDescription": {
-      "type": "text"
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "hero_imgs": {
       "displayName": "hero_imgs",
       "type": "component",
       "repeatable": false,
-      "component": "general.hero-imgs"
+      "component": "general.hero-imgs",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "platform_config": {
       "displayName": "input_fields",
       "type": "component",
       "repeatable": false,
-      "component": "general.input-fields"
+      "component": "general.input-fields",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "Orders": {
       "type": "component",
       "repeatable": true,
-      "component": "order.orders"
+      "component": "order.orders",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "top_reveiws": {
       "type": "component",
       "repeatable": false,
-      "component": "subservice.top-reviews"
+      "component": "subservice.top-reviews",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "order_btn": {
       "type": "component",
       "repeatable": false,
-      "component": "general.btn"
+      "component": "general.btn",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "how_to_order": {
       "type": "component",
       "repeatable": true,
-      "component": "subservice.how-to-order"
+      "component": "subservice.how-to-order",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "summary": {
       "type": "component",
       "repeatable": false,
-      "component": "subservice.service-summary"
+      "component": "subservice.service-summary",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "benefits": {
       "type": "component",
       "repeatable": false,
-      "component": "subservice.benefits"
+      "component": "subservice.benefits",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "customer_reviews": {
       "type": "component",
       "repeatable": false,
-      "component": "subservice.customer-reviews"
+      "component": "subservice.customer-reviews",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "Blogs": {
       "type": "component",
       "repeatable": false,
-      "component": "subservice.sub-blog"
+      "component": "subservice.sub-blog",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "FAQ": {
       "type": "component",
       "repeatable": false,
-      "component": "subservice.frequently-questions"
+      "component": "subservice.frequently-questions",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "title": {
-      "type": "string"
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "service_status": {
       "displayName": "status",
       "type": "component",
       "repeatable": false,
-      "component": "general.status"
+      "component": "general.status",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "free_service": {
       "type": "relation",
@@ -92,7 +171,12 @@
       "inversedBy": "sub_free_services"
     },
     "popular": {
-      "type": "integer"
+      "type": "integer",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

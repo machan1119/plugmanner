@@ -1,0 +1,51 @@
+{
+  "collectionName": "components_general_input_fields",
+  "info": {
+    "displayName": "input_fields",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "formId": {
+      "type": "string"
+    },
+    "platform": {
+      "type": "string"
+    },
+    "socialPlatform": {
+      "type": "string"
+    },
+    "inputPlaceholder": {
+      "type": "string"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "verificationText": {
+      "type": "text"
+    },
+    "successText": {
+      "type": "text"
+    },
+    "inputLabel": {
+      "type": "string"
+    },
+    "timerImage": {
+      "type": "string"
+    },
+    "emailImage": {
+      "type": "string"
+    },
+    "checkImage": {
+      "type": "string"
+    },
+    "primaryColor": {
+      "type": "string",
+      "default": "#01C573"
+    },
+    "primaryColorHover": {
+      "type": "string",
+      "default": "#5ef5b6"
+    }
+  }
+}

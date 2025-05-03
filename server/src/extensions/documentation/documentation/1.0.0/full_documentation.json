@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-05-02T03:42:24.047Z"
+    "x-generation-date": "2025-05-03T05:36:09.544Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -24,7 +24,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:1337/api",
+      "url": "https://www.plugmanner.com/test/api",
       "description": "Development server"
     }
   ],
@@ -1554,6 +1554,512 @@
           }
         ],
         "operationId": "delete/services/{id}"
+      }
+    },
+    "/sub-free-services": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubFreeServiceListResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Sub-free-service"
+        ],
+        "parameters": [
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort by attributes ascending (asc) or descending (desc)",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pagination[withCount]",
+            "in": "query",
+            "description": "Return page/pageSize (default: true)",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "pagination[page]",
+            "in": "query",
+            "description": "Page number (default: 0)",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pagination[pageSize]",
+            "in": "query",
+            "description": "Page size (default: 25)",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pagination[start]",
+            "in": "query",
+            "description": "Offset value (default: 0)",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pagination[limit]",
+            "in": "query",
+            "description": "Number of entities to return (default: 25)",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Fields to return (ex: title,author)",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "populate",
+            "in": "query",
+            "description": "Relations to return",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Filters to apply",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "object",
+              "additionalProperties": true
+            },
+            "style": "deepObject"
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Locale to apply",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "operationId": "get/sub-free-services"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubFreeServiceResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Sub-free-service"
+        ],
+        "parameters": [],
+        "operationId": "post/sub-free-services",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubFreeServiceRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sub-free-services/{id}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubFreeServiceResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Sub-free-service"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "operationId": "get/sub-free-services/{id}"
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubFreeServiceResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Sub-free-service"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "operationId": "put/sub-free-services/{id}",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubFreeServiceRequest"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Sub-free-service"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "operationId": "delete/sub-free-services/{id}"
       }
     },
     "/sub-free-tools": {
@@ -11488,6 +11994,455 @@
           },
           "meta": {
             "type": "object"
+          }
+        }
+      },
+      "SubFreeServiceRequest": {
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "properties": {
+          "data": {
+            "required": [
+              "name"
+            ],
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "SimpleDescription": {
+                "type": "string"
+              },
+              "hero_imgs": {
+                "$ref": "#/components/schemas/GeneralHeroImgsComponent"
+              },
+              "platform_config": {
+                "$ref": "#/components/schemas/GeneralInputFieldsComponent"
+              },
+              "Orders": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/OrderOrdersComponent"
+                }
+              },
+              "top_reveiws": {
+                "$ref": "#/components/schemas/SubserviceTopReviewsComponent"
+              },
+              "order_btn": {
+                "$ref": "#/components/schemas/GeneralBtnComponent"
+              },
+              "how_to_order": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SubserviceHowToOrderComponent"
+                }
+              },
+              "summary": {
+                "$ref": "#/components/schemas/SubserviceServiceSummaryComponent"
+              },
+              "benefits": {
+                "$ref": "#/components/schemas/SubserviceBenefitsComponent"
+              },
+              "customer_reviews": {
+                "$ref": "#/components/schemas/SubserviceCustomerReviewsComponent"
+              },
+              "Blogs": {
+                "$ref": "#/components/schemas/SubserviceSubBlogComponent"
+              },
+              "FAQ": {
+                "$ref": "#/components/schemas/SubserviceFrequentlyQuestionsComponent"
+              },
+              "title": {
+                "type": "string"
+              },
+              "service_status": {
+                "$ref": "#/components/schemas/GeneralStatusComponent"
+              },
+              "locale": {
+                "type": "string"
+              },
+              "localizations": {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ],
+                  "example": "string or id"
+                }
+              }
+            }
+          }
+        }
+      },
+      "SubFreeServiceListResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SubFreeService"
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {
+              "pagination": {
+                "type": "object",
+                "properties": {
+                  "page": {
+                    "type": "integer"
+                  },
+                  "pageSize": {
+                    "type": "integer",
+                    "minimum": 25
+                  },
+                  "pageCount": {
+                    "type": "integer",
+                    "maximum": 1
+                  },
+                  "total": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "SubFreeService": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "documentId": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "SimpleDescription": {
+            "type": "string"
+          },
+          "hero_imgs": {
+            "$ref": "#/components/schemas/GeneralHeroImgsComponent"
+          },
+          "platform_config": {
+            "$ref": "#/components/schemas/GeneralInputFieldsComponent"
+          },
+          "Orders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderOrdersComponent"
+            }
+          },
+          "top_reveiws": {
+            "$ref": "#/components/schemas/SubserviceTopReviewsComponent"
+          },
+          "order_btn": {
+            "$ref": "#/components/schemas/GeneralBtnComponent"
+          },
+          "how_to_order": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SubserviceHowToOrderComponent"
+            }
+          },
+          "summary": {
+            "$ref": "#/components/schemas/SubserviceServiceSummaryComponent"
+          },
+          "benefits": {
+            "$ref": "#/components/schemas/SubserviceBenefitsComponent"
+          },
+          "customer_reviews": {
+            "$ref": "#/components/schemas/SubserviceCustomerReviewsComponent"
+          },
+          "Blogs": {
+            "$ref": "#/components/schemas/SubserviceSubBlogComponent"
+          },
+          "FAQ": {
+            "$ref": "#/components/schemas/SubserviceFrequentlyQuestionsComponent"
+          },
+          "title": {
+            "type": "string"
+          },
+          "service_status": {
+            "$ref": "#/components/schemas/GeneralStatusComponent"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "publishedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdBy": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "documentId": {
+                "type": "string"
+              }
+            }
+          },
+          "updatedBy": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "documentId": {
+                "type": "string"
+              }
+            }
+          },
+          "locale": {
+            "type": "string"
+          },
+          "localizations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "documentId": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "SimpleDescription": {
+                  "type": "string"
+                },
+                "hero_imgs": {
+                  "$ref": "#/components/schemas/GeneralHeroImgsComponent"
+                },
+                "platform_config": {
+                  "$ref": "#/components/schemas/GeneralInputFieldsComponent"
+                },
+                "Orders": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrderOrdersComponent"
+                  }
+                },
+                "top_reveiws": {
+                  "$ref": "#/components/schemas/SubserviceTopReviewsComponent"
+                },
+                "order_btn": {
+                  "$ref": "#/components/schemas/GeneralBtnComponent"
+                },
+                "how_to_order": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SubserviceHowToOrderComponent"
+                  }
+                },
+                "summary": {
+                  "$ref": "#/components/schemas/SubserviceServiceSummaryComponent"
+                },
+                "benefits": {
+                  "$ref": "#/components/schemas/SubserviceBenefitsComponent"
+                },
+                "customer_reviews": {
+                  "$ref": "#/components/schemas/SubserviceCustomerReviewsComponent"
+                },
+                "Blogs": {
+                  "$ref": "#/components/schemas/SubserviceSubBlogComponent"
+                },
+                "FAQ": {
+                  "$ref": "#/components/schemas/SubserviceFrequentlyQuestionsComponent"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "service_status": {
+                  "$ref": "#/components/schemas/GeneralStatusComponent"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "publishedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "createdBy": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "documentId": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "updatedBy": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "documentId": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "locale": {
+                  "type": "string"
+                },
+                "localizations": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number"
+                      },
+                      "documentId": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "SubFreeServiceResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/SubFreeService"
+          },
+          "meta": {
+            "type": "object"
+          }
+        }
+      },
+      "GeneralHeroImgsComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "bg_img": {
+            "type": "string"
+          },
+          "left_img": {
+            "type": "string"
+          },
+          "center_img": {
+            "type": "string"
+          },
+          "right_img": {
+            "type": "string"
+          },
+          "bridge_color": {
+            "type": "string"
+          }
+        }
+      },
+      "GeneralInputFieldsComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "formId": {
+            "type": "string"
+          },
+          "platform": {
+            "type": "string"
+          },
+          "socialPlatform": {
+            "type": "string"
+          },
+          "inputPlaceholder": {
+            "type": "string"
+          },
+          "buttonText": {
+            "type": "string"
+          },
+          "verificationText": {
+            "type": "string"
+          },
+          "successText": {
+            "type": "string"
+          },
+          "inputLabel": {
+            "type": "string"
+          },
+          "timerImage": {
+            "type": "string"
+          },
+          "emailImage": {
+            "type": "string"
+          },
+          "checkImage": {
+            "type": "string"
+          },
+          "primaryColor": {
+            "type": "string"
+          },
+          "primaryColorHover": {
+            "type": "string"
+          }
+        }
+      },
+      "GeneralBtnComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "api": {
+            "type": "string"
+          }
+        }
+      },
+      "GeneralStatusComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "status_1": {
+            "type": "string"
+          },
+          "status_2": {
+            "type": "string"
+          },
+          "status_3": {
+            "type": "string"
           }
         }
       },

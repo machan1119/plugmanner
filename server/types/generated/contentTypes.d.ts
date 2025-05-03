@@ -589,6 +589,53 @@ export interface ApiServiceService extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiSubFreeServiceSubFreeService
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'sub_free_services';
+  info: {
+    description: '';
+    displayName: 'SubFree Service';
+    pluralName: 'sub-free-services';
+    singularName: 'sub-free-service';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    benefits: Schema.Attribute.Component<'subservice.benefits', false>;
+    Blogs: Schema.Attribute.Component<'subservice.sub-blog', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    customer_reviews: Schema.Attribute.Component<
+      'subservice.customer-reviews',
+      false
+    >;
+    FAQ: Schema.Attribute.Component<'subservice.frequently-questions', false>;
+    hero_imgs: Schema.Attribute.Component<'general.hero-imgs', false>;
+    how_to_order: Schema.Attribute.Component<'subservice.how-to-order', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::sub-free-service.sub-free-service'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    order_btn: Schema.Attribute.Component<'general.btn', false>;
+    Orders: Schema.Attribute.Component<'order.orders', true>;
+    platform_config: Schema.Attribute.Component<'general.input-fields', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    service_status: Schema.Attribute.Component<'general.status', false>;
+    SimpleDescription: Schema.Attribute.Text;
+    summary: Schema.Attribute.Component<'subservice.service-summary', false>;
+    title: Schema.Attribute.String;
+    top_reveiws: Schema.Attribute.Component<'subservice.top-reviews', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiSubFreeToolSubFreeTool extends Struct.CollectionTypeSchema {
   collectionName: 'sub_free_tools';
   info: {
@@ -1341,6 +1388,7 @@ declare module '@strapi/strapi' {
       'api::article.article': ApiArticleArticle;
       'api::free-tool.free-tool': ApiFreeToolFreeTool;
       'api::service.service': ApiServiceService;
+      'api::sub-free-service.sub-free-service': ApiSubFreeServiceSubFreeService;
       'api::sub-free-tool.sub-free-tool': ApiSubFreeToolSubFreeTool;
       'api::subservice.subservice': ApiSubserviceSubservice;
       'plugin::content-releases.release': PluginContentReleasesRelease;

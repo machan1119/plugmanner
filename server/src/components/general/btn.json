@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_general_btns",
+  "info": {
+    "displayName": "btn"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "api": {
+      "type": "string"
+    }
+  }
+}

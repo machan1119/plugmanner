@@ -1,0 +1,89 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sub_free_services",
+  "info": {
+    "singularName": "sub-free-service",
+    "pluralName": "sub-free-services",
+    "displayName": "SubFree Service",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "SimpleDescription": {
+      "type": "text"
+    },
+    "hero_imgs": {
+      "displayName": "hero_imgs",
+      "type": "component",
+      "repeatable": false,
+      "component": "general.hero-imgs"
+    },
+    "platform_config": {
+      "displayName": "input_fields",
+      "type": "component",
+      "repeatable": false,
+      "component": "general.input-fields"
+    },
+    "Orders": {
+      "type": "component",
+      "repeatable": true,
+      "component": "order.orders"
+    },
+    "top_reveiws": {
+      "type": "component",
+      "repeatable": false,
+      "component": "subservice.top-reviews"
+    },
+    "order_btn": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.btn"
+    },
+    "how_to_order": {
+      "type": "component",
+      "repeatable": true,
+      "component": "subservice.how-to-order"
+    },
+    "summary": {
+      "type": "component",
+      "repeatable": false,
+      "component": "subservice.service-summary"
+    },
+    "benefits": {
+      "type": "component",
+      "repeatable": false,
+      "component": "subservice.benefits"
+    },
+    "customer_reviews": {
+      "type": "component",
+      "repeatable": false,
+      "component": "subservice.customer-reviews"
+    },
+    "Blogs": {
+      "type": "component",
+      "repeatable": false,
+      "component": "subservice.sub-blog"
+    },
+    "FAQ": {
+      "type": "component",
+      "repeatable": false,
+      "component": "subservice.frequently-questions"
+    },
+    "title": {
+      "type": "string"
+    },
+    "service_status": {
+      "displayName": "status",
+      "type": "component",
+      "repeatable": false,
+      "component": "general.status"
+    }
+  }
+}

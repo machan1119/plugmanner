@@ -43,6 +43,58 @@ export interface ArticleSection extends Struct.ComponentSchema {
   };
 }
 
+export interface GeneralBtn extends Struct.ComponentSchema {
+  collectionName: 'components_general_btns';
+  info: {
+    displayName: 'btn';
+  };
+  attributes: {
+    api: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+  };
+}
+
+export interface GeneralHeroImgs extends Struct.ComponentSchema {
+  collectionName: 'components_general_hero_imgs';
+  info: {
+    description: '';
+    displayName: 'hero_imgs';
+  };
+  attributes: {
+    bg_img: Schema.Attribute.String;
+    bridge_color: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    center_img: Schema.Attribute.String;
+    left_img: Schema.Attribute.String;
+    right_img: Schema.Attribute.String;
+  };
+}
+
+export interface GeneralInputFields extends Struct.ComponentSchema {
+  collectionName: 'components_general_input_fields';
+  info: {
+    description: '';
+    displayName: 'input_fields';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String;
+    checkImage: Schema.Attribute.String;
+    emailImage: Schema.Attribute.String;
+    formId: Schema.Attribute.String;
+    inputLabel: Schema.Attribute.String;
+    inputPlaceholder: Schema.Attribute.String;
+    platform: Schema.Attribute.String;
+    primaryColor: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'#01C573'>;
+    primaryColorHover: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'#5ef5b6'>;
+    socialPlatform: Schema.Attribute.String;
+    successText: Schema.Attribute.Text;
+    timerImage: Schema.Attribute.String;
+    verificationText: Schema.Attribute.Text;
+  };
+}
+
 export interface GeneralList extends Struct.ComponentSchema {
   collectionName: 'components_general_lists';
   info: {
@@ -99,6 +151,18 @@ export interface GeneralSocialLink extends Struct.ComponentSchema {
   attributes: {
     img: Schema.Attribute.String;
     link: Schema.Attribute.String;
+  };
+}
+
+export interface GeneralStatus extends Struct.ComponentSchema {
+  collectionName: 'components_general_statuses';
+  info: {
+    displayName: 'status';
+  };
+  attributes: {
+    status_1: Schema.Attribute.String;
+    status_2: Schema.Attribute.String;
+    status_3: Schema.Attribute.String;
   };
 }
 
@@ -589,10 +653,14 @@ declare module '@strapi/strapi' {
       'article.author': ArticleAuthor;
       'article.chapter': ArticleChapter;
       'article.section': ArticleSection;
+      'general.btn': GeneralBtn;
+      'general.hero-imgs': GeneralHeroImgs;
+      'general.input-fields': GeneralInputFields;
       'general.list': GeneralList;
       'general.parameter': GeneralParameter;
       'general.sentence': GeneralSentence;
       'general.social-link': GeneralSocialLink;
+      'general.status': GeneralStatus;
       'order.order-intro': OrderOrderIntro;
       'order.orders': OrderOrders;
       'order.qqq': OrderQqq;

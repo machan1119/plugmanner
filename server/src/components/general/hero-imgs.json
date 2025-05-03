@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_general_hero_imgs",
+  "info": {
+    "displayName": "hero_imgs",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "bg_img": {
+      "type": "string"
+    },
+    "left_img": {
+      "type": "string"
+    },
+    "center_img": {
+      "type": "string"
+    },
+    "right_img": {
+      "type": "string"
+    },
+    "bridge_color": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
+    }
+  }
+}

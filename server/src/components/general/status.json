@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_general_statuses",
+  "info": {
+    "displayName": "status"
+  },
+  "options": {},
+  "attributes": {
+    "status_1": {
+      "type": "string"
+    },
+    "status_2": {
+      "type": "string"
+    },
+    "status_3": {
+      "type": "string"
+    }
+  }
+}

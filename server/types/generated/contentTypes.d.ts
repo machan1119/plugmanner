@@ -457,6 +457,40 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFreeServiceFreeService extends Struct.CollectionTypeSchema {
+  collectionName: 'free_services';
+  info: {
+    displayName: 'Free Service';
+    pluralName: 'free-services';
+    singularName: 'free-service';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::free-service.free-service'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    popular: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    sub_free_services: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::sub-free-service.sub-free-service'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFreeToolFreeTool extends Struct.CollectionTypeSchema {
   collectionName: 'free_tools';
   info: {
@@ -612,6 +646,10 @@ export interface ApiSubFreeServiceSubFreeService
       false
     >;
     FAQ: Schema.Attribute.Component<'subservice.frequently-questions', false>;
+    free_service: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::free-service.free-service'
+    >;
     hero_imgs: Schema.Attribute.Component<'general.hero-imgs', false>;
     how_to_order: Schema.Attribute.Component<'subservice.how-to-order', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -624,6 +662,7 @@ export interface ApiSubFreeServiceSubFreeService
     order_btn: Schema.Attribute.Component<'general.btn', false>;
     Orders: Schema.Attribute.Component<'order.orders', true>;
     platform_config: Schema.Attribute.Component<'general.input-fields', false>;
+    popular: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
     service_status: Schema.Attribute.Component<'general.status', false>;
     SimpleDescription: Schema.Attribute.Text;
@@ -1386,6 +1425,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::article.article': ApiArticleArticle;
+      'api::free-service.free-service': ApiFreeServiceFreeService;
       'api::free-tool.free-tool': ApiFreeToolFreeTool;
       'api::service.service': ApiServiceService;
       'api::sub-free-service.sub-free-service': ApiSubFreeServiceSubFreeService;

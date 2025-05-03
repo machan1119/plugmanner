@@ -84,6 +84,15 @@
       "type": "component",
       "repeatable": false,
       "component": "general.status"
+    },
+    "free_service": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::free-service.free-service",
+      "inversedBy": "sub_free_services"
+    },
+    "popular": {
+      "type": "integer"
     }
   }
 }

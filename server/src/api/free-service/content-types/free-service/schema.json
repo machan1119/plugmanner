@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "free_services",
+  "info": {
+    "singularName": "free-service",
+    "pluralName": "free-services",
+    "displayName": "Free Service"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "popular": {
+      "type": "integer"
+    },
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "sub_free_services": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sub-free-service.sub-free-service",
+      "mappedBy": "free_service"
+    }
+  }
+}

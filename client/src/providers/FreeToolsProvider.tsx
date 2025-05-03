@@ -6,18 +6,18 @@ import React, {
   useEffect,
   useMemo,
 } from "react";
-import { ServiceJsonDataType } from "@/libs/types/ServiceJsonDataType";
 import { useList } from "./ListProvider";
 import { generate_item_url_from_name } from "@/utils/functions";
 import { fetchFreeToolsData } from "@/utils/fetch-free-tools-data";
+import { FreeToolsJsonDataType } from "@/libs/types/FreeToolsJsonDataType";
 
 interface FreeToolsContextType {
-  freeToolItems: ServiceJsonDataType | null;
+  freeToolItem: FreeToolsJsonDataType | null;
   isLoading: boolean;
 }
 
 const FreeToolsContext = createContext<FreeToolsContextType>({
-  freeToolItems: null,
+  freeToolItem: null,
   isLoading: true,
 });
 
@@ -33,8 +33,8 @@ export const FreeToolsProvider: React.FC<FreeToolsProviderProps> = ({
   locale,
 }) => {
   const { freeToolsList } = useList();
-  const [freeToolItems, setFreeToolItems] =
-    useState<ServiceJsonDataType | null>(null);
+  const [freeToolItem, setFreeToolItem] =
+    useState<FreeToolsJsonDataType | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const userLocale = locale;
   useEffect(() => {
@@ -48,7 +48,7 @@ export const FreeToolsProvider: React.FC<FreeToolsProviderProps> = ({
         if (!toolsData) {
           throw new Error("Failed to fetch service list");
         }
-        setFreeToolItems(toolsData);
+        setFreeToolItem(toolsData);
         setIsLoading(false);
       };
       setIsLoading(true);
@@ -57,10 +57,10 @@ export const FreeToolsProvider: React.FC<FreeToolsProviderProps> = ({
   }, [item, freeToolsList, userLocale]);
   const contextValue = useMemo(
     () => ({
-      freeToolItems,
+      freeToolItem,
       isLoading,
     }),
-    [freeToolItems, isLoading]
+    [freeToolItem, isLoading]
   );
 
   return (

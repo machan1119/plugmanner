@@ -1,6 +1,7 @@
 import "./globals.css";
 import "../css/clash-display.css";
 import "../css/satoshi.css";
+import "../css/lato.css";
 import "../css/animation.css";
 import "swiper/css";
 import "swiper/css/autoplay";

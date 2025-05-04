@@ -768,7 +768,13 @@ export interface ApiSubFreeServiceSubFreeService
           localized: true;
         };
       }>;
-    top_reveiws: Schema.Attribute.Component<'subservice.top-reviews', false> &
+    title_color: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    top_reviews: Schema.Attribute.Component<'subservice.top-reviews', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

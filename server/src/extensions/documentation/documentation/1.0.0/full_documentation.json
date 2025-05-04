@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-05-03T22:00:28.289Z"
+    "x-generation-date": "2025-05-04T06:08:52.321Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -24,7 +24,7 @@
   },
   "servers": [
     {
-      "url": "https://www.plugmanner.com/test/api",
+      "url": "http://localhost:1337/api",
       "description": "Development server"
     }
   ],
@@ -8673,7 +8673,7 @@
                     "$ref": "#/components/schemas/OrderOrdersComponent"
                   }
                 },
-                "top_reveiws": {
+                "top_reviews": {
                   "$ref": "#/components/schemas/SubserviceTopReviewsComponent"
                 },
                 "order_btn": {
@@ -8919,6 +8919,9 @@
                 },
                 "popular": {
                   "type": "integer"
+                },
+                "title_color": {
+                  "type": "string"
                 },
                 "createdAt": {
                   "type": "string",
@@ -13737,7 +13740,7 @@
                   "$ref": "#/components/schemas/OrderOrdersComponent"
                 }
               },
-              "top_reveiws": {
+              "top_reviews": {
                 "$ref": "#/components/schemas/SubserviceTopReviewsComponent"
               },
               "order_btn": {
@@ -13783,6 +13786,9 @@
               },
               "popular": {
                 "type": "integer"
+              },
+              "title_color": {
+                "type": "string"
               },
               "locale": {
                 "type": "string"
@@ -13870,7 +13876,7 @@
               "$ref": "#/components/schemas/OrderOrdersComponent"
             }
           },
-          "top_reveiws": {
+          "top_reviews": {
             "$ref": "#/components/schemas/SubserviceTopReviewsComponent"
           },
           "order_btn": {
@@ -14076,7 +14082,7 @@
                         "$ref": "#/components/schemas/OrderOrdersComponent"
                       }
                     },
-                    "top_reveiws": {
+                    "top_reviews": {
                       "$ref": "#/components/schemas/SubserviceTopReviewsComponent"
                     },
                     "order_btn": {
@@ -14122,6 +14128,9 @@
                     },
                     "popular": {
                       "type": "integer"
+                    },
+                    "title_color": {
+                      "type": "string"
                     },
                     "createdAt": {
                       "type": "string",
@@ -14232,6 +14241,9 @@
           },
           "popular": {
             "type": "integer"
+          },
+          "title_color": {
+            "type": "string"
           },
           "createdAt": {
             "type": "string",

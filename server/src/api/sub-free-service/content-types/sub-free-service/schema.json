@@ -65,7 +65,7 @@
         }
       }
     },
-    "top_reveiws": {
+    "top_reviews": {
       "type": "component",
       "repeatable": false,
       "component": "subservice.top-reviews",
@@ -177,6 +177,14 @@
           "localized": true
         }
       }
+    },
+    "title_color": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }

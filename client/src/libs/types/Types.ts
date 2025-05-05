@@ -39,3 +39,5 @@ export interface LanguageOption {
   flag: string;
   name: string;
 }
+
+export type SupportedLocale = "en" | "es-ES" | "de" | "pt-BR";

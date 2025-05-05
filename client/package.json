@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@lottiefiles/react-lottie-player": "^3.6.0",
     "axios": "^1.7.9",
     "bcryptjs": "^2.4.3",
     "lottie-react": "^2.4.1",
@@ -22,6 +23,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-google-autocomplete": "^2.7.3",
+    "react-google-recaptcha": "^3.1.0",
     "react-infinite-scroll-component": "^6.1.0",
     "react-phone-input-2": "^2.15.1",
     "react-slick": "^0.30.3",
@@ -34,6 +36,7 @@
     "@types/qs": "^6.9.18",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/react-google-recaptcha": "^2.1.9",
     "@types/react-slick": "^0.23.13",
     "eslint": "^9",
     "eslint-config-next": "15.1.2",

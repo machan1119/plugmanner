@@ -9,9 +9,9 @@ import FreeToolsItem from "./FreeToolsItem";
 
 type FilterType = "popular" | "AToZ" | "ZToA";
 
-const SectionServices = memo(() => {
+const SectionServices = memo(({ state }: { state: string }) => {
   const { serviceList, freeToolsList } = useList();
-  const [status, setStatus] = useState<"Services" | "Tools">("Services");
+  const [status, setStatus] = useState(state);
   const [filter, setFilter] = useState<FilterType>("popular");
   const [filteredList, setFilteredList] = useState<ServicesListType[]>([]);
   const [filteredToolsList, setFilteredToolsList] = useState<
@@ -95,7 +95,13 @@ const SectionServices = memo(() => {
     groupedFreeTools,
     filterAndSortToolsList,
   ]);
-
+  useEffect(() => {
+    if (status == "Services") {
+      setHasMore(itemsPerPage < serviceList.data_2.length);
+    } else {
+      setHasMore(itemsPerPage < groupedFreeTools.length);
+    }
+  }, [status, serviceList.data_2.length, groupedFreeTools.length, filter]);
   const loadMore = () => {
     const nextPage = page + 1;
     const sortedList = filterAndSortList(serviceList.data_2, filter);

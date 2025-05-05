@@ -67,6 +67,24 @@ export interface ToolsRawData {
   };
 }
 
+export interface FreeServicesRawData {
+  id: number;
+  documentId: string;
+  name: string;
+  free_service: {
+    id: number;
+    documentId: string;
+    name: string;
+    popular: string;
+    icon: {
+      id: number;
+      documentId: string;
+      url: string;
+    };
+  };
+  popular: string;
+}
+
 export interface ListType {
   type: string;
   data: ServicesDataType[];
@@ -134,6 +152,20 @@ export interface GroupedToolsType {
   type: string;
   popular: string;
   tools: FreeToolsListType[];
+}
+export interface FreeServicesListType {
+  name: string;
+  id: string;
+  icon: string;
+  popular: string;
+  free_service: string;
+  free_service_popular: string;
+}
+
+export interface GroupedFreeServicesType {
+  type: string;
+  popular: string;
+  subservices: FreeServicesListType[];
 }
 
 export interface ServiceMetadataType {

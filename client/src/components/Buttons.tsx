@@ -80,8 +80,8 @@ const MainButton = ({
 };
 
 interface SwitchButtonProps {
-  status: "Services" | "Tools";
-  setStatus: React.Dispatch<React.SetStateAction<"Services" | "Tools">>;
+  status: string;
+  setStatus: React.Dispatch<React.SetStateAction<string>>;
   customClass?: string;
 }
 

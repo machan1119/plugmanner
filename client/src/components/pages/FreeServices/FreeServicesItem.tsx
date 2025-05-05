@@ -1,25 +1,18 @@
 "use client";
 
-import { ServicesDataType } from "@/libs/types/ListTypes";
-import { SupportedLocale } from "@/libs/types/Types";
-import { generate_item_url, replace_str } from "@/utils/functions";
-import { useLocale } from "next-intl";
+import { GroupedFreeServicesType } from "@/libs/types/ListTypes";
+import { generate_item_url_from_name } from "@/utils/functions";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useCallback, memo } from "react";
 
-interface ServicesItemProps {
-  serviceData: ServicesDataType;
+interface FreeServicesItemProps {
+  freeServiceData: GroupedFreeServicesType;
 }
-const LocaleLinks = {
-  en: "services",
-  "es-ES": "servicios",
-  de: "dienstleistungen",
-  "pt-BR": "serviços",
-};
-const ServicesItem = memo(({ serviceData }: ServicesItemProps) => {
+
+const FreeServicesItem = memo(({ freeServiceData }: FreeServicesItemProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const locale = useLocale() as SupportedLocale;
+
   const handleToggle = useCallback(() => {
     setIsExpanded((prev) => !prev);
   }, []);
@@ -46,13 +39,13 @@ const ServicesItem = memo(({ serviceData }: ServicesItemProps) => {
           <Image
             width={40}
             height={40}
-            src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${serviceData.icon}`}
-            alt={`${serviceData.title} icon`}
+            src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${freeServiceData.subservices[0].icon}`}
+            alt={`${freeServiceData.type} icon`}
             className="md:size-12 size-8 animate-fade-in"
             loading="lazy"
           />
           <span className="text-black text-[20px] font-semibold font-clash leading-[25px] animate-fade-in">
-            {serviceData.title}
+            {freeServiceData.type}
           </span>
         </div>
         <button className="rounded-[4px] bg-white border-[1px] border-[rgb(224,_224,_224)] h-fit p-2 transition-all duration-300 hover:bg-gray-50">
@@ -76,16 +69,16 @@ const ServicesItem = memo(({ serviceData }: ServicesItemProps) => {
       >
         <div className="overflow-hidden">
           <div className="grid grid-cols-2 gap-2">
-            {serviceData.services.map((serviceItem, index) => (
+            {freeServiceData.subservices.map((freeServicesItem, index) => (
               <Link
                 className="p-2 bg-white rounded-md flex text-left text-[14px] transition-all duration-200 hover:bg-gray-50 hover:border-primary border hover:shadow-sm animate-fade-in-up"
-                href={`/${LocaleLinks[locale]}/${generate_item_url(
-                  serviceItem.header.text
+                href={`/free-services/${generate_item_url_from_name(
+                  freeServicesItem.name
                 )}`}
-                aria-label={serviceItem.name}
+                aria-label={freeServicesItem.name}
                 key={index}
               >
-                {replace_str(serviceItem.name, serviceData.title)}
+                {freeServicesItem.name}
               </Link>
             ))}
           </div>
@@ -95,6 +88,6 @@ const ServicesItem = memo(({ serviceData }: ServicesItemProps) => {
   );
 });
 
-ServicesItem.displayName = "ServicesItem";
+FreeServicesItem.displayName = "FreeServicesItem";
 
-export default ServicesItem;
+export default FreeServicesItem;

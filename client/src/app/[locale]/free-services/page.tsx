@@ -1,10 +1,10 @@
 "use client";
-import SectionServices from "@/components/pages/Home/SectionServices.tsx/SectionServices";
+import SectionFreeServices from "@/components/pages/FreeServices/SectionFreeServices";
 import Image from "next/image";
 import React from "react";
 import { useTranslations } from "use-intl";
 
-const AllServices = () => {
+const AllFreeServices = () => {
   const t = useTranslations("AllServices");
   const HowTo = [
     {
@@ -25,8 +25,8 @@ const AllServices = () => {
   ];
   return (
     <div className="">
-      <SectionServices state="Services" />
-      <div className="w-full py-[100px] bg-black-light flex flex-col items-center border-b-[1px] border-black-normal">
+      <SectionFreeServices />
+      <div className="w-full py-[100px] bg-[#f6faff] flex flex-col items-center border-b-[1px] border-black-normal">
         <div className="max-w-[1366px] w-full flex flex-col gap-8 items-center px-10">
           <h1 className="font-h1 w-[50%] text-wrap">{t("title")}</h1>
           <p className="font-service-text text-[18px] my-5">
@@ -68,4 +68,4 @@ const AllServices = () => {
   );
 };
 
-export default AllServices;
+export default AllFreeServices;

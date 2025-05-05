@@ -667,7 +667,7 @@ export interface ApiSubFreeServiceSubFreeService
           localized: true;
         };
       }>;
-    Blogs: Schema.Attribute.Component<'subservice.sub-blog', true> &
+    Blogs: Schema.Attribute.Component<'subservice.blogs', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

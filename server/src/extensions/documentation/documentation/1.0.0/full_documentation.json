@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-05-05T00:42:41.196Z"
+    "x-generation-date": "2025-05-05T00:59:51.981Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -8691,12 +8691,6 @@
                 "customer_reviews": {
                   "$ref": "#/components/schemas/SubserviceCustomerReviewsComponent"
                 },
-                "Blogs": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/SubserviceSubBlogComponent"
-                  }
-                },
                 "FAQ": {
                   "$ref": "#/components/schemas/SubserviceFrequentlyQuestionsComponent"
                 },
@@ -8922,6 +8916,9 @@
                 },
                 "title_color": {
                   "type": "string"
+                },
+                "Blogs": {
+                  "$ref": "#/components/schemas/SubserviceBlogsComponent"
                 },
                 "createdAt": {
                   "type": "string",
@@ -13758,12 +13755,6 @@
               "customer_reviews": {
                 "$ref": "#/components/schemas/SubserviceCustomerReviewsComponent"
               },
-              "Blogs": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/SubserviceSubBlogComponent"
-                }
-              },
               "FAQ": {
                 "$ref": "#/components/schemas/SubserviceFrequentlyQuestionsComponent"
               },
@@ -13789,6 +13780,9 @@
               },
               "title_color": {
                 "type": "string"
+              },
+              "Blogs": {
+                "$ref": "#/components/schemas/SubserviceBlogsComponent"
               },
               "locale": {
                 "type": "string"
@@ -13893,12 +13887,6 @@
           },
           "customer_reviews": {
             "$ref": "#/components/schemas/SubserviceCustomerReviewsComponent"
-          },
-          "Blogs": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SubserviceSubBlogComponent"
-            }
           },
           "FAQ": {
             "$ref": "#/components/schemas/SubserviceFrequentlyQuestionsComponent"
@@ -14100,12 +14088,6 @@
                     "customer_reviews": {
                       "$ref": "#/components/schemas/SubserviceCustomerReviewsComponent"
                     },
-                    "Blogs": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/SubserviceSubBlogComponent"
-                      }
-                    },
                     "FAQ": {
                       "$ref": "#/components/schemas/SubserviceFrequentlyQuestionsComponent"
                     },
@@ -14131,6 +14113,9 @@
                     },
                     "title_color": {
                       "type": "string"
+                    },
+                    "Blogs": {
+                      "$ref": "#/components/schemas/SubserviceBlogsComponent"
                     },
                     "createdAt": {
                       "type": "string",
@@ -14244,6 +14229,9 @@
           },
           "title_color": {
             "type": "string"
+          },
+          "Blogs": {
+            "$ref": "#/components/schemas/SubserviceBlogsComponent"
           },
           "createdAt": {
             "type": "string",

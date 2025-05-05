@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { memo, useCallback, useState } from "react";
 import { useLocale } from "next-intl";
+import { SupportedLocale } from "@/libs/types/Types";
 
 const LocaleLinks = {
   en: "free-tools",
@@ -12,7 +13,6 @@ const LocaleLinks = {
   de: "kostenlose-tools",
   "pt-BR": "ferramentas-gratuitas",
 };
-type SupportedLocale = "en" | "es-ES" | "de" | "pt-BR";
 
 const ToolsItem = memo(({ item }: { item: FreeToolsListType }) => {
   const locale = useLocale() as SupportedLocale;

@@ -80,7 +80,6 @@ export interface ServiceJsonDataType {
       id: number;
       States: StateItem[];
     };
-
     Quality: {
       id: number;
       list: ParagraphType[];

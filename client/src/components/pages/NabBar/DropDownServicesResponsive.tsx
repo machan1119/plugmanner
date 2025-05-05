@@ -1,6 +1,7 @@
 "use client";
 
 import { ServicesDataType } from "@/libs/types/ListTypes";
+import { SupportedLocale } from "@/libs/types/Types";
 import { useHome } from "@/providers/HomeProvider";
 import { generate_item_url, replace_str } from "@/utils/functions";
 import { useLocale } from "next-intl";
@@ -19,8 +20,6 @@ interface DropDownServicesResponsiveProps {
   serviceData: ServicesDataType;
   className?: string;
 }
-
-type SupportedLocale = "en" | "es-ES" | "de" | "pt-BR";
 
 const DropDownServicesResponsive = memo(
   ({ serviceData, className = "" }: DropDownServicesResponsiveProps) => {

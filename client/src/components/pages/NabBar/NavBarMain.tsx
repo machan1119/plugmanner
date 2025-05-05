@@ -25,6 +25,7 @@ const NavBarMain = memo(() => {
   const removeSearch = () => {
     setSearchService("");
   };
+  // console.log(serviceList.data_3);
   return (
     <div className={`w-full ${searchShow && "pb-2"}`}>
       <div className="py-[18px] lg:py-4 flex flex-col items-center w-full bg-white border-b border-black/25">
@@ -92,14 +93,14 @@ const NavBarMain = memo(() => {
                   </h2>
                   <div className="grid grid-cols-3 gap-3 font-satoshi font-semibold">
                     {searchService.length > 1
-                      ? serviceList.data_2.map((serivce) =>
-                          serivce.services.map((subservice) =>
+                      ? serviceList.data_2.map((service) =>
+                          service.services.map((subservice) =>
                             subservice.name
                               .toLowerCase()
                               .includes(searchService.toLowerCase()) ? (
                               <div key={subservice.id} onClick={removeSearch}>
                                 <Link
-                                  className="flex px-2 py-1 text-base text-text-primary font-medium font-satoshi hover:bg-background-light hover:text-primary transition-all duration-300"
+                                  className="flex px-2 py-1 text-base text-text-primary font-medium font-satoshi hover:text-primary transition-all duration-300"
                                   href={`/services/${generate_item_url(
                                     subservice.header.text
                                   )}`}
@@ -111,19 +112,22 @@ const NavBarMain = memo(() => {
                             ) : null
                           )
                         )
-                      : serviceList.data_3.slice(0, 27).map((subservice) => (
-                          <div key={subservice.id} onClick={removeSearch}>
-                            <Link
-                              className="flex px-2 py-1 text-base text-text-primary font-medium font-satoshi hover:bg-background-light hover:text-primary transition-all duration-300"
-                              href={`/services/${generate_item_url(
-                                subservice.header.text
-                              )}`}
-                              aria-label={subservice.name}
-                            >
-                              {subservice.name}
-                            </Link>
-                          </div>
-                        ))}
+                      : serviceList.data_3.map(
+                          (subservice) =>
+                            subservice.recommend && (
+                              <div key={subservice.id} onClick={removeSearch}>
+                                <Link
+                                  className="flex px-2 py-1 text-base text-text-primary font-medium font-satoshi hover:text-primary transition-all duration-300"
+                                  href={`/services/${generate_item_url(
+                                    subservice.header.text
+                                  )}`}
+                                  aria-label={subservice.name}
+                                >
+                                  {subservice.name}
+                                </Link>
+                              </div>
+                            )
+                        )}
                   </div>
                 </div>
               )}
@@ -226,14 +230,14 @@ const NavBarMain = memo(() => {
                 </h2>
                 <div className="grid grid-cols-1 gap-3 font-satoshi font-semibold">
                   {searchService.length > 1
-                    ? serviceList.data_2.map((serivce) =>
-                        serivce.services.map((subservice) =>
+                    ? serviceList.data_2.map((service) =>
+                        service.services.map((subservice) =>
                           subservice.name
                             .toLowerCase()
                             .includes(searchService.toLowerCase()) ? (
                             <div key={subservice.id} onClick={removeSearch}>
                               <Link
-                                className="flex px-2 py-1 text-base text-text-primary font-medium font-satoshi hover:bg-background-light hover:text-primary transition-all duration-300"
+                                className="flex px-2 py-1 text-base text-text-primary font-medium font-satoshi hover:text-primary transition-all duration-300"
                                 href={`/services/${generate_item_url(
                                   subservice.header.text
                                 )}`}
@@ -245,19 +249,22 @@ const NavBarMain = memo(() => {
                           ) : null
                         )
                       )
-                    : serviceList.data_3.slice(0, 27).map((subservice) => (
-                        <div key={subservice.id} onClick={removeSearch}>
-                          <Link
-                            className="flex px-2 py-1 text-base text-text-primary font-medium font-satoshi hover:bg-background-light hover:text-primary transition-all duration-300"
-                            href={`/services/${generate_item_url(
-                              subservice.header.text
-                            )}`}
-                            aria-label={subservice.name}
-                          >
-                            {subservice.name}
-                          </Link>
-                        </div>
-                      ))}
+                    : serviceList.data_3.map(
+                        (subservice) =>
+                          subservice.recommend && (
+                            <div key={subservice.id} onClick={removeSearch}>
+                              <Link
+                                className="flex px-2 py-1 text-base text-text-primary font-medium font-satoshi hover:text-primary transition-all duration-300"
+                                href={`/services/${generate_item_url(
+                                  subservice.header.text
+                                )}`}
+                                aria-label={subservice.name}
+                              >
+                                {subservice.name}
+                              </Link>
+                            </div>
+                          )
+                      )}
                 </div>
               </div>
             )}

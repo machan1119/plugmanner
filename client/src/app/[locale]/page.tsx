@@ -17,7 +17,7 @@ const HomePage = () => {
       <>
         <SectionHero />
         <SectionLogos />
-        <SectionServices />
+        <SectionServices state="Services" />
         <SectionWhy />
         <SectionWhyChoose />
         <HowToOrder />

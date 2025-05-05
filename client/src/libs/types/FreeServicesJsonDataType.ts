@@ -4,6 +4,7 @@ import {
   BlogType,
   ParagraphType,
   QuestionType,
+  Review,
 } from "./ServiceJsonDataType";
 
 interface IconFormat {
@@ -24,7 +25,7 @@ interface IconFormats {
   [key: string]: IconFormat | undefined;
 }
 
-export interface Icon {
+interface Icon {
   id: number;
   documentId: string;
   name: string;
@@ -46,7 +47,7 @@ export interface Icon {
   publishedAt: string;
 }
 
-interface FreeTool {
+interface FreeService {
   id: number;
   documentId: string;
   name: string;
@@ -73,7 +74,7 @@ interface SubserviceIntroduction {
   OrderIntro: OrderIntro;
 }
 
-export interface Subservice {
+interface Subservice {
   id: number;
   documentId: string;
   createdAt: string;
@@ -120,42 +121,78 @@ interface Summary {
   description: string | null;
 }
 
-interface UpBlog {
+interface Blogs {
   id: number;
   title?: ParagraphType;
   Blog: BlogType[];
 }
 
-interface DownBlogs {
-  id: number;
-  title?: ParagraphType;
-  Blog: BlogType[];
-}
-
-export interface FreeToolsJsonDataType {
+export interface FreeServicesJsonDataType {
   id: number;
   documentId: string;
   name: string;
-  popular: number;
-  free_tool: FreeTool;
-  Header: ParagraphType;
-  SimpleDescription: ParagraphType;
-  Orders: Order[];
-  HowToOrder: HowToOrder;
-  Summary: Summary;
-  UpBlog: UpBlog;
-  DownBlogs: DownBlogs;
-  Benefits: {
+  title: string;
+  title_color: string;
+  hero_imgs: {
+    bg_img: string;
+    left_img: string;
+    center_img: string;
+    right_img: string;
+    bridge_color: string;
+  };
+  platform_config: {
+    formId: string;
+    platform: string;
+    socialPlatform: string;
+    inputPlaceholder: string;
+    buttonText: string;
+    verificationText: string;
+    successText: string;
+    inputLabel: string;
+    timerImage: string;
+    emailImage: string;
+    checkImage: string;
+    primaryColor: string;
+    primaryColorHover: string;
+  };
+  top_reviews: {
+    id: number;
+    rate: number;
+    header: ParagraphType;
+    review: Review[];
+  };
+  order_btn: {
+    name: string;
+    api: string;
+  };
+  how_to_order: HowToOrder;
+  summary: Summary;
+  benefits: {
     id: number;
     title: ParagraphType;
     Benefit: BenefitType[];
   };
+  customer_reviews: {
+    id: number;
+    rate: number;
+    counterofreviews: string;
+    title: ParagraphType;
+    text: ParagraphType[];
+    Review: Review[];
+  };
+  service_status: {
+    status_1: string;
+    status_2: string;
+    status_3: string;
+  };
+  free_service: FreeService;
+  SimpleDescription: string;
+  Orders: Order[];
+  Blogs: Blogs;
   FAQ: {
     id: number;
     header: ParagraphType;
     Question: QuestionType[];
   };
-  icon: Icon;
-  order_icon: Icon;
   seo: SEOType;
 }

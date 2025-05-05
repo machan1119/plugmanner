@@ -1,18 +1,16 @@
-import { ToolsRawData } from "@/libs/types/ListTypes";
+import { FreeServicesRawData } from "@/libs/types/ListTypes";
 import { fetchAPI } from "./fetch-api";
 
-export async function fetchAllFreeToolsList(locale: string) {
+export async function fetchAllFreeServicesList(locale: string) {
   let pageCount = 1;
-  let rawData: ToolsRawData[] = [];
+  let rawData: FreeServicesRawData[] = [];
   try {
     let i = 1;
     while (true) {
-      const path = "/sub-free-tools";
+      const path = "/sub-free-services";
       const urlParamsObject = {
         fields: ["documentId", "popular", "name"],
-        populate: ["icon", "free_tool"],
-        free_tool: { fields: ["name", "popular"] },
-        icon: { fields: ["url"] },
+        populate: ["free_service", "free_service.icon"],
         sort: [{ popular: "desc" }],
         "[locale]": locale,
         pagination: {
@@ -22,7 +20,7 @@ export async function fetchAllFreeToolsList(locale: string) {
       };
       const responseData = await fetchAPI(path, urlParamsObject, "");
       if (!responseData.data) break;
-      const tempRawData: ToolsRawData[] = responseData.data;
+      const tempRawData: FreeServicesRawData[] = responseData.data;
       rawData = [...rawData, ...tempRawData];
       if (i == 1) {
         pageCount = responseData.meta.pagination.pageCount;
@@ -35,10 +33,10 @@ export async function fetchAllFreeToolsList(locale: string) {
     const processedList = rawData.map((item) => ({
       name: String(item.name),
       id: String(item.documentId),
-      icon: String(item.icon?.url || ""),
+      icon: String(item.free_service?.icon?.url || ""),
       popular: String(item.popular),
-      free_tool: String(item.free_tool.name),
-      free_tool_popular: String(item.free_tool.popular),
+      free_service: String(item.free_service?.name),
+      free_service_popular: String(item.free_service?.popular),
     }));
     return processedList;
   } catch (err) {

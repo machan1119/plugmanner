@@ -2,6 +2,10 @@
 import React, { memo, useState } from "react";
 import Link from "next/link";
 import { DropIcon } from "@/libs/consts/MySvg";
+import { useList } from "@/providers/ListProvider";
+import { useLocale } from "next-intl";
+import { SupportedLocale } from "@/libs/types/Types";
+import { generate_item_url_from_name } from "@/utils/functions";
 
 interface FreeTrialProps {
   className?: string;
@@ -12,22 +16,28 @@ interface FreeTrialLink {
   href: string;
 }
 
-const links: FreeTrialLink[] = [
-  { label: "Free Instagram Followers", href: "instagram-followers" },
-  { label: "Free Instagram Likes", href: "instagram-likes" },
-  { label: "Free TikTok Followers", href: "tiktok-followers" },
-  { label: "Free TikTok Likes", href: "tiktok-likes" },
-  { label: "Free TikTok Views", href: "tiktok-views" },
-  { label: "Free Youtube Subscribers", href: "youtube-subscribers" },
-  { label: "Free Youtube Views", href: "youtube-views" },
-  { label: "Free Youtube Likes", href: "youtube-likes" },
-  { label: "Free Twitter (X) Followers", href: "twitter-followers" },
-  { label: "Free Twitter (X) Likes", href: "twitter-likes" },
-];
+const LocaleLinks = {
+  en: "free-services",
+  "es-ES": "servicios-gratuitos",
+  de: "kostenlose-Dienstleistungen",
+  "pt-BR": "serviços-gratuitos",
+};
 
 const FreeTrial = memo(({ className = "" }: FreeTrialProps) => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const { freeServicesList } = useList();
+  const locale = useLocale() as SupportedLocale;
+  const links: FreeTrialLink[] = freeServicesList.map((item) => {
+    return {
+      label: item.name,
+      href:
+        "/" +
+        LocaleLinks[locale] +
+        "/" +
+        generate_item_url_from_name(item.name),
+      isFree: true,
+    };
+  });
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
@@ -80,7 +90,7 @@ const FreeTrial = memo(({ className = "" }: FreeTrialProps) => {
           <Link
             key={link.label}
             aria-label={link.label}
-            href={`https://www.socialplug.io/free-services/free-${link.href}`}
+            href={link.href}
             className="
               text-base leading-6
               text-white/50
@@ -88,7 +98,6 @@ const FreeTrial = memo(({ className = "" }: FreeTrialProps) => {
               hover:underline
               transition-colors duration-300
             "
-            target="_blank"
             rel="noopener noreferrer"
           >
             {link.label}

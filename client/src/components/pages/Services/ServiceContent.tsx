@@ -97,7 +97,7 @@ const ServiceContent = memo(() => {
     { component: <ServiceCustomerReview />, id: "customer-review" },
     { component: <ServiceQuestion />, id: "question" },
     { component: <ServiceArticle />, id: "article" },
-    { component: <SectionServices />, id: "services" },
+    { component: <SectionServices state="Services" />, id: "services" },
   ];
   const iconURL = serviceItems.icon?.url ? serviceItems.icon.url : serviceIcon;
   const url = generate_item_url(serviceItems?.header.text);

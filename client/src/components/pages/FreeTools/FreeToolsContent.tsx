@@ -316,7 +316,7 @@ const FreeToolsContent = memo(() => {
     { component: <FreeToolsBenefit />, id: "benefit" },
     { component: <FreeToolsDownBlogs />, id: "down-blogs" },
     { component: <FreeToolsQuestion />, id: "question" },
-    { component: <SectionServices />, id: "services" },
+    { component: <SectionServices state="Services" />, id: "services" },
   ];
   return (
     <>

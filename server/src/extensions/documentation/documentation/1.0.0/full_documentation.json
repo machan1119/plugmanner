@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-05-05T00:19:42.099Z"
+    "x-generation-date": "2025-05-05T00:42:41.196Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -24,7 +24,7 @@
   },
   "servers": [
     {
-      "url": "https://www.plugmanner.com/test/api",
+      "url": "http://localhost:1337/api",
       "description": "Development server"
     }
   ],
@@ -8680,10 +8680,7 @@
                   "$ref": "#/components/schemas/GeneralBtnComponent"
                 },
                 "how_to_order": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/SubserviceHowToOrderComponent"
-                  }
+                  "$ref": "#/components/schemas/SubserviceHowToOrderComponent"
                 },
                 "summary": {
                   "$ref": "#/components/schemas/SubserviceServiceSummaryComponent"
@@ -13750,10 +13747,7 @@
                 "$ref": "#/components/schemas/GeneralBtnComponent"
               },
               "how_to_order": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/SubserviceHowToOrderComponent"
-                }
+                "$ref": "#/components/schemas/SubserviceHowToOrderComponent"
               },
               "summary": {
                 "$ref": "#/components/schemas/SubserviceServiceSummaryComponent"
@@ -13889,10 +13883,7 @@
             "$ref": "#/components/schemas/GeneralBtnComponent"
           },
           "how_to_order": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SubserviceHowToOrderComponent"
-            }
+            "$ref": "#/components/schemas/SubserviceHowToOrderComponent"
           },
           "summary": {
             "$ref": "#/components/schemas/SubserviceServiceSummaryComponent"
@@ -14098,10 +14089,7 @@
                       "$ref": "#/components/schemas/GeneralBtnComponent"
                     },
                     "how_to_order": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/SubserviceHowToOrderComponent"
-                      }
+                      "$ref": "#/components/schemas/SubserviceHowToOrderComponent"
                     },
                     "summary": {
                       "$ref": "#/components/schemas/SubserviceServiceSummaryComponent"

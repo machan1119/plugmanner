@@ -701,7 +701,7 @@ export interface ApiSubFreeServiceSubFreeService
           localized: true;
         };
       }>;
-    how_to_order: Schema.Attribute.Component<'subservice.how-to-order', true> &
+    how_to_order: Schema.Attribute.Component<'subservice.how-to-order', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

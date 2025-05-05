@@ -87,7 +87,7 @@
     },
     "how_to_order": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "subservice.how-to-order",
       "pluginOptions": {
         "i18n": {

@@ -44,6 +44,7 @@ const nextConfig: NextConfig = {
   env: {
     NEXT_PUBLIC_STRAPI_API_URL: process.env.NEXT_PUBLIC_STRAPI_API_URL,
     NEXT_PUBLIC_URL: process.env.NEXT_PUBLIC_URL,
+    RECAPTCHA_SECRET_KEY: process.env.RECAPTCHA_SECRET_KEY,
   },
 };
 

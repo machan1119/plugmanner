@@ -3,6 +3,7 @@ import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Player } from "@lottiefiles/react-lottie-player";
+
 type FormStateType = "initial" | "timer" | "verification" | "verified";
 
 const EmailForm = () => {

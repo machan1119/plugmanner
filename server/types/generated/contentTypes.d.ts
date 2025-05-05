@@ -744,6 +744,12 @@ export interface ApiSubFreeServiceSubFreeService
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     service_status: Schema.Attribute.Component<'general.status', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -878,7 +884,7 @@ export interface ApiSubFreeToolSubFreeTool extends Struct.CollectionTypeSchema {
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
-    SEO: Schema.Attribute.Component<'shared.seo', false> &
+    seo: Schema.Attribute.Component<'shared.seo', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

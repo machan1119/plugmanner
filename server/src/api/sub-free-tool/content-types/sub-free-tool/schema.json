@@ -167,7 +167,7 @@
       },
       "type": "integer"
     },
-    "SEO": {
+    "seo": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {

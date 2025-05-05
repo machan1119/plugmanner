@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-05-05T00:59:51.981Z"
+    "x-generation-date": "2025-05-05T07:38:21.062Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -24,7 +24,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:1337/api",
+      "url": "https://www.plugmanner.com/test/api",
       "description": "Development server"
     }
   ],
@@ -6836,7 +6836,7 @@
                     "popular": {
                       "type": "integer"
                     },
-                    "SEO": {
+                    "seo": {
                       "$ref": "#/components/schemas/SharedSeoComponent"
                     },
                     "createdAt": {
@@ -8919,6 +8919,9 @@
                 },
                 "Blogs": {
                   "$ref": "#/components/schemas/SubserviceBlogsComponent"
+                },
+                "seo": {
+                  "$ref": "#/components/schemas/SharedSeoComponent"
                 },
                 "createdAt": {
                   "type": "string",
@@ -11070,7 +11073,7 @@
                 "popular": {
                   "type": "integer"
                 },
-                "SEO": {
+                "seo": {
                   "$ref": "#/components/schemas/SharedSeoComponent"
                 },
                 "createdAt": {
@@ -12896,7 +12899,7 @@
                         "popular": {
                           "type": "integer"
                         },
-                        "SEO": {
+                        "seo": {
                           "$ref": "#/components/schemas/SharedSeoComponent"
                         },
                         "createdAt": {
@@ -13784,6 +13787,9 @@
               "Blogs": {
                 "$ref": "#/components/schemas/SubserviceBlogsComponent"
               },
+              "seo": {
+                "$ref": "#/components/schemas/SharedSeoComponent"
+              },
               "locale": {
                 "type": "string"
               },
@@ -14117,6 +14123,9 @@
                     "Blogs": {
                       "$ref": "#/components/schemas/SubserviceBlogsComponent"
                     },
+                    "seo": {
+                      "$ref": "#/components/schemas/SharedSeoComponent"
+                    },
                     "createdAt": {
                       "type": "string",
                       "format": "date-time"
@@ -14232,6 +14241,9 @@
           },
           "Blogs": {
             "$ref": "#/components/schemas/SubserviceBlogsComponent"
+          },
+          "seo": {
+            "$ref": "#/components/schemas/SharedSeoComponent"
           },
           "createdAt": {
             "type": "string",
@@ -14386,7 +14398,7 @@
               "popular": {
                 "type": "integer"
               },
-              "SEO": {
+              "seo": {
                 "$ref": "#/components/schemas/SharedSeoComponent"
               },
               "locale": {
@@ -16092,7 +16104,7 @@
                     "popular": {
                       "type": "integer"
                     },
-                    "SEO": {
+                    "seo": {
                       "$ref": "#/components/schemas/SharedSeoComponent"
                     },
                     "createdAt": {
@@ -16636,7 +16648,7 @@
           "popular": {
             "type": "integer"
           },
-          "SEO": {
+          "seo": {
             "$ref": "#/components/schemas/SharedSeoComponent"
           },
           "createdAt": {
@@ -18503,7 +18515,7 @@
                   "popular": {
                     "type": "integer"
                   },
-                  "SEO": {
+                  "seo": {
                     "$ref": "#/components/schemas/SharedSeoComponent"
                   },
                   "createdAt": {

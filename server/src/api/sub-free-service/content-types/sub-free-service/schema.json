@@ -127,7 +127,7 @@
     },
     "Blogs": {
       "type": "component",
-      "repeatable": false,
+      "repeatable": true,
       "component": "subservice.sub-blog",
       "pluginOptions": {
         "i18n": {

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-05-04T06:08:52.321Z"
+    "x-generation-date": "2025-05-05T00:19:42.099Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -24,7 +24,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:1337/api",
+      "url": "https://www.plugmanner.com/test/api",
       "description": "Development server"
     }
   ],
@@ -8695,7 +8695,10 @@
                   "$ref": "#/components/schemas/SubserviceCustomerReviewsComponent"
                 },
                 "Blogs": {
-                  "$ref": "#/components/schemas/SubserviceSubBlogComponent"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SubserviceSubBlogComponent"
+                  }
                 },
                 "FAQ": {
                   "$ref": "#/components/schemas/SubserviceFrequentlyQuestionsComponent"
@@ -13762,7 +13765,10 @@
                 "$ref": "#/components/schemas/SubserviceCustomerReviewsComponent"
               },
               "Blogs": {
-                "$ref": "#/components/schemas/SubserviceSubBlogComponent"
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SubserviceSubBlogComponent"
+                }
               },
               "FAQ": {
                 "$ref": "#/components/schemas/SubserviceFrequentlyQuestionsComponent"
@@ -13898,7 +13904,10 @@
             "$ref": "#/components/schemas/SubserviceCustomerReviewsComponent"
           },
           "Blogs": {
-            "$ref": "#/components/schemas/SubserviceSubBlogComponent"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SubserviceSubBlogComponent"
+            }
           },
           "FAQ": {
             "$ref": "#/components/schemas/SubserviceFrequentlyQuestionsComponent"
@@ -14104,7 +14113,10 @@
                       "$ref": "#/components/schemas/SubserviceCustomerReviewsComponent"
                     },
                     "Blogs": {
-                      "$ref": "#/components/schemas/SubserviceSubBlogComponent"
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/SubserviceSubBlogComponent"
+                      }
                     },
                     "FAQ": {
                       "$ref": "#/components/schemas/SubserviceFrequentlyQuestionsComponent"

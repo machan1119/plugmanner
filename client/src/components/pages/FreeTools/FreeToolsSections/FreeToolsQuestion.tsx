@@ -9,7 +9,9 @@ const FreeToolsQuestion = memo(() => {
   if (!freeToolItem?.FAQ) {
     return null;
   }
-
+  const maxLength = freeToolItem.FAQ.Question.length;
+  let middleValue = maxLength / 2;
+  if (maxLength % 2 == 1) middleValue += 1;
   return (
     <section className="flex flex-col py-6 md:py-14 lg:py-[80px] items-center bg-white w-full animate-fade-in">
       <div className="max-w-[1366px] w-full px-4 md:px-10">
@@ -19,14 +21,25 @@ const FreeToolsQuestion = memo(() => {
             customClassName="font-h1 mb-8 md:mb-12 animate-fade-in"
           />
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-5">
-          {freeToolItem.FAQ.Question.map(
-            (item: QuestionType, index: number) => (
-              <div key={index}>
-                <ServiceQuestionItem item={item} />
-              </div>
-            )
-          )}
+        <div className="flex flex-col sm:flex-row gap-5">
+          <div className="flex flex-col gap-5 w-[50%] sm:w-full">
+            {freeToolItem.FAQ.Question.slice(0, middleValue).map(
+              (item: QuestionType, index: number) => (
+                <div key={index}>
+                  <ServiceQuestionItem item={item} />
+                </div>
+              )
+            )}
+          </div>
+          <div className="flex flex-col gap-5 w-[50%] sm:w-full">
+            {freeToolItem.FAQ.Question.slice(middleValue, maxLength).map(
+              (item: QuestionType, index: number) => (
+                <div key={index}>
+                  <ServiceQuestionItem item={item} />
+                </div>
+              )
+            )}
+          </div>
         </div>
       </div>
     </section>

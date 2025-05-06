@@ -23,7 +23,7 @@ const FreeToolsHowTo = () => {
             />
           </div>
         )}
-        <div className="relative w-full flex flex-col gap-12 sm:grid sm:grid-cols-3 items-center my-10">
+        <div className="relative w-full flex flex-col md:gap-12 sm:grid sm:grid-cols-3 items-center my-10">
           {freeToolItem?.HowToOrder.step.map((item, index) => (
             <div
               className="flex flex-col items-center gap-5 h-full text-center"
@@ -32,7 +32,9 @@ const FreeToolsHowTo = () => {
               <div className="flex items-center justify-center bg-[rgb(20,_20,_27)] text-white border border-black rounded-md w-[50px] h-[50px] font-clash text-2xl font-semibold leading-7">
                 {index + 1}
               </div>
-              <p className="font-h2 !text-black">{item.simple}</p>
+              <p className="font-h2 !text-black w-full lg:w-[70%]">
+                {item.simple}
+              </p>
               <p className="font-service-text !text-center">{item.detail}</p>
             </div>
           ))}
@@ -41,7 +43,7 @@ const FreeToolsHowTo = () => {
             height={55}
             alt=""
             src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/6400d6caf94166be7ca4de87_6110b1396056a5e6b0bd01f9_Dot%20Wave.svg"
-            className="absolute self-start top-[20px] left-[22%] w-[20%] hidden md:flex"
+            className="absolute self-start top-[20px] left-[22%] w-[20%] hidden sm:flex"
             priority={false}
           />
           <Image

@@ -53,6 +53,7 @@ export async function fetchFreeServicesData(itemId: string, locale: string) {
         "hero_imgs",
         "platform_config",
         "Orders.subservice.introduction.OrderIntro",
+        "Orders.subservice.header.text",
         "free_service.icon",
         "top_reviews",
         "top_reviews.review",

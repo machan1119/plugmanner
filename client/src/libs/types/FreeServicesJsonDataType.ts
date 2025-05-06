@@ -2,6 +2,7 @@ import { SEOType } from "./ListTypes";
 import {
   BenefitType,
   BlogType,
+  Header,
   ParagraphType,
   QuestionType,
   Review,
@@ -82,6 +83,7 @@ interface Subservice {
   publishedAt: string;
   locale: string;
   name: string;
+  header: Header;
   popular: string;
   ordernow: string;
   recommend: string | null;

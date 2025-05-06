@@ -26,7 +26,7 @@ const FreeServicesHowTo = () => {
             />
           </div>
         )}
-        <div className="relative w-full flex flex-col gap-12 sm:grid sm:grid-cols-3 items-center my-10">
+        <div className="relative w-full flex flex-col md:gap-12 sm:grid sm:grid-cols-3 items-center my-10">
           {freeServiceItem?.how_to_order.step.map((item, index) => (
             <div
               className="flex flex-col items-center gap-5 h-full text-center"
@@ -35,7 +35,9 @@ const FreeServicesHowTo = () => {
               <div className="flex items-center justify-center bg-[rgb(20,_20,_27)] text-white border border-black rounded-md w-[50px] h-[50px] font-clash text-2xl font-semibold leading-7">
                 {index + 1}
               </div>
-              <p className="font-h2 !text-black">{item.simple}</p>
+              <p className="font-h2 !text-black w-full lg:w-[70%]">
+                {item.simple}
+              </p>
               <p className="font-service-text !text-center">{item.detail}</p>
             </div>
           ))}

@@ -53,6 +53,7 @@ export async function fetchFreeToolsData(itemId: string, locale: string) {
         "Header.text",
         "SimpleDescription.text",
         "Orders.subservice.introduction.OrderIntro",
+        "Orders.subservice.header.text",
         "HowToOrder.step",
         "HowToOrder.title.text",
         "HowToOrder.description.text",

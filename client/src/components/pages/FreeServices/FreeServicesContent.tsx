@@ -15,7 +15,7 @@ import FreeServicesBlogs from "./FreeServicesSections/FreeServicesBlogs";
 import FreeServicesTopReview from "./FreeServicesSections/FreeServicesTopReview";
 import FreeServicesCustomerReview from "./FreeServicesSections/FreeServicesCustomerReview";
 
-interface FreeToolsSection {
+interface FreeServicesSection {
   component: React.ReactNode;
   id: string;
 }
@@ -104,15 +104,15 @@ const FreeServicesContent = memo(() => {
   //   "@type": "FAQPage",
   //   mainEntity: faq,
   // };
-  const sections: FreeToolsSection[] = [
+  const sections: FreeServicesSection[] = [
     { component: <FreeServicesHero />, id: "hero" },
-    { component: <FreeServicesTopReview />, id: "top-review" },
     { component: <FreeServicesRelatedServices />, id: "related-services" },
+    { component: <FreeServicesTopReview />, id: "top-review" },
     { component: <FreeServicesHowTo />, id: "how-to" },
     { component: <FreeServicesSummary />, id: "summary" },
-    { component: <FreeServicesBlogs />, id: "up-blogs" },
     { component: <FreeServicesBenefit />, id: "benefit" },
     { component: <FreeServicesCustomerReview />, id: "customer-review" },
+    { component: <FreeServicesBlogs />, id: "blogs" },
     { component: <FreeServicesQuestion />, id: "question" },
     { component: <SectionServices state="Services" />, id: "services" },
   ];

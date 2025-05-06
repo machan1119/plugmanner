@@ -62,15 +62,14 @@ export default function VideoDownloader() {
   };
 
   return (
-    <section className="w-full py-6 md:py-14 lg:py-[64px] gap-6 md:gap-14 lg:gap-16 bg-white flex flex-col items-center bg-[linear-gradient(#fffffff5,#fff),url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/67bb4de67a2ea65794f385ee_perspective-grid-black.webp')] bg-[position:0_0,50%_0] bg-[size:auto,contain] bg-no-repeat">
-      <div className="max-w-[1366px] w-full flex flex-col gap-14 items-center px-10">
+    <section className="w-full py-6 md:py-[64px] gap-6 md:gap-14 lg:gap-16 bg-white flex flex-col items-center bg-[linear-gradient(#fffffff5,#fff),url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/67bb4de67a2ea65794f385ee_perspective-grid-black.webp')] bg-[position:0_0,50%_0] bg-[size:auto,contain] bg-no-repeat">
+      <div className="max-w-[1366px] w-full flex flex-col lg:gap-14 items-center px-10">
         <h1>
           <StrapiText
             data={freeToolItem?.Header.text}
-            customClassName="!font-service text-wrap !text-center lg:!text-left"
+            customClassName="!font-service text-wrap !w-[80%] !text-center lg:!text-left"
           />
         </h1>
-
         <div className="w-[95%] rounded-md bg-white p-5 sm:w-[90%] md:w-[800px]">
           <div className="flex flex-col gap-5">
             <div

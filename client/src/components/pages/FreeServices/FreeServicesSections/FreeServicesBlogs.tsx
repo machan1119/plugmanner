@@ -11,7 +11,7 @@ const FreeServicesBlogs = memo(() => {
   }
 
   return (
-    <section className="w-full py-6 md:py-16 lg:py-[80px] border-b-[1px] border-black-normal">
+    <section className="w-full py-6 md:py-16 lg:py-[80px]">
       <div className="flex flex-col gap-20 max-w-[1366px] justify-self-center items-center px-10">
         {freeServiceItem.Blogs.title?.text && (
           <h2

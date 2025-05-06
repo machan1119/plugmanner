@@ -3,6 +3,8 @@ import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Player } from "@lottiefiles/react-lottie-player";
+import { useLocale } from "next-intl";
+import { SupportedLocale } from "@/libs/types/Types";
 
 type FormStateType = "initial" | "timer" | "verification" | "verified";
 
@@ -24,6 +26,7 @@ const EmailForm = () => {
   const [load, setLoad] = useState(false);
   const [expired, setExpired] = useState("false");
   const recaptchaRef = useRef(null);
+  const locale = useLocale() as SupportedLocale;
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoad(true);
@@ -195,7 +198,7 @@ const EmailForm = () => {
   const activeIndex = progressIndexMap[formState];
   return (
     <section
-      className="w-full py-6 md:py-14 lg:py-[64px] gap-6 md:gap-14 lg:gap-16 bg-white flex flex-col items-center"
+      className="w-full pt-6 md:pt-10 lg:pt-[64px] pb-[64px] gap-6 md:gap-14 lg:gap-16 bg-white flex flex-col items-center"
       style={{
         backgroundImage: `url(${freeServiceItem.hero_imgs.bg_img})`,
         backgroundPosition: "center",
@@ -204,7 +207,7 @@ const EmailForm = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="max-w-[1366px] w-full flex flex-col gap-4 items-center px-10">
+      <div className="max-w-[1366px] w-full flex flex-col gap-3 items-center px-10">
         <h1
           className="font-service text-wrap !text-center lg:!text-left"
           style={{
@@ -216,7 +219,7 @@ const EmailForm = () => {
         >
           {freeServiceItem.title}
         </h1>
-        <p className="font-satoshi text-black text-[18px] text-center w-[70%] md:w-[45%]">
+        <p className="font-satoshi text-black text-[18px] text-center w-[80%] lg:w-[45%]">
           {freeServiceItem.SimpleDescription}
         </p>
         <div className="relative flex items-center w-[90%] justify-center">
@@ -225,14 +228,14 @@ const EmailForm = () => {
             width={150}
             height={165}
             alt="left-img"
-            className="absolute hidden sm:block top-[3%] right-auto bottom-auto left-0 w-[100px] md:w-[150px] lg:w-[200px]"
+            className="absolute hidden sm:block top-[3%] right-auto bottom-auto left-0 w-[100px] md:w-[120px] lg:w-[200px]"
           />
           <Image
             src={freeServiceItem.hero_imgs.right_img}
             width={150}
             height={165}
             alt="right-img"
-            className="absolute hidden sm:block translate-x-1/2 top-[3%] right-0 bottom-auto left-auto md:w-[150px] lg:w-[200px]"
+            className="absolute hidden sm:block translate-x-1/2 top-[8%] right-0 bottom-auto left-auto w-[100px] md:w-[120px] lg:w-[200px]"
           />
           <svg
             width="146"
@@ -240,7 +243,7 @@ const EmailForm = () => {
             viewBox="0 0 146 122"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="w-[80px] lg:w-[146px]"
+            className="w-[80px] md:w-[146px]"
           >
             <path
               d="M145.762 55.8629H141.055C130.292 55.8629 120.058 51.191 113.008 43.0583L93.6427 20.7209C86.5922 12.5882 76.3587 7.91626 65.5953 7.91626H16.4219"
@@ -319,7 +322,7 @@ const EmailForm = () => {
             width={400}
             height={85}
             alt="center-image"
-            className="w-[300px] lg:w-[400px]"
+            className="w-[300px] md:w-[400px]"
           />
           <svg
             width="146"
@@ -327,7 +330,7 @@ const EmailForm = () => {
             viewBox="0 0 146 111"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="w-[80px] lg:w-[146px] mt-[-10px] lg:mt-[-20px]"
+            className="w-[80px] md:w-[146px] mt-[-10px] md:mt-[-20px]"
           >
             <path
               d="M0.761566 55.8629H5.46827C16.2317 55.8629 26.4652 51.191 33.5157 43.0583L52.8807 20.7209C59.9313 12.5882 70.1648 7.91626 80.9282 7.91626H130.102"
@@ -453,13 +456,14 @@ const EmailForm = () => {
                   ref={recaptchaRef}
                   sitekey={SITE_KEY}
                   onChange={handleCaptchaChange}
+                  lang={locale}
                   asyncScriptOnLoad={asyncScriptOnLoad}
                   className="mt-4 w-full overflow-hidden"
                 />
               )}
               <button
                 type="submit"
-                className={`relative w-full h-14 mt-2 font-clash text-[20px] rounded-lg bg-primary border-2 border-green-400 text-white font-semibold transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed ${
+                className={`relative w-full h-14 mt-3 font-clash text-[20px] rounded-lg bg-primary border-2 border-green-400 text-white font-semibold transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed ${
                   isSubmitting ? "text-transparent" : ""
                 }`}
                 disabled={isSubmitting}

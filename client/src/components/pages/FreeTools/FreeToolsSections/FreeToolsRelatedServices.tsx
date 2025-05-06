@@ -9,8 +9,8 @@ export default function FreeToolsRelatedServices() {
   }
 
   return (
-    <section className="w-full py-6 md:py-14 lg:py-[80px] bg-black-light flex flex-col items-center border-b-[1px] border-black-light">
-      <div className="max-w-[1366px] w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 items-center px-10 sm:px-20">
+    <section className="w-full py-6 md:py-[80px] bg-black-light flex flex-col items-center border-b-[1px] border-black-dark">
+      <div className="max-w-[1366px] w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 items-center px-5 lg:px-20">
         {freeToolItem.Orders.map((orderItem, index) => (
           <div
             className="p-6 flex flex-col gap-1 bg-white border-white hover:bg-primary/20 hover:border-primary border-[1px] rounded-md animate-fade-in transition-all duration-500"

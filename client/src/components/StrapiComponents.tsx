@@ -16,7 +16,6 @@ const StrapiText = memo(({ data, customClassName = "" }: StrapiTextType) => {
           transition-colors duration-200
           ${item.bold ? "font-semibold" : ""}
         `;
-
         if (item.link) {
           return (
             <Link

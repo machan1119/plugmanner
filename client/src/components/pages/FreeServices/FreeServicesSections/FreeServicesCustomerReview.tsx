@@ -30,7 +30,7 @@ const FreeServicesCustomerReview = () => {
   const showLessButton = count > INITIAL_COUNT && count >= maxCount;
 
   return (
-    <section className="py-6 md:py-16 lg:py-[80px] flex flex-col items-center">
+    <section className="pt-6 md:pt-[80px] flex flex-col items-center">
       <div className="max-w-[1366px] px-10 flex flex-col gap-7 w-full items-center mb-8">
         <div className="flex flex-col gap-5 items-center w-full">
           <h2>

@@ -42,7 +42,7 @@ const ServiceHowTo = () => {
                 <div className="flex items-center justify-center bg-[rgb(20,_20,_27)] text-white border border-black rounded-md w-[50px] h-[50px] font-clash text-2xl font-semibold leading-7">
                   {index + 1}
                 </div>
-                <p className="font-h2 !text-black">{item.simple}</p>
+                <p className="font-h2 !text-black w-[70%]">{item.simple}</p>
                 <p className="font-service-text !text-center">{item.detail}</p>
               </div>
             )

@@ -1,18 +1,30 @@
+import { SupportedLocale } from "@/libs/types/Types";
 import { useFreeServices } from "@/providers/FreeServicesProvider";
+import { generate_item_url } from "@/utils/functions";
+import { useLocale } from "next-intl";
 import Image from "next/image";
-
+import Link from "next/link";
+const LocaleLinks = {
+  en: "services",
+  "es-ES": "servicios",
+  de: "dienstleistungen",
+  "pt-BR": "serviços",
+};
 export default function FreeServicesRelatedServices() {
   const { freeServiceItem } = useFreeServices();
   console.log(freeServiceItem);
+  const locale = useLocale() as SupportedLocale;
   if (!freeServiceItem) return;
   if (freeServiceItem?.Orders.length == 0) return;
   if (!freeServiceItem?.free_service?.icon?.url) return;
-
   return (
     <section className="w-full py-6 md:py-[80px] bg-black-light flex flex-col items-center border-b-[1px] border-black-dark">
       <div className="max-w-[1366px] w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 items-center px-5 lg:px-20">
         {freeServiceItem.Orders.map((orderItem) => (
-          <div
+          <Link
+            href={`/${LocaleLinks[locale]}/${generate_item_url(
+              orderItem.subservice.header.text
+            )}`}
             className="p-6 flex flex-col gap-1 bg-white border-white hover:bg-primary/20 hover:border-primary border-[1px] rounded-md animate-fade-in transition-all duration-500"
             key={orderItem.id}
           >
@@ -30,7 +42,7 @@ export default function FreeServicesRelatedServices() {
               Starting from $
               {orderItem.subservice.introduction.OrderIntro.price}
             </p>
-          </div>
+          </Link>
         ))}
       </div>
     </section>

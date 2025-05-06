@@ -2,6 +2,7 @@ import { SEOType } from "./ListTypes";
 import {
   BenefitType,
   BlogType,
+  Header,
   ParagraphType,
   QuestionType,
 } from "./ServiceJsonDataType";
@@ -80,6 +81,7 @@ export interface Subservice {
   updatedAt: string;
   publishedAt: string;
   locale: string;
+  header: Header;
   name: string;
   popular: string;
   ordernow: string;

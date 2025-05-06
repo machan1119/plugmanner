@@ -2,6 +2,7 @@ import { SEOType } from "./ListTypes";
 import {
   BenefitType,
   BlogType,
+  Header,
   ParagraphType,
   QuestionType,
 } from "./ServiceJsonDataType";
@@ -24,7 +25,7 @@ interface IconFormats {
   [key: string]: IconFormat | undefined;
 }
 
-interface Icon {
+export interface Icon {
   id: number;
   documentId: string;
   name: string;
@@ -73,13 +74,14 @@ interface SubserviceIntroduction {
   OrderIntro: OrderIntro;
 }
 
-interface Subservice {
+export interface Subservice {
   id: number;
   documentId: string;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
   locale: string;
+  header: Header;
   name: string;
   popular: string;
   ordernow: string;

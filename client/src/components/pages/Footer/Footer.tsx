@@ -5,22 +5,9 @@ import SellingService from "./SellingService";
 import FreeTool from "./FreeTool";
 import Image from "next/image";
 
-interface FooterProps {
-  className?: string;
-}
-
-const Footer = memo(({ className = "" }: FooterProps) => {
+const Footer = memo(() => {
   return (
-    <footer
-      className={`
-        pt-12 px-4 md:px-10 
-        text-base text-white 
-        bg-black bg-center-top bg-no-repeat bg-[size:1234px] 
-        bg-[image:url(https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ebe_footer_bg.webp)]
-        transition-all duration-300
-        ${className}
-      `}
-    >
+    <footer className="pt-12 px-4 md:px-10 text-base text-white bg-black bg-center-top bg-no-repeat bg-[size:1234px] bg-[image:url(https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ebe_footer_bg.webp)] transition-all duration-300">
       <div className="mx-auto max-w-[1334px]">
         <div
           className="

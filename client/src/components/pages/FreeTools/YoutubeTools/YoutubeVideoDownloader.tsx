@@ -1,6 +1,9 @@
 import { StrapiText } from "@/components/StrapiComponents";
+import { SupportedLocale } from "@/libs/types/Types";
 import { useFreeTools } from "@/providers/FreeToolsProvider";
+import { useLocale } from "next-intl";
 import { useState, useRef } from "react";
+import Turnstile from "react-turnstile";
 
 export default function YoutubeVideoDownloader() {
   const [postUrl, setPostUrl] = useState("");
@@ -10,6 +13,8 @@ export default function YoutubeVideoDownloader() {
   const [isLoading, setIsLoading] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const { freeToolItem } = useFreeTools();
+  const [token, setToken] = useState<string | null>(null);
+  const locale = useLocale() as SupportedLocale;
   const name = "Youtube Video";
   const source =
     "https://reelsdownloader.socialplug.io/api/instagram_reels_downloader";
@@ -20,6 +25,10 @@ export default function YoutubeVideoDownloader() {
   const extractVideo = async () => {
     if (!postUrl.trim()) {
       setError(`Please enter a ${name} Video URL`);
+      return;
+    }
+    if (!token) {
+      setError("Don't passed cloudflare.");
       return;
     }
     setError(null);
@@ -62,25 +71,28 @@ export default function YoutubeVideoDownloader() {
       videoRef.current.src = "";
     }
   };
-
+  const CLOUDFLARE_SITE_KEY =
+    process.env.CLOUDFLARE_SITE_KEY || "0x4AAAAAAAEBI-lJrg5oKwvX";
   return (
-    <section className="w-full py-6 md:py-14 lg:py-[64px] gap-6 md:gap-14 lg:gap-16 bg-white flex flex-col items-center bg-[linear-gradient(#fffffff5,#fff),url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/67bb4de67a2ea65794f385ee_perspective-grid-black.webp')] bg-[position:0_0,50%_0] bg-[size:auto,contain] bg-no-repeat">
-      <div className="max-w-[1366px] w-full flex flex-col gap-14 items-center px-10">
+    <section className="w-full py-6 md:py-10 lg:py-[64px] gap-6 md:gap-14 lg:gap-16 bg-white flex flex-col items-center bg-[linear-gradient(#fffffff5,#fff),url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/67bb4de67a2ea65794f385ee_perspective-grid-black.webp')] bg-[position:0_0,50%_0] bg-[size:auto,contain] bg-no-repeat">
+      <div className="max-w-[1366px] w-full flex flex-col lg:gap-5 items-center px-5 lg:px-10">
         <h1>
           <StrapiText
             data={freeToolItem?.Header.text}
-            customClassName="!font-service text-wrap !text-center lg:!text-left"
+            customClassName="!font-service text-wrap !text-center lg:!text-left w-full"
           />
         </h1>
         <StrapiText
           data={freeToolItem.SimpleDescription.text}
-          customClassName="font-service-text !text-[20px] !text-center w-[70%] md:w-[50%]"
+          customClassName="font-service-text !text-[20px] !text-center w-[70%] lg:w-[41%]"
         />
-        <div className="w-[95%] rounded-md bg-white p-5 sm:w-[90%] md:w-[800px] border border-black-light shadow-md">
+        <div className="w-[95%] rounded-md bg-white p-5 mt-14 w-full lg:w-[800px] border border-black-light shadow-md">
           <div className="flex flex-col gap-5">
             <div
               id="form-container"
-              className={`${downloadURL} ? "hidden" : "block" rounded-md`}
+              className={`${
+                downloadURL ? "hidden" : "flex flex-col gap-5"
+              } rounded-md`}
             >
               <div className="flex flex-col gap-2 md:flex-row md:gap-0">
                 <input
@@ -104,6 +116,13 @@ export default function YoutubeVideoDownloader() {
                   Get Video
                 </button>
               </div>
+              <Turnstile
+                onVerify={setToken}
+                sitekey={CLOUDFLARE_SITE_KEY}
+                theme="light"
+                language={locale}
+                // style={{ border: "2px solid orange" }}
+              />
             </div>
             <div
               id="video-container"

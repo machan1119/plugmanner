@@ -2,6 +2,10 @@
 import React, { memo, useState, useEffect } from "react";
 import { DropIcon } from "@/libs/consts/MySvg";
 import Link from "next/link";
+import { useLocale } from "next-intl";
+import { SupportedLocale } from "@/libs/types/Types";
+import { useList } from "@/providers/ListProvider";
+import { generate_item_url_from_name } from "@/utils/functions";
 
 interface FreeToolProps {
   className?: string;
@@ -12,24 +16,6 @@ interface ToolLink {
   href: string;
   isFree?: boolean;
 }
-
-const freeTools: ToolLink[] = [
-  {
-    label: "Youtube Video Downloader",
-    href: "/youtube-video-downloader",
-    isFree: true,
-  },
-  {
-    label: "Instagram Usernam Checker",
-    href: "/instabram-usernam-checker",
-    isFree: true,
-  },
-  {
-    label: "Twitter Username Checker",
-    href: "/twitter-username-checker",
-    isFree: true,
-  },
-];
 
 const quickLinks: ToolLink[] = [
   {
@@ -113,15 +99,8 @@ const Section = memo(
             <Link
               key={link.label}
               aria-label={link.label}
-              href={`https://socialplug.io/free-tools${link.href}`}
-              className="
-              text-base leading-6
-              text-white/50
-              hover:text-primary
-              hover:underline
-              transition-colors duration-300
-              flex items-center gap-2
-            "
+              href={link.href}
+              className="text-base leading-6 text-white/50 hover:text-primary hover:underline transition-colors duration-300 flex items-center gap-2"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -151,12 +130,29 @@ const Section = memo(
 );
 
 Section.displayName = "Section";
-
+const LocaleLinks = {
+  en: "free-tools",
+  "es-ES": "herramientas-gratis",
+  de: "kostenlose-tools",
+  "pt-BR": "ferramentas-gratuitas",
+};
 const FreeTool = memo(({ className = "" }: FreeToolProps) => {
   const [isToolsOpen, setIsToolsOpen] = useState(false);
   const [isLinksOpen, setIsLinksOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-
+  const { freeToolsList } = useList();
+  const locale = useLocale() as SupportedLocale;
+  const freeTools: ToolLink[] = freeToolsList.map((item) => {
+    return {
+      label: item.name,
+      href:
+        "/" +
+        LocaleLinks[locale] +
+        "/" +
+        generate_item_url_from_name(item.name),
+      isFree: true,
+    };
+  });
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 1024);

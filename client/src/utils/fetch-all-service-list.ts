@@ -31,7 +31,7 @@ export async function fetchAllServiceList(locale: string) {
         fields: ["documentId", "type", "popular"],
         populate: {
           subservices: {
-            fields: ["name", "documentId", "popular"],
+            fields: ["name", "documentId", "popular", "recommend"],
             populate: ["icon", "header.text"],
             sort: [{ popular: "desc" }],
           },
@@ -45,6 +45,7 @@ export async function fetchAllServiceList(locale: string) {
         },
       };
       const responseData = await fetchAPI(path, urlParamsObject, "");
+      if (!responseData.data) break;
       const tempRawData: RawData[] = responseData.data;
       rawData = [...rawData, ...tempRawData];
       if (i == 1) {

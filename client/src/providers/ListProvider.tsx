@@ -6,14 +6,20 @@ import React, {
   useEffect,
   useMemo,
 } from "react";
-import { FreeToolsListType, ProcessedListType } from "@/libs/types/ListTypes";
+import {
+  FreeServicesListType,
+  FreeToolsListType,
+  ProcessedListType,
+} from "@/libs/types/ListTypes";
 import { fetchAllServiceList } from "@/utils/fetch-all-service-list";
 import { fetchAllFreeToolsList } from "@/utils/fetch-all-free-tools-list";
+import { fetchAllFreeServicesList } from "@/utils/fetch-all-free-services-list";
 
 interface ListContextProps {
   serviceList: ProcessedListType;
   isLoading: boolean;
   freeToolsList: FreeToolsListType[];
+  freeServicesList: FreeServicesListType[];
 }
 
 const ListContext = createContext<ListContextProps>({
@@ -23,6 +29,7 @@ const ListContext = createContext<ListContextProps>({
     data_3: [],
   },
   freeToolsList: [],
+  freeServicesList: [],
   isLoading: true,
 });
 
@@ -45,6 +52,9 @@ export const ListProvider: React.FC<{
     data_3: [],
   });
   const [freeToolsList, setFreeToolsList] = useState<FreeToolsListType[]>([]);
+  const [freeServicesList, setFreeServicesList] = useState<
+    FreeServicesListType[]
+  >([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -60,10 +70,13 @@ export const ListProvider: React.FC<{
       if (!processedList) {
         throw new Error("Failed to fetch service list");
       }
-      const processedToolsList: FreeToolsListType[] =
+      const processedFreeToolsList: FreeToolsListType[] =
         (await fetchAllFreeToolsList(userLocale)) ?? [];
+      const processedFreeServicesList: FreeServicesListType[] =
+        (await fetchAllFreeServicesList(userLocale)) ?? [];
       setServiceList(processedList);
-      setFreeToolsList(processedToolsList);
+      setFreeToolsList(processedFreeToolsList);
+      setFreeServicesList(processedFreeServicesList);
       setIsLoading(false);
     };
     fetchAndSetData();
@@ -73,8 +86,9 @@ export const ListProvider: React.FC<{
       serviceList,
       isLoading,
       freeToolsList,
+      freeServicesList,
     }),
-    [serviceList, isLoading, freeToolsList]
+    [serviceList, isLoading, freeToolsList, freeServicesList]
   );
 
   return <ListContext.Provider value={value}>{children}</ListContext.Provider>;

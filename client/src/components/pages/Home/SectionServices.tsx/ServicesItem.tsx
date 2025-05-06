@@ -1,7 +1,9 @@
 "use client";
 
 import { ServicesDataType } from "@/libs/types/ListTypes";
+import { SupportedLocale } from "@/libs/types/Types";
 import { generate_item_url, replace_str } from "@/utils/functions";
+import { useLocale } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useCallback, memo } from "react";
@@ -9,10 +11,15 @@ import React, { useState, useCallback, memo } from "react";
 interface ServicesItemProps {
   serviceData: ServicesDataType;
 }
-
+const LocaleLinks = {
+  en: "services",
+  "es-ES": "servicios",
+  de: "dienstleistungen",
+  "pt-BR": "serviços",
+};
 const ServicesItem = memo(({ serviceData }: ServicesItemProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
-
+  const locale = useLocale() as SupportedLocale;
   const handleToggle = useCallback(() => {
     setIsExpanded((prev) => !prev);
   }, []);
@@ -29,7 +36,7 @@ const ServicesItem = memo(({ serviceData }: ServicesItemProps) => {
 
   return (
     <div
-      className="inline-block relative bg-black-light border-[1px] border-black-dark rounded-[12px] p-4 w-full h-max transition-all duration-300 hover:border-gray-600 hover:shadow-lg cursor-pointer"
+      className="inline-block relative bg-black-light border-[1px] border-black-dark rounded-[12px] p-4 w-full h-max transition-all duration-300 hover:border-gray-300 hover:shadow-lg cursor-pointer"
       tabIndex={0}
       onKeyDown={handleKeyDown}
       onClick={handleToggle}
@@ -71,8 +78,10 @@ const ServicesItem = memo(({ serviceData }: ServicesItemProps) => {
           <div className="grid grid-cols-2 gap-2">
             {serviceData.services.map((serviceItem, index) => (
               <Link
-                className="p-2 bg-white rounded-md flex text-left text-[14px] transition-all duration-200 hover:bg-gray-50 hover:shadow-sm animate-fade-in-up"
-                href={`/services/${generate_item_url(serviceItem.header.text)}`}
+                className="p-2 bg-white rounded-md flex text-left text-[14px] transition-all duration-200 hover:bg-gray-50 hover:border-primary border hover:shadow-sm animate-fade-in-up"
+                href={`/${LocaleLinks[locale]}/${generate_item_url(
+                  serviceItem.header.text
+                )}`}
                 aria-label={serviceItem.name}
                 key={index}
               >

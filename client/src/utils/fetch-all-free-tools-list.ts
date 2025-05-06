@@ -21,6 +21,7 @@ export async function fetchAllFreeToolsList(locale: string) {
         },
       };
       const responseData = await fetchAPI(path, urlParamsObject, "");
+      if (!responseData.data) break;
       const tempRawData: ToolsRawData[] = responseData.data;
       rawData = [...rawData, ...tempRawData];
       if (i == 1) {

@@ -53,6 +53,21 @@
       "relation": "oneToMany",
       "target": "api::sub-free-service.sub-free-service",
       "mappedBy": "free_service"
+    },
+    "order_icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

@@ -494,6 +494,14 @@ export interface ApiFreeServiceFreeService extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    order_icon: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     popular: Schema.Attribute.Integer &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

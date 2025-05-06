@@ -11,12 +11,12 @@ const FreeToolsDownBlogs = memo(() => {
   }
 
   return (
-    <section className="w-full py-6 md:py-16 lg:py-[80px] border-b-[1px] border-black-normal">
+    <section className="w-full py-6 md:py-[80px] border-b-[1px] border-black-normal">
       <div className="flex flex-col gap-20 max-w-[1366px] justify-self-center items-center px-10">
         {freeToolItem.DownBlogs.title?.text && (
           <h2
             id="blogs-heading"
-            className="font-h1 w-full md:w-[50%] text-wrap"
+            className="font-h1 w-full md:w-[90%] lg:w-[50%] text-wrap"
           >
             <StrapiText
               data={freeToolItem.DownBlogs.title.text}

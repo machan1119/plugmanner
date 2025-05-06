@@ -10,10 +10,13 @@ const FreeServicesHowTo = () => {
   }
 
   return (
-    <section className="w-full py-6 md:py-14 lg:py-[80px] bg-black-light flex flex-col items-center border-b-[1px] border-black-light">
+    <section className="w-full py-6 md:py-[80px] bg-black-light flex flex-col items-center border-b-[1px] border-black-dark">
       <div className="max-w-[1366px] w-full flex flex-col items-center px-10">
-        <h2 className="font-h1 sm:80% lg:w-[50%] text-wrap justify-center">
-          <StrapiText data={freeServiceItem?.how_to_order.title.text} />
+        <h2 className="font-h1 w-full text-wrap justify-center">
+          <StrapiText
+            data={freeServiceItem?.how_to_order.title.text}
+            customClassName="sm:w-[80%] lg:w-[50%] mx-auto"
+          />
         </h2>
         {freeServiceItem?.how_to_order.description && (
           <div className="sm:80% md:w-[70%] lg:w-[40%]">

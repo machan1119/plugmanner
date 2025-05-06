@@ -22,8 +22,8 @@ const FreeServicesTopReview = () => {
   }
 
   return (
-    <section className="w-full py-8 md:py-14 lg:py-[80px] bg-black-light flex flex-col items-center border-b-[1px] border-black-normal">
-      <div className="max-w-[1366px] w-full flex flex-col gap-8 items-center px-10">
+    <section className="w-full py-8 md:py-16 lg:py-[80px] bg-black-light flex flex-col items-center border-b-[1px] border-black-normal">
+      <div className="max-w-[1366px] w-full flex flex-col gap-5 items-center px-10">
         <div className="flex flex-col gap-4 items-center">
           <h2 id="reviews-heading" className="font-h1">
             <StrapiText
@@ -35,7 +35,7 @@ const FreeServicesTopReview = () => {
             <RatingStar rating={freeServiceItem.top_reviews.rate} />
           </div>
         </div>
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-5 md:mt-12">
           {freeServiceItem.top_reviews.review.map(
             (item: Review, index: number) => (
               <ReviewItem

@@ -59,22 +59,20 @@ const FreeServicesBenefit = memo(() => {
           </div>
           {freeServiceItem.benefits.Benefit.map((currentBenefit, index) => (
             <div
-              className={`w-full flex flex-col md:flex-row gap-8 items-center ${
+              className={`w-full flex flex-col md:flex-row gap-8 md:px-10 md:gap-0 md:justify-between items-center ${
                 index !== currentStep && "hidden"
               }`}
               key={index}
             >
-              <div className="w-full lg:w-[50%] items-center justify-center flex">
-                <Image
-                  width={500}
-                  height={500}
-                  loading="eager"
-                  priority
-                  alt={`illustration`}
-                  src={currentBenefit.img}
-                  className="md:w-full w-[60%]"
-                />
-              </div>
+              <Image
+                width={500}
+                height={500}
+                loading="eager"
+                priority
+                alt={`illustration`}
+                src={currentBenefit.img}
+                className="w-full lg:w-[40%]"
+              />
               <div className="w-full lg:w-[50%] flex flex-col gap-5">
                 <h2>
                   <StrapiText

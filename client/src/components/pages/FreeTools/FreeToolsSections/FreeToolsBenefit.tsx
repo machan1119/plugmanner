@@ -72,9 +72,9 @@ const FreeToolsBenefit = memo(() => {
                 priority
                 alt={`illustration`}
                 src={currentBenefit.img}
-                className="w-full lg:w-[40%]"
+                className="w-[80%] md:w-[40%]"
               />
-              <div className="w-full lg:w-[50%] flex flex-col gap-5">
+              <div className="w-[80%] md:w-[50%] flex flex-col gap-5">
                 <h2>
                   <StrapiText
                     data={currentBenefit.title.text}

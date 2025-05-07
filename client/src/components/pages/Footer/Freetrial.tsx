@@ -83,7 +83,7 @@ const FreeTrial = memo(({ className = "" }: FreeTrialProps) => {
           flex flex-col gap-4 
           overflow-hidden 
           transition-all duration-300 ease-in-out
-          ${isOpen ? "max-h-[380px] opacity-100" : "max-h-0 opacity-0"}
+          ${isOpen ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0"}
         `}
       >
         {links.map((link) => (

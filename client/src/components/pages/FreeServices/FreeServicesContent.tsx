@@ -1,8 +1,8 @@
 "use client";
 import React, { memo, useEffect, useCallback } from "react";
 import { ServicePageSkeleton } from "@/components/Skeletons";
-// import { generate_item_url_from_name } from "@/utils/functions";
-// import { useLocale } from "next-intl";
+import { generate_item_url_from_name } from "@/utils/functions";
+import { useLocale } from "next-intl";
 import { useFreeServices } from "@/providers/FreeServicesProvider";
 import SectionServices from "../Home/SectionServices.tsx/SectionServices";
 import FreeServicesHero from "./FreeServicesSections/FreeServicesHero";
@@ -20,18 +20,18 @@ interface FreeServicesSection {
   id: string;
 }
 
-// interface FaqType {
-//   "@type": string;
-//   name: string;
-//   acceptedAnswer: {
-//     "@type": string;
-//     text: string;
-//   };
-// }
+interface FaqType {
+  "@type": string;
+  name: string;
+  acceptedAnswer: {
+    "@type": string;
+    text: string;
+  };
+}
 
 const FreeServicesContent = memo(() => {
   const { isLoading, freeServiceItem } = useFreeServices();
-  // const locale = useLocale();
+  const locale = useLocale();
   const scrollToTop = useCallback(() => {
     window.scrollTo({
       top: 0,
@@ -47,63 +47,61 @@ const FreeServicesContent = memo(() => {
     return <ServicePageSkeleton />;
   }
   if (!freeServiceItem?.name) return;
-
-  // const url = generate_item_url_from_name(freeServiceItem?.name);
-  // function get_url() {
-  //   if (locale == "en")
-  //     return `${process.env.NEXT_PUBLIC_URL}/free-tools/${url}`;
-  //   else if (locale == "es-ES")
-  //     return `${process.env.NEXT_PUBLIC_URL}/es-ES/herramientas-gratis/${url}`;
-  //   else if (locale == "de")
-  //     return `${process.env.NEXT_PUBLIC_URL}/de/kostenlose-tools/${url}`;
-  //   else if (locale == "pt-BR")
-  //     return `${process.env.NEXT_PUBLIC_URL}/pt-BR/ferramentas-gratuitas/${url}`;
-  // }
-
-  // const product_schema = {
-  //   "@context": "http://schema.org",
-  //   "@type": "Product",
-  //   url: get_url(),
-  //   name: freeToolItems?.name,
-  //   image: freeToolItems.seo.openGraph.ogimage,
-  //   description: freeToolItems.seo.metaDescription,
-  //   sku: "SCP" + freeToolItems?.name.slice(-2).toUpperCase(),
-  //   offers: {
-  //     "@type": "AggregateOffer",
-  //     url: get_url(),
-  //     priceCurrency: "USD",
-  //     offerCount: "200",
-  //   },
-  //   aggregateRating: {
-  //     "@type": "AggregateRating",
-  //     ratingValue: freeToolItems.introduction.rated.toString(),
-  //     ratingCount: (
-  //       (freeToolItems.introduction.CustomerReviews?.Review.length | 0) +
-  //       (freeToolItems.introduction.TopReviews?.review.length | 0)
-  //     ).toString(),
-  //   },
-  //   brand: {
-  //     "@type": "Brand",
-  //     name: "SocialPlug",
-  //   },
-  // };
-  // const faq: FaqType[] = [];
-  // if (freeToolItems.FAQ)
-  //   freeToolItems.FAQ.Question.map((item) =>
-  //     faq.push({
-  //       "@type": "Question",
-  //       name: item.question,
-  //       acceptedAnswer: {
-  //         "@type": "Answer",
-  //         text: item.answer,
-  //       },
-  //     })
-  //   );
-  // const faq_schema = {
-  //   "@context": "https://schema.org",
-  //   "@type": "FAQPage",
-  //   mainEntity: faq,
-  // };
+  const url = generate_item_url_from_name(freeServiceItem?.name);
+  function get_url() {
+    if (locale == "en")
+      return `${process.env.NEXT_PUBLIC_URL}/free-services/${url}`;
+    else if (locale == "es-ES")
+      return `${process.env.NEXT_PUBLIC_URL}/es-ES/servicios-gratuitos/${url}`;
+    else if (locale == "de")
+      return `${process.env.NEXT_PUBLIC_URL}/de/kostenlose-Dienstleistungen/${url}`;
+    else if (locale == "pt-BR")
+      return `${process.env.NEXT_PUBLIC_URL}/pt-BR/serviços-gratuitos/${url}`;
+  }
+  const product_schema = {
+    "@context": "http://schema.org",
+    "@type": "Product",
+    url: get_url(),
+    name: freeServiceItem?.name,
+    image: freeServiceItem.seo.openGraph.ogimage,
+    description: freeServiceItem.seo.metaDescription,
+    sku: "SCP" + freeServiceItem?.name.slice(-2).toUpperCase(),
+    offers: {
+      "@type": "AggregateOffer",
+      url: get_url(),
+      priceCurrency: "USD",
+      offerCount: "200",
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: freeServiceItem.top_reviews.rate.toString(),
+      ratingCount: (
+        (freeServiceItem.customer_reviews?.Review.length | 0) +
+        (freeServiceItem.top_reviews?.review.length | 0)
+      ).toString(),
+    },
+    brand: {
+      "@type": "Brand",
+      name: "SocialPlug",
+    },
+  };
+  const faq: FaqType[] = [];
+  if (freeServiceItem.FAQ)
+    freeServiceItem.FAQ.Question.map((item) =>
+      faq.push({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })
+    );
+  const faq_schema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq,
+  };
   const sections: FreeServicesSection[] = [
     { component: <FreeServicesHero />, id: "hero" },
     { component: <FreeServicesRelatedServices />, id: "related-services" },
@@ -118,16 +116,16 @@ const FreeServicesContent = memo(() => {
   ];
   return (
     <>
-      {/* <script
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(product_schema) }}
       />
-      {freeToolItems.FAQ && (
+      {freeServiceItem.FAQ && (
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faq_schema) }}
         />
-      )} */}
+      )}
       <main className="flex flex-col animate-fade-in">
         {sections.map((section) => (
           <div key={section.id} className="animate-fade-in" id={section.id}>

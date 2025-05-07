@@ -1,12 +1,12 @@
 import { getOriginalFreeServicesItem } from "@/i18n/freeServicesItemMappings";
 import { ServiceMetadataType } from "@/libs/types/ListTypes";
-import { fetchServiceMetaData } from "@/utils/fetch-service-data";
-import { generate_item_url } from "@/utils/functions";
+import { generate_item_url_from_name } from "@/utils/functions";
 import { Metadata } from "next";
 import { AlternateURLs } from "next/dist/lib/metadata/types/alternative-urls-types";
 import { notFound, redirect } from "next/navigation";
 import { FreeServicesProvider } from "@/providers/FreeServicesProvider";
 import FreeServicesContent from "@/components/pages/FreeServices/FreeServicesContent";
+import { fetchFreeServicesMetaData } from "@/utils/fetch-free-services-data";
 
 export default async function FreeServicePage({
   params,
@@ -16,9 +16,7 @@ export default async function FreeServicePage({
   const { locale, item } = await params;
   const originalItem = await getOriginalFreeServicesItem(item, locale);
   if (!originalItem) {
-    setTimeout(() => {
-      notFound();
-    }, 2000);
+    notFound();
   }
   if (item != originalItem) {
     let basePath = "/free-services";
@@ -48,22 +46,23 @@ export async function generateMetadata({
   params,
 }: Props): Promise<Metadata | null> {
   const item = (await params).item;
-  const allMetaData: ServiceMetadataType = await fetchServiceMetaData(item);
+  const allMetaData: ServiceMetadataType = await fetchFreeServicesMetaData(
+    item
+  );
   if (!allMetaData) {
     return null;
   }
   const alternatesData: AlternatesDataType[] = [];
   alternatesData.push({
     locale: allMetaData.locale,
-    url: generate_item_url(allMetaData.header.text),
+    url: generate_item_url_from_name(allMetaData.name),
   });
   allMetaData.localizations.map((item) =>
     alternatesData.push({
       locale: item.locale,
-      url: generate_item_url(item.header.text),
+      url: generate_item_url_from_name(item.name),
     })
   );
-
   const alternates = generateAlternates(alternatesData);
   return {
     title: allMetaData.seo?.metaTitle,
@@ -109,17 +108,20 @@ function generateAlternates(data: AlternatesDataType[]): AlternateURLs {
 
   // Find the canonical URL (assuming 'en' locale)
   const canonicalItem = data.find((item) => item.locale === "en");
-  alternates.canonical = BASE_URL + "/services/" + canonicalItem?.url;
+  alternates.canonical = BASE_URL + "/free-services/" + canonicalItem?.url;
 
   // Populate languages
   const languages: { [locale: string]: string } = {}; // Create a custom object for languages
   data.forEach((item) => {
     if (item.locale == "es-ES") {
-      languages[item.locale] = BASE_URL + "/es-ES/servicios/" + item?.url;
+      languages[item.locale] =
+        BASE_URL + "/es-ES/servicios-gratuitos/" + item?.url;
     } else if (item.locale == "de") {
-      languages[item.locale] = BASE_URL + "/de/dienstleistungen/" + item?.url;
+      languages[item.locale] =
+        BASE_URL + "/de/kostenlose-Dienstleistungen/" + item?.url;
     } else if (item.locale == "pt-BR") {
-      languages[item.locale] = BASE_URL + "/pt-BR/serviços/" + item?.url;
+      languages[item.locale] =
+        BASE_URL + "/pt-BR/serviços-gratuitos/" + item?.url;
     }
   });
 

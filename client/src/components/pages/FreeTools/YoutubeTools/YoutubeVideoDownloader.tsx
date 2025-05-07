@@ -86,7 +86,7 @@ export default function YoutubeVideoDownloader() {
           data={freeToolItem.SimpleDescription.text}
           customClassName="font-service-text !text-[20px] !text-center w-[70%] lg:w-[41%]"
         />
-        <div className="w-[95%] rounded-md bg-white p-5 mt-14 w-full lg:w-[800px] border border-black-light shadow-md">
+        <div className="w-[95%] rounded-md bg-white p-5 mt-14 lg:w-[800px] border border-black-light shadow-md">
           <div className="flex flex-col gap-5">
             <div
               id="form-container"

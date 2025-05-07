@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { memo, useCallback, useState } from "react";
 import { useLocale } from "next-intl";
+import { SupportedLocale } from "@/libs/types/Types";
 
 interface ServiceItemProps {
   dataItem: {
@@ -24,7 +25,6 @@ const LocaleLinks = {
   de: "dienstleistungen",
   "pt-BR": "serviços",
 };
-type SupportedLocale = "en" | "es-ES" | "de" | "pt-BR";
 
 const ServiceItem = memo(({ dataItem, icon, title }: ServiceItemProps) => {
   const locale = useLocale() as SupportedLocale;

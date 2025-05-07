@@ -221,14 +221,14 @@ interface FreeToolsSection {
   id: string;
 }
 
-// interface FaqType {
-//   "@type": string;
-//   name: string;
-//   acceptedAnswer: {
-//     "@type": string;
-//     text: string;
-//   };
-// }
+interface FaqType {
+  "@type": string;
+  name: string;
+  acceptedAnswer: {
+    "@type": string;
+    text: string;
+  };
+}
 
 const FreeToolsContent = memo(() => {
   const { isLoading, freeToolItem } = useFreeTools();
@@ -250,64 +250,26 @@ const FreeToolsContent = memo(() => {
   if (!freeToolItem?.Header.text) return;
 
   const url = generate_item_url_from_name(freeToolItem?.name);
-  // function get_url() {
-  //   if (locale == "en")
-  //     return `${process.env.NEXT_PUBLIC_URL}/free-tools/${url}`;
-  //   else if (locale == "es-ES")
-  //     return `${process.env.NEXT_PUBLIC_URL}/es-ES/herramientas-gratis/${url}`;
-  //   else if (locale == "de")
-  //     return `${process.env.NEXT_PUBLIC_URL}/de/kostenlose-tools/${url}`;
-  //   else if (locale == "pt-BR")
-  //     return `${process.env.NEXT_PUBLIC_URL}/pt-BR/ferramentas-gratuitas/${url}`;
-  // }
-
   const currentComponent = freeToolsComponent.find(
     (section) => section.id[locale as keyof typeof section.id] === url
   );
-  // const product_schema = {
-  //   "@context": "http://schema.org",
-  //   "@type": "Product",
-  //   url: get_url(),
-  //   name: freeToolItems?.name,
-  //   image: freeToolItems.seo.openGraph.ogimage,
-  //   description: freeToolItems.seo.metaDescription,
-  //   sku: "SCP" + freeToolItems?.name.slice(-2).toUpperCase(),
-  //   offers: {
-  //     "@type": "AggregateOffer",
-  //     url: get_url(),
-  //     priceCurrency: "USD",
-  //     offerCount: "200",
-  //   },
-  //   aggregateRating: {
-  //     "@type": "AggregateRating",
-  //     ratingValue: freeToolItems.introduction.rated.toString(),
-  //     ratingCount: (
-  //       (freeToolItems.introduction.CustomerReviews?.Review.length | 0) +
-  //       (freeToolItems.introduction.TopReviews?.review.length | 0)
-  //     ).toString(),
-  //   },
-  //   brand: {
-  //     "@type": "Brand",
-  //     name: "SocialPlug",
-  //   },
-  // };
-  // const faq: FaqType[] = [];
-  // if (freeToolItems.FAQ)
-  //   freeToolItems.FAQ.Question.map((item) =>
-  //     faq.push({
-  //       "@type": "Question",
-  //       name: item.question,
-  //       acceptedAnswer: {
-  //         "@type": "Answer",
-  //         text: item.answer,
-  //       },
-  //     })
-  //   );
-  // const faq_schema = {
-  //   "@context": "https://schema.org",
-  //   "@type": "FAQPage",
-  //   mainEntity: faq,
-  // };
+  const faq: FaqType[] = [];
+  if (freeToolItem.FAQ)
+    freeToolItem.FAQ.Question.map((item) =>
+      faq.push({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })
+    );
+  const faq_schema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq,
+  };
   const sections: FreeToolsSection[] = [
     { component: <FreeToolsRelatedServices />, id: "related-services" },
     { component: <FreeToolsHowTo />, id: "how-to" },
@@ -320,16 +282,12 @@ const FreeToolsContent = memo(() => {
   ];
   return (
     <>
-      {/* <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(product_schema) }}
-      />
-      {freeToolItems.FAQ && (
+      {freeToolItem.FAQ && (
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faq_schema) }}
         />
-      )} */}
+      )}
       <main className="flex flex-col animate-fade-in">
         {currentComponent?.component}
         {sections.map((section) => (

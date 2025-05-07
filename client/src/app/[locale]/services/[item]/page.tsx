@@ -17,9 +17,7 @@ export default async function ServicesPage({
   const { locale, item } = await params;
   const originalItem = await getOriginalServiceItem(item, locale);
   if (!originalItem) {
-    setTimeout(() => {
-      notFound();
-    }, 2000);
+    notFound();
   }
   if (item != originalItem) {
     let basePath = "/services";
@@ -50,22 +48,21 @@ export async function generateMetadata({
   params,
 }: Props): Promise<Metadata | null> {
   const item = (await params).item;
-  const allMetaData: ServiceMetadataType = await fetchServiceMetaData(item);
+  const allMetaData: ServiceMetadataType = await fetchFreeToolsMetaData(item);
   if (!allMetaData) {
     return null;
   }
   const alternatesData: AlternatesDataType[] = [];
   alternatesData.push({
     locale: allMetaData.locale,
-    url: generate_item_url(allMetaData.header.text),
+    url: generate_item_url_from_name(allMetaData.name),
   });
   allMetaData.localizations.map((item) =>
     alternatesData.push({
       locale: item.locale,
-      url: generate_item_url(item.header.text),
+      url: generate_item_url_from_name(item.name),
     })
   );
-
   const alternates = generateAlternates(alternatesData);
   return {
     title: allMetaData.seo?.metaTitle,
@@ -111,17 +108,19 @@ function generateAlternates(data: AlternatesDataType[]): AlternateURLs {
 
   // Find the canonical URL (assuming 'en' locale)
   const canonicalItem = data.find((item) => item.locale === "en");
-  alternates.canonical = BASE_URL + "/services/" + canonicalItem?.url;
+  alternates.canonical = BASE_URL + "/free-tools/" + canonicalItem?.url;
 
   // Populate languages
   const languages: { [locale: string]: string } = {}; // Create a custom object for languages
   data.forEach((item) => {
     if (item.locale == "es-ES") {
-      languages[item.locale] = BASE_URL + "/es-ES/servicios/" + item?.url;
+      languages[item.locale] =
+        BASE_URL + "/es-ES/herramientas-gratis/" + item?.url;
     } else if (item.locale == "de") {
-      languages[item.locale] = BASE_URL + "/de/dienstleistungen/" + item?.url;
+      languages[item.locale] = BASE_URL + "/de/kostenlose-tools/" + item?.url;
     } else if (item.locale == "pt-BR") {
-      languages[item.locale] = BASE_URL + "/pt-BR/serviços/" + item?.url;
+      languages[item.locale] =
+        BASE_URL + "/pt-BR/ferramentas-gratuitas/" + item?.url;
     }
   });
 

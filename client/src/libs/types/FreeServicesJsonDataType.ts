@@ -58,6 +58,7 @@ interface FreeService {
   locale: string;
   popular: number;
   icon: Icon;
+  order_icon: Icon;
 }
 
 interface OrderIntro {

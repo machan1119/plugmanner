@@ -1,9 +1,9 @@
-import { ProcessedListType } from "@/libs/types/ListTypes";
+import { FreeServicesListType } from "@/libs/types/ListTypes";
 import { fetchAPI } from "./fetch-api";
-import { generate_item_url } from "./functions";
-import { fetchAllServiceList } from "./fetch-all-service-list";
+import { generate_item_url_from_name } from "./functions";
 import { getLocale } from "next-intl/server";
 import { FreeToolsItem } from "@/libs/types/FreeToolsItemsMapping";
+import { fetchAllFreeServicesList } from "./fetch-all-free-services-list";
 
 export async function fetchFreeServicesItemMappings(currentLocale: string) {
   try {
@@ -55,6 +55,7 @@ export async function fetchFreeServicesData(itemId: string, locale: string) {
         "Orders.subservice.introduction.OrderIntro",
         "Orders.subservice.header.text",
         "free_service.icon",
+        "free_service.order_icon",
         "top_reviews",
         "top_reviews.review",
         "top_reviews.header",
@@ -81,6 +82,8 @@ export async function fetchFreeServicesData(itemId: string, locale: string) {
         "service_status",
         "FAQ.header.text",
         "FAQ.Question",
+        "seo",
+        "seo.openGraph",
       ],
       "[locale]": locale,
     };
@@ -96,30 +99,24 @@ export async function fetchFreeServicesData(itemId: string, locale: string) {
 
 export async function fetchFreeServicesMetaData(name: string) {
   const locale = await getLocale();
-  const allData: ProcessedListType = (await fetchAllServiceList(locale)) ?? {
-    data_1: [],
-    data_2: [],
-    data_3: [],
-  };
-  const freeTool = allData.data_3.find(
-    (sub) => generate_item_url(sub.header.text) == name
+  const allData: FreeServicesListType[] =
+    (await fetchAllFreeServicesList(locale)) ?? [];
+  const freeTool = allData.find(
+    (sub) => generate_item_url_from_name(sub.name) == name
   );
   let itemId: string = "";
   if (freeTool) {
     itemId = freeTool.id;
     try {
-      const path = `/free-tools/${itemId}`;
+      const path = `/sub-free-services/${itemId}`;
       const urlParamsObject = {
-        field: ["name"],
+        fields: ["name", "locale"],
         populate: {
           seo: {
             populate: ["openGraph"],
           },
           localizations: {
-            populate: "header.text",
-          },
-          header: {
-            populate: "text",
+            fields: ["name", "locale"],
           },
         },
         "[locale]": locale,

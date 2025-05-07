@@ -32,10 +32,6 @@ const ServiceBenefit = memo(({ className = "" }: ServiceBenefitProps) => {
   if (!serviceItems.introduction?.Benefits) {
     return null;
   }
-  if (!serviceItems.introduction.Benefits?.title) {
-    return null;
-  }
-
   return (
     <section
       className={`
@@ -44,32 +40,36 @@ const ServiceBenefit = memo(({ className = "" }: ServiceBenefitProps) => {
       `}
     >
       <div className="max-w-[1366px] w-full justify-self-center px-10 items-center">
-        <h2>
-          <StrapiText
-            data={serviceItems.introduction.Benefits.title?.text}
-            customClassName="font-h1 !text-white"
-          />
-        </h2>
+        {serviceItems.introduction.Benefits?.title && (
+          <h2>
+            <StrapiText
+              data={serviceItems.introduction.Benefits.title?.text}
+              customClassName="font-h1 !text-white"
+            />
+          </h2>
+        )}
         <div className="w-full flex flex-col gap-5 items-center">
-          <div className="w-full flex flex-col sm:gap-3 sm:flex-row justify-between my-8">
-            {serviceItems.introduction.Benefits.Benefit.map(
-              (item: BenefitType, index: number) => (
-                <button
-                  key={index}
-                  onClick={() => handleTabClick(index)}
-                  onKeyDown={(e) => handleKeyDown(e, index)}
-                  className={`w-full px-6 py-4 bg-transparent font-clash lg:text-[18px] !text-center leading-4 !font-semibold border-b-[2px] ${
-                    currentStep === index
-                      ? "border-primary !text-primary"
-                      : "border-black-dark !text-black-dark hover:border-white hover:!text-white"
-                  }`}
-                  tabIndex={currentStep === index ? 0 : -1}
-                >
-                  {item.tabname}
-                </button>
-              )
-            )}
-          </div>
+          {serviceItems.introduction.Benefits.Benefit.length > 1 && (
+            <div className="w-full flex flex-col sm:gap-3 sm:flex-row justify-between my-8">
+              {serviceItems.introduction.Benefits.Benefit.map(
+                (item: BenefitType, index: number) => (
+                  <button
+                    key={index}
+                    onClick={() => handleTabClick(index)}
+                    onKeyDown={(e) => handleKeyDown(e, index)}
+                    className={`w-full px-6 py-4 bg-transparent font-clash lg:text-[18px] !text-center leading-4 !font-semibold border-b-[2px] ${
+                      currentStep === index
+                        ? "border-primary !text-primary"
+                        : "border-black-dark !text-black-dark hover:border-white hover:!text-white"
+                    }`}
+                    tabIndex={currentStep === index ? 0 : -1}
+                  >
+                    {item.tabname}
+                  </button>
+                )
+              )}
+            </div>
+          )}
           {serviceItems.introduction.Benefits.Benefit.map(
             (currentBenefit, index) => (
               <div

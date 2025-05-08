@@ -20,10 +20,10 @@ export const routing = defineRouting({
       de: "/kostenlose-tools",
       "pt-BR": "/ferramentas-gratuitas",
     },
-    "/free-tools/[item]": {
-      "es-ES": "/herramientas-gratis/[item]",
-      de: "/kostenlose-tools/[item]",
-      "pt-BR": "/ferramentas-gratuitas/[item]",
+    "/free-services/[item]": {
+      "es-ES": "/servicios-gratuitos/[item]",
+      de: "/kostenlose-Dienstleistungen/[item]",
+      "pt-BR": "/serviços-gratuitos/[item]",
     },
   },
   localePrefix: "as-needed",

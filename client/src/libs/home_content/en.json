@@ -32,6 +32,30 @@
       "all_services": "All Services"
     }
   },
+  "Footer":{
+    "follow_us":"Follow Us",
+    "receive_offers":"Receive Exclusive Offers",
+    "all_rights":"All Rights Reserved.",
+    "free_tools":"Free Tools",
+    "quick_links":"Quick Links",
+    "contact_us":"Contact Us",
+    "affiliate_program":"Affiliate Program",
+    "blog":"Blog",
+    "about_us":"About Us",
+    "reviews":"Reviews",
+    "privacy_policy":"Privacy Policy",
+    "terms_conditions":"Terms & Conditions",
+    "subscribe":"Subscribe",
+    "email_place_holder":"Enter your email",
+    "free":"FREE",
+    "free_trial":"Free Trial",
+    "best_selling":"Best Selling Services",
+    "all_services":"All Services",
+    "all_services_online":"All services are online",
+    "summary":"Socialplug is the industry-leading media shop offering variety of services across social media platforms.",
+    "company":"Company",
+    "deliver":"Open 24/7 Mon - Sun"
+  },
   "Home": {
     "hero": {
       "rated": "Rated 4.8/5",

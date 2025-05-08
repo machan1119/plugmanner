@@ -32,6 +32,30 @@
       "all_services": "Todos los servicios"
     }
   },
+  "Footer":{
+    "follow_us":"Síguenos",
+    "receive_offers":"Reciba ofertas exclusivas",
+    "all_rights":"Todos los derechos reservados.",
+    "free_tools":"Herramientas gratuitas",
+    "quick_links":"Enlaces rápidos",
+    "contact_us":"Contáctenos",
+    "affiliate_program":"Programa de afiliación",
+    "blog":"Blog",
+    "about_us":"Quiénes somos",
+    "reviews":"Reseñas",
+    "privacy_policy":"Política de privacidad",
+    "terms_conditions":"Condiciones de uso",
+    "subscribe":"Suscríbete",
+    "email_place_holder":"Introduce tu dirección de correo electrónico",
+    "free":"GRATIS",
+    "free_trial":"Prueba gratuita",
+    "best_selling":"Servicios más vendidos",
+    "all_services":"Todos los servicios",
+    "all_services_online":"Todos los servicios están en línea",
+    "summary":"Socialplug es la tienda de medios de comunicación líder del sector que ofrece una gran variedad de servicios en todas las plataformas de medios sociales.",
+    "company":"Empresa",
+    "deliver":"Abierto 24 horas, de lunes a domingo"
+  },
   "Home": {
     "hero": {
       "rated": "Valorado 4.8/5",
@@ -200,7 +224,7 @@
   },
   "ServiceItem": {
     "ReadMore": "Leer más >",
-    "OrderNow": "Pedir ahora",
+    "OrderNow": "Comprar ahora",
     "Rated": "Calificado ",
     "FromOver": " de más de ",
     "Reviews": "+ reseñas",

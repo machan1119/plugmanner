@@ -3,7 +3,7 @@ import React, { memo, useState } from "react";
 import Link from "next/link";
 import { DropIcon } from "@/libs/consts/MySvg";
 import { useList } from "@/providers/ListProvider";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { SupportedLocale } from "@/libs/types/Types";
 import { generate_item_url_from_name } from "@/utils/functions";
 
@@ -27,6 +27,8 @@ const FreeTrial = memo(({ className = "" }: FreeTrialProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const { freeServicesList } = useList();
   const locale = useLocale() as SupportedLocale;
+  const t = useTranslations("Footer");
+
   const links: FreeTrialLink[] = freeServicesList.map((item) => {
     return {
       label: item.name,
@@ -66,7 +68,7 @@ const FreeTrial = memo(({ className = "" }: FreeTrialProps) => {
         onKeyDown={handleKeyDown}
         tabIndex={0}
       >
-        <span>Free Trial</span>
+        <span>{t("free_trial")}</span>
         <span
           className={`
             transition-transform duration-300 ease-in-out

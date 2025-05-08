@@ -32,6 +32,30 @@
       "all_services": "Todos os serviços"
     }
   },
+  "Footer":{
+    "follow_us":"Siga-nos",
+    "receive_offers":"Receba Ofertas Exclusivas",
+    "all_rights":"Todos os direitos reservados.",
+    "free_tools":"Ferramentas Gratuitas",
+    "quick_links":"Links Rápidos",
+    "contact_us":"Entre em contato conosco",
+    "affiliate_program":"Programa de afiliados",
+    "blog":"Blogue",
+    "about_us":"Sobre nós",
+    "reviews":"Comentários",
+    "privacy_policy":"Política de privacidade",
+    "terms_conditions":"Termos e Condições",
+    "subscribe":"Assine",
+    "email_place_holder":"Digite seu e-mail",
+    "free":"FREE",
+    "free_trial":"Avaliação gratuita",
+    "best_selling":"Serviços Mais Vendidos",
+    "all_services":"Todos os serviços",
+    "all_services_online":"Todos os serviços são online",
+    "summary":"A Socialplug é a loja de mídia líder do setor que oferece uma variedade de serviços em plataformas de rede social.",
+    "company":"Empresa",
+    "deliver":"Aberto 24/7 - Seg a Dom"
+  },
   "Home": {
     "hero": {
       "rated": "Classificado 4.8/5",

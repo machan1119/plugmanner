@@ -4,6 +4,7 @@ import MainButton from "@/components/Buttons";
 import FreeTrial from "./Freetrial";
 import Link from "next/link";
 import { LinkedInIcon, TwitterIcon, YoutubeIcon } from "@/libs/consts/MySvg";
+import { useTranslations } from "next-intl";
 
 interface FollowUsProps {
   className?: string;
@@ -35,7 +36,7 @@ const socialLinks: SocialLink[] = [
 
 const FollowUs = memo(({ className = "" }: FollowUsProps) => {
   const [email, setEmail] = useState("");
-
+  const t = useTranslations("Footer");
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle email subscription
@@ -53,7 +54,7 @@ const FollowUs = memo(({ className = "" }: FollowUsProps) => {
       `}
     >
       <p className="font-clash mb-4 leading-5 text-base md:text-xl font-semibold text-white">
-        Follow Us
+        {t("follow_us")}
       </p>
       <div className="flex gap-4">
         {socialLinks.map((link) => (
@@ -74,7 +75,7 @@ const FollowUs = memo(({ className = "" }: FollowUsProps) => {
         ))}
       </div>
       <div className="font-clash mt-4 mb-4 leading-5 text-xl font-semibold text-white">
-        Receive Exclusive Offers
+        {t("receive_offers")}
       </div>
       <form onSubmit={handleSubmit} className="flex flex-col gap-5">
         <input
@@ -95,7 +96,7 @@ const FollowUs = memo(({ className = "" }: FollowUsProps) => {
           "
           required
         />
-        <MainButton type="primary" title="Subscribe" />
+        <MainButton type="primary" title={t("subscribe")} />
       </form>
       <FreeTrial />
     </div>

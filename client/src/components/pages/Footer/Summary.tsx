@@ -1,11 +1,13 @@
 import React, { memo } from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 interface SummaryProps {
   className?: string;
 }
 
 const Summary = memo(({ className = "" }: SummaryProps) => {
+  const t = useTranslations("Footer");
   return (
     <div
       className={`
@@ -36,8 +38,7 @@ const Summary = memo(({ className = "" }: SummaryProps) => {
           hover:text-white/70
         "
         >
-          Socialplug is the industry-leading media shop offering variety of
-          services across social media platforms.
+          {t("summary")}
         </p>
       </div>
 
@@ -57,7 +58,7 @@ const Summary = memo(({ className = "" }: SummaryProps) => {
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>
           <span className="relative inline-flex size-3 rounded-full bg-primary"></span>
         </span>
-        <p className="text-white/90 font-medium">All services are online</p>
+        <p className="text-white/90 font-medium">{t("all_services_online")}</p>
       </div>
 
       <div className="flex flex-col gap-4">
@@ -72,7 +73,7 @@ const Summary = memo(({ className = "" }: SummaryProps) => {
           hover:text-primary
         "
         >
-          Company
+          {t("company")}
         </p>
         <p
           className="
@@ -93,7 +94,7 @@ const Summary = memo(({ className = "" }: SummaryProps) => {
           hover:text-primary
         "
         >
-          Open 24/7 Mon - Sun
+          {t("deliver")}
         </p>
       </div>
     </div>

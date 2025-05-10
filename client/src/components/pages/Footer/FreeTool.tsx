@@ -7,10 +7,6 @@ import { SupportedLocale } from "@/libs/types/Types";
 import { useList } from "@/providers/ListProvider";
 import { generate_item_url_from_name } from "@/utils/functions";
 
-interface FreeToolProps {
-  className?: string;
-}
-
 interface ToolLink {
   label: string;
   href: string;
@@ -38,40 +34,25 @@ const Section = memo(
     return (
       <div className={className} style={style}>
         <button
-          className="
-          font-clash mb-4 
-          leading-5 text-base md:text-xl 
-          font-semibold text-left
-          flex items-center gap-4
-          text-white
-          hover:text-primary
-          transition-colors duration-300
-          focus:outline-none focus:text-primary
-          group
-          lg:mb-4
-        "
+          className="font-clash mb-4 leading-5 text-base md:text-xl font-semibold text-left flex items-center gap-4 text-white hover:text-primary transition-colors duration-300 focus:outline-none focus:text-primary group lg:mb-4"
           onClick={onToggle}
           onKeyDown={handleKeyDown}
           tabIndex={0}
         >
           <span>{t(title)}</span>
           <span
-            className={`
-            lg:hidden
-            transition-transform duration-300 ease-in-out
-            group-hover:scale-110
-            ${isOpen ? "rotate-180" : ""}
+            className={`lg:hidden transition-transform duration-300 ease-in-out group-hover:scale-110 ${
+              isOpen ? "rotate-180" : ""
+            }
           `}
           >
             {DropIcon}
           </span>
         </button>
         <div
-          className={`
-          flex flex-col gap-4 
-          transition-all duration-300 ease-in-out
-          lg:max-h-[500px]
-          ${isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}
+          className={`flex flex-col gap-4 transition-all duration-300 ease-in-out lg:max-h-[500px] ${
+            isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+          }
         `}
         >
           {selected_links.map((link) => (
@@ -85,18 +66,7 @@ const Section = memo(
             >
               <span>{link.label}</span>
               {link.isFree && (
-                <span
-                  className="
-                bg-primary
-                rounded-full
-                text-black
-                px-2 py-0.5
-                text-xs
-                font-medium
-                transition-colors duration-300
-                group-hover:bg-secondary
-              "
-                >
+                <span className="bg-primary rounded-full text-black px-2 py-0.5 text-xs font-medium transition-colors duration-300 group-hover:bg-secondary">
                   {t("free")}
                 </span>
               )}
@@ -115,7 +85,7 @@ const LocaleLinks = {
   de: "kostenlose-tools",
   "pt-BR": "ferramentas-gratuitas",
 };
-const FreeTool = memo(({ className = "" }: FreeToolProps) => {
+const FreeTool = memo(() => {
   const [isToolsOpen, setIsToolsOpen] = useState(false);
   const [isLinksOpen, setIsLinksOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -171,7 +141,7 @@ const FreeTool = memo(({ className = "" }: FreeToolProps) => {
   }, [isMobile]);
 
   return (
-    <div className={`w-[168px] flex flex-col gap-5 ${className}`}>
+    <div className="w-[168px] flex flex-col gap-5">
       <Section
         title="free_tools"
         links={freeTools}

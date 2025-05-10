@@ -51,23 +51,18 @@ const SellingService = memo(() => {
       >
         <span>{t("best_selling")}</span>
         <span
-          className={`
-            lg:hidden
-            transition-transform duration-300 ease-in-out
-            group-hover:scale-110
-            ${isOpen ? "rotate-180" : ""}
+          className={`lg:hidden transition-transform duration-300 ease-in-out group-hover:scale-110 ${
+            isOpen ? "rotate-180" : ""
+          }
           `}
         >
           {DropIcon}
         </span>
       </button>
       <div
-        className={`
-          flex flex-col gap-4 
-          overflow-hidden 
-          transition-all duration-300 ease-in-out
-          lg:max-h-[600px]
-          ${isOpen ? "max-h-[660px] opacity-100" : "max-h-0 opacity-0"}
+        className={`flex flex-col gap-4 overflow-hidden transition-all duration-300 ease-in-out lg:max-h-[600px] ${
+          isOpen ? "max-h-[660px] opacity-100" : "max-h-0 opacity-0"
+        }
         `}
       >
         <Link

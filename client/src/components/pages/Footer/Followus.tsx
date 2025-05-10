@@ -6,10 +6,6 @@ import Link from "next/link";
 import { LinkedInIcon, TwitterIcon, YoutubeIcon } from "@/libs/consts/MySvg";
 import { useTranslations } from "next-intl";
 
-interface FollowUsProps {
-  className?: string;
-}
-
 interface SocialLink {
   href: string;
   icon: React.ReactNode;
@@ -34,7 +30,7 @@ const socialLinks: SocialLink[] = [
   },
 ];
 
-const FollowUs = memo(({ className = "" }: FollowUsProps) => {
+const FollowUs = memo(() => {
   const [email, setEmail] = useState("");
   const t = useTranslations("Footer");
   const handleSubmit = (e: React.FormEvent) => {
@@ -44,15 +40,7 @@ const FollowUs = memo(({ className = "" }: FollowUsProps) => {
   };
 
   return (
-    <div
-      className={`
-        border-t border-white/10 
-        pt-4 sm:border-none sm:mt-4 sm:border-t sm:border-white/10 
-        md:border-none md:pt-0 md:mt-0
-        transition-all duration-300
-        ${className}
-      `}
-    >
+    <div className="border-t border-white/10 pt-4 sm:border-none sm:mt-4 sm:border-t sm:border-white/10 md:border-none md:pt-0 md:mt-0 transition-all duration-300">
       <p className="font-clash mb-4 leading-5 text-base md:text-xl font-semibold text-white">
         {t("follow_us")}
       </p>
@@ -64,11 +52,7 @@ const FollowUs = memo(({ className = "" }: FollowUsProps) => {
             aria-label={link.label}
             target="_blank"
             rel="noopener noreferrer"
-            className="
-              transition-all duration-300
-              hover:scale-110
-              hover:text-primary
-            "
+            className="transition-all duration-300 hover:scale-110 hover:text-primary"
           >
             {link.icon}
           </Link>
@@ -83,17 +67,7 @@ const FollowUs = memo(({ className = "" }: FollowUsProps) => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter your email"
-          className="
-            w-full px-4 py-3
-            leading-[22px] text-base
-            rounded-lg
-            border border-white
-            bg-white
-            text-black
-            placeholder:text-black/50
-            focus:outline-none
-            focus:border-primary
-          "
+          className="w-full px-4 py-3 leading-[22px] text- bg-white text-black placeholder:text-black/50 focus:outline-none focus:border-primary"
           required
         />
         <MainButton type="primary" title={t("subscribe")} />

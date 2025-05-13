@@ -33,7 +33,8 @@ const SectionFreeServices = memo(() => {
         }
         return undefined;
       })
-      .filter((group): group is GroupedFreeServicesType => group !== undefined);
+      .filter((group): group is GroupedFreeServicesType => group !== undefined)
+      .sort((a, b) => Number(b.popular) - Number(a.popular));
   };
   const groupedFreeServicesList: GroupedFreeServicesType[] =
     groupedFreeServices();

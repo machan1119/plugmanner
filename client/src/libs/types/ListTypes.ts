@@ -57,6 +57,7 @@ export interface ToolsRawData {
     id: number;
     documentId: string;
     name: string;
+    icon: Icon;
     popular: string;
   };
   popular: string;
@@ -169,6 +170,7 @@ export interface GroupedFreeServicesType {
 }
 
 export interface ServiceMetadataType {
+  name: string;
   seo: SEOType;
   locale: string;
   header: {

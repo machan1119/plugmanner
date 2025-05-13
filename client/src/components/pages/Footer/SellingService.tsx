@@ -4,7 +4,7 @@ import { DropIcon } from "@/libs/consts/MySvg";
 import Link from "next/link";
 import { generate_item_url } from "@/utils/functions";
 import { useList } from "@/providers/ListProvider";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { SupportedLocale } from "@/libs/types/Types";
 
 const LocaleLinks = {
@@ -29,7 +29,7 @@ const SellingService = memo(() => {
 
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
-
+  const t = useTranslations("Footer");
   useEffect(() => {
     setIsOpen(!isMobile);
   }, [isMobile]);
@@ -49,32 +49,27 @@ const SellingService = memo(() => {
         onClick={handleClick}
         onKeyDown={handleKeyDown}
       >
-        <span>Best Selling Services</span>
+        <span>{t("best_selling")}</span>
         <span
-          className={`
-            lg:hidden
-            transition-transform duration-300 ease-in-out
-            group-hover:scale-110
-            ${isOpen ? "rotate-180" : ""}
+          className={`lg:hidden transition-transform duration-300 ease-in-out group-hover:scale-110 ${
+            isOpen ? "rotate-180" : ""
+          }
           `}
         >
           {DropIcon}
         </span>
       </button>
       <div
-        className={`
-          flex flex-col gap-4 
-          overflow-hidden 
-          transition-all duration-300 ease-in-out
-          lg:max-h-[600px]
-          ${isOpen ? "max-h-[660px] opacity-100" : "max-h-0 opacity-0"}
+        className={`flex flex-col gap-4 overflow-hidden transition-all duration-300 ease-in-out lg:max-h-[600px] ${
+          isOpen ? "max-h-[660px] opacity-100" : "max-h-0 opacity-0"
+        }
         `}
       >
         <Link
           className="text-base leading-6 text-white/50 hover:text-primary hover:underline transition-colors duration-300"
           href={`/${LocaleLinks[locale]}`}
         >
-          All Services
+          {t("all_services")}
         </Link>
         {serviceList.data_3.map(
           (subservice) =>

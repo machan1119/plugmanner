@@ -58,17 +58,21 @@ const ServiceContent = memo(() => {
                 icon: {
                   fields: ["url"],
                 },
+                order_icon: {
+                  fields: ["url"],
+                },
               },
             },
           },
         };
         const options = "";
         const fetchedData = await fetchAPI(path, urlParamsObject, options);
-        if (fetchedData.data)
-          setServiceIcon(
-            process.env.NEXT_PUBLIC_STRAPI_API_URL +
-              fetchedData.data.service.icon.url
-          );
+        if (fetchedData.data) {
+          const tempIcon = fetchedData.data.service.order_icon.url
+            ? fetchedData.data.service.order_icon.url
+            : fetchedData.data.service.icon.url;
+          setServiceIcon(process.env.NEXT_PUBLIC_STRAPI_API_URL + tempIcon);
+        }
       } catch (error) {
         console.error(error);
       }
@@ -99,7 +103,9 @@ const ServiceContent = memo(() => {
     { component: <ServiceArticle />, id: "article" },
     { component: <SectionServices state="Services" />, id: "services" },
   ];
-  const iconURL = serviceItems.icon?.url ? serviceItems.icon.url : serviceIcon;
+  const iconURL = serviceItems.order_icon?.url
+    ? process.env.NEXT_PUBLIC_STRAPI_API_URL + serviceItems.order_icon.url
+    : serviceIcon;
   const url = generate_item_url(serviceItems?.header.text);
   const name = generate_name(serviceItems?.header.text);
   const price = serviceItems.introduction.OrderIntro.price;

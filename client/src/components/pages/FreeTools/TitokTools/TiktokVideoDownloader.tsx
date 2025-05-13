@@ -83,7 +83,7 @@ export default function TiktokVideoDownloader() {
                   type="text"
                   value={postUrl}
                   onChange={(e) => setPostUrl(e.target.value)}
-                  placeholder={`Enter the Reddit Video link here`}
+                  placeholder={`Enter the ${name} Video link here`}
                   className="flex-grow border border-gray-300 rounded-md px-4 py-2"
                 />
                 <button

@@ -81,15 +81,7 @@ const NavBarBottom = memo(() => {
       </div>
     )
   ) : (
-    <div
-      className="
-        flex flex-row justify-between 
-        justify-self-center bg-black-light
-        w-full xl:px-[12%] px-[5%]
-        border-y border-black-dark/50 
-        py-2
-      "
-    >
+    <div className="flex flex-row justify-between justify-self-center bg-black-light w-full xl:px-[12%] px-[5%] border-y border-black-dark/50 py-2">
       {serviceList.data_1.map((val, index) => (
         <DropDownServices item={val} key={index} />
       ))}

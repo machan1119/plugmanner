@@ -12,6 +12,7 @@ export interface ServiceJsonDataType {
   popular: number;
   header: Header;
   icon: Icon;
+  order_icon: Icon;
   simpledescription: {
     id: number;
     text: Text[];

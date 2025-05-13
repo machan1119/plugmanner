@@ -12,11 +12,10 @@ const LocaleLinks = {
 };
 export default function FreeServicesRelatedServices() {
   const { freeServiceItem } = useFreeServices();
-  console.log(freeServiceItem);
   const locale = useLocale() as SupportedLocale;
   if (!freeServiceItem) return;
   if (freeServiceItem?.Orders.length == 0) return;
-  if (!freeServiceItem?.free_service?.icon?.url) return;
+  if (!freeServiceItem?.free_service?.order_icon?.url) return;
   return (
     <section className="w-full py-6 md:py-[80px] bg-black-light flex flex-col items-center border-b-[1px] border-black-dark">
       <div className="max-w-[1366px] w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 items-center px-5 lg:px-20">
@@ -29,7 +28,7 @@ export default function FreeServicesRelatedServices() {
             key={orderItem.id}
           >
             <Image
-              src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${freeServiceItem.free_service.icon.url}`}
+              src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${freeServiceItem.free_service.order_icon.url}`}
               alt={orderItem.subservice.name}
               width={40}
               height={40}

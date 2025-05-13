@@ -17,9 +17,7 @@ export default async function ServicesPage({
   const { locale, item } = await params;
   const originalItem = await getOriginalServiceItem(item, locale);
   if (!originalItem) {
-    setTimeout(() => {
-      notFound();
-    }, 2000);
+    notFound();
   }
   if (item != originalItem) {
     let basePath = "/services";

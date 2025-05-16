@@ -8,7 +8,7 @@ import { useTranslations } from "next-intl";
 const SectionHero = memo(() => {
   const t = useTranslations("Home");
   return (
-    <section className="flex flex-col px-4 sm:px-6 md:px-8 lg:px-10 lg:pt-[25px] pt-22 items-center bg-black-light w-full bg-cover bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ea7_hero_background-pattern.webp')] bg-center bg-no-repeat overflow-hidden">
+    <section className="flex flex-col px-4 sm:px-6 md:px-8 lg:px-10 lg:pt-[25px] sm:pt-22 pt-6 items-center bg-black-light w-full bg-cover bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338ea7_hero_background-pattern.webp')] bg-center bg-no-repeat overflow-hidden">
       <div className="flex flex-col gap-6 lg:gap-8 items-center max-w-7xl mx-auto w-full">
         <div className="flex items-center gap-2 text-center p-[2px] pr-3 mb-1 bg-black-light border-white border-2 rounded-full shadow-[0_4px_6px_rgba(0,0,0,0.1)] hover:shadow-lg transition-all duration-300">
           <span className="bg-black rounded-full text-[rgb(239,255,248)] font-clash px-2 py-[6px] text-[16px] font-semibold">
@@ -44,11 +44,11 @@ const SectionHero = memo(() => {
               priority
             />
           </h1>
-          <p className="text-black text-[16px] md:text-[18px] leading-[27px] font-normal text-center w-[70%] lg:w-[40%] font-satoshi animate-fade-in-up">
+          <p className="text-black text-[16px] md:text-[18px] leading-[27px] font-normal text-center w-full sm:w-[70%] lg:w-[40%] font-satoshi animate-fade-in-up">
             {t("hero.description")}
           </p>
         </div>
-        <div className="md:grid md:grid-cols-auto-2 flex flex-col lg:flex lg:flex-row gap-4 sm:gap-6 items-center">
+        <div className="grid grid-cols-auto-2 lg:flex lg:flex-row gap-4 sm:gap-6 items-center">
           <div className="flex gap-[6px] order-2 lg:order-1 items-center justify-center text-center animate-fade-in-left">
             <Image
               width={20}
@@ -81,7 +81,7 @@ const SectionHero = memo(() => {
             </span>
           </div>
         </div>
-        <div className="flex gap-3 flex-col sm:flex-row items-center animate-fade-in-up">
+        <div className="flex flex-row items-center animate-fade-in-up">
           <MainButton
             type="primary"
             title={t("hero.view_all_services")}

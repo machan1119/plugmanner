@@ -140,7 +140,7 @@ const NavBarMain = memo(() => {
               customChildClass="px-6"
               customClass="hidden lg:block"
             />
-            <a
+            {/* <a
               href="https://panel.socialplug.io/"
               className="rounded-lg border border-black-normal p-2 lg:hidden"
             >
@@ -151,7 +151,7 @@ const NavBarMain = memo(() => {
                 height={24}
                 className="w-full h-full"
               />
-            </a>
+            </a> */}
             <MainButton
               type="primary"
               title={t("main.all_services")}

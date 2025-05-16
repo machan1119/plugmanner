@@ -5,23 +5,18 @@ import { LanguageOption } from "@/libs/types/Types";
 const languages: LanguageOption[] = [
   {
     code: "en",
-    flag: "https://cdn.weglot.com/flags/square/us.svg",
+    flag: "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/67e596d5b8d74aa1d10fc078_USflag.png",
     name: "English",
   },
   {
-    code: "es-ES",
-    flag: "https://cdn.weglot.com/flags/square/es.svg",
-    name: "Español",
-  },
-  {
-    code: "de",
-    flag: "https://cdn.weglot.com/flags/square/de.svg",
-    name: "Deutsch",
-  },
-  {
     code: "pt-BR",
-    flag: "https://cdn.weglot.com/flags/square/br.svg",
+    flag: "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/68063a1ad222786462ae4b2a_brazil_flag.png",
     name: "Português",
+  },
+  {
+    code: "es-ES",
+    flag: "https://cdn.prod.website-files.com/628d4467de238a5806753c9b/67e596d54547810aa7af0c91_ESflag.png",
+    name: "Español",
   },
 ];
 

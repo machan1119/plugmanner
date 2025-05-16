@@ -6,7 +6,7 @@ import React, { memo } from "react";
 const StatusItem = memo(({ count, type, time }: StatusType) => {
   const t = useTranslations("Home");
   return (
-    <div className="flex flex-col gap-1 items-start sm:items-center sm:flex-row sm:justify-between font-satoshi text-base leading-6 px-4 pt-2 pb-1 bg-[rgb(215_249_235)] rounded-lg shadow-[rgb(187_229_218)_3px_4px_12px_0px_inset] h-max overflow-hidden hover:shadow-lg transition-all duration-300">
+    <div className="w-full flex items-center justify-between font-satoshi text-base leading-6 px-4 pt-2 pb-1 bg-[rgb(215_249_235)] rounded-lg shadow-[rgb(187_229_218)_3px_4px_12px_0px_inset] h-max overflow-hidden hover:shadow-lg transition-all duration-300">
       <div className="flex gap-[10px] items-center">
         <span className="relative flex size-3">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>

@@ -36,6 +36,7 @@ export async function fetchAllServiceList(locale: string) {
             sort: [{ popular: "desc" }],
           },
           icon: { fields: ["url"] },
+          order_icon: { fields: ["url"] },
         },
         sort: [{ popular: "desc" }],
         "[locale]": locale,
@@ -69,6 +70,7 @@ export async function fetchAllServiceList(locale: string) {
 const transformRawData = (rawData: RawData[]): ListType[] => {
   return rawData.map((item) => ({
     type: item.type,
+    icon: item.order_icon?.url,
     popular: item.popular,
     data: [
       {
@@ -106,6 +108,7 @@ const processServiceData = (filteredData: ListType[]) => {
 
     const newData: ListType = {
       type: finalType,
+      icon: item.icon,
       popular: item.popular,
       data: [
         {

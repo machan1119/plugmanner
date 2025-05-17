@@ -8,7 +8,6 @@ import Link from "next/link";
 const LocaleLinks = {
   en: "services",
   "es-ES": "servicios",
-  de: "dienstleistungen",
   "pt-BR": "serviços",
 };
 
@@ -17,6 +16,9 @@ export default function FreeToolsRelatedServices() {
   const locale = useLocale() as SupportedLocale;
   if (!freeToolItem) return;
   if (freeToolItem?.Orders.length == 0) {
+    return;
+  }
+  if (!freeToolItem?.Orders[0].subservice?.header) {
     return;
   }
 

@@ -116,8 +116,6 @@ function generateAlternates(data: AlternatesDataType[]): AlternateURLs {
   data.forEach((item) => {
     if (item.locale == "es-ES") {
       languages[item.locale] = BASE_URL + "/es-ES/servicios/" + item?.url;
-    } else if (item.locale == "de") {
-      languages[item.locale] = BASE_URL + "/de/dienstleistungen/" + item?.url;
     } else if (item.locale == "pt-BR") {
       languages[item.locale] = BASE_URL + "/pt-BR/serviços/" + item?.url;
     }

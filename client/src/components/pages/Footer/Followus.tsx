@@ -41,7 +41,7 @@ const FollowUs = memo(() => {
 
   return (
     <div className="border-t border-white/10 pt-4 sm:border-none sm:mt-4 sm:border-t sm:border-white/10 md:border-none md:pt-0 md:mt-0 transition-all duration-300">
-      <p className="font-clash mb-4 leading-5 text-base md:text-xl font-semibold text-white">
+      <p className="font-clash mb-4 leading-5 text-xl font-semibold text-white">
         {t("follow_us")}
       </p>
       <div className="flex gap-4">

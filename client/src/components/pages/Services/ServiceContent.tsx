@@ -113,8 +113,6 @@ const ServiceContent = memo(() => {
     if (locale == "en") return `${process.env.NEXT_PUBLIC_URL}/services/${url}`;
     else if (locale == "es-ES")
       return `${process.env.NEXT_PUBLIC_URL}/es-ES/servicios/${url}`;
-    else if (locale == "de")
-      return `${process.env.NEXT_PUBLIC_URL}/de/dienstleistungen/${url}`;
     else if (locale == "pt-BR")
       return `${process.env.NEXT_PUBLIC_URL}/pt-BR/serviços/${url}`;
   }

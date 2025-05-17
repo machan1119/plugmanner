@@ -34,7 +34,6 @@ export async function generateMetadata(
       languages: {
         en: `${process.env.NEXT_PUBLIC_URL}`,
         "es-ES": `${process.env.NEXT_PUBLIC_URL}/es-ES`,
-        de: `${process.env.NEXT_PUBLIC_URL}/de`,
         "pt-BR": `${process.env.NEXT_PUBLIC_URL}/pt-BR`,
       },
     },

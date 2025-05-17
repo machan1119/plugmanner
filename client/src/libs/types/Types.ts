@@ -40,4 +40,4 @@ export interface LanguageOption {
   name: string;
 }
 
-export type SupportedLocale = "en" | "es-ES" | "de" | "pt-BR";
+export type SupportedLocale = "en" | "es-ES" | "pt-BR";

@@ -10,7 +10,6 @@ import { SupportedLocale } from "@/libs/types/Types";
 const LocaleLinks = {
   en: "free-tools",
   "es-ES": "herramientas-gratis",
-  de: "kostenlose-tools",
   "pt-BR": "ferramentas-gratuitas",
 };
 
@@ -60,6 +59,7 @@ const DropDownTools = memo(({ items }: { items: FreeToolsListType[] }) => {
     }
   }, []);
 
+  if (items.length == 0) return;
   return (
     <div
       className={`

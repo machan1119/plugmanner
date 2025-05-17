@@ -14,7 +14,6 @@ interface ServicesItemProps {
 const LocaleLinks = {
   en: "services",
   "es-ES": "servicios",
-  de: "dienstleistungen",
   "pt-BR": "serviços",
 };
 const ServicesItem = memo(({ serviceData }: ServicesItemProps) => {

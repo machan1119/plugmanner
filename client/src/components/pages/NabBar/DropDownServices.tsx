@@ -22,7 +22,6 @@ interface ServiceItemProps {
 const LocaleLinks = {
   en: "services",
   "es-ES": "servicios",
-  de: "dienstleistungen",
   "pt-BR": "serviços",
 };
 
@@ -34,16 +33,7 @@ const ServiceItem = memo(({ dataItem, icon, title }: ServiceItemProps) => {
       href={`/${LocaleLinks[locale]}/${generate_item_url(
         dataItem.header.text
       )}`}
-      className="
-      flex items-center gap-2 
-      py-2 px-4 
-      w-full
-      text-text-primary 
-      hover:bg-background-light
-      hover:text-primary
-      transition-all duration-300
-      group
-    "
+      className="flex items-center gap-2 py-2 px-4 w-full text-text-primary hover:bg-background-light hover:text-primary transition-all duration-300 group"
     >
       {dataItem.icon ? (
         <Image
@@ -127,21 +117,9 @@ const DropDownServices = memo(({ item }: DropDownServicesProps) => {
   }, []);
 
   return (
-    <div
-      className={`
-      inline-block group relative
-    `}
-    >
+    <div className="inline-block group relative">
       <div
-        className="
-          flex gap-1 items-center 
-          cursor-pointer 
-          py-4 
-          font-normal text-base 
-          font-satoshi
-          transition-colors duration-300
-          hover:text-primary
-        "
+        className="flex gap-1 items-center cursor-pointer py-4 font-normal text-base font-satoshi transition-colors duration-300 hover:text-primary"
         tabIndex={0}
         onKeyDown={handleKeyDown}
       >
@@ -150,24 +128,15 @@ const DropDownServices = memo(({ item }: DropDownServicesProps) => {
           width={16}
           height={16}
           priority
-          className="
-            w-auto h-auto
-            transition-transform duration-300
-            group-hover:rotate-180
-          "
+          className="w-auto h-auto transition-transform duration-300 group-hover:rotate-180"
           alt="down"
           src="https://cdn.prod.website-files.com/628d4467de238a5806753c9b/675716e51edb39c901338e87_nav_dd-icon.svg"
         />
       </div>
       <div
-        className={`
-          absolute 
-          ${isOpen ? "block" : "hidden"}
-          group-hover:block 
-          bg-white 
-          rounded-lg 
-          shadow-soft
-          animate-fade-in
+        className={`absolute ${
+          isOpen ? "block" : "hidden"
+        } group-hover:block bg-white rounded-lg shadow-soft animate-fade-in
           ${
             item.type === "Other" || item.type === "Tools"
               ? "right-0"
@@ -176,16 +145,7 @@ const DropDownServices = memo(({ item }: DropDownServicesProps) => {
         `}
       >
         {item.type === "Other" ? (
-          <div
-            className="
-            w-[50vw] 
-            max-h-[70vh] 
-            overflow-y-auto 
-            overflow-x-hidden
-            p-1
-            scrollbar-thin scrollbar-thumb-black-normal scrollbar-track-transparent
-          "
-          >
+          <div className="w-[50vw] max-h-[70vh] overflow-y-auto overflow-x-hidden p-1 scrollbar-thin scrollbar-thumb-black-normal scrollbar-track-transparent">
             <div className="columns-[100px] w-full gap-6">
               {item.data.map((val, index) => (
                 <ServiceCategory val={val} key={index} />
@@ -193,15 +153,7 @@ const DropDownServices = memo(({ item }: DropDownServicesProps) => {
             </div>
           </div>
         ) : (
-          <div
-            className="
-            max-h-[70vh] 
-            max-w-[50vw] 
-            overflow-auto 
-            p-1
-            w-full
-          "
-          >
+          <div className="max-h-[70vh] max-w-[50vw] overflow-auto p-1 w-full">
             <div className="flex w-max gap-6">
               {item.data.map((val, index) => (
                 <ServiceCategory val={val} key={index} />

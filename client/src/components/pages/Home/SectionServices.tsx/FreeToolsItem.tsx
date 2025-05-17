@@ -15,7 +15,6 @@ interface FreeToolsItemProps {
 const LocaleLinks = {
   en: "free-tools",
   "es-ES": "herramientas-gratis",
-  de: "kostenlose-tools",
   "pt-BR": "ferramentas-gratuitas",
 };
 

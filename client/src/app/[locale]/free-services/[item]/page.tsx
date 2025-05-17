@@ -116,9 +116,6 @@ function generateAlternates(data: AlternatesDataType[]): AlternateURLs {
     if (item.locale == "es-ES") {
       languages[item.locale] =
         BASE_URL + "/es-ES/servicios-gratuitos/" + item?.url;
-    } else if (item.locale == "de") {
-      languages[item.locale] =
-        BASE_URL + "/de/kostenlose-Dienstleistungen/" + item?.url;
     } else if (item.locale == "pt-BR") {
       languages[item.locale] =
         BASE_URL + "/pt-BR/serviços-gratuitos/" + item?.url;

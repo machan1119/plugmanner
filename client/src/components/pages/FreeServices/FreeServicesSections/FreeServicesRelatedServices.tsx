@@ -7,7 +7,6 @@ import Link from "next/link";
 const LocaleLinks = {
   en: "services",
   "es-ES": "servicios",
-  de: "dienstleistungen",
   "pt-BR": "serviços",
 };
 export default function FreeServicesRelatedServices() {

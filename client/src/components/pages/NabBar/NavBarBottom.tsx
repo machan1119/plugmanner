@@ -6,18 +6,16 @@ import { useList } from "@/providers/ListProvider";
 import { ServiceListSkeleton } from "@/components/Skeletons";
 import DropDownServicesResponsive from "./DropDownServicesResponsive";
 import { useHome } from "@/providers/HomeProvider";
-import InfiniteScroll from "react-infinite-scroll-component";
-import { ListType } from "@/libs/types/ListTypes";
 import DropDownTools from "./DropDownTools";
+import MainButton from "@/components/Buttons";
+import { useTranslations } from "next-intl";
+import DropDownToolsResponsive from "./DropDownToolsResponsive";
 
 const NavBarBottom = memo(() => {
-  const { serviceShow } = useHome();
+  const { serviceShow, setServiceShow } = useHome();
+  const [isMobile, setIsMobile] = useState(true);
   const { serviceList, freeToolsList, isLoading } = useList();
-  const [isMobile, setIsMobile] = useState(false);
-  const [hasMore, setHasMore] = useState(true);
-  const [currentList, setCurrentList] = useState<ListType[]>([]);
-  const [page, setPage] = useState(1);
-  const itemsPerPage = 20;
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -36,48 +34,42 @@ const NavBarBottom = memo(() => {
   }, []);
 
   useEffect(() => {
-    const initialData = serviceList.data_1.slice(0, itemsPerPage);
-    setCurrentList(initialData);
-    setPage(1);
-    setHasMore(serviceList.data_1.length > itemsPerPage);
-  }, [serviceList.data_1, itemsPerPage]);
+    if (!serviceShow) {
+      setIsVisible(true);
+    } else {
+      const timer = setTimeout(() => {
+        setIsVisible(false);
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [serviceShow]);
+  const t = useTranslations("Navbar");
 
   if (isLoading) {
-    return <ServiceListSkeleton />;
+    if (!isMobile) return <ServiceListSkeleton />;
   }
 
-  const loadMore = () => {
-    const nextPage = page + 1;
-    const nextData = serviceList.data_1.slice(0, nextPage * itemsPerPage);
-
-    if (nextData.length === currentList.length) {
-      setHasMore(false);
-    } else {
-      setCurrentList(nextData);
-      setPage(nextPage);
-    }
-  };
   return isMobile ? (
-    !serviceShow && (
-      <div className="w-full">
-        <InfiniteScroll
-          dataLength={currentList.length}
-          next={loadMore}
-          hasMore={hasMore}
-          loader={<>loading...</>}
-          className="w-full"
-        >
-          <div className="flex flex-col justify-self-center w-full px-[20px] border-y border-black-dark/50 py-1.5 h-[100vh] overflow-scroll">
-            {currentList.map((item, index) =>
-              item.data.map((val, innerIndex) => (
-                <DropDownServicesResponsive
-                  serviceData={val}
-                  key={`${index}-${innerIndex}`}
-                />
-              ))
-            )}
-          </div>
-        </InfiniteScroll>
+    isVisible && (
+      <div
+        className={`w-full bg-[#f5f5f5] ${
+          serviceShow ? "slide-up" : "slide-down"
+        }`}
+      >
+        <div className="flex flex-col justify-self-center w-full px-[20px] border-y border-black-dark/50 py-1.5 h-[calc(100vh-120px)] overflow-y-scroll overflow-x-hidden">
+          {serviceList.data_1.map((item, index) => (
+            <DropDownServicesResponsive serviceData={item} key={index} />
+          ))}
+          <DropDownToolsResponsive toolItems={freeToolsList} />
+          <MainButton
+            type="primary"
+            title={t("main.all_services")}
+            customChildClass="!bg-none !bg-primary px-6"
+            customClass="mt-2"
+            link="/services/"
+            handleClick={() => setServiceShow(!serviceShow)}
+          />
+        </div>
       </div>
     )
   ) : (

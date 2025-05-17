@@ -17,7 +17,6 @@ export async function GET(request: Request) {
   const Locale_URL = {
     en: `${BASE_URL}/services`,
     "es-ES": `${BASE_URL}/es-ES/servicios`,
-    de: `${BASE_URL}/de/dienstleistungen`,
     "pt-BR": `${BASE_URL}/pt-BR/serviços`,
   };
   for (const item of serviceItems) {
@@ -41,7 +40,6 @@ export async function GET(request: Request) {
         <loc>${BASE_URL}</loc>
         <xhtml:link rel="alternate" hreflang="en" href="${BASE_URL}"/>
         <xhtml:link rel="alternate" hreflang="es-ES" href="${BASE_URL}/es-ES"/>
-        <xhtml:link rel="alternate" hreflang="de" href="${BASE_URL}/de"/>
         <xhtml:link rel="alternate" hreflang="pt-BR" href="${BASE_URL}/pt-BR"/>
         <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}"/>
     </url>${sitemapEntries

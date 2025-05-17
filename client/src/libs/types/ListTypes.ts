@@ -46,6 +46,7 @@ export interface RawData {
   publishedAt: string;
   popular: string;
   icon: Icon;
+  order_icon: Icon;
   subservices: Subservice[];
 }
 
@@ -88,6 +89,7 @@ export interface FreeServicesRawData {
 
 export interface ListType {
   type: string;
+  icon: string;
   data: ServicesDataType[];
   popular: string;
 }

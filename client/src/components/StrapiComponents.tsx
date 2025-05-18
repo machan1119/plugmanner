@@ -64,7 +64,7 @@ const StrapiParagraph = memo(
     variant = "default",
   }: StrapiParagraphType) => {
     const variantClasses = {
-      default: "flex flex-col gap-4 items-start w-full",
+      default: "flex flex-col gap-2 md:gap-4 items-start w-full",
       list: "flex flex-col gap-3 items-start w-full",
       grid: "grid grid-cols-1 md:grid-cols-2 gap-4 w-full",
     };

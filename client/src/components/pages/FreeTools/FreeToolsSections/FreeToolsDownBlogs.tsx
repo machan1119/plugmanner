@@ -12,7 +12,7 @@ const FreeToolsDownBlogs = memo(() => {
 
   return (
     <section className="w-full py-6 md:py-[80px] border-b-[1px] border-black-normal">
-      <div className="flex flex-col gap-20 max-w-[1366px] justify-self-center items-center px-10">
+      <div className="flex flex-col gap-20 max-w-[1366px] justify-self-center items-center md:px-10 px-4">
         {freeToolItem.DownBlogs.title?.text && (
           <h2
             id="blogs-heading"
@@ -39,7 +39,7 @@ const FreeToolsDownBlogs = memo(() => {
                 height={500}
                 alt={`illustration`}
                 src={item.img}
-                className="lg:w-[40%] md:w-[50%] w-[60%]"
+                className="lg:w-[40%] md:w-[50%] sm:w-[60%] w-full"
                 priority={index < 2}
                 loading={index < 2 ? "eager" : "lazy"}
               />

@@ -39,7 +39,7 @@ const ServiceBenefit = memo(({ className = "" }: ServiceBenefitProps) => {
         ${className}
       `}
     >
-      <div className="max-w-[1366px] w-full justify-self-center px-10 items-center">
+      <div className="max-w-[1366px] w-full justify-self-center px-4 md:px-10 items-center">
         {serviceItems.introduction.Benefits?.title && (
           <h2>
             <StrapiText
@@ -87,7 +87,7 @@ const ServiceBenefit = memo(({ className = "" }: ServiceBenefitProps) => {
                   src={currentBenefit.img}
                   className="w-[80%] md:w-[40%]"
                 />
-                <div className="w-[80%] md:w-[50%] flex flex-col gap-5">
+                <div className="w-full sm:w-[80%] md:w-[50%] flex flex-col gap-5">
                   <h2>
                     <StrapiText
                       data={currentBenefit.title.text}

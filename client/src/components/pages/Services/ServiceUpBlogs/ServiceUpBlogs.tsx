@@ -26,7 +26,7 @@ const ServiceUpBlogs = memo(({ className = "" }: ServiceUpBlogsProps) => {
         ${className}
       `}
     >
-      <div className="flex flex-col gap-20 max-w-[1366px] justify-self-center items-center px-10">
+      <div className="flex flex-col gap-20 max-w-[1366px] justify-self-center items-center md:px-10 px-4">
         {serviceItems.introduction.UpBlogs.title?.text && (
           <h2
             id="blogs-heading"
@@ -43,9 +43,7 @@ const ServiceUpBlogs = memo(({ className = "" }: ServiceUpBlogsProps) => {
             (item: BlogType, index: number) => (
               <article
                 className={`w-[100%] flex md:flex-row flex-col gap-5 md:justify-between items-center ${
-                  index % 2 !== 0
-                    ? "md:flex-row-reverse flex-col-reverse lg:pl-16"
-                    : "lg:pr-16"
+                  index % 2 !== 0 ? "md:flex-row-reverse lg:pl-16" : "lg:pr-16"
                 }`}
                 key={index}
               >
@@ -54,7 +52,7 @@ const ServiceUpBlogs = memo(({ className = "" }: ServiceUpBlogsProps) => {
                   height={500}
                   alt={`illustration`}
                   src={item.img}
-                  className="lg:w-[40%] md:w-[50%] w-[60%]"
+                  className="lg:w-[40%] md:w-[50%] sm:w-[60%] w-full"
                   priority={index < 2}
                   loading={index < 2 ? "eager" : "lazy"}
                 />

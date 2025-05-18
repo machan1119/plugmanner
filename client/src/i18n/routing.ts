@@ -13,9 +13,9 @@ export const routing = defineRouting({
       "es-ES": "/servicios/[item]",
       "pt-BR": "/serviços/[item]",
     },
-    "/free-tools": {
-      "es-ES": "/herramientas-gratis",
-      "pt-BR": "/ferramentas-gratuitas",
+    "/free-tools/[item]": {
+      "es-ES": "/herramientas-gratis/[item]",
+      "pt-BR": "/ferramentas-gratuitas/[item]",
     },
     "/free-services/[item]": {
       "es-ES": "/servicios-gratuitos/[item]",

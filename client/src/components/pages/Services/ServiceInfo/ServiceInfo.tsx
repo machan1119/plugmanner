@@ -21,7 +21,7 @@ const ServiceInfo = memo(() => {
     <section className="flex flex-col w-full m-auto items-center">
       <div
         rel="preload"
-        className="flex lg:flex-row lg:items-start lg:gap-[130px] items-center flex-col gap-[35px] pt-[40px] lg:pt-[80px] w-full max-w-[1366px] px-10 bg-[linear-gradient(#fffffff5,#fff),url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/67bb4de67a2ea65794f385ee_perspective-grid-black.webp')] bg-[position:0_0,50%_0] bg-[size:auto,contain] bg-no-repeat"
+        className="flex lg:flex-row lg:items-start lg:gap-[130px] items-center flex-col gap-[35px] pt-[40px] lg:pt-[80px] w-full max-w-[1366px] px-4 md:px-10 bg-[linear-gradient(#fffffff5,#fff),url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/67bb4de67a2ea65794f385ee_perspective-grid-black.webp')] bg-[position:0_0,50%_0] bg-[size:auto,contain] bg-no-repeat"
       >
         <div className="flex flex-col gap-4 lg:gap-7 lg:w-[50%] lg:items-start items-center lg:text-left grow">
           <h1>
@@ -53,7 +53,7 @@ const ServiceInfo = memo(() => {
           </div>
           <ServiceAdvantage />
         </div>
-        <div className="z-20 px-8 py-10 flex w-[450px] flex-col gap-2 items-center bg-[rgb(20,_20,_27)] bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/63ff3f8c57c2b777f07afb19_socialplug-pricingbox-illustration.svg')] bg-right-top bg-no-repeat bg-auto rounded-2xl">
+        <div className="z-20 px-8 py-10 flex w-full md:w-[450px] flex-col gap-2 items-center bg-[rgb(20,_20,_27)] bg-[url('https://cdn.prod.website-files.com/628d4467de238a5806753c9b/63ff3f8c57c2b777f07afb19_socialplug-pricingbox-illustration.svg')] bg-right-top bg-no-repeat bg-auto rounded-2xl">
           <div className="w-full flex flex-col items-start">
             <p className="font-service-card-text text-[16px] !text-black-steel mb-1">
               {t("Starting")}
@@ -90,17 +90,17 @@ const ServiceInfo = memo(() => {
         </div>
       </div>
       <div className="z-10 mt-[-50px] w-full bg-black-light pt-[100px] flex flex-col items-center gap-[50px]">
-        <div className="max-w-[1366px] px-10 w-full flex gap-12 items-center">
+        <div className="max-w-[1366px] px-4 md:px-10 w-full flex gap-12 items-center">
           {serviceItems.introduction.StateOfService.States.map(
             (item: ServiceState) => (
               <div
                 key={item.character}
                 className="text-left flex flex-col gap-2"
               >
-                <p className="font-clash text-[48px] font-semibold text-left leading-[48px]">
+                <p className="font-clash text-[36px] md:text-[48px] font-semibold text-left leading-[48px]">
                   {item.counters}
                 </p>
-                <p className="font-service-text text-[18px]">
+                <p className="font-service-text text-[16px] md:text-[18px]">
                   {item.character}
                 </p>
               </div>

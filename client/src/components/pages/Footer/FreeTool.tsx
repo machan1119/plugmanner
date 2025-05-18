@@ -98,7 +98,7 @@ const FreeTool = memo(() => {
   });
 
   return (
-    <div className="w-full md:w-[168px] grid grid-cols-2 gap-5 md:flex md:flex-col">
+    <div className="w-full md:w-[150px] grid grid-cols-2 gap-5 md:flex md:flex-col">
       <Section title="free_tools" links={freeTools} />
       <Section title="quick_links" links={quickLinks} />
     </div>

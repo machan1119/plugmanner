@@ -17,7 +17,7 @@ const Footer = memo(() => {
         <div className="mx-auto max-w-[1334px]">
           <div className="flex flex-col gap-10 md:gap-0 md:grid md:grid-cols-[1fr_1.5fr] lg:grid-cols-[1fr_2fr_1fr] pb-14 border-solid border-b border-white/40 gap-x-8 md:gap-x-16">
             <Summary />
-            <div className="flex flex-col md:flex-row gap-5 justify-self-end">
+            <div className="flex flex-col md:flex-row gap-16 justify-self-end">
               <SellingService />
               <FreeTool />
             </div>

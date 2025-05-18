@@ -15,7 +15,7 @@ const ServiceGoodPoints = memo(() => {
 
   return (
     <section className="py-6 md:py-14 lg:py-[80px] flex flex-col items-center border-b-[1px] border-black-normal">
-      <div className="max-w-[1366px] px-10 flex flex-col gap-7 w-full items-start mb-8">
+      <div className="max-w-[1366px] px-4 md:px-10 flex flex-col gap-7 w-full items-start mb-8">
         <div className="w-full flex flex-col gap-20">
           {serviceItems.introduction.GoodPoints.chapter.map(
             (chapterItem: GoodPointsChapterType, chapterIndex: number) => (

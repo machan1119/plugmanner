@@ -19,15 +19,12 @@ const NavBarMain = memo(() => {
   const t = useTranslations("Navbar");
   const handleInputFocus = () => {
     setIsDropdownOpen(true);
-    if (searchService.length > 1) {
-    }
   };
   const removeSearch = () => {
     setSearchService("");
   };
-  // console.log(serviceList.data_3);
   return (
-    <div className={`w-full ${searchShow && "pb-2"}`}>
+    <div className={`relative z-50 w-full ${searchShow && "pb-2"}`}>
       <div className="py-[18px] lg:py-4 flex flex-col items-center w-full bg-white border-b border-black/25">
         <div className="max-w-[1366px] w-full flex items-center justify-between px-4 md:px-10">
           <Link
@@ -140,18 +137,6 @@ const NavBarMain = memo(() => {
               customChildClass="px-6"
               customClass="hidden lg:block"
             />
-            <a
-              href="https://panel.socialplug.io/"
-              className="rounded-lg border border-black-normal p-2 lg:hidden"
-            >
-              <Image
-                src="/image/user-icon.png"
-                alt="user-icon"
-                width={24}
-                height={24}
-                className="w-full h-full"
-              />
-            </a>
             <MainButton
               type="primary"
               title={t("main.all_services")}
@@ -162,16 +147,7 @@ const NavBarMain = memo(() => {
             <LocaleSwitcher />
             <button
               onClick={() => setServiceShow(!serviceShow)}
-              className="
-                lg:hidden 
-                rounded-lg gap-3 
-                flex items-center 
-                border border-black-normal
-                py-3 px-[10px] bg-black-light
-                transition-all duration-300
-                hover:border-primary
-                hover:shadow-soft
-              "
+              className="lg:hidden rounded-lg ml-4 gap-3 flex items-center border border-black-normal py-3 px-[10px] bg-black-light transition-all duration-300 hover:border-primary hover:shadow-soft"
             >
               <Image
                 width={19}

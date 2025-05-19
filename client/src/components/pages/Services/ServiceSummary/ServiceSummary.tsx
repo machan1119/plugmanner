@@ -27,7 +27,7 @@ const ServiceSummary = () => {
   };
   return (
     <section className="w-full py-6 md:py-14 lg:py-[80px] bg-black-light flex flex-col items-center border-b-[1px] border-black-normal">
-      <div className="max-w-[1366px] w-full flex flex-col items-center px-10">
+      <div className="max-w-[1366px] w-full flex flex-col items-center px-4 md:px-10">
         <h2 className="font-h1 sm:80% md:w-[60%] lg:w-[50%] text-wrap">
           <StrapiText data={serviceItems.introduction.Summary.title.text} />
         </h2>

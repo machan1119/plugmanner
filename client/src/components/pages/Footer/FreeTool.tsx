@@ -1,6 +1,4 @@
-"use client";
-import React, { memo, useState, useEffect } from "react";
-import { DropIcon } from "@/libs/consts/MySvg";
+import React, { memo } from "react";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { SupportedLocale } from "@/libs/types/Types";
@@ -16,60 +14,38 @@ interface ToolLink {
 interface SectionProps {
   title: string;
   links: ToolLink[];
-  isOpen: boolean;
-  onToggle: () => void;
   className?: string;
   style?: React.CSSProperties;
 }
 
 const Section = memo(
-  ({ title, links, isOpen, onToggle, className = "", style }: SectionProps) => {
+  ({ title, links, className = "", style }: SectionProps) => {
     const t = useTranslations("Footer");
-    const handleKeyDown = (e: React.KeyboardEvent) => {
-      if (e.key === "Enter" || e.key === " ") {
-        onToggle();
-      }
-    };
     const selected_links = title == "free_tools" ? links.slice(0, 3) : links;
     return (
       <div className={className} style={style}>
         <button
-          className="font-clash mb-4 leading-5 text-base md:text-xl font-semibold text-left flex items-center gap-4 text-white hover:text-primary transition-colors duration-300 focus:outline-none focus:text-primary group lg:mb-4"
-          onClick={onToggle}
-          onKeyDown={handleKeyDown}
+          className="font-clash mb-4 leading-5 text-xl font-semibold text-left flex items-center gap-4 text-white hover:text-primary transition-colors duration-300 focus:outline-none focus:text-primary group lg:mb-4"
           tabIndex={0}
         >
           <span>{t(title)}</span>
-          <span
-            className={`lg:hidden transition-transform duration-300 ease-in-out group-hover:scale-110 ${
-              isOpen ? "rotate-180" : ""
-            }
-          `}
-          >
-            {DropIcon}
-          </span>
         </button>
-        <div
-          className={`flex flex-col gap-4 transition-all duration-300 ease-in-out lg:max-h-[500px] ${
-            isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-          }
-        `}
-        >
+        <div className="flex flex-col gap-4 transition-all duration-300 ease-in-out lg:max-h-[500px] max-h-[500px]">
           {selected_links.map((link) => (
             <Link
               key={link.label}
               aria-label={link.label}
               href={link.href}
               className="text-base leading-6 text-white/50 hover:text-primary hover:underline transition-colors duration-300 flex items-center gap-2"
-              target="_blank"
-              rel="noopener noreferrer"
             >
-              <span>{link.label}</span>
-              {link.isFree && (
-                <span className="bg-primary rounded-full text-black px-2 py-0.5 text-xs font-medium transition-colors duration-300 group-hover:bg-secondary">
-                  {t("free")}
-                </span>
-              )}
+              <span>
+                {link.label}{" "}
+                {link.isFree && (
+                  <span className="bg-primary rounded-full text-black px-2 py-0.5 text-xs font-medium transition-colors duration-300 group-hover:bg-secondary">
+                    {t("free")}
+                  </span>
+                )}
+              </span>
             </Link>
           ))}
         </div>
@@ -82,13 +58,9 @@ Section.displayName = "Section";
 const LocaleLinks = {
   en: "free-tools",
   "es-ES": "herramientas-gratis",
-  de: "kostenlose-tools",
   "pt-BR": "ferramentas-gratuitas",
 };
 const FreeTool = memo(() => {
-  const [isToolsOpen, setIsToolsOpen] = useState(false);
-  const [isLinksOpen, setIsLinksOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
   const { freeToolsList } = useList();
   const locale = useLocale() as SupportedLocale;
   const t = useTranslations("Footer");
@@ -124,36 +96,11 @@ const FreeTool = memo(() => {
       isFree: true,
     };
   });
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1024);
-    };
-
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  useEffect(() => {
-    setIsToolsOpen(!isMobile);
-    setIsLinksOpen(!isMobile);
-  }, [isMobile]);
 
   return (
-    <div className="w-[168px] flex flex-col gap-5">
-      <Section
-        title="free_tools"
-        links={freeTools}
-        isOpen={isToolsOpen}
-        onToggle={() => setIsToolsOpen(!isToolsOpen)}
-      />
-      <Section
-        title="quick_links"
-        links={quickLinks}
-        isOpen={isLinksOpen}
-        onToggle={() => setIsLinksOpen(!isLinksOpen)}
-      />
+    <div className="w-full md:w-[150px] grid grid-cols-2 gap-5 md:flex md:flex-col">
+      <Section title="free_tools" links={freeTools} />
+      <Section title="quick_links" links={quickLinks} />
     </div>
   );
 });

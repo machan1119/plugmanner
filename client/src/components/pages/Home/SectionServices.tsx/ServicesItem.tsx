@@ -14,7 +14,6 @@ interface ServicesItemProps {
 const LocaleLinks = {
   en: "services",
   "es-ES": "servicios",
-  de: "dienstleistungen",
   "pt-BR": "serviços",
 };
 const ServicesItem = memo(({ serviceData }: ServicesItemProps) => {
@@ -48,7 +47,7 @@ const ServicesItem = memo(({ serviceData }: ServicesItemProps) => {
             height={40}
             src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${serviceData.icon}`}
             alt={`${serviceData.title} icon`}
-            className="md:size-12 size-8 animate-fade-in"
+            className="size-12 animate-fade-in"
             loading="lazy"
           />
           <span className="text-black text-[20px] font-semibold font-clash leading-[25px] animate-fade-in">

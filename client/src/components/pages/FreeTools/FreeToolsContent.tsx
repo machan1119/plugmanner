@@ -37,7 +37,6 @@ interface FreeToolsComponentType {
   id: {
     en: string;
     "es-ES": string;
-    de: string;
     "pt-BR": string;
   };
 }
@@ -48,7 +47,6 @@ const freeToolsComponent: FreeToolsComponentType[] = [
     id: {
       en: "instagram-username-checker",
       "es-ES": "comprobador-de-nombre-de-usuario-de-instagram",
-      de: "instagram-benutzernamen-checker",
       "pt-BR": "verificador-de-nome-de-usuário-do-instagram",
     },
   },
@@ -57,7 +55,6 @@ const freeToolsComponent: FreeToolsComponentType[] = [
     id: {
       en: "instagram-caption-generator",
       "es-ES": "generador-de-capturas-de-instagram",
-      de: "instagram-caption-generator",
       "pt-BR": "gerador-de-capturas-de-instagram",
     },
   },
@@ -66,7 +63,6 @@ const freeToolsComponent: FreeToolsComponentType[] = [
     id: {
       en: "facebook-video-downloader",
       "es-ES": "descargador-de-videos-de-facebook",
-      de: "facebook-video-downloader",
       "pt-BR": "descarregador-de-vídeos-do-facebook",
     },
   },
@@ -75,7 +71,6 @@ const freeToolsComponent: FreeToolsComponentType[] = [
     id: {
       en: "ai-hook-generator",
       "es-ES": "ai-generador-de-ganchos",
-      de: "ai-hook-generator",
       "pt-BR": "ai-gerador-de-ganchos",
     },
   },
@@ -84,7 +79,6 @@ const freeToolsComponent: FreeToolsComponentType[] = [
     id: {
       en: "linkedin-video-downloader",
       "es-ES": "descargador-de-videos-de-linkedin",
-      de: "linkedin-video-downloader",
       "pt-BR": "descarregador-de-vídeos-do-linkedin",
     },
   },
@@ -93,7 +87,6 @@ const freeToolsComponent: FreeToolsComponentType[] = [
     id: {
       en: "linkedin-profile-viewer",
       "es-ES": "visor-de-perfiles-de-linkedon",
-      de: "linkedin-profilbetrachter",
       "pt-BR": "visualizador de perfis do linkedin",
     },
   },
@@ -102,7 +95,6 @@ const freeToolsComponent: FreeToolsComponentType[] = [
     id: {
       en: "pinterest-video-downloader",
       "es-ES": "descargador-de-videos-de-pinterest",
-      de: "pinterest-video-downloader",
       "pt-BR": "descarregador-de-vídeos-do-pinterest",
     },
   },
@@ -111,7 +103,6 @@ const freeToolsComponent: FreeToolsComponentType[] = [
     id: {
       en: "reddit-video-downloader",
       "es-ES": "descargador-de-videos-de-reddit",
-      de: "reddit-video-downloader",
       "pt-BR": "descarregador-de-vídeos-do-reddit",
     },
   },
@@ -120,7 +111,6 @@ const freeToolsComponent: FreeToolsComponentType[] = [
     id: {
       en: "tiktok-video-downloader",
       "es-ES": "descargador-de-videos-de-tiktok",
-      de: "tiktok-video-downloader",
       "pt-BR": "descarregador-de-vídeos-do-tiktok",
     },
   },
@@ -129,7 +119,6 @@ const freeToolsComponent: FreeToolsComponentType[] = [
     id: {
       en: "tiktok-caption-generator",
       "es-ES": "generador-de-capturas-de-tiktok",
-      de: "tiktok-caption-generator",
       "pt-BR": "gerador-de-capturas-de-tiktok",
     },
   },
@@ -138,7 +127,6 @@ const freeToolsComponent: FreeToolsComponentType[] = [
     id: {
       en: "tiktok-transcript-generator",
       "es-ES": "generador-de-transcripciones-de-tiktok",
-      de: "tiktok-transcript-generator",
       "pt-BR": "gerador-de-transcrições-de-tiktok",
     },
   },
@@ -147,7 +135,6 @@ const freeToolsComponent: FreeToolsComponentType[] = [
     id: {
       en: "twitter-video-downloader",
       "es-ES": "descargador-de-videos-de-twitter",
-      de: "twitter-video-downloader",
       "pt-BR": "descarregador-de-vídeos-do-twitter",
     },
   },
@@ -156,7 +143,6 @@ const freeToolsComponent: FreeToolsComponentType[] = [
     id: {
       en: "fake-tweet-generator",
       "es-ES": "generador-de-tweets-falsos",
-      de: "fake-tweet-generator",
       "pt-BR": "gerador-de-tweets-falsos",
     },
   },
@@ -165,7 +151,6 @@ const freeToolsComponent: FreeToolsComponentType[] = [
     id: {
       en: "twitter-username-checker",
       "es-ES": "comprobador-de-nombre-de-usuario-de-twitter",
-      de: "twitter-benutzernamen-checker",
       "pt-BR": "verificador-de-nome-de-usuário-do-twitter",
     },
   },
@@ -174,7 +159,6 @@ const freeToolsComponent: FreeToolsComponentType[] = [
     id: {
       en: "youtube-video-downloader",
       "es-ES": "descargador-de-videos-de-youtube",
-      de: "youtube-video-downloader",
       "pt-BR": "descarregador-de-vídeos-do-youtube",
     },
   },
@@ -183,7 +167,6 @@ const freeToolsComponent: FreeToolsComponentType[] = [
     id: {
       en: "youtube-description-generator",
       "es-ES": "generador-de-descripciones-de-youtube",
-      de: "youtube-description-generator",
       "pt-BR": "gerador-de-descrições-do-youtube",
     },
   },
@@ -192,7 +175,6 @@ const freeToolsComponent: FreeToolsComponentType[] = [
     id: {
       en: "youtube-hashtag-generator",
       "es-ES": "generador-de-hashtags-de-youtube",
-      de: "youtube-hashtag-generator",
       "pt-BR": "gerador-de-hashtags-do-youtube",
     },
   },
@@ -201,7 +183,6 @@ const freeToolsComponent: FreeToolsComponentType[] = [
     id: {
       en: "youtube-name-generator",
       "es-ES": "generador-de-nombres-de-youtube",
-      de: "youtube-name-generator",
       "pt-BR": "gerador-de-nomes-do-youtube",
     },
   },
@@ -210,7 +191,6 @@ const freeToolsComponent: FreeToolsComponentType[] = [
     id: {
       en: "youtube-title-generator",
       "es-ES": "generador-de-titulos-de-youtube",
-      de: "youtube-title-generator",
       "pt-BR": "gerador-de-títulos-do-youtube",
     },
   },

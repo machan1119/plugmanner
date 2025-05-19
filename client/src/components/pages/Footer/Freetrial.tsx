@@ -15,7 +15,6 @@ interface FreeTrialLink {
 const LocaleLinks = {
   en: "free-services",
   "es-ES": "servicios-gratuitos",
-  de: "kostenlose-Dienstleistungen",
   "pt-BR": "serviços-gratuitos",
 };
 
@@ -49,7 +48,7 @@ const FreeTrial = memo(() => {
   return (
     <div>
       <button
-        className="font-clash mt-8 mb-4 leading-5 text-base md:text-xl font-semibold flex items-center gap-4 text-white hover:text-primary transition-colors duration-300 focus:outline-none focus:text-primary group"
+        className="font-clash mt-8 mb-4 leading-5 text-xl font-semibold flex items-center gap-4 text-white hover:text-primary transition-colors duration-300 focus:outline-none focus:text-primary group"
         onClick={handleClick}
         onKeyDown={handleKeyDown}
         tabIndex={0}

@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 const Summary = memo(() => {
   const t = useTranslations("Footer");
   return (
-    <div className="flex flex-col gap-5 max-w-[280px] pb-4 sm:pb-0">
+    <div className="flex flex-col gap-5 w-full md:max-w-[280px] pb-4 sm:pb-0">
       <div className="flex flex-col gap-4">
         <Image
           width={164}

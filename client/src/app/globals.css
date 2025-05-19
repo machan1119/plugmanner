@@ -79,14 +79,14 @@ body {
   .font-service-md {
     @apply font-clash text-[56px] text-black leading-[56px] font-semibold text-left;
   }
-  .font-service-sm {
+  .font-service-main {
     @apply font-clash text-[52px] text-black leading-[52px] font-semibold text-left;
   }
-  .font-service-main {
+  /* .font-service-main {
     @apply font-clash text-[32px] text-black leading-[32px] font-semibold text-left;
-  }
+  } */
   .font-service {
-    @apply font-service-main sm:font-service-sm md:font-service-md lg:font-service-lg;
+    @apply font-service-main md:font-service-md lg:font-service-lg;
   }
 
   .font-service-text {

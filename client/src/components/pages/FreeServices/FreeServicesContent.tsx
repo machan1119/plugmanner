@@ -53,8 +53,6 @@ const FreeServicesContent = memo(() => {
       return `${process.env.NEXT_PUBLIC_URL}/free-services/${url}`;
     else if (locale == "es-ES")
       return `${process.env.NEXT_PUBLIC_URL}/es-ES/servicios-gratuitos/${url}`;
-    else if (locale == "de")
-      return `${process.env.NEXT_PUBLIC_URL}/de/kostenlose-Dienstleistungen/${url}`;
     else if (locale == "pt-BR")
       return `${process.env.NEXT_PUBLIC_URL}/pt-BR/serviços-gratuitos/${url}`;
   }

@@ -35,10 +35,10 @@ export async function fetchAllFreeToolsList(locale: string) {
     const processedList = rawData.map((item) => ({
       name: String(item.name),
       id: String(item.documentId),
-      icon: String(item.free_tool?.icon?.url || ""),
-      popular: String(item.popular),
-      free_tool: String(item.free_tool.name),
-      free_tool_popular: String(item.free_tool.popular),
+      icon: String(item.icon?.url || ""),
+      popular: String(item?.popular),
+      free_tool: String(item.free_tool?.name),
+      free_tool_popular: String(item.free_tool?.popular),
     }));
     return processedList;
   } catch (err) {

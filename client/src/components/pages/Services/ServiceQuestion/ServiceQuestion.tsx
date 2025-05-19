@@ -27,7 +27,7 @@ const ServiceQuestion = memo(() => {
           />
         </h2>
         <div className="flex flex-col sm:flex-row gap-5">
-          <div className="flex flex-col gap-5 w-[50%] sm:w-full">
+          <div className="flex flex-col gap-5 sm:w-[50%] w-full">
             {serviceItems.introduction.FrequentlyQuestions.Question.slice(
               0,
               middleValue
@@ -37,7 +37,7 @@ const ServiceQuestion = memo(() => {
               </div>
             ))}
           </div>
-          <div className="flex flex-col gap-5 w-[50%] sm:w-full">
+          <div className="flex flex-col gap-5 sm:w-[50%] w-full">
             {serviceItems.introduction.FrequentlyQuestions.Question.slice(
               middleValue,
               maxLength

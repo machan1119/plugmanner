@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_article_lists",
+  "info": {
+    "displayName": "list"
+  },
+  "options": {},
+  "attributes": {
+    "numberlist": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Level1": {
+      "displayName": "Level1",
+      "type": "component",
+      "repeatable": true,
+      "component": "article.level1"
+    }
+  }
+}

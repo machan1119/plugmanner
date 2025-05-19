@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_article_contents",
+  "info": {
+    "displayName": "Content",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Chapter": {
+      "displayName": "articleChapter",
+      "type": "component",
+      "repeatable": true,
+      "component": "article.article-chapter"
+    }
+  }
+}

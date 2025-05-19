@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_article_article_sections",
+  "info": {
+    "displayName": "articleSection"
+  },
+  "options": {},
+  "attributes": {
+    "Header": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.list"
+    },
+    "img": {
+      "type": "string"
+    },
+    "Subsection": {
+      "displayName": "articleSubsection",
+      "type": "component",
+      "repeatable": true,
+      "component": "article.article-subsection"
+    }
+  }
+}

@@ -53,12 +53,6 @@
         }
       }
     },
-    "article": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::article.article",
-      "inversedBy": "subservices"
-    },
     "header": {
       "type": "component",
       "repeatable": false,

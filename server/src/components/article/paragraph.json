@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_article_paragraphs",
+  "info": {
+    "displayName": "Paragraph",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Sentence": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.list"
+    },
+    "List": {
+      "type": "component",
+      "repeatable": true,
+      "component": "article.list"
+    },
+    "img": {
+      "type": "string"
+    }
+  }
+}

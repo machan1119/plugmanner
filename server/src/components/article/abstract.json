@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_article_abstracts",
+  "info": {
+    "displayName": "Abstract"
+  },
+  "options": {},
+  "attributes": {
+    "img": {
+      "type": "string"
+    }
+  }
+}

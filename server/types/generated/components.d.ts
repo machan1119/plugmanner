@@ -1,5 +1,52 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface ArticleAbstract extends Struct.ComponentSchema {
+  collectionName: 'components_article_abstracts';
+  info: {
+    displayName: 'Abstract';
+  };
+  attributes: {
+    img: Schema.Attribute.String;
+  };
+}
+
+export interface ArticleArticleChapter extends Struct.ComponentSchema {
+  collectionName: 'components_article_article_chapters';
+  info: {
+    description: '';
+    displayName: 'articleChapter';
+  };
+  attributes: {
+    Header: Schema.Attribute.Component<'general.list', false>;
+    img: Schema.Attribute.String;
+    Section: Schema.Attribute.Component<'article.article-section', true>;
+  };
+}
+
+export interface ArticleArticleSection extends Struct.ComponentSchema {
+  collectionName: 'components_article_article_sections';
+  info: {
+    displayName: 'articleSection';
+  };
+  attributes: {
+    Header: Schema.Attribute.Component<'general.list', false>;
+    img: Schema.Attribute.String;
+    Subsection: Schema.Attribute.Component<'article.article-subsection', true>;
+  };
+}
+
+export interface ArticleArticleSubsection extends Struct.ComponentSchema {
+  collectionName: 'components_article_article_subsections';
+  info: {
+    displayName: 'articleSubsection';
+  };
+  attributes: {
+    Header: Schema.Attribute.Component<'general.list', false>;
+    img: Schema.Attribute.String;
+    Paragraph: Schema.Attribute.Component<'article.paragraph', true>;
+  };
+}
+
 export interface ArticleAuthor extends Struct.ComponentSchema {
   collectionName: 'components_article_authors';
   info: {
@@ -26,6 +73,64 @@ export interface ArticleChapter extends Struct.ComponentSchema {
     img: Schema.Attribute.Text;
     section: Schema.Attribute.Component<'article.section', true>;
     title: Schema.Attribute.Component<'general.list', false>;
+  };
+}
+
+export interface ArticleContent extends Struct.ComponentSchema {
+  collectionName: 'components_article_contents';
+  info: {
+    description: '';
+    displayName: 'Content';
+  };
+  attributes: {
+    Chapter: Schema.Attribute.Component<'article.article-chapter', true>;
+  };
+}
+
+export interface ArticleLevel1 extends Struct.ComponentSchema {
+  collectionName: 'components_article_level1s';
+  info: {
+    displayName: 'Level1';
+  };
+  attributes: {
+    Level2: Schema.Attribute.Component<'article.level2', true>;
+    text: Schema.Attribute.Component<'general.sentence', true>;
+  };
+}
+
+export interface ArticleLevel2 extends Struct.ComponentSchema {
+  collectionName: 'components_article_level2s';
+  info: {
+    displayName: 'Level2';
+  };
+  attributes: {
+    text: Schema.Attribute.Component<'general.sentence', true>;
+  };
+}
+
+export interface ArticleList extends Struct.ComponentSchema {
+  collectionName: 'components_article_lists';
+  info: {
+    displayName: 'list';
+  };
+  attributes: {
+    Level1: Schema.Attribute.Component<'article.level1', true>;
+    numberlist: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+  };
+}
+
+export interface ArticleParagraph extends Struct.ComponentSchema {
+  collectionName: 'components_article_paragraphs';
+  info: {
+    description: '';
+    displayName: 'Paragraph';
+  };
+  attributes: {
+    img: Schema.Attribute.String;
+    List: Schema.Attribute.Component<'article.list', true>;
+    Sentence: Schema.Attribute.Component<'general.list', false>;
   };
 }
 
@@ -650,8 +755,17 @@ export interface SubserviceTopReviews extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'article.abstract': ArticleAbstract;
+      'article.article-chapter': ArticleArticleChapter;
+      'article.article-section': ArticleArticleSection;
+      'article.article-subsection': ArticleArticleSubsection;
       'article.author': ArticleAuthor;
       'article.chapter': ArticleChapter;
+      'article.content': ArticleContent;
+      'article.level1': ArticleLevel1;
+      'article.level2': ArticleLevel2;
+      'article.list': ArticleList;
+      'article.paragraph': ArticleParagraph;
       'article.section': ArticleSection;
       'general.btn': GeneralBtn;
       'general.hero-imgs': GeneralHeroImgs;

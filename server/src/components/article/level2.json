@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_article_level2s",
+  "info": {
+    "displayName": "Level2"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.sentence"
+    }
+  }
+}

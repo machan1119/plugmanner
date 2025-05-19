@@ -24,67 +24,7 @@
         }
       }
     },
-    "author_name": {
-      "type": "string",
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "date": {
-      "type": "date",
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "chapter": {
-      "displayName": "chapter",
-      "type": "component",
-      "repeatable": true,
-      "component": "article.chapter",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "about_author": {
-      "displayName": "author",
-      "type": "component",
-      "repeatable": true,
-      "component": "article.author",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "services": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::service.service",
-      "mappedBy": "articles"
-    },
-    "subservices": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::subservice.subservice",
-      "mappedBy": "article"
-    },
     "img": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "text"
-    },
-    "author_avatar": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -92,14 +32,67 @@
       },
       "type": "string"
     },
-    "recommended": {
+    "simpleDescription": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "date": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "date"
+    },
+    "updated": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
       "type": "boolean",
-      "default": false
+      "default": false,
+      "required": true
+    },
+    "readTime": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "default": "18 min read"
+    },
+    "Author": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "article.author"
+    },
+    "Content": {
+      "displayName": "Content",
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "article.content"
+    },
+    "article_category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::article-category.article-category",
+      "inversedBy": "articles"
     }
   }
 }

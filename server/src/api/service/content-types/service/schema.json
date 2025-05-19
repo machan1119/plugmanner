@@ -60,12 +60,6 @@
         }
       }
     },
-    "articles": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::article.article",
-      "inversedBy": "services"
-    },
     "sub_free_tool": {
       "type": "relation",
       "relation": "oneToOne",

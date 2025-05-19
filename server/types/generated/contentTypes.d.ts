@@ -424,6 +424,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       'manyToOne',
       'api::article-category.article-category'
     >;
+    articles: Schema.Attribute.Relation<'manyToMany', 'api::article.article'>;
     Author: Schema.Attribute.Component<'article.author', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -464,6 +465,10 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
         };
       }> &
       Schema.Attribute.DefaultTo<'18 min read'>;
+    RelatedArticles: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::article.article'
+    >;
     simpleDescription: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

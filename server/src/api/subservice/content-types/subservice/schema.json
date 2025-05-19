@@ -140,6 +140,12 @@
           "localized": true
         }
       }
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::article.article",
+      "mappedBy": "subservices"
     }
   }
 }

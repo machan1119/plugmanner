@@ -105,6 +105,12 @@
       "relation": "manyToMany",
       "target": "api::article.article",
       "mappedBy": "articles"
+    },
+    "subservices": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::subservice.subservice",
+      "inversedBy": "articles"
     }
   }
 }

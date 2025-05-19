@@ -68,12 +68,6 @@
           "localized": true
         }
       }
-    },
-    "article_categories": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::article-category.article-category",
-      "mappedBy": "free_services"
     }
   }
 }

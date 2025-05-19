@@ -4,7 +4,8 @@
   "info": {
     "singularName": "article-category",
     "pluralName": "article-categories",
-    "displayName": "Article Category"
+    "displayName": "Article Category",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,12 +20,6 @@
       "relation": "oneToMany",
       "target": "api::article.article",
       "mappedBy": "article_category"
-    },
-    "free_services": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::free-service.free-service",
-      "inversedBy": "article_categories"
     }
   }
 }

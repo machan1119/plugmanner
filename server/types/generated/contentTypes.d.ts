@@ -373,6 +373,7 @@ export interface ApiArticleCategoryArticleCategory
   extends Struct.CollectionTypeSchema {
   collectionName: 'article_categories';
   info: {
+    description: '';
     displayName: 'Article Category';
     pluralName: 'article-categories';
     singularName: 'article-category';
@@ -385,10 +386,6 @@ export interface ApiArticleCategoryArticleCategory
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    free_services: Schema.Attribute.Relation<
-      'manyToMany',
-      'api::free-service.free-service'
-    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -475,6 +472,10 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    subservices: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::subservice.subservice'
+    >;
     title: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -512,10 +513,6 @@ export interface ApiFreeServiceFreeService extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    article_categories: Schema.Attribute.Relation<
-      'manyToMany',
-      'api::article-category.article-category'
-    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -981,6 +978,7 @@ export interface ApiSubserviceSubservice extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
+    articles: Schema.Attribute.Relation<'manyToMany', 'api::article.article'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

@@ -19,6 +19,7 @@ export default {
       fontFamily: {
         satoshi: "Satoshi-Variable",
         clash: "Clashdisplay-Variable",
+        lato: "Lato",
       },
       colors: {
         "black-light": "#f6f6f6",

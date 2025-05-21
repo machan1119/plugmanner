@@ -45,3 +45,22 @@ export function replace_str(s1: string, s2: string): string {
 
   return result;
 }
+
+export function format_blog_date(dateString: string): string {
+  const date = new Date(dateString);
+  // Options for formatting month as full name, day as number, year as number
+  const options: Intl.DateTimeFormatOptions = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  return date.toLocaleDateString("en-US", options);
+}
+
+export function generate_item_url_from_blog_title(title: string) {
+  const parts = title.split(/[:.?!,;\-]+/);
+  const mainPart = parts[0];
+  const words: string[] = mainPart.split(/[^a-zA-Z0-9]+/);
+  const filtered = words.filter(Boolean).map((word) => word.toLowerCase());
+  return filtered.join("-");
+}

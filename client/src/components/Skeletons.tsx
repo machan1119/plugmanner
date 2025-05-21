@@ -74,6 +74,28 @@ export function ServicePageSkeleton() {
   );
 }
 
+export function BlogPageSkeleton() {
+  return (
+    <div className="bg-background-light border-y flex flex-col gap-10 items-center border-black-dark p-5 w-full h-full animate-fade-in">
+      <Skeleton width="60%" height="200px" />
+      <Skeleton width="80%" height="500px" />
+    </div>
+  );
+}
+
+export function BlogDetailPageSkeleton() {
+  return (
+    <div className="bg-background-light border-y flex flex-col gap-10 items-center border-black-dark p-5 w-full h-full animate-fade-in">
+      <Skeleton width="80%" height="300px" />
+      <div className="flex gap-8 w-full justify-center">
+        <Skeleton width="20%" height="400px" />
+        <Skeleton width="40%" height="400px" />
+        <Skeleton width="20%" height="400px" />
+      </div>
+    </div>
+  );
+}
+
 export function CardSkeleton() {
   return (
     <div className="p-4 rounded-xl bg-background-light shadow-soft animate-fade-in">

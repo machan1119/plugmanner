@@ -145,8 +145,8 @@ const DropDownServices = memo(({ item }: DropDownServicesProps) => {
         `}
       >
         {item.type === "Other" ? (
-          <div className="w-[50vw] max-h-[70vh] overflow-y-auto overflow-x-hidden p-1 scrollbar-thin scrollbar-thumb-black-normal scrollbar-track-transparent">
-            <div className="columns-[100px] w-full gap-6">
+          <div className="w-[60vw] max-h-[70vh] overflow-y-auto overflow-x-hidden p-1 scrollbar-thin scrollbar-thumb-black-normal scrollbar-track-transparent">
+            <div className="columns-[150px] w-full gap-6">
               {item.data.map((val, index) => (
                 <ServiceCategory val={val} key={index} />
               ))}

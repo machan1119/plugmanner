@@ -70,7 +70,11 @@ const FollowUs = memo(() => {
           className="w-full px-4 py-3 leading-[22px] text- bg-white text-black placeholder:text-black/50 focus:outline-none focus:border-primary"
           required
         />
-        <MainButton type="primary" title={t("subscribe")} />
+        <MainButton
+          type="primary"
+          customClass="border-none"
+          title={t("subscribe")}
+        />
       </form>
       <FreeTrial />
     </div>

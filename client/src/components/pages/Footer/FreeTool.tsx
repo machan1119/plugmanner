@@ -73,7 +73,7 @@ const FreeTool = memo(() => {
       label: t("affiliate_program"),
       href: "https://www.socialplug.io/affiliate-program",
     },
-    { label: t("blog"), href: "https://www.socialplug.io/blog" },
+    { label: t("blog"), href: "/blog" },
     { label: t("about_us"), href: "https://www.socialplug.io/about-us" },
     { label: t("reviews"), href: "https://www.socialplug.io/about-us" },
     {

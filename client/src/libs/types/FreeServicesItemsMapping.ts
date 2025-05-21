@@ -4,7 +4,7 @@ export interface LocalizedFreeServicesItem {
   header: {
     text: [{ content: string }];
   };
-  locale: "en" | "es-ES" | "de" | "pt-BR";
+  locale: "en" | "es-ES" | "pt-BR";
 }
 
 export interface FreeServicesItem {

@@ -76,7 +76,9 @@ const FreeServicesCustomerReview = () => {
                 />
               )
             )}
-            <div className="absolute z-20 bg-[linear-gradient(rgb(0,0,0,0),rgb(255,255,255))] h-[200px] w-full bottom-0 left-0" />
+            {!showLessButton && (
+              <div className="absolute z-20 bg-[linear-gradient(rgb(0,0,0,0),rgb(255,255,255))] h-[200px] w-full bottom-0 left-0" />
+            )}
           </div>
         </div>
       </div>

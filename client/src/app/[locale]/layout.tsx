@@ -4,6 +4,14 @@ import { hasLocale, Locale, NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Lato } from "next/font/google";
+
+const lato = Lato({
+  weight: ["100", "300", "400", "700", "900"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -70,7 +78,7 @@ export default async function LocaleLayout({
   }
   setRequestLocale(locale);
   return (
-    <html lang={locale}>
+    <html lang={locale} className={lato.className}>
       <body className={`antialiased`}>
         <NextIntlClientProvider>
           <HomeLayout locale={locale}>{children}</HomeLayout>

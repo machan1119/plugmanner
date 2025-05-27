@@ -67,7 +67,7 @@ const FollowUs = memo(() => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter your email"
-          className="w-full px-4 py-3 leading-[22px] text- bg-white text-black placeholder:text-black/50 focus:outline-none focus:border-primary"
+          className="w-full px-4 py-3 leading-[22px] text-[15px] rounded-lg bg-white text-black placeholder:text-black/50 focus:outline-none focus:border-primary"
           required
         />
         <MainButton

@@ -1,6 +1,9 @@
 "use client";
-import React, { memo, useEffect, useCallback } from "react";
-import { ServicePageSkeleton } from "@/components/Skeletons";
+import React, { memo, useEffect, useCallback, useState } from "react";
+import {
+  FreeToolsPageMobileSkeleton,
+  FreeToolsPageSkeleton,
+} from "@/components/Skeletons";
 import { generate_item_url_from_name } from "@/utils/functions";
 import { useLocale } from "next-intl";
 import { useFreeTools } from "@/providers/FreeToolsProvider";
@@ -213,6 +216,24 @@ interface FaqType {
 const FreeToolsContent = memo(() => {
   const { isLoading, freeToolItem } = useFreeTools();
   const locale = useLocale();
+  const [isMobile, setIsMobile] = useState(true);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const currentWidth = window.innerWidth;
+      if (currentWidth > 1024) {
+        setIsMobile(false);
+      } else {
+        setIsMobile(true);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const scrollToTop = useCallback(() => {
     window.scrollTo({
       top: 0,
@@ -225,7 +246,8 @@ const FreeToolsContent = memo(() => {
   }, [scrollToTop]);
 
   if (isLoading) {
-    return <ServicePageSkeleton />;
+    if (isMobile) return <FreeToolsPageMobileSkeleton />;
+    return <FreeToolsPageSkeleton />;
   }
   if (!freeToolItem?.Header.text) return;
 

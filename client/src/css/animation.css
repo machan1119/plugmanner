@@ -58,7 +58,7 @@
 }
 
 .slide-down {
-  animation: slideDown 0.5s ease-out forwards;
+  animation: slideDown 0.3s ease-out forwards;
 }
 
 @keyframes slideUp {
@@ -73,5 +73,5 @@
 }
 
 .slide-up {
-  animation: slideUp 0.5s ease-out forwards;
+  animation: slideUp 0.3s ease-out forwards;
 }

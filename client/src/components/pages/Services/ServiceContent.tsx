@@ -12,7 +12,10 @@ import ServiceSummary from "./ServiceSummary/ServiceSummary";
 import ServiceUpBlogs from "./ServiceUpBlogs/ServiceUpBlogs";
 import ServiceVideo from "./ServiceVideo/ServiceVideo";
 import { useServices } from "@/providers/ServicesProvider";
-import { ServicePageSkeleton } from "@/components/Skeletons";
+import {
+  ServicePageMobileSkeleton,
+  ServicePageSkeleton,
+} from "@/components/Skeletons";
 import ServiceDownBlogs from "./ServiceDownBlogs/ServiceDownBlogs";
 import ServiceGoodPoints from "./ServiceGoodPoints/ServiceGoodPoints";
 import ServicePackage from "./ServicePackage/ServicePackage";
@@ -39,12 +42,30 @@ interface FaqType {
 const ServiceContent = memo(() => {
   const { isLoading, serviceItems } = useServices();
   const [serviceIcon, setServiceIcon] = useState("");
+  const [isMobile, setIsMobile] = useState(true);
   const locale = useLocale();
+
   const scrollToTop = useCallback(() => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const currentWidth = window.innerWidth;
+      if (currentWidth > 1024) {
+        setIsMobile(false);
+      } else {
+        setIsMobile(true);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   useEffect(() => {
@@ -82,6 +103,7 @@ const ServiceContent = memo(() => {
   }, [scrollToTop, serviceItems?.documentId]);
 
   if (isLoading) {
+    if (isMobile) return <ServicePageMobileSkeleton />;
     return <ServicePageSkeleton />;
   }
 

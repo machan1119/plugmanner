@@ -2,9 +2,9 @@
 import { useTransition, useState } from "react";
 import Image from "next/image";
 import { LanguageOption } from "@/libs/types/Types";
-import { usePathname, useRouter } from "@/i18n/navigation";
+import { usePathname } from "@/i18n/navigation";
 import { Locale } from "next-intl";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 
 type Props = {
   defaultValue: string;
@@ -20,14 +20,10 @@ export default function LocaleSwitcherSelect({ defaultValue, items }: Props) {
   const pathname = usePathname();
   const params = useParams();
   const item = (params.item ?? "").toString();
-
   async function onChange(value: string) {
     const nextLocale = value as Locale;
     startTransition(() => {
-      router.replace(
-        { pathname, params: { item: item } },
-        { locale: nextLocale }
-      );
+      router.replace(`/${nextLocale}/${pathname.replace("[item]", item)}`);
     });
     setSelectedValue(value);
     setIsOpen(false);

@@ -60,7 +60,7 @@ export default function LocaleSwitcherSelect({ defaultValue, items }: Props) {
       </button>
 
       {isOpen && (
-        <ul className="absolute w-full bg-white border rounded shadow-lg z-10">
+        <ul className="absolute w-full bg-white border rounded shadow-lg z-10 top-10">
           {items.map((item) => (
             <li
               key={item.code}

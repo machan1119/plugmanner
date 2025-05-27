@@ -18,6 +18,7 @@ interface ServiceItemProps {
   };
   icon: string;
   title: string;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 const LocaleLinks = {
   en: "services",
@@ -25,57 +26,67 @@ const LocaleLinks = {
   "pt-BR": "serviços",
 };
 
-const ServiceItem = memo(({ dataItem, icon, title }: ServiceItemProps) => {
-  const locale = useLocale() as SupportedLocale;
-  return (
-    <Link
-      rel="canonical"
-      href={`/${LocaleLinks[locale]}/${generate_item_url(
-        dataItem.header.text
-      )}`}
-      className="flex items-center gap-2 py-2 px-4 w-full text-text-primary hover:bg-background-light hover:text-primary transition-all duration-300 group"
-    >
-      {dataItem.icon ? (
-        <Image
-          src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${dataItem.icon.url}`}
-          width={20}
-          height={20}
-          alt={title}
-          className="
+const ServiceItem = memo(
+  ({ dataItem, icon, title, setIsOpen }: ServiceItemProps) => {
+    const handleClickService = () => {
+      setIsOpen(false);
+      setTimeout(() => {
+        return setIsOpen(true);
+      }, 200);
+    };
+    const locale = useLocale() as SupportedLocale;
+    return (
+      <Link
+        rel="canonical"
+        href={`/${LocaleLinks[locale]}/${generate_item_url(
+          dataItem.header.text
+        )}`}
+        onClick={handleClickService}
+        className="flex items-center gap-2 py-2 px-4 w-full text-text-primary hover:bg-background-light hover:text-primary transition-all duration-300 group"
+      >
+        {dataItem.icon ? (
+          <Image
+            src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${dataItem.icon.url}`}
+            width={20}
+            height={20}
+            alt={title}
+            className="
         w-5 h-5 
         opacity-80 
         group-hover:opacity-100
         transition-opacity duration-300
       "
-        />
-      ) : (
-        <Image
-          src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${icon}`}
-          width={20}
-          height={20}
-          alt={title}
-          className="
+          />
+        ) : (
+          <Image
+            src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${icon}`}
+            width={20}
+            height={20}
+            alt={title}
+            className="
         w-5 h-5 
         opacity-80 
         group-hover:opacity-100
         transition-opacity duration-300
       "
-        />
-      )}
-      <span className="text-[14px] font-normal">
-        {replace_str(dataItem.name, title)}
-      </span>
-    </Link>
-  );
-});
+          />
+        )}
+        <span className="text-[14px] font-normal">
+          {replace_str(dataItem.name, title)}
+        </span>
+      </Link>
+    );
+  }
+);
 
 ServiceItem.displayName = "ServiceItem";
 
 interface ServiceCategoryProps {
   val: ListType["data"][0];
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const ServiceCategory = memo(({ val }: ServiceCategoryProps) => (
+const ServiceCategory = memo(({ val, setIsOpen }: ServiceCategoryProps) => (
   <div className="w-full break-inside-avoid-column">
     <div
       className="
@@ -96,6 +107,7 @@ const ServiceCategory = memo(({ val }: ServiceCategoryProps) => (
         dataItem={dataItem}
         icon={val.icon}
         title={val.title}
+        setIsOpen={setIsOpen}
       />
     ))}
   </div>
@@ -108,7 +120,7 @@ interface DropDownServicesProps {
 }
 
 const DropDownServices = memo(({ item }: DropDownServicesProps) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
     if (e.key === "Escape") {
@@ -135,8 +147,8 @@ const DropDownServices = memo(({ item }: DropDownServicesProps) => {
       </div>
       <div
         className={`absolute ${
-          isOpen ? "block" : "hidden"
-        } group-hover:block bg-white rounded-lg shadow-soft animate-fade-in
+          isOpen && "group-hover:block"
+        } hidden bg-white rounded-lg shadow-soft animate-fade-in
           ${
             item.type === "Other" || item.type === "Tools"
               ? "right-0"
@@ -148,7 +160,7 @@ const DropDownServices = memo(({ item }: DropDownServicesProps) => {
           <div className="w-[60vw] max-h-[70vh] overflow-y-auto overflow-x-hidden p-1 scrollbar-thin scrollbar-thumb-black-normal scrollbar-track-transparent">
             <div className="columns-[150px] w-full gap-6">
               {item.data.map((val, index) => (
-                <ServiceCategory val={val} key={index} />
+                <ServiceCategory val={val} key={index} setIsOpen={setIsOpen} />
               ))}
             </div>
           </div>
@@ -156,7 +168,7 @@ const DropDownServices = memo(({ item }: DropDownServicesProps) => {
           <div className="max-h-[70vh] max-w-[50vw] overflow-auto p-1 w-full">
             <div className="flex w-max gap-6">
               {item.data.map((val, index) => (
-                <ServiceCategory val={val} key={index} />
+                <ServiceCategory val={val} key={index} setIsOpen={setIsOpen} />
               ))}
             </div>
           </div>

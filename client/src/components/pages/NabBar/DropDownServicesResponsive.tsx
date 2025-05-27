@@ -6,7 +6,7 @@ import { generate_item_url } from "@/utils/functions";
 import { useLocale } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
-import React, { memo, useState } from "react";
+import React, { memo, useEffect, useRef, useState } from "react";
 
 const LocaleLinks = {
   en: "services",
@@ -26,8 +26,24 @@ const DropDownServicesResponsive = memo(
     const [otherStates, setOtherStates] = useState(0);
     const { setServiceShow } = useHome();
 
+    const divRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+      function handleClickOutside(event: MouseEvent) {
+        if (divRef.current && !divRef.current.contains(event.target as Node)) {
+          setStatus(false);
+        }
+      }
+
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, []);
+
     return serviceData.type !== "Other" ? (
       <div
+        ref={divRef}
         className={`border-b border-black-normal transition-all duration-300 ${className}`}
       >
         <div
@@ -45,7 +61,7 @@ const DropDownServicesResponsive = memo(
               width={40}
               height={40}
               priority
-              src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${serviceData.icon}`}
+              src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${serviceData.data?.[0].icon}`}
               alt={serviceData.type}
               className="w-8 h-8 opacity-80 group-hover:opacity-100 transition-opacity duration-300"
             />
@@ -102,7 +118,7 @@ const DropDownServicesResponsive = memo(
                     <Image
                       width={20}
                       height={20}
-                      src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${serviceData.icon}`}
+                      src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${dataItem.icon}`}
                       alt={serviceItem.name}
                       className="w-5 h-5 opacity-80 group-hover:opacity-100 transition-opacity duration-300"
                     />
@@ -124,11 +140,13 @@ const DropDownServicesResponsive = memo(
         >
           <div
             className="flex justify-between items-center py-4 cursor-pointer hover:bg-background-light transition-all duration-300 group"
-            onClick={() => setOtherStates(otherStates == 0 ? index + 1 : 0)}
+            onClick={() =>
+              setOtherStates(otherStates == index + 1 ? 0 : index + 1)
+            }
             tabIndex={0}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
-                setOtherStates(otherStates == 0 ? index + 1 : 0);
+                setOtherStates(otherStates == index + 1 ? 0 : index + 1);
               }
             }}
           >

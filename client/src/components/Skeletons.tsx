@@ -74,6 +74,83 @@ export function ServicePageSkeleton() {
   );
 }
 
+export function ServicePageMobileSkeleton() {
+  return (
+    <div className="bg-background-light border-y border-black-dark py-1 w-full h-full animate-fade-in">
+      <div className="flex flex-col items-center h-full gap-5 justify-self-center w-full p-4">
+        <Skeleton width="100%" height="100px" />
+        <Skeleton width="60%" height="150px" />
+        <Skeleton width="100%" height="50px" />
+        <Skeleton width="100%" height="100px" />
+        <Skeleton width="100%" height="500px" />
+      </div>
+    </div>
+  );
+}
+
+export function FreeServicePageSkeleton() {
+  return (
+    <div className="bg-background-light border-y border-black-dark py-1 w-full h-full animate-fade-in">
+      <div className="flex flex-col items-center h-full gap-5 justify-self-center w-[80%] p-4">
+        <Skeleton width="70%" height="80px" />
+        <Skeleton width="50%" height="80px" />
+        <div className="w-full flex justify-between items-center">
+          <Skeleton width="150px" height="150px" />
+          <Skeleton width="50%" height="100px" />
+          <Skeleton width="150px" height="150px" />
+        </div>
+        <Skeleton width="50%" height="150px" />
+        <Skeleton width="50%" height="150px" />
+      </div>
+    </div>
+  );
+}
+
+export function FreeServicePageMobileSkeleton() {
+  return (
+    <div className="bg-background-light border-y border-black-dark py-1 w-full h-full animate-fade-in">
+      <div className="flex flex-col items-center h-full gap-5 justify-self-center w-full p-4">
+        <Skeleton width="100%" height="100px" />
+        <Skeleton width="60%" height="150px" />
+        <Skeleton width="100%" height="80px" />
+        <Skeleton width="100%" height="100px" />
+        <Skeleton width="100%" height="100px" />
+        <Skeleton width="100%" height="200px" />
+      </div>
+    </div>
+  );
+}
+
+export function FreeToolsPageSkeleton() {
+  return (
+    <div className="bg-background-light border-y border-black-dark py-1 w-full h-full animate-fade-in">
+      <div className="flex flex-col items-center h-full gap-8 justify-self-center w-[80%] p-4">
+        <Skeleton width="70%" height="80px" />
+        <Skeleton width="50%" height="80px" />
+        <Skeleton width="70%" height="200px" />
+        <div className="w-full flex justify-between items-center">
+          <Skeleton width="30%" height="200px" />
+          <Skeleton width="30%" height="200px" />
+          <Skeleton width="30%" height="200px" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function FreeToolsPageMobileSkeleton() {
+  return (
+    <div className="bg-background-light border-y border-black-dark py-1 w-full h-full animate-fade-in">
+      <div className="flex flex-col items-center h-full gap-5 justify-self-center w-full p-4">
+        <Skeleton width="100%" height="100px" />
+        <Skeleton width="60%" height="150px" />
+        <Skeleton width="100%" height="250px" />
+        <Skeleton width="100%" height="200px" />
+      </div>
+    </div>
+  );
+}
+
 export function BlogPageSkeleton() {
   return (
     <div className="bg-background-light border-y flex flex-col gap-10 items-center border-black-dark p-5 w-full h-full animate-fade-in">

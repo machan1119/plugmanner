@@ -1,6 +1,6 @@
 "use client";
-import React, { memo, useEffect, useCallback } from "react";
-import { ServicePageSkeleton } from "@/components/Skeletons";
+import React, { memo, useEffect, useCallback, useState } from "react";
+
 import { generate_item_url_from_name } from "@/utils/functions";
 import { useLocale } from "next-intl";
 import { useFreeServices } from "@/providers/FreeServicesProvider";
@@ -14,6 +14,10 @@ import FreeServicesQuestion from "./FreeServicesSections/FreeServicesQuestion";
 import FreeServicesBlogs from "./FreeServicesSections/FreeServicesBlogs";
 import FreeServicesTopReview from "./FreeServicesSections/FreeServicesTopReview";
 import FreeServicesCustomerReview from "./FreeServicesSections/FreeServicesCustomerReview";
+import {
+  FreeServicePageMobileSkeleton,
+  FreeServicePageSkeleton,
+} from "@/components/Skeletons";
 
 interface FreeServicesSection {
   component: React.ReactNode;
@@ -32,6 +36,24 @@ interface FaqType {
 const FreeServicesContent = memo(() => {
   const { isLoading, freeServiceItem } = useFreeServices();
   const locale = useLocale();
+  const [isMobile, setIsMobile] = useState(true);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const currentWidth = window.innerWidth;
+      if (currentWidth > 1024) {
+        setIsMobile(false);
+      } else {
+        setIsMobile(true);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const scrollToTop = useCallback(() => {
     window.scrollTo({
       top: 0,
@@ -44,7 +66,8 @@ const FreeServicesContent = memo(() => {
   }, [scrollToTop]);
 
   if (isLoading) {
-    return <ServicePageSkeleton />;
+    if (isMobile) return <FreeServicePageMobileSkeleton />;
+    return <FreeServicePageSkeleton />;
   }
   if (!freeServiceItem?.name) return;
   const url = generate_item_url_from_name(freeServiceItem?.name);

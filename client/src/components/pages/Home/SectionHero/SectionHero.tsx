@@ -81,7 +81,7 @@ const SectionHero = memo(() => {
             </span>
           </div>
         </div>
-        <div className="flex flex-row items-center animate-fade-in-up">
+        <div className="flex flex-row gap-5 items-center animate-fade-in-up">
           <MainButton
             type="primary"
             title={t("hero.view_all_services")}

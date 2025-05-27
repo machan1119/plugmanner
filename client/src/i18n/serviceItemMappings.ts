@@ -41,7 +41,7 @@ export async function getLocalizedServiceItem(
   return mappings[item][nextLocale];
 }
 
-const Locales = ["en", "es-ES", "de", "pt-BR"];
+const Locales = ["en", "es-ES", "pt-BR"];
 
 export async function getOriginalServiceItem(
   localizedItem: string,

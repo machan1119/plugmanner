@@ -46,6 +46,21 @@ npm install
 
 ### 3. Environment Variables
 
+Frontend
+```
+NEXT_PUBLIC_API_URL=http://localhost:1337
+```
+
+Backend
+```
+HOST=0.0.0.0
+PORT=1337
+APP_KEYS="toBeModified1,toBeModified2"
+API_TOKEN_SALT=tobemodified
+ADMIN_JWT_SECRET=tobemodified
+TRANSFER_TOKEN_SALT=tobemodified
+JWT_SECRET=tobemodified
+```
 
 ### 4. Run Development Servers
 

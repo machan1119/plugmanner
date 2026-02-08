@@ -6,16 +6,16 @@ A modern full-stack platform for managing and presenting services, free tools, a
 
 ## 📚 Table of Contents
 
-- [About](#about)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Configuration](#configuration)
-- [Screenshots](#screenshots)
-- [API Documentation](#api-documentation)
-- [Contact](#contact)
-- [Acknowledgements](#acknowledgements)
+- [About](#-about)
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Configuration](#-configuration)
+- [Screenshots](#-screenshots)
+- [API Documentation](#-api-documentation)
+- [Contact](#-contact)
+- [Acknowledgements](#-acknowledgements)
 
 ---
 

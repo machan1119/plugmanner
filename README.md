@@ -143,8 +143,8 @@ Use Strapi’s built-in documentation for full request/response details and auth
 
 ## 📬 Contact
 
-**Author** 1-2-RIG
-**Email:** sl.highlight999@gmail.com
+**Author** 1-2-RIG  
+**Email:** sl.highlight999@gmail.com  
 **GitHub:** [@machan1119](https://github.com/machan1119)  
 **Telegram:** [@machan1119](https://t.me/machan1119)  
 
